@@ -154,9 +154,7 @@ HuntRaceScreen:
 
     Sleep, 2000
 
-    If (!TicketCheck()) {
-        Goto, MP1Start
-    }
+    TicketCheck()
 
 tickets_check_end_label:
 
@@ -195,9 +193,12 @@ MP1Start:
         Goto, script_start
     }
 
-    ; entering mp
-    Click, 686, 644 Left, 1
     Sleep, 2000
+    ; entering mp
+    Loop, 2{
+        Click, 686, 644 Left, 1
+        Sleep, 1000
+    }
 
     authIndex := 0
     If (!XboxAuthentication()){

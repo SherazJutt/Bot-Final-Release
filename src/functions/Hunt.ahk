@@ -6,9 +6,15 @@ EnterHuntTab(){
 
         ; hunt card
 
-        Text:="|<>*155$91.U007zy0zzzzzU0Dk003zy0Dzzzz001s001zz07zzzz000Q000zzU3zzzzU00D000Tzk0zzzzU7s3zzkDzk0TzzzkDy1zzsDzs8DzzzsDzUzzs7zw43zzzs7zkDzs7zy31zzzw3zs7zw7zy3Uzzzy1zy7zw3zz1kDzzz0zzzzw3zzUw7zzzkTzzzy1zzUy3zzzs7zzzy1zzkT1zzzw0zzzy1zzsDUTzzy00zzz0zzw7sDzzzU03zz0zzw7w7zzzs00Tz0zzy3y3zzzy003zUTzz1zUzzzzs00zUTzz0zkTzzzzs0TUTzzUzsDzzzzzk7kDzzkDs3zzzzzw3kDzzs001zzzzzy1kDzzs000zzzkzzUs7zzw000TzzkDzkM7zzy0007zzs7zsA7zzy1zy3zzy3zw43zzz0zz1zzz1zw03zzzUzzUTzzUTw20007kTzsDzzk0010003kDzw7zzw001U001sDzy3zzz000k000w7zz0zzzk01w000y7zzkzzzz03y"
+        ; monza sp1
+        ; Text:="|<>*155$91.U007zy0zzzzzU0Dk003zy0Dzzzz001s001zz07zzzz000Q000zzU3zzzzU00D000Tzk0zzzzU7s3zzkDzk0TzzzkDy1zzsDzs8DzzzsDzUzzs7zw43zzzs7zkDzs7zy31zzzw3zs7zw7zy3Uzzzy1zy7zw3zz1kDzzz0zzzzw3zzUw7zzzkTzzzy1zzUy3zzzs7zzzy1zzkT1zzzw0zzzy1zzsDUTzzy00zzz0zzw7sDzzzU03zz0zzw7w7zzzs00Tz0zzy3y3zzzy003zUTzz1zUzzzzs00zUTzz0zkTzzzzs0TUTzzUzsDzzzzzk7kDzzkDs3zzzzzw3kDzzs001zzzzzy1kDzzs000zzzkzzUs7zzw000TzzkDzkM7zzy0007zzs7zsA7zzy1zy3zzy3zw43zzz0zz1zzz1zw03zzzUzzUTzzUTw20007kTzsDzzk0010003kDzw7zzw001U001sDzy3zzz000k000w7zz0zzzk01w000y7zzkzzzz03y"
 
-        if (ok:=FindText(X, Y, 579, 218, 684, 269, 0, 0, Text)) {
+        ; if (ok:=FindText(X, Y, 579, 218, 684, 269, 0, 0, Text))
+        ; nio ep9
+        Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
+
+        if (ok:=FindText(X, Y, 401, 215, 504, 271, 0, 0, Text))
+        {
             Loop, 2{
                 Send, {Enter}
                 Sleep, 1000

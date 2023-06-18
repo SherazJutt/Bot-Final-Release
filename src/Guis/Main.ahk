@@ -1,6 +1,4 @@
 main_gui:
-    features := ["PlayHunt", "PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
-
     for index, feature in features {
         IniRead, ini%feature%, %SettingsIni%, Main, %feature%
         %feature% := ini%feature% == 1 ? "Checked" : 0

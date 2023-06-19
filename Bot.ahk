@@ -760,36 +760,37 @@ LeagueDetectionLabel:
                 Goto, script_start
             }
 
-            Sleep, 10000
-
         rewards_skip_start:
 
             Loop, 120{
                 ; mp rewards skip
                 Text:="|<>*144$3.zz0zzzzzzzzU"
-                if (ok:=FindText(X, Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
+                if (ok:=FindText(X, Y, 1184, 184, 1223, 222, 0, 0, Text)){
                     Click, 1188, 649 Left, 1
-                    Sleep, 1000
                     Break
                 }Else{
+                    MsgBox, cklick
                     Sleep, 1000
+                    Click, 1188, 649 Left, 1
+                    MsgBox, skipt check
                     MpSkipCheck()
+                    MsgBox, ads chcek
                     if (PlayMPAds == "Checked"){
+                        MsgBox, play ad
                         If (watch_AD_if_1st_2nd_OR_3rd()){
-                            Break
+                            MsgBox, close ad
+                            If (close_AD()){
+                                MsgBox, ad closed
+                                Break
+                            }Else{
+                                Goto, script_start
+                            }
                         }
                     }
-                    Click, 1188, 649 Left, 1
                 }
             }
 
-        close_AD_label:
-
-            If (!close_AD()){
-                Goto, script_start
-            }
-
+            MsgBox, home check
             If (!homeCheck()){
                 Goto, script_start
             }

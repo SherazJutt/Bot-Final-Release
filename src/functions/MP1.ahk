@@ -305,6 +305,7 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
         CoordMode, Pixel, Screen
         PixelSearch, FoundX, FoundY, 1203, 40, 1249, 64, 0xE8E8E8, 0, Fast RGB
@@ -314,6 +315,7 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
         CoordMode, Pixel, Screen
         PixelSearch, FoundX, FoundY, 1203, 43, 1257, 58, 0xF5F5F6, 0, Fast RGB
@@ -323,6 +325,7 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
         ; ad with close text
         Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
@@ -332,6 +335,7 @@ close_AD(){
             Click, 1225, 61 Left, 1
             Sleep, 500
             isAdClosed := true
+            Break
         }
         ; close this ad with green button
         Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
@@ -341,6 +345,7 @@ close_AD(){
             Click, 447, 572 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
 
         ; circle close
@@ -350,6 +355,7 @@ close_AD(){
             Click, 1228, 71 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
 
         ; march of empires
@@ -359,6 +365,7 @@ close_AD(){
             Click, 1229, 72 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
 
         ; resume ad
@@ -368,6 +375,7 @@ close_AD(){
             Click, 857, 448 Left, 1
             Sleep, 500
             isAdClosed := true
+            Break
         }
 
         Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
@@ -376,6 +384,7 @@ close_AD(){
             Click, 1229, 72 Left, 1
             Sleep, 250
             isAdClosed := true
+            Break
         }
 
         ; syncing to the server start

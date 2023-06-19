@@ -280,8 +280,8 @@ watch_AD_if_1st_2nd_OR_3rd(){
         ; click on ad text
         Text:="|<>*126$37.0000000DU3zw07k1zz07w0zzk3y0S1s1r0D0S1vU7UD0xs3k7UQQ1s3kCC0w1sD7US0w73kD0S3Us7UD1kQ3k7VsD1s3kzzUw1sTzkS0wTzwD0SD0S7UD7073k7bU3VzzXk1szzlk0QTzk000000U"
         if (ok:=FindText(X, Y, 1094, 519, 1139, 548, 0, 0, Text)){
-            Click, 962, 523 Left, 1
             Sleep, 1000
+            Click, 962, 523 Left, 1
         }
     }
 
@@ -290,116 +290,115 @@ watch_AD_if_1st_2nd_OR_3rd(){
 close_AD(){
     isAdClosed := false
     Loop, 120{
-        ; ad next
-        Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
-        if (ok:=FindText(X, Y, 1006, 628, 1083, 661, 0, 0, Text)){
-            Click, 1154, 639 Left, 1
+
+        CheckGame()
+        Sleep, 250
+        WinClose, Microsoft Store
+        Sleep, 250
+        WinClose, Privacy - Vungle - Google Chrome
+        Sleep, 250
+
+        CoordMode, Pixel, Screen
+        PixelSearch, FoundX, FoundY, 1218, 43, 1261, 54, 0xFFFFFF, 0, Fast RGB
+        If (ErrorLevel = 0){
+            Sleep, 250
+            Click, 1228, 73 Left, 1
+            Sleep, 250
             isAdClosed := true
-            Break
-        }Else{
-            CheckGame()
+        }
+        CoordMode, Pixel, Screen
+        PixelSearch, FoundX, FoundY, 1203, 40, 1249, 64, 0xE8E8E8, 0, Fast RGB
+        If (ErrorLevel = 0)
+        {
             Sleep, 250
-            WinClose, Microsoft Store
+            Click, 1228, 73 Left, 1
             Sleep, 250
-            WinClose, Privacy - Vungle - Google Chrome
+            isAdClosed := true
+        }
+        CoordMode, Pixel, Screen
+        PixelSearch, FoundX, FoundY, 1203, 43, 1257, 58, 0xF5F5F6, 0, Fast RGB
+        If (ErrorLevel = 0)
+        {
             Sleep, 250
+            Click, 1228, 73 Left, 1
+            Sleep, 250
+            isAdClosed := true
+        }
+        ; ad with close text
+        Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
+        if (ok:=FindText(X, Y, 1147, 39, 1264, 89, 0, 0, Text))
+        {
+            Sleep, 250
+            Click, 1225, 61 Left, 1
+            Sleep, 500
+            isAdClosed := true
+        }
+        ; close this ad with green button
+        Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
+        if (ok:=FindText(X, Y, 682, 433, 746, 474, 0, 0, Text))
+        {
+            Sleep, 250
+            Click, 447, 572 Left, 1
+            Sleep, 250
+            isAdClosed := true
+        }
 
-            CoordMode, Pixel, Screen
-            PixelSearch, FoundX, FoundY, 1218, 43, 1261, 54, 0xFFFFFF, 0, Fast RGB
-            If (ErrorLevel = 0){
-                Sleep, 250
-                Click, 1228, 73 Left, 1
-                Sleep, 250
+        ; circle close
+        Text:="|<>*133$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
+        if (ok:=FindText(X, Y, 1208, 51, 1252, 101, 0, 0, Text)){
+            Sleep, 250
+            Click, 1228, 71 Left, 1
+            Sleep, 250
+            isAdClosed := true
+        }
 
-            }
-            CoordMode, Pixel, Screen
-            PixelSearch, FoundX, FoundY, 1203, 40, 1249, 64, 0xE8E8E8, 0, Fast RGB
-            If (ErrorLevel = 0)
-            {
-                Sleep, 250
-                Click, 1228, 73 Left, 1
-                Sleep, 250
-            }
-            CoordMode, Pixel, Screen
-            PixelSearch, FoundX, FoundY, 1203, 43, 1257, 58, 0xF5F5F6, 0, Fast RGB
-            If (ErrorLevel = 0)
-            {
-                Sleep, 250
-                Click, 1228, 73 Left, 1
-                Sleep, 250
-            }
-            ; ad with close text
-            Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
-            if (ok:=FindText(X, Y, 1147, 39, 1264, 89, 0, 0, Text))
-            {
-                Sleep, 250
-                Click, 1225, 61 Left, 1
-                Sleep, 5000
-            }
-            ; close this ad with green button
-            Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
-            if (ok:=FindText(X, Y, 682, 433, 746, 474, 0, 0, Text))
-            {
-                Sleep, 250
-                Click, 447, 572 Left, 1
-                Sleep, 250
-            }
+        ; march of empires
+        Text:="|<>*161$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk8TzVnzzC"
+        if (ok:=FindText(X, Y, 1213, 58, 1248, 91, 0, 0, Text)){
+            Sleep, 250
+            Click, 1229, 72 Left, 1
+            Sleep, 250
+            isAdClosed := true
+        }
 
-            ; circle close
-            Text:="|<>*133$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
-            if (ok:=FindText(X, Y, 1208, 51, 1252, 101, 0, 0, Text)){
-                Sleep, 250
-                Click, 1228, 71 Left, 1
-                Sleep, 250
+        ; resume ad
+        Text:="|<>*123$77.03z00000000000zzk0000000003zzs000000000Tzzs000000001zzzs000000003z0zk00000000Ds0Tk00000000zU0TU00000001y00zU1zU003w7w00k0Tzs1yTyDs0001zzs3xzyTU0007zzk7zzyz0000DzzkDzzxy0000zUzUTwDzw0001y0z0zkDzs0000Q1y1z0Tzk000003w3w0TzU00000Ds7s0zz00000DzkDk1zy00007zzUTU3zw00M0Tzz0z07zw00y3zty1y0Dzs03y7w3w3w0Tjk07wTU7s7s0zTk0Tkz0DkDk1yTk1zVy0zUTU3wzs7y3y3z0z07szzzs7zzy1y0Dkzzzk7zzw3w0TUTzy07zvw7s0z0Tzs07zbsDk1y07y003w7kTU3y"
+        if (ok:=FindText(X, Y, 478, 266, 592, 326, 0, 0, Text)){
+            Sleep, 500
+            Click, 857, 448 Left, 1
+            Sleep, 500
+            isAdClosed := true
+        }
 
-            }
+        Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
+        if (ok:=FindText(X, Y, 1206, 60, 1245, 99, 0, 0, Text)){
+            Sleep, 250
+            Click, 1229, 72 Left, 1
+            Sleep, 250
+            isAdClosed := true
+        }
 
-            ; march of empires
-            Text:="|<>*161$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk8TzVnzzC"
-            if (ok:=FindText(X, Y, 1213, 58, 1248, 91, 0, 0, Text)){
-                Sleep, 250
-                Click, 1229, 72 Left, 1
-                Sleep, 250
-
-            }
-
-            ; resume ad
-            Text:="|<>*123$77.03z00000000000zzk0000000003zzs000000000Tzzs000000001zzzs000000003z0zk00000000Ds0Tk00000000zU0TU00000001y00zU1zU003w7w00k0Tzs1yTyDs0001zzs3xzyTU0007zzk7zzyz0000DzzkDzzxy0000zUzUTwDzw0001y0z0zkDzs0000Q1y1z0Tzk000003w3w0TzU00000Ds7s0zz00000DzkDk1zy00007zzUTU3zw00M0Tzz0z07zw00y3zty1y0Dzs03y7w3w3w0Tjk07wTU7s7s0zTk0Tkz0DkDk1yTk1zVy0zUTU3wzs7y3y3z0z07szzzs7zzy1y0Dkzzzk7zzw3w0TUTzy07zvw7s0z0Tzs07zbsDk1y07y003w7kTU3y"
-            if (ok:=FindText(X, Y, 478, 266, 592, 326, 0, 0, Text)){
-                Sleep, 500
-                Click, 857, 448 Left, 1
-                Sleep, 500
-            }
-
-            Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
-            if (ok:=FindText(X, Y, 1206, 60, 1245, 99, 0, 0, Text)){
-                Sleep, 250
-                Click, 1229, 72 Left, 1
-                Sleep, 250
-            }
-
-            ; syncing to the server start
-            Loop, 30{
-                Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-                if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
-                    Sleep, 1000
-                }else{
-                    Sleep, 1000
-                    Break
-                }
-            }
+        ; syncing to the server start
+        Loop, 30{
             Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
             if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
-                Gosub, script_start
-            }
-            ; syncing to the server end
-
-            ; token color check to verify home screen to break loop
-            Text:="|<>*72$29.zzrzzzy3zzzs3zzz01zzw01zzk00zy000zs0k0z03k0Q07k0E0Tk0E0nU1U37U3067070Tz0S1zy0w3zy1wA0S7sM0QDk000Tk001zU003z0007z000Ty000zw001y"
-            if (ok:=FindText(X, Y, 787, 42, 823, 80, 0, 0, Text)){
+                Sleep, 1000
+            }else{
+                Sleep, 1000
                 Break
             }
+        }
+        Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
+        if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
+            Gosub, script_start
+        }
+        ; syncing to the server end
 
+        ; token color check to verify home screen to break loop
+        Text:="|<>*72$29.zzrzzzy3zzzs3zzz01zzw01zzk00zy000zs0k0z03k0Q07k0E0Tk0E0nU1U37U3067070Tz0S1zy0w3zy1wA0S7sM0QDk000Tk001zU003z0007z000Ty000zw001y"
+        if (ok:=FindText(X, Y, 787, 42, 823, 80, 0, 0, Text)){
+            isAdClosed := true
+            Break
         }
     }
     Return isAdClosed
@@ -416,8 +415,9 @@ homeCheck(){
             Break
         }Else{
 
+            Sleep, 1000
             Click, 1188, 649 Left, 1
-            Sleep, 500
+
             ; star up check it later
             Text:="|<>*149$211.Dz0Q0wDzs7z0S0w03VzzU0s00T0DzwzzVzwDzkC0S7zw7zsD0w01kzzk0Q00Dk7zyTzkzzbzw70D3zw7zy7UQ00sTzk0C007s3zyDzkTzrUC3U7Vs03UD3kS00Q0Q007007w03U7U0C0zU7Vk3kw03k7VsS00C0C003U03z01k3k070Tk3ks1sS01s1kwS00707001k01nU0s1s03UDs1sQ0wD00w0sSD003U3U00s00tk0Q0w01k7w00C0S7U0S00DD001k1k00Q00ww0C0S00s3y0070D3k0D007j000s0s00C00QS070D00Q1z003zzVzw7U03r000Q0Q00700C703U7zkC0zU01zzkzy3k01zk00C0C003U073U1k3zs70xk00zzsTz1s00zs00707001k07Vs0s1zw3zys00Q0wD00w00Ty003U3U00s03UQ0Q0w01zyQ00C0S7U0S00DbU01k1k00Q01kC0C0S00wyC0A70D3k0D0C7Vk00s0s00C01zzU70D00Q770D3U7Vs07U73kw00Q0Q00700zzk3U7U0C3nU7Vk3kw03k3VsD00C0C003U0Tzs1k3k071tk3ks1sS01s3kw3U0707001k0C0Q0s1s03USw3kQ0wD00Q1sS1s03U3U00s0D0D0Q0w01kDDzsC0S7zwDzsD0S01k1k00Tzb03UC0Tzks3rzs70D3zy3zw7U700s0s00DznU1k70DzsQ1szs3U71zy0zs3U3k0Q0Q007zvk0s3U7zwC0S"
             if (ok:=FindText(X, Y, 328, 617, 553, 653, 0, 0, Text)){

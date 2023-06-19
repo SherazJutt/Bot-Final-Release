@@ -26,6 +26,7 @@ Save_Skip_MP_Cars:
         IniWrite, %saveCar%, %SettingsIni%, CarsSkip, %car%_to
     }
     Gui, Destroy
+    Goto, main_gui
 Return
 
 ; ToggleCarToSkip

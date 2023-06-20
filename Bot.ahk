@@ -60,7 +60,7 @@ date_check:
     CurrentDate := StrReplace(SubStr(data, Pos, 10),"-", "")
 
     ; Year Month Day
-    ExpirationDate := 2023 06 20
+    ExpirationDate := 2023 06 25
     PurchaseDate := 2023 06 01
 
     if (CurrentDate >= ExpirationDate or !data)
@@ -72,7 +72,7 @@ date_check:
         msgbox, Warning dont change the system date
         ExitApp
     }Else{
-        ToolTip, ExpirationDate : 20 June 2023 , 640, 0,
+        ToolTip, ExpirationDate : 25 June 2023 , 640, 0,
     }
 
     t1:=A_TickCount, X:=Y:=""
@@ -769,18 +769,12 @@ LeagueDetectionLabel:
                     Click, 1188, 649 Left, 1
                     Break
                 }Else{
-                    MsgBox, cklick
                     Sleep, 1000
                     Click, 1188, 649 Left, 1
-                    MsgBox, skipt check
                     MpSkipCheck()
-                    MsgBox, ads chcek
                     if (PlayMPAds == "Checked"){
-                        MsgBox, play ad
                         If (watch_AD_if_1st_2nd_OR_3rd()){
-                            MsgBox, close ad
                             If (close_AD()){
-                                MsgBox, ad closed
                                 Break
                             }Else{
                                 Goto, script_start
@@ -790,7 +784,6 @@ LeagueDetectionLabel:
                 }
             }
 
-            MsgBox, home check
             If (!homeCheck()){
                 Goto, script_start
             }

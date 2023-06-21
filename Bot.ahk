@@ -991,7 +991,7 @@ LeagueDetectionLabel:
 
                         }
 
-                        ; ad is closed now llooking for home screen
+                        ; ad is closed now looking for home screen
 
                         Loop, 20
                         {

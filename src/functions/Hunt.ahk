@@ -210,3 +210,15 @@ HuntRewardsSkip(){
     }
     Return isSkipped
 }
+
+; tier unlock popup
+
+Text:="|<>*92$81.U00TVzk00zU0Ts001s7w003s00D000D0zU00T000s001s7w003s003000D0zU00T0008001s7w007s001zUTz0zUTzz0zUDw3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w00Ts7y0zUTz0zU01z0zkDw3zs7w00Ds001zUTz0zU01z000Dw3zs7w00Ds003zUTz0zU03z000zw3zs7w3zzs00DzUTz0zUTzz0Q1zw3zs7w3zzs7kDzUTz0zUTzz0y0zw3zs7w3zzs7s7zUTz0zUTzz0z0Tw3zs7w3zzs7s3zUTz0zU00z0zUDw3zs7w003s7w1zUTz0zU00T0zkDw3zs7w003s7y0zUTz0zU00T0zs7w3zs7w007s7z0U"
+
+if (ok:=FindText(X, Y, 384, 148, 483, 201, 0, 0, Text))
+{
+    ; FindText().Click(X, Y, "L")
+}
+
+; escape or
+; Click, 1106, 164 Left, 1

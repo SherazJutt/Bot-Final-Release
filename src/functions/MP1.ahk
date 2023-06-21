@@ -198,7 +198,6 @@ SelectMPCarToPlay(){
 
 StartMPRace(){
     ; Play Button
-
     Text:="|<>*123$71.zz0S003s1s0zzz0w007s1s1vzz1s00Tk3k3r0S3k00zU3kDC0S7U01rU7USQ0wD003j07Vss1sS00DC0D3lk3kw00SS0DD3U7Vs00sw0SS70D3k03ks0RsC0S7U07Vk0zkQ1sD00C3k0z0zzkS00Q7U1y1zz0w01s701s3zw1s03kD03k7003k07zy07UC007U0Tzw0D0Q00D00zzs0S0s00S01s1s0w1k00w03U3k1s3U01zzD03U3k7003zyS07U7UC007zws0D0D0E"
     if (ok:=FindText(X:="wait", Y:=10, 1058, 624, 1146, 657, 0, 0, Text)){
         Click, 1183, 634 Left, 1
@@ -260,7 +259,6 @@ watch_AD_if_1st_2nd_OR_3rd(){
     canWatch:= false
     ; 1st
     Text:="|<>*162$38.zzzs00Tzzs003zzw000zzw000Dzw0007zw0001zw0000Tw00007y00001y00000z00000DU00003s00000y00000D000007k00001w00000T000007k03001s03U00y03s00DU3y003s3zU00y1zs00D1zw007tzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Tzzy007zzzU03zzy"
-
     if (ok:=FindText(X, Y, 106, 82, 159, 178, 0, 0, Text)){
         canWatch:= true
     }
@@ -276,21 +274,12 @@ watch_AD_if_1st_2nd_OR_3rd(){
         canWatch:= true
     }
 
-    if(canWatch == true){
-        ; click on ad text
-        Text:="|<>*126$37.0000000DU3zw07k1zz07w0zzk3y0S1s1r0D0S1vU7UD0xs3k7UQQ1s3kCC0w1sD7US0w73kD0S3Us7UD1kQ3k7VsD1s3kzzUw1sTzkS0wTzwD0SD0S7UD7073k7bU3VzzXk1szzlk0QTzk000000U"
-        if (ok:=FindText(X, Y, 1094, 519, 1139, 548, 0, 0, Text)){
-            Sleep, 1000
-            Click, 962, 523 Left, 1
-        }
-    }
-
     Return canWatch
 }
 close_AD(){
+    MsgBox, closing ad
     isAdClosed := false
     Loop, 120{
-
         CheckGame()
         Sleep, 250
         WinClose, Microsoft Store
@@ -305,7 +294,6 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
         CoordMode, Pixel, Screen
         PixelSearch, FoundX, FoundY, 1203, 40, 1249, 64, 0xE8E8E8, 0, Fast RGB
@@ -315,7 +303,6 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
         CoordMode, Pixel, Screen
         PixelSearch, FoundX, FoundY, 1203, 43, 1257, 58, 0xF5F5F6, 0, Fast RGB
@@ -325,7 +312,6 @@ close_AD(){
             Click, 1228, 73 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
         ; ad with close text
         Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
@@ -335,7 +321,6 @@ close_AD(){
             Click, 1225, 61 Left, 1
             Sleep, 500
             isAdClosed := true
-            Break
         }
         ; close this ad with green button
         Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
@@ -345,7 +330,6 @@ close_AD(){
             Click, 447, 572 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
 
         ; circle close
@@ -355,7 +339,6 @@ close_AD(){
             Click, 1228, 71 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
 
         ; march of empires
@@ -365,7 +348,6 @@ close_AD(){
             Click, 1229, 72 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
 
         ; resume ad
@@ -375,7 +357,6 @@ close_AD(){
             Click, 857, 448 Left, 1
             Sleep, 500
             isAdClosed := true
-            Break
         }
 
         Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
@@ -384,7 +365,6 @@ close_AD(){
             Click, 1229, 72 Left, 1
             Sleep, 250
             isAdClosed := true
-            Break
         }
 
         ; syncing to the server start
@@ -394,7 +374,6 @@ close_AD(){
                 Sleep, 1000
             }else{
                 Sleep, 1000
-                Break
             }
         }
         Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
@@ -407,9 +386,13 @@ close_AD(){
         Text:="|<>*72$29.zzrzzzy3zzzs3zzz01zzw01zzk00zy000zs0k0z03k0Q07k0E0Tk0E0nU1U37U3067070Tz0S1zy0w3zy1wA0S7sM0QDk000Tk001zU003z0007z000Ty000zw001y"
         if (ok:=FindText(X, Y, 787, 42, 823, 80, 0, 0, Text)){
             isAdClosed := true
+        }
+
+        If (isAdClosed == true){
             Break
         }
     }
+
     Return isAdClosed
 }
 

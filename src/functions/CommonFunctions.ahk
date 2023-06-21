@@ -70,8 +70,9 @@ TdCheck(){
     PixelSearch, FoundX, FoundY, 897, 647, 916, 677, 0xC0F712, 0, Fast RGB
     If (ErrorLevel = 0)
     {
+        Sleep, 500
         Click, 858, 657 Left, 1
-        Sleep, 1000
+        Sleep, 500
     }
 }
 
@@ -167,16 +168,6 @@ PlayButton(){
         isPlayButton:= True
     }
     Return isPlayButton
-}
-
-; You Have Been Disconnected From Server Due To Inactivity
-YouHaveBeenDisconnectedFromServerDueToInactivity(){
-    Text:="|<>*113$488.1zkT01zVzkzzkzsTz1zkzw700Dzw01zU07k03kzwDzw00zkzk0Ty03zs0TwTy7kzwTU07w07k00s01w01kTwDU07sTwDzwDy7zUDw7z3k03zz00Ds01w00w7z3zz007wDs03z00Ds01z3zVw7z7s01y00w00C00T0067y3k00y7z3zz3zVzs3z1zkw00zzk01y00T00D0zkzzk00z3w00TU01w00DkzsT1zly00T007003U07k00kzVw7sDVzkzzkzsTy0zsTsD3zzzwDsTVzzkzzkDwDzwDwDkz3y7sDkT1y3w7y7kDwTVzzkzVzkzsTzwDsADkS3z3sTwDzwDy7z27y7y3kzzzz3z3sTzwDzw1z3zz3zVwDVzky7y7kzkz0zVw3z7sTzsTwDwDy7zz3z31wDVzky7z3zz3zVzkVzVzVwDzzzkzky7zz3zz0TkzzkzsT3sTwDXzlwTyDkDsT0Tly7zy7z3z3zVzzkzssT3sTwDVzkzzkzsTw8TsDsT3zzzwDwDVzzkzzk3wDzwDy7ky7z3szwT7zXw1y7k7wTVzzVzkzkzsTzwDyC3Vy7z3sTwDzwDy7z33z3y7kzzzz3z3sTzwDzw0z3zz3zVwDVzzyDz7lzsz0TVw0z7sTzsTwDwDy7zz3zXksTVzky7z3zz3zVzVkzkz3wDzzzkzky7zz3zz27kzzkzsT3sTzzXzzwTyDl3sT2Dly7zy7zzz3zVzzkzsw4DsTwDVzkzzkzsTsQDwDkz3zzzwDsTVzzkzzkVwDzwDy7ky3zzszzz7zXwMy7kVwTVzzVzzzkzsTzwDyDV3y7z3sTwDzwDy7y7XzVwDk0Dzz007s07w03wAD3zz3zVwDk3zyDzzlzsz67VwAD7sTzsTzzwDy7zz3zXs1zVzky7z3zz001z3sTsS3w03zzk03y00z00z3VkzzkzsT3y03zXzzwTyDllsT33ly01y7zzz3zU0Dkzsz0TsTwDVzkzzk00Tky7y7Vz00zzw00zU0Dk0DksQDzwDy7kzk0Dszzz7zXwQCDksQTU0TVzzzkzs03wDyDkDy7z3sTwDzw007wDVzVsTk0Dzz007s03w03wD33zz3zVwDz01yDzzlzsz7XXwC77s07sTzzwDy00z3zXy3zVzky7z3zz3zVy3wDwC7wDzzzkzky7zz3zz3kkzzkzsT3zzUTXzzwTyDlsMz3kly7zy7zzz3zVzzkzszUzsTwDVzkzzkzsTVz3z3Xz3zzzwDwDVzzkzzky4DzwDy7kzzy3szzz7zXwT2DkyATVzzVzzzkzsTzwDyDsTy7z3sTwDzwDy7s00zkkzkzzzz3z3sTzwDzwDV3zz3zVwDzzkyDz7lzsz7kXwDU7sTzsTwTwDy7zz3zXy7zVzky7z3zz3zVy00DyADwDzzzkzky7zz3zz3w0zzkzsT3sTwDXzlwTyDly0z3w1y7zy7z3z3zlzzkzszVzsTwDVzkzzkzsT001zV3z3zzzwDwDVzzkzzkz0DzwDy7ky7z3szwT7zXwTkDkz0TVzzVzkzkzwTzwDyDsTy7z3sTwDzwDy7kzsTsFzkzzzz3z3sTzwDzwDs3zz3zVwDVzkyDy7lzsz7w3wDs7sTzsTwDwDz7zz3zXy7zUzky7y3zz3zVwDy7y0TwDzzzkzky7zz3zz3z0zzkzkT3sDwDVzVwDwDlzUz3y1y7zy7z7z3zlzzkzkzVzw3kDUS1zzkzsS3zUzk7z3zzzwDkDVzzkzzkzkDzwDsDkz1w7sDkT1y3wTsDkzkTVzzkz1zkzwTzwDsDsTz007w00TzwDy7VzwDw1zk03zz007s01w00wDy3zz003wDk01z00Ds01z7z3wDy7s01w00TwDz00T007y7zs03zU0Dzz3zVsTz3z0zw00zzk03y00T00D3zUzzk01z3y00zk07z00zlzkz3zVy00TU0Dz3zk07k03zVzzU1zw0DzzkzsS7zkzsDz00Dzw01zU07k03szwTzw01zkzs0zz03zs0zwTyDkzwTU0Dy0Dzkzw01w03s"
-
-    if (ok:=FindText(X, Y, 189, 232, 700, 282, 0, 0, Text))
-    {
-        ; FindText().Click(X, Y, "L")
-    }
 }
 
 ; need to include funtions like if gotany rewards or completed milestone or any other

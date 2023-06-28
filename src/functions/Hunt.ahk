@@ -11,9 +11,14 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 579, 218, 684, 269, 0, 0, Text))
 
         ; nio ep9
-        Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
+        ; Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
 
-        if (ok:=FindText(X, Y, 401, 215, 504, 271, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 401, 215, 504, 271, 0, 0, Text))
+
+        ; peugeot sr1
+        Text:="|<>*145$47.001zw002000zs000000zk000000zU00EDw1z0zzUzy1y3zz1zw3w7zy3zw7sDzw7zsDkTzsDzkTUzzkTzUz1zzUzz1y3zz1zy3w7zy3zw7sDzw7zkDk00sDzUTU00kDy1z001U003y003000Dw00C000TsDzw003zkTzs01zzUzzkTzzz1zzUzzzy3zz1zzzw7zy3zzzsDzw7zzzkTzsDzzzUzzkTzzz1zzUzzzy0011zzzw0003zzzs0007zzzk00ADzzzk00M"
+
+        if (ok:=FindText(X, Y, 317, 216, 380, 272, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -210,15 +215,3 @@ HuntRewardsSkip(){
     }
     Return isSkipped
 }
-
-; tier unlock popup
-
-Text:="|<>*92$81.U00TVzk00zU0Ts001s7w003s00D000D0zU00T000s001s7w003s003000D0zU00T0008001s7w007s001zUTz0zUTzz0zUDw3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w00Ts7y0zUTz0zU01z0zkDw3zs7w00Ds001zUTz0zU01z000Dw3zs7w00Ds003zUTz0zU03z000zw3zs7w3zzs00DzUTz0zUTzz0Q1zw3zs7w3zzs7kDzUTz0zUTzz0y0zw3zs7w3zzs7s7zUTz0zUTzz0z0Tw3zs7w3zzs7s3zUTz0zU00z0zUDw3zs7w003s7w1zUTz0zU00T0zkDw3zs7w003s7y0zUTz0zU00T0zs7w3zs7w007s7z0U"
-
-if (ok:=FindText(X, Y, 384, 148, 483, 201, 0, 0, Text))
-{
-    ; FindText().Click(X, Y, "L")
-}
-
-; escape or
-; Click, 1106, 164 Left, 1

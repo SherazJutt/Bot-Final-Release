@@ -185,19 +185,19 @@ g_AhkPath3264 := AhkDir . (A_PtrSize == 4 ? "\AutoHotkeyU64.exe" : "\AutoHotkeyU
 
 Global g_ThemeFix := DllCall("UxTheme.dll\IsThemeActive") ? "" : "-Theme" ; Temp
 
-    StartAutoSave()
+StartAutoSave()
 
-    LoadToolsMenu()
-    LoadHelpMenu()
+LoadToolsMenu()
+LoadHelpMenu()
 
-    LoadAutoComplete(A_ScriptDir . "\Include\AutoHotkey.xml")
+LoadAutoComplete(A_ScriptDir . "\Include\AutoHotkey.xml")
 
-    DeleteOldBackups()
+DeleteOldBackups()
 
-    If (!A_IsUnicode) {
-        MsgBox 0x10, Error, %g_AppName% is incompatible with the ANSI build of AutoHotkey.
-        ExitApp
-    }
+If (!A_IsUnicode) {
+    MsgBox 0x10, Error, %g_AppName% is incompatible with the ANSI build of AutoHotkey.
+    ExitApp
+}
 Return ; End of the auto-execute section.
 
 TabHandler:
@@ -266,52 +266,52 @@ CreateEditorToolbar() {
     IL_Add(EditorTBIL, IconLib, 12) ; Execute
     IL_Add(EditorTBIL, IconLib, 78) ; Help
 
-    EditorTBBtns = 
+    EditorTBBtns =
     (LTrim
-    -
-    New File
-    Open
-    Save
-    Save All
-    -
-    Design Mode
-    New GUI
-    -
-    Cut
-    Copy
-    Paste
-    -
-    Undo
-    Redo
-    -
-    Find
-    Replace
-    Find in Files
-    -
-    Mark Current Line
-    Mark Selected Text
-    -
-    Line Numbers,,,, 2140
-    Fold Margin,,,, 2150
-    Word Wrap,,,, 2160
-    Read Only,,,, 2170
-    Syntax Highlighting,,,, 2180
-    Show White Spaces,,,, 2190
-    -
-    Start Debugging / Continue,,,, 2500
-    Stop Debugging,, HIDDEN,, 2501
-    Step Into,, HIDDEN,, 2502
-    Step Over,, HIDDEN,, 2503
-    Step Out,, HIDDEN,, 2504
-    Inspect Variables,, HIDDEN,, 2505
-    -
-    Execute,,, SHOWTEXT
-    -
-    Help
+        -
+        New File
+        Open
+        Save
+        Save All
+        -
+        Design Mode
+        New GUI
+        -
+        Cut
+        Copy
+        Paste
+        -
+        Undo
+        Redo
+        -
+        Find
+        Replace
+        Find in Files
+        -
+        Mark Current Line
+        Mark Selected Text
+        -
+        Line Numbers,,,, 2140
+        Fold Margin,,,, 2150
+        Word Wrap,,,, 2160
+        Read Only,,,, 2170
+        Syntax Highlighting,,,, 2180
+        Show White Spaces,,,, 2190
+        -
+        Start Debugging / Continue,,,, 2500
+        Stop Debugging,, HIDDEN,, 2501
+        Step Into,, HIDDEN,, 2502
+        Step Over,, HIDDEN,, 2503
+        Step Out,, HIDDEN,, 2504
+        Inspect Variables,, HIDDEN,, 2505
+        -
+        Execute,,, SHOWTEXT
+        -
+        Help
     )
 
-Extra := (g_TabBarPos == 1) ? "+E0x200" : ""
-Extra .= (g_DesignMode) ? " Hidden" : ""
+    Extra := (g_TabBarPos == 1) ? "+E0x200" : ""
+    Extra .= (g_DesignMode) ? " Hidden" : ""
 
     hMainToolbar := ToolbarCreate("OnMainToolbar", EditorTBBtns, EditorTBIL, "FLAT LIST TOOLTIPS", Extra)
     SendMessage 0x41F, 0, 0x00180018,, ahk_id %hMainToolbar% ; TB_SETBUTTONSIZE
@@ -421,45 +421,45 @@ CreateDesignToolbar() {
     IL_Add(TbarIL, IconLib, 12) ; Execute
     IL_Add(TbarIL, IconLib, 25) ; Properties
 
-    TbarButtons = 
+    TbarButtons =
     (LTrim
-    -
-    New File
-    Open
-    Save
-    Save All
-    -
-    Design Mode,,,, 1060
-    New GUI
-    Show/Hide Preview Window,,,, 1070
-    -
-    Show Grid,,,, 1080
-    Snap to Grid,,,, 1090
-    -
-    Align Lefts
-    Align Rights
-    Align Tops
-    Align Bottoms
-    -
-    Center Horizontally
-    Center Vertically
-    -
-    Horizontally Space
-    Vertically Space
-    -
-    Make Same Width
-    Make Same Height
-    Make Same Size
-    -
-    Window Cloning Tool
-    -
-    Execute,,, SHOWTEXT
-    -
-    Properties
+        -
+        New File
+        Open
+        Save
+        Save All
+        -
+        Design Mode,,,, 1060
+        New GUI
+        Show/Hide Preview Window,,,, 1070
+        -
+        Show Grid,,,, 1080
+        Snap to Grid,,,, 1090
+        -
+        Align Lefts
+        Align Rights
+        Align Tops
+        Align Bottoms
+        -
+        Center Horizontally
+        Center Vertically
+        -
+        Horizontally Space
+        Vertically Space
+        -
+        Make Same Width
+        Make Same Height
+        Make Same Size
+        -
+        Window Cloning Tool
+        -
+        Execute,,, SHOWTEXT
+        -
+        Properties
     )
 
-Extra := (g_TabBarPos == 1) ? "+E0x200" : ""
-Extra .= (g_DesignMode) ? "" : " Hidden"
+    Extra := (g_TabBarPos == 1) ? "+E0x200" : ""
+    Extra .= (g_DesignMode) ? "" : " Hidden"
 
     hGUIToolbar := ToolbarCreate("OnGUIToolbar", TbarButtons, TbarIL, "FLAT LIST TOOLTIPS", Extra)
     SendMessage 0x41F, 0, 0x00180018,, ahk_id %hGUIToolbar% ; TB_SETBUTTONSIZE
@@ -685,7 +685,7 @@ OnWM_CTLCOLORDLG() {
         Brush := DllCall("Gdi32.dll\CreatePatternBrush", "Ptr", hBitmapTile, "Ptr")
     }
 
-Return Brush
+    Return Brush
 }
 
 OnWM_MOVE(wParam, lParam, msg, hWnd) {
@@ -890,7 +890,7 @@ OnWM_LBUTTONDOWN(wParam, lParam, msg, hWnd) {
         Return
     }
 
-Return 0
+    Return 0
 }
 
 OnWM_LBUTTONDBLCLK(wParam, lParam, msg, hWnd) {
@@ -913,7 +913,7 @@ OnWM_LBUTTONDBLCLK(wParam, lParam, msg, hWnd) {
         GoSub ChangeText
     }
 
-Return 0
+    Return 0
 }
 
 OnWM_MBUTTONDOWN(wParam, lParam, msg, hWnd) {
@@ -927,7 +927,7 @@ OnWM_MBUTTONDOWN(wParam, lParam, msg, hWnd) {
         GoSub ShowProperties
     }
 
-Return
+    Return
 }
 
 OnWM_RBUTTONDOWN(wParam, lParam, msg, hWnd) {
@@ -969,7 +969,7 @@ OnWM_RBUTTONDOWN(wParam, lParam, msg, hWnd) {
         ShowContextMenu()
     }
 
-Return 0
+    Return 0
 }
 
 OnWM_KEYDOWN(wParam, lParam, msg, hWnd) {
@@ -1362,8 +1362,8 @@ Open(Files := "", Flag := 0) {
                 fOpen.Close()
             } Catch e {
                 MsgBox 0x16
-                , Error %A_LastError%
-                , % ((File != "") ? File . "`n" : "") . e.Message . "`n" . e.Extra
+                    , Error %A_LastError%
+                    , % ((File != "") ? File . "`n" : "") . e.Message . "`n" . e.Extra
                 IfMsgBox TryAgain, {
                     GoTo _Open
                 } Else IfMsgBox Continue, {
@@ -1449,1416 +1449,1416 @@ Open(Files := "", Flag := 0) {
 
         SetWindowTitle(SelectedFile)
 
-    Return Save(n)
-}
-
-Save:
-    Save(TabEx.GetSel())
-Return
-
-Save(n) {
-    If (Sci[n].Filename == "") {
-        Return SaveAs(n)
+        Return Save(n)
     }
 
-    SciText := GetText(n)
-    FullPath := Sci[n].FullName
-    Encoding := GetSaveEncoding(FullPath)
+    Save:
+        Save(TabEx.GetSel())
+    Return
 
-    ; Backup a copy of the file before saving
-    If (g_BackupOnSave) {
-        If (BackupDirCreated()) {
-            TempName := GetTempFileName(g_BackupDir, "ahk.tmp")
-            If (FileExist(FullPath)) {
-                FileCopy %FullPath%, %TempName%, 1
-            } Else {
-                FileAppend %SciText%, %TempName%, %Encoding%
-            }
+    Save(n) {
+        If (Sci[n].Filename == "") {
+            Return SaveAs(n)
         }
-    }
 
-    FileDelete %FullPath%
-    FileAppend %SciText%, %FullPath%, %Encoding%
-    If (ErrorLevel) {
-        ErrorMsgBox("Error saving """ . FullPath . """.`n`n" . GetErrorMessage(A_LastError), "Auto", g_AppName)
-        SetWindowTitle("Error saving file: " . FullPath)
-        Return 0
-    }
-
-    Sci[n].SetSavePoint()
-    SetDocumentStatus(n)
-    SetTabIcon(n)
-
-    SplitPath FullPath,, g_SaveDir
-    If (n == g_GuiTab) {
-        CopyLibraries(g_SaveDir)
-    }
-
-    AddToRecentFiles(FullPath)
-
-    Repaint(Sci[n].hWnd) ; ?
-
-    FileGetTime Timestamp, %FullPath%
-    Sci[n].LastWriteTime := Timestamp
-
-Return 1
-}
-
-SaveAll:
-    Loop % Sci.Length() {
-        If (Sci[A_Index].GetModify()) {
-            Save(A_Index)
-        }
-    }
-Return
-
-SaveCopy:
-    n := TabEx.GetSel()
-    If (Sci[n].FileName != "") {
-        SplitPath % Sci[n].FullName,, Dir, Extension, NameNoExt
-        StartPath := Dir . "\" . NameNoExt . " - Copy." . Extension
-    } Else {
-        StartPath := g_SaveDir
-    }
-
-    Gui Auto: +OwnDialogs
-    FileSelectFile SelectedFile, S16, %StartPath%, Save a Copy, AutoHotkey Scripts (*.ahk)
-    If (ErrorLevel) {
-        Return
-    }
-
-    SplitPath SelectedFile,,, FileExt
-    If (FileExt == "" && Sci[n].GetLexer() == 200 && !FileExist(SelectedFile . ".ahk")) {
-        SelectedFile .= ".ahk"
-    }
-
-    SciText := GetText(n)
-    Encoding := GetSaveEncoding(SelectedFile)
-    WriteFile(SelectedFile, SciText, Encoding)
-
-    AddToRecentFiles(SelectedFile)
-Return
-
-CopyLibraries(Dir) {
-    If (g.Anchor) {
-        Source := A_ScriptDir . "\Lib\AutoXYWH.ahk"
-        Destination := Dir . "\AutoXYWH.ahk"
-        FileCopy %Source%, %Destination%
-    }
-
-    If (ToolbarExist()) {
-        Source := A_ScriptDir . "\Lib\Toolbar.ahk"
-        Destination := Dir . "\Toolbar.ahk"
-        If (Dir == A_Temp) {
-            FileGetSize Size, %Dir%\Toolbar.ahk
-            Overwrite := (Size > 40000) ? 1 : 0
-        } Else {
-            Overwrite := 0
-        }
-        FileCopy %Source%, %Destination%, %Overwrite%
-    }
-
-    If (g.ControlColor) {
-        Source := A_ScriptDir . "\Lib\ControlColor.ahk"
-        Destination := Dir . "\ControlColor.ahk"
-        FileCopy %Source%, %Destination%
-    }
-}
-
-RunScript:
-    RunScript(A_ThisMenuItemPos)
-Return
-
-RunScript(Mode := 1) {
-    n := TabEx.GetSel()
-    Size := Sci[n].GetLength()
-    If (Size == 0) {
-        Return
-    }
-
-    AhkPath := (GetKeyState("Shift", "P") || Mode == 2) ? g_AhkPath3264 : A_AhkPath
-
-    SciText := GetText(n)
-
-    ; Run Selected Text (Ctrl+F9)
-    If (Mode == 5) {
-        Text := GetSelectedText()
-        If (Text == "") {
-            Text := SciText
-        }
-        ExecScript(Text, g_Parameters, AhkPath)
-        Return
-    }
-
-    ; Alternative run (Alt+F9)
-    If (Mode == 4) {
-        If ((AhkPath := GetAltRun()) == "") {
-            Return
-        }
-    }
-
-    If (Sci[n].Filename != "") {
-        If (Sci[n].GetModify()) {
-            If (!Save(n)) {
-                Return
-            }
-        }
+        SciText := GetText(n)
         FullPath := Sci[n].FullName
-        SplitPath FullPath,, WorkingDir
-    } Else {
-        ; Unsaved scripts run from the Temp folder
-        FullPath := g_TempFile
-        WorkingDir := A_Temp
+        Encoding := GetSaveEncoding(FullPath)
+
+        ; Backup a copy of the file before saving
+        If (g_BackupOnSave) {
+            If (BackupDirCreated()) {
+                TempName := GetTempFileName(g_BackupDir, "ahk.tmp")
+                If (FileExist(FullPath)) {
+                    FileCopy %FullPath%, %TempName%, 1
+                } Else {
+                    FileAppend %SciText%, %TempName%, %Encoding%
+                }
+            }
+        }
+
         FileDelete %FullPath%
-        FileAppend %SciText%, %FullPath%, %A_FileEncoding%
-        CopyLibraries(WorkingDir)
-    }
-
-    If (g_CaptureStdErr) {
-        AhkRunGetStdErr(n, AhkPath, FullPath, g_parameters, WorkingDir)
-    } Else {
-        Run % AhkPath . " """ . FullPath . """ " . g_Parameters, %WorkingDir% 
-    }
-}
-
-RunSelectedText:
-    RunScript(5)
-Return
-
-GetAltRun() {
-    If (FileExist(g_AltAhkPath)) {
-        Return g_AltAhkPath
-    } Else {
-        FileSelectFile g_AltAhkPath, 3, %A_AhkPath%, Browse, Executable Files (*.exe)
+        FileAppend %SciText%, %FullPath%, %Encoding%
         If (ErrorLevel) {
-            Return
-        }
-        Return g_AltAhkPath
-    }
-}
-
-ShowParamsDlg:
-    Info := "Parameters are stored in the variables %1%, %2%, and so on.`n"
-    . "They are also stored as an array in the built-in variable A_Args.`n"
-    . "See the online <a href=""https://autohotkey.com/docs/Scripts.htm#cmd"">help topic</a> for details."
-
-    Params := InputBoxEx("Script Parameters", Info, "Command Line Parameters", g_Parameters, "", "", hAutoWnd, 440, "", IconLib, 91)
-
-    If (!ErrorLevel) {
-        g_Parameters := Params
-    }
-Return
-
-RunFileDlg() {
-    hModule := DllCall("GetModuleHandle", "Str", "shell32.dll", "Ptr")
-    RunFileDlg := DllCall("GetProcAddress", "Ptr", hModule, "UInt", 61, "Ptr")
-    DllCall(RunFileDlg, "Ptr", hAutoWnd, "Ptr", 0, "Ptr", 0, "Ptr", 0, "Ptr", 0, "UInt", 0)
-}
-
-Compile() {
-    SplitPath A_AhkPath,, AhkDir
-    Ahk2ExePath := AhkDir . "\Compiler\Ahk2Exe.exe"
-
-    Run %Ahk2ExePath%,, UseErrorLevel, PID
-    If (ErrorLevel) {
-        ErrorMsgBox(GetErrorMessage(A_LastError), "Auto")
-        Return
-    }
-
-    n := TabEx.GetSel()
-    AhkScript := Sci[n].FullName
-
-    If (AhkScript && !Sci[n].GetModify()) {
-        SplitPath AhkScript,, ScriptDir,, NameNoExt
-
-        SetBatchLines 20ms
-        Sleep 100
-
-        WinWait Ahk2Exe ahk_pid %PID%
-        WinGet hWnd, ID, Ahk2Exe ahk_pid %PID%
-        WinActivate ahk_id %hWnd%
-        WinWaitActive ahk_id %hWnd%
-
-        ControlSetText Edit1, %AhkScript%, ahk_id %hWnd%
-
-        If (!FileExist(ExeFile := ScriptDir . "\" . NameNoExt . ".exe")) {
-            ControlSetText Edit2, %ExeFile%, ahk_id %hWnd%
+            ErrorMsgBox("Error saving """ . FullPath . """.`n`n" . GetErrorMessage(A_LastError), "Auto", g_AppName)
+            SetWindowTitle("Error saving file: " . FullPath)
+            Return 0
         }
 
-        SetBatchLines -1
-    }
-}
+        Sci[n].SetSavePoint()
+        SetDocumentStatus(n)
+        SetTabIcon(n)
 
-AddMenu(MenuName, MenuItemName := "", Subroutine := "MenuHandler", Icon := "", IconIndex := 0) {
-    Menu, %MenuName%, Add, %MenuItemName%, %Subroutine%
-
-    If (Icon != "") {
-        Menu, %MenuName%, Icon, %MenuItemName%, %Icon%, %IconIndex%
-    }
-}
-
-MenuHandler:
-    Gui Auto: +OwnDialogs
-    MsgBox 0x40, AutoGUI, Not implemented yet.
-Return
-
-AddToRecentFiles(FileName) {
-    Static RecentFilesMenu := 0, MaxItems := 15
-
-    If (!FileExist(FileName)) {
-        Return
-    }
-
-    ; Determine the handle of the Recent Files menu
-    If !(RecentFilesMenu) {
-        hAutoMenu := GetMenu(hAutoWnd)
-        hFileMenu := GetSubMenu(hAutoMenu, 0)
-        FileMenuCount := GetMenuItemCount(hFileMenu)
-        Loop %FileMenuCount% {
-            If (GetMenuString(hFileMenu, A_Index - 1) = "Recent &Files") {
-                RecentFilesMenu := GetSubMenu(hFileMenu, A_Index - 1)
-                Break
-            }
-        }
-    }
-
-    MaxIndex := RecentFiles.Length()
-    Loop %MaxIndex% {
-        ; The drive letter may be uppercase or lowercase
-        If (FileName = RecentFiles[A_Index]) {
-            Try {
-                Menu AutoRecentMenu, Delete, %FileName%
-            }
-            RecentFiles.RemoveAt(A_Index)
-            Break
-        }
-    }
-    RecentFiles.Push(FileName)
-
-    Menu AutoFileMenu, Enable, Recent &Files
-    Menu AutoRecentMenu, Insert, 1&, %FileName%, OpenRecentFile
-    Try {
-        Menu AutoRecentMenu, Icon, %FileName%, % "HICON:" . GetFileIcon(FileName)
-    }
-    Menu AutoFileMenu, Add, Recent &Files, :AutoRecentMenu
-
-    ItemCount := GetMenuItemCount(RecentFilesMenu)
-    If (ItemCount > MaxItems) {
-        DeleteMenu(RecentFilesMenu, ItemCount - 1)
-        RecentFiles.Remove(1)
-    }
-}
-
-OpenRecentFile:
-    Open([A_ThisMenuItem])
-Return
-
-LoadRecentFiles() {
-    IniRead Recent, %IniFile%, Recent
-    If (Recent != "ERROR") {
-        Loop Parse, Recent, `n
-        {
-            RecentFile := SubStr(A_LoopField, InStr(A_LoopField, "=") + 1)
-            AddToRecentFiles(RecentFile)
-        }
-    }
-}
-
-HelpMenuHandler:
-    If (A_ThisMenuItem == "AutoHotkey &Help File`tF1") {
-        Run %g_HelpFile%
-        Return
-    }
-
-    Node := g_HelpMenuXMLObj.selectSingleNode("//MenuItem[@name=""" . A_ThisMenuItem . """]")
-    URL := Node.getAttribute("url")
-    If (SubStr(URL, 1, 1) == "/") {
-        Run HH mk:@MSITStore:%g_HelpFile%::%URL%
-    } Else {
-        Try {
-            Run %URL%
-        }
-    }
-Return
-
-ShowAbout:
-    Gui About: New, LabelAbout -MinimizeBox OwnerAuto
-    Gui Color, White
-    Gui Add, Picture, x9 y10 w64 h64, %IconLib%
-    Gui Font, s20 W700 Q4 c00ADEF, Verdana
-    Gui Add, Text, x80 y8 w200, Adventure
-    Gui Font
-    Gui Font, s9, Segoe UI
-    Gui Add, Text, x245 y23, v%g_Version%
-    FileGetVersion SciVer, %SciLexer%
-    Gui Add, Text, x81 y41, Scintilla %SciVer%
-    Gui Add, Text, x81 y58 w365 +0x4000, % "AutoHotkey " . A_AhkVersion . " " . (A_IsUnicode ? "Unicode" : "ANSI") . " " . (A_PtrSize == 8 ? "64-bit" : "32-bit")
-    Gui Add, Link, x81 y102 w200 h16, <a href="https://sourceforge.net/projects/autogui/">SourceForge Project Page</a>
-    Gui Add, Link, x81 y124 w200 h16, <a href="https://autohotkey.com/boards/viewforum.php?f=64">AutoGUI in the AHK Forum</a>
-    Gui Add, Link, x81 y146 w200 h16, <a href="Help\Credits.htm">Credits</a>
-    Gui Add, Text, x0 y189 w463 h1 +0x5
-    Gui Add, Text, x0 y190 w463 h48 -Background
-    Gui Add, Link, x16 y206 w87 h16 -Background, <a href="https://autohotkey.com">autohotkey.com</a>
-    Gui Add, Button, gAboutClose x371 y203 w80 h24 Default, OK
-    Gui Show, w463 h239, About
-    ControlFocus Button1, About
-    Gui +LastFound
-    SendMessage 0x80, 0, DllCall("LoadIcon", "Ptr", 0, "Ptr", 32516, "Ptr") ; WM_SETICON, OIC_INFORMATION
-    SetModalWindow(1)
-Return
-
-AboutEscape:
-AboutClose:
-    SetModalWindow(0)
-    Gui About: Destroy
-Return
-
-ShowTabContextMenu() {
-Action := FileExist(Sci[g_TabIndex].FullName) ? "Enable" : "Disable"
-    Menu TabContextMenu, %Action%, Open Folder in Explorer
-    Menu TabContextMenu, %Action%, Copy Path to Clipboard
-    Menu TabContextMenu, %Action%, Open in a New Window
-    Menu TabContextMenu, %Action%, File Properties
-    Menu TabContextMenu, Show
-}
-
-OpenFolder() {
-    Filename := Sci[g_TabIndex].FullName
-    If (FileExist(Filename)) {
-        Run *open explorer.exe /select`,"%Filename%"
-    }
-}
-
-CopyFilePath:
-    Clipboard := Sci[g_TabIndex].FullName
-Return
-
-ShowFileProperties:
-    Run % "Properties " . Sci[g_TabIndex].FullName
-Return
-
-; SetMainWindowTitle
-SetWindowTitle(Filename := "") {
-    If (FileName != "") {
-        WinSetTitle ahk_id%hAutoWnd%,, % g_AppName . " v" . g_Version . " - " . Filename
-    } Else {
-        WinSetTitle ahk_id%hAutoWnd%,, %g_AppName% v%g_Version%
-    }
-}
-
-OnWM_CTLCOLORSTATIC(wParam, lParam) {
-    If (IsResizer(lParam)) {
-        DllCall("SetBkColor", "Ptr", wParam, "UInt", 0)
-        Return g_ResizerBrush
-    }
-}
-
-OnWM_SETCURSOR(wParam, lParam, Msg, hWnd) {
-    If (g_Cursors[wParam]) {
-        hCursor := DllCall("LoadCursor", "Ptr", 0, "Ptr", g_Cursors[wParam], "Ptr")
-        DllCall("SetCursor", "Ptr", hCursor)
-        Return True
-    }
-
-    If (g_Cross && hWnd == hChildWnd) {
-        DllCall("SetCursor", "Ptr", hCursorCross)
-        Return True
-    }
-
-    If (!g_Adding) {
-        If (hWnd == hChildWnd && wParam != hChildWnd && GetKeyState("LButton", "P")) {
-            hCursor := DllCall("LoadCursor", "Ptr", 0, "Ptr", 32646, "Ptr") ; IDC_SIZEALL
-            DllCall("SetCursor", "Ptr", hCursor)
-            Return True
-        }
-    }
-}
-
-OnWM_LBUTTONUP(wParam, lParam, msg, hWnd) {
-    g_LButtonDown := 0
-    g_Adding := False
-}
-
-SetModalWindow(Modal := True) {
-    Global
-    If (Modal) {
-        Gui Auto: +Disabled
-        Gui %Child%: +Disabled
-        Gui Properties: +Disabled
-        OnMessage(0x100, "")
-        OnMessage(0x104, "")
-    } Else {
-        Gui Auto: -Disabled
-        Gui %Child%: -Disabled
-        Gui Properties: -Disabled
-        OnMessage(0x100, "OnWM_KEYDOWN")
-        OnMessage(0x104, "OnWM_SYSKEYDOWN")
-    }
-}
-
-SuspendAutoComplete:
-    g_AutoCEnabled := True
-Return
-
-SendFile(Filename, hPrevInst) {
-    Loop 10 {
-        If (SendData(Filename, hPrevInst) == True) {
-            Break
-        } Else {
-            Sleep 100
-        }
-    }
-}
-
-SendData(ByRef String, ByRef hWnd) {
-    VarSetCapacity(COPYDATASTRUCT, 3 * A_PtrSize, 0)
-    cbSize := (StrLen(String) + 1) * (A_IsUnicode ? 2 : 1)
-    NumPut(cbSize, COPYDATASTRUCT, A_PtrSize)
-    NumPut(&String, COPYDATASTRUCT, 2 * A_PtrSize)
-    SendMessage 0x4A, 0, &COPYDATASTRUCT,, ahk_id %hWnd%
-Return ErrorLevel
-}
-
-OnWM_COPYDATA(wParam, lParam, msg, hWnd) {
-    Data := StrGet(NumGet(lParam + 2 * A_PtrSize)) ; COPYDATASTRUCT lpData
-    Open([Data])
-Return True
-}
-
-ShowImportGUIDialog:
-    Gui ImportGUIDlg: New, LabelImportGUIDlg hWndhImportGUIDlg -MinimizeBox OwnerAuto
-    SetWindowIcon(hImportGUIDlg, IconLib, 40)
-    Gui Color, 0xFAFAFA
-    Gui Font, s12 c0x003399, Segoe UI
-    Gui Add, Text, x12 y12 w409 h21, Select the Import Method
-    Gui Font
-    Gui Font, s9, Segoe UI
-    Gui Add, Text, x12 y39 w498 h23 +0x200
-    , Warning: none of these methods preserve the entire script. Do not overwrite the original file.
-    Gui Add, Radio, vClone x22 y73 w368 h23 Checked, Clone Window
-    Gui Add, Radio, vParse x22 y105 w368 h23, Parse Script (Not Recommended)
-    Gui Add, Text, x-1 y146 w525 h48 Border -Background
-    Gui Add, Button, gImportGUIDlgOK x343 y158 w80 h23 +Default, &OK
-    Gui Add, Button, gImportGUIDlgClose x429 y158 w80 h23, &Cancel
-    Gui Show, w523 h193, Import GUI
-Return
-
-ImportGUIDlgEscape:
-ImportGUIDlgClose:
-    Gui ImportGUIDlg: Cancel
-Return
-
-ImportGUIDlgOK:
-    Gui ImportGUIDlg: Submit
-
-    If (Clone) {
-        GoSub ShowCloneDialog
-    } Else {
-        FileSelectFile FileName, 1, %g_OpenDir%, Open, AutoHotkey Scripts (*.ahk)
-        If (!ErrorLevel) {
-            Open([FileName], 1)
-        }
-    }
-Return
-
-OnWM_ENTERMENULOOP() {
-Return 1 ; Prevent repainting problems on XP?
-}
-
-OnWM_INITMENU(wParam) {
-    ; OutputDebug % MenuGetName(wParam) ; Always returns "AutoMenuBar"
-    Menu AutoFileMenu, % Sci[TabEx.GetSel()].Filename != "" ? "Enable" : "Disable", Open Included File...
-    LoadSessionMenu()
-}
-
-OnWM_ACTIVATEAPP(wParam, lParam, msg, hWnd) {
-    If (wParam) {
-        CheckModified()
-    }
-
-Return 0
-}
-
-RestoreWindow() {
-    WinGet WinState, MinMax, ahk_id %hAutoWnd%
-    If (WinState == -1) { ; Minimized
-        WinRestore ahk_id %hAutoWnd%
-    }
-}
-
-CheckModified() {
-    n := TabEx.GetSel()
-
-    If (Sci[n].LastWriteTime == "" || Sci[n].ChangedOutside) {
-        Sci[n].ChangedOutside := False
-        Return 0
-    }
-
-    If (g_CheckTimestamp) {
-        ; Check if the file exists
-        If (Sci[n].FileName != "" && !FileExist(Sci[n].FullName)) {
-            OnMessage(0x1C, "")
-            RestoreWindow()
-            Gui Auto: +OwnDialogs
-            MsgBox 0x40030, AutoGUI, % "File not found: " . Sci[n].FullName
-            Sci[n].LastWriteTime := ""
-            OnMessage(0x1C, "OnWM_ACTIVATEAPP")
-            Return
+        SplitPath FullPath,, g_SaveDir
+        If (n == g_GuiTab) {
+            CopyLibraries(g_SaveDir)
         }
 
-        Filename := Sci[n].FullName
-        FileGetTime Timestamp, %Filename%
+        AddToRecentFiles(FullPath)
 
-        ; Check if the file has been modified outside
-        If (Timestamp != Sci[n].LastWriteTime) {
-            Sci[n].ChangedOutside := True
+        Repaint(Sci[n].hWnd) ; ?
 
-            OnMessage(0x1C, "")
+        FileGetTime Timestamp, %FullPath%
+        Sci[n].LastWriteTime := Timestamp
 
-            RestoreWindow()
-            Gui Auto: +OwnDialogs
-            MsgBox 0x34, AutoGUI, % Sci[n].Filename . " was modified outside.`nShould the file be reloaded?"
-            IfMsgBox Yes, {
-                CurrentPos := Sci[n].GetCurrentPos()
-                Open([Filename], 2)
-                Sci[n].GoToPos(CurrentPos)
-            } Else {
-                Sci[n].ChangedOutside := False
-                Return 0
-            }
-
-            OnMessage(0x1C, "OnWM_ACTIVATEAPP")
-        }
-    }
-}
-
-AutoSizeWindow:
-    Gui %Child%: Margin, 8, 8
-    Gui %Child%: Show, AutoSize
-    GenerateCode()
-Return
-
-LoadToolsMenu() {
-    If (FileExist(A_AppData . "\AutoGUI\Tools.ini")) {
-        g_IniTools := A_AppData . "\AutoGUI\Tools.ini"
-    } Else {
-        g_IniTools := A_ScriptDir . "\Tools\Tools.ini"
-
-        If (!FileExist(g_IniTools)) {
-            FileCopy %A_ScriptDir%\Tools\DefaultTools.ini, %A_ScriptDir%\Tools\Tools.ini
-            If (ErrorLevel) {
-                FileCreateDir %A_AppData%\AutoGUI
-                FileCopy %A_ScriptDir%\Tools\DefaultTools.ini, %A_AppData%\AutoGUI\Tools.ini
-                g_IniTools := A_AppData . "\AutoGUI\Tools.ini"
-            }
-        }
+        Return 1
     }
 
-    IniRead IniSections, %g_IniTools%
-
-    Loop Parse, IniSections, `n, `r
-    {
-        IniRead Icon, %g_IniTools%, %A_LoopField%, Icon, %A_Space%
-        IniRead IconIndex, %g_IniTools%, %A_LoopField%, IconIndex, 1
-        Try {
-            AddMenu("AutoToolsMenu", A_LoopField, "RunTool", GetToolIconPath(Icon), IconIndex)
-        }
-    }
-
-    Menu AutoToolsMenu, Add
-    AddMenu("AutoToolsMenu", "Configure Tools...", "ShowToolsDialog", IconLib, 43)
-}
-
-RunTool() {
-    IniRead File, %g_IniTools%, %A_ThisMenuItem%, File, %A_Space%
-    If (!FileExist(File)) {
-        If (FileExist(A_ScriptDir . "\Tools\" . File)) {
-            File = %A_ScriptDir%\Tools\%File%
-        }
-    }
-
-    IniRead WorkingDir, %g_IniTools%, %A_ThisMenuItem%, WorkingDir, %A_Space%
-    If (WorkingDir == "") {
-        SplitPath File,, WorkingDir
-    }
-
-    Params := ReadIni(g_IniTools, A_ThisMenuItem, "Params", "")
-    If (Params != "") {
-        n := TabEx.GetSel()
-
-        If (InStr(Params, "{FILENAME}")) {
-            Params := StrReplace(Params, "{FILENAME}", Sci[n].FullName)
-        }
-
-        If (InStr(Params, "{FILEDIR}")) {
-            SplitPath % Sci[n].FullName,, FileDir
-            Params := StrReplace(Params, "{FILEDIR}", FileDir)
-        }
-
-        If (InStr(Params, "{SELECTEDTEXT}")) {
-            Params := StrReplace(Params, "{SELECTEDTEXT}", GetSelectedText())
-        }
-
-        If (InStr(Params, "{AUTOGUIDIR}")) {
-            Params := StrReplace(Params, "{AUTOGUIDIR}", A_ScriptDir)
-        }
-    }
-
-    Try {
-        Run "%File%" %Params%, %WorkingDir%
-    } Catch {
-        ErrorMsgBox("Error executing """ . File . """.", "Auto", g_AppName)
-        GoSub ShowToolsDialog
-    }
-}
-
-ShowIncludesDialog:
-    Gui IncludesDlg: New, LabelIncludesDlg hWndhIncludesDlg -MinimizeBox OwnerAuto
-    SetWindowIcon(hIncludesDlg, IconLib, 101)
-    Gui Color, White
-
-    Gui Font, s12 cNavy, Segoe UI
-    Gui Add, Text, x8 y9 w120 h22 +0x200, List of Includes
-    Gui Font
-    Gui Font, s9, Segoe UI
-    Gui Add, Text, x8 y32 w285 h20 +0x200, Select the files to be opened.
-
-    Gui Add, ListView, hWndhLVIncludes x0 y60 w620 h294 +LV0x114004, Filename|Path
-    Gui Add, Text, x0 y355 w620 h48 -Background
-    Gui Add, Button, gOpenIncludes x433 y366 w84 h24 +Default, &Open
-    Gui Add, Button, gIncludesDlgClose x525 y366 w84 h24, &Cancel
-    Gui Font
-    Gui Show, w620 h402, Open Included File
-
-    LV_ModifyCol(1, 174)
-    LV_ModifyCol(2, 425)
-    SetExplorerTheme(hLVIncludes)
-
-    FullName := Sci[TabEx.GetSel()].FullName
-    If (FullName != "") {
-        Try {
-            EnumIncludes(FullName, Func("EnumIncludesCallback"))
-        }
-    }
-Return
-
-EnumIncludesCallback(Param) {
-    SplitPath Param, Filename, FilePath
-    LV_Add("", Filename, FilePath)
-Return True ; must return true to continue enumeration
-}
-
-IncludesDlgEscape:
-IncludesDlgClose:
-    Gui IncludesDlg: Destroy
-Return
-
-OpenIncludes() {
-    Files := []
-    Row := 0
-    Loop {
-        Row := LV_GetNext(Row, "Checked")
-        If (!Row) {
-            Break
-        }
-
-        LV_GetText(Filename, Row, 1)
-        LV_GetText(FilePath, Row, 2)
-        Files.Push(FilePath . "\" . Filename)
-    }
-
-    If (Files.Length()) {
-        Open(Files)
-    }
-
-    Gui IncludesDlg: Destroy
-}
-
-SetSessionsDir() {
-    If (g_SessionsDir == "ERROR" || !FileExist(g_SessionsDir)) {
-        If (FileExist(A_AppData . "\AutoGUI\Sessions\*.session")) {
-            g_SessionsDir := A_AppData . "\AutoGUI\Sessions"
-        } Else {
-            g_SessionsDir := A_ScriptDir . "\Sessions"
-            FileCreateDir %g_SessionsDir%
-            If (ErrorLevel) { ; No permission to write in the application folder
-                g_SessionsDir := A_AppData . "\AutoGUI\Sessions"
-                FileCreateDir %g_SessionsDir%
-            }
-        }
-    }
-}
-
-LoadSessionMenu() {
-    hMenu := MenuGetHandle("AutoSessionMenu")
-    If (hMenu) {
-        Loop % GetMenuItemCount(hMenu) {
-            Menu AutoSessionMenu, Delete, 1&
-        }
-    }
-
-    MostRecentFile := ""
-    MostRecentDate := 0
-    ItemCount := 0
-    Loop %g_SessionsDir%\*.session
-    {
-        SplitPath A_LoopFileName,,,, NameNoExt
-
-        If (A_LoopFileTimeModified > MostRecentDate) {
-            MostRecentDate := A_LoopFileTimeModified
-            MostRecentFile := NameNoExt
-        }
-
-        Menu AutoSessionMenu, Add, %NameNoExt%, M_LoadSession
-        ItemCount++
-    }
-
-    If (ItemCount > 1) {
-        Menu AutoSessionMenu, Delete, %MostRecentFile%
-        Menu AutoSessionMenu, Insert, 1&, %MostRecentFile%, M_LoadSession
-    }
-
-    If (ItemCount) {
-        Menu AutoSessionMenu, Default, %MostRecentFile%
-        Menu AutoSessionMenu, Add
-    }
-
-    AddMenu("AutoSessionMenu", "Open Sessions Folder", "OpenSessionsFolder", IconLib, 9)
-    If (!FileExist(g_SessionsDir . "\*.session")) {
-        Menu AutoSessionMenu, Disable, Open Sessions Folder
-    }
-
-    Menu AutoFileMenu, Add, &Load Session, :AutoSessionMenu
-}
-
-M_LoadSession() {
-    SessionFile = %g_SessionsDir%\%A_ThisMenuItem%.session
-    LoadSession(SessionFile)
-}
-
-LoadSession(SessionFile) {
-    Files := []
-    Active := 1
-    If (FileExist(SessionFile)) {
-        FileRead Session, %SessionFile%
-        Loop Parse, Session, `n, `r
-        {
-            Fields := StrSplit(A_LoopField, "|")
-            If (FileExist(Fields[1])) {
-                Files.Push(Fields[1])
-            }
-
-            If (Fields[2]) {
-                Active := A_Index
-            }
-        }
-    }
-
-    If (Files.Length()) {
-        If (Sci[TabEx.GetSel()].GetModify()) {
-            Active += TabEx.GetCount()
-        } Else {
-            Active += TabEx.GetCount() - 1
-        }
-
-        Open(Files)
-        Sleep -1
-        TabEx.SetSel(Active)
-        FileSetTime %A_Now%, %SessionFile%
-    }
-}
-
-LoadLastSession() {
-    MostRecentFile := ""
-    MostRecentDate := 0
-    Loop %g_SessionsDir%\*.session
-    {
-        If (A_LoopFileTimeModified > MostRecentDate) {
-            MostRecentDate := A_LoopFileTimeModified
-            MostRecentFile := A_LoopFileLongPath
-        }
-    }
-
-    LoadSession(MostRecentFile)
-}
-
-SaveSessionOnExit:
-SaveSession:
-    n := TabEx.GetSel()
-    Session := ""
-    Loop % Sci.Length() {
-        Active := n == A_Index ? 1 : 0
-        Filename := Sci[A_Index].FullName
-        If (FileExist(Filename)) {
-            Session .= Filename . "|" . Active . CRLF
-        }
-    }
-
-    Session := RTrim(Session, CRLF)
-
-    If (A_ThisLabel == "SaveSession") {
-        Filename := g_SessionsDir . "\Session Name.session"
-        FileSelectFile Filename, S16, %Filename%, Save Session, Session Files (*.session)
-        If (ErrorLevel) {
-            Return
-        }
-
-        SplitPath Filename,,, Ext
-        If (!(Ext = "session") && !FileExist(Filename . ".session")) {
-            Filename .= ".session"
-        }
-    } Else {
-        Filename := g_SessionsDir . "\Session Saved on Exit.session"
-    }
-
-    FileDelete %Filename%
-    FileAppend %Session%, %Filename%
-    If (ErrorLevel) {
-        ErrorMsgBox("Error saving """ . Filename . """.", "Auto", g_AppName)
-    }
-Return
-
-OpenSessionsFolder:
-    Run %g_SessionsDir%
-Return
-
-OpenNewInstance() {
-    Filename := Sci[g_TabIndex].FullName
-    Run "%A_AhkPath%" "%A_ScriptFullPath%" /new "%Filename%"
-}
-
-Sci_GetIdealSize(ByRef X, ByRef Y, ByRef W, ByRef H) {
-    GetClientSize(hAutoWnd, WindowW, WindowH)
-    GuiControlGet, ToolBox, Auto: Pos, %hLVToolbox%
-    GuiControlGet, TabCtl, Auto: Pos, %hTab%
-
-    If (g_TabBarPos == 1) { ; Top
-        Y := TabCtlY + TabCtlH
-        H := WindowH - g_StatusBarH - Y
-    } Else {
-        Y := g_ToolbarH
-        H := WindowH - g_StatusBarH - TabCtlH - Y
-    }
-
-    X := (g_DesignMode) ? ToolBoxW + g_SplitterW : -1
-    W := (g_DesignMode) ? WindowW - ToolBoxW - g_SplitterW : WindowW + 1
-}
-
-CreateTabControl:
-    GetClientSize(hAutoWnd, WindowW, WindowH)
-    If (g_DesignMode) {
-        GuiControlGet, ToolBox, Auto: Pos, %hLVToolbox%
-        SplitterW := (g_TabBarStyle == 1 ? g_SplitterW : g_SplitterW - 2)
-        TabX := ToolboxW + SplitterW
-        TabW := WindowW - ToolboxW - SplitterW
-    } Else {
-        TabX := 0
-        TabW := WindowW
-    }
-
-    Style := "+AltSubmit -Wrap -TabStop +0x2008000" . (g_TabBarStyle == 1 ? " +Theme" : " +Buttons")
-
-    If (g_TabBarPos == 1) {
-        Gui Add, Tab2, hWndhTab gTabHandler x%TabX% y%g_ToolbarH% w%TabW% h25 %Style%, Untitled 1
-    } Else {
-        TabY := WindowH - g_StatusBarH - 25
-        Gui Add, Tab2, hWndhTab gTabHandler x%TabX% y%TabY% w%TabW% h25 %Style%, Untitled 1
-    }
-
-    SendMessage 0x1329, 0, 0x00180055,, ahk_id %hTab% ; TCM_SETITEMSIZE (0x18 = 24)
-
-Ptr := A_PtrSize == 8 ? "Ptr" : ""
-    Global OldTabProc := DllCall("GetWindowLong" . Ptr, "Ptr", hTab, "Int", -4, "Ptr") ; GWL_WNDPROC
-    NewTabProc := RegisterCallback("NewTabProc", "", 4) ;
-    DllCall("SetWindowLong" . Ptr, "Ptr", hTab, "Int", -4, "Ptr", NewTabProc, "Ptr")
-
-    TabEx := New GuiTabEx(hTab)
-    TabExIL := IL_Create(3)
-    IL_Add(TabExIL, IconLib, 3) ; Unsaved file
-    IL_Add(TabExIL, A_AhkPath, 2) ; AHK default icon
-    IL_Add(TabExIL, IconLib, 5) ; GUI icon
-    TabEx.SetImageList(TabExIL)
-    TabEx.SetIcon(1, 1)
-    TabEx.SetPadding(5, 4)
-
-    Gui Tab
-Return
-
-; Adapted from AkelPad
-NewTabProc(hWnd, msg, wParam, lParam) {
-    Static s_MouseMove := 0
-
-    If (msg == 0x201) { ; WM_LBUTTONDOWN
-        TabIndex := TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16)
-
-        If (TabIndex) {
-            s_MouseMove := 4
-            If (!g_MouseCapture) {
-                g_MouseCapture := 1
-                DllCall("SetCapture", "Ptr", hWnd)
-            }
-
-            If (TabIndex != TabEx.GetSel()) {
-                TabEx.SetSel(TabIndex)
-            }
-        }
-        Return True
-
-    } Else If (msg == 0x200) { ; WM_MOUSEMOVE
-        If (g_MouseCapture) {
-            If (s_MouseMove > 0) {
-                If (--s_MouseMove == 0) {
-                    DllCall("SetCursor", "Ptr", hCursorDragMove)
-                }
-            }
-            Return True
-        }
-
-    } Else If (msg == 0x202) { ; WM_LBUTTONUP
-        If (g_MouseCapture) {
-            g_MouseCapture := 0
-            DllCall("ReleaseCapture")
-
-            If (s_MouseMove == 0) {
-                DropItem := TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16)
-
-                DragItem := TabEx.GetSel()
-                If (DropItem && DropItem != DragItem) {
-                    SwapTabs(DragItem, DropItem)
-                }
-            }
-            Return True
-        }
-
-    } Else If (msg == 0x215) { ; WM_CAPTURECHANGED
-        If (g_MouseCapture) {
-            g_MouseCapture := 0
-            DllCall("ReleaseCapture")
-        }
-
-    } Else If (msg == 0x207) { ; WM_MBUTTONDOWN
-        CloseTab(TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16))
-        Return True
-    }
-
-Return DllCall("CallWindowProcA", "Ptr", OldTabProc, "Ptr", hWnd, "UInt", msg, "Ptr", wParam, "Ptr", lParam, "Ptr")
-}
-
-; nTab := TabHitTest(hTab, lParam & 0xFFFF, lParam >> 16)
-TabHitTest(hWnd, x, y) {
-    VarSetCapacity(TCHITTESTINFO, 16, 0)
-    NumPut(x, TCHITTESTINFO, 0)
-    NumPut(y, TCHITTESTINFO, 4)
-    NumPut(6, HITTESTINFO, 8) ; 6 = TCHT_ONITEM
-    SendMessage 0x130D, 0, &TCHITTESTINFO,, ahk_id %hWnd% ; TCM_HITTEST
-Return Int(ErrorLevel) + 1
-}
-
-; Drag: source. Drop: destination.
-SwapTabs(DragItem, DropItem) {
-    If (g_GuiTab) {
-        If (DragItem == g_GuiTab) {
-            g_GuiTab := DropItem
-        } Else If (DragItem < g_GuiTab && DropItem >= g_GuiTab) {
-            g_GuiTab--
-        } Else If (DragItem > g_GuiTab && DropItem <= g_GuiTab) {
-            g_GuiTab++
-        }
-    }
-
-    ObjSci := Sci.RemoveAt(DragItem)
-    Sci.InsertAt(DropItem, ObjSci)
-
-    Loop % Sci.Length() {
-        SetDocumentStatus(A_Index)
-        SetTabIcon(A_Index)
-    }
-
-    TabEx.SetSel(DropItem)
-}
-
-SetTabBarPos:
-    If (A_ThisMenuItem == "Top") {
-        TabCtlY := g_ToolbarH
-        g_TabBarPos := 1
-        Menu AutoViewTabBarMenu, Uncheck, Bottom
-    } Else {
-        GetClientSize(hAutoWnd, WindowW, WindowH)
-        TabCtlY := WindowH - g_StatusBarH - 25 ; 25 = TabCtlH
-        g_TabBarPos := 2
-        Menu AutoViewTabBarMenu, Uncheck, Top
-    }
-
-    Control ExStyle, ^0x200,, ahk_id %hMainToolbar% ; Toggle WS_EX_CLIENTEDGE
-    Control ExStyle, ^0x200,, ahk_id %hGUIToolbar%
-    ; 0x37: SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE | SWP_DRAWFRAME
-    SetWindowPos(hMainToolbar, 0, 0, 0, 0, 0, 0x37)
-    SetWindowPos(hGUIToolbar, 0, 0, 0, 0, 0, 0x37)
-
-    GuiControl MoveDraw, %hTab%, y%TabCtlY%
-
-    Sci_GetIdealSize(SciX, SciY, SciW, SciH)
-    Loop % Sci.Length() {
-        SetWindowPos(Sci[A_Index].hWnd, SciX, SciY, 0, 0, 0, 0x15) ; SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE
-    }
-
-    Menu AutoViewTabBarMenu, Check, %A_ThisMenuItem%
-Return
-
-SetTabBarStyle:
-    If (A_ThisMenuItem == "Standard") {
-        GuiControl Auto: -Buttons, %hTab%
-        DllCall("UxTheme.dll\SetWindowTheme", "Ptr", hTab, "WStr", "Explorer", "Ptr", 0)
-        g_TabBarStyle := 1
-        Menu AutoViewTabBarMenu, Uncheck, Buttons
-    } Else {
-        DllCall("UxTheme.dll\SetWindowTheme", "Ptr", hTab, "Str", " ", "Str", " ")
-        GuiControl Auto: +Buttons, %hTab%
-        g_TabBarStyle := 2
-        Menu AutoViewTabBarMenu, Uncheck, Standard
-    }
-
-    If (g_DesignMode) {
-        GuiControlGet, TabCtl, Pos, %hTab%
-        TabCtlX := A_ThisMenuItem == "Standard" ? TabCtlX + 2 : TabCtlX - 2
-        GuiControl MoveDraw, %hTab%, x%TabCtlX%
-    }
-
-    Menu AutoViewTabBarMenu, Check, %A_ThisMenuItem%
-Return
-
-SetTabIcon(n) {
-    TabEx.SetIcon(n, (n == g_GuiTab) ? 3 : (Sci[n].FileName != "" && SubStr(Sci[n].FileName, -2) = "AHK") ? 2 : 1)
-}
-
-ShowBackupDialog:
-    Gui BackupDlg: New, LabelBackupDlg hWndhBackupDlg -MinimizeBox OwnerAuto
-    SetWindowIcon(hBackupDlg, IconLib, 10)
-    Gui Color, White
-    Gui Add, Radio, x0 y0 w0 h0
-
-    Gui Add, Progress, x-1 y0 w526 h49 -Smooth +Background008EBC +Border, 0
-    Gui Font, s12 cWhite, Segoe UI
-    Gui Add, Text, x11 y12 w297 h23 +0x200 +BackgroundTrans, Auto-save and Backup Settings
-    Gui Font
-
-    Gui Font, s9, Segoe UI
-    Gui Add, Text, x12 y57 w69 h23 +0x200, Directory:
-    Gui Add, Edit, vg_BackupDir x84 y58 w347 h21, %g_BackupDir%
-    Gui Add, Button, gChooseBackupDir x436 y56 w80 h23, &Choose...
-
-    Gui Add, CheckBox, vg_BackupOnSave x12 y88 w237 h23 +Checked%g_BackupOnSave%
-    , Backup a copy of the file before saving
-
-    Gui Add, GroupBox, x8 y117 w509 h114, Auto-save
-    Gui Add, Text, x20 y136 w139 h23 +0x200, Save automatically after
-    Gui Add, Edit, vg_AutoSaveInterval x162 y137 w42 h21 +Number +Right, %g_AutoSaveInterval%
-    Gui Add, Text, x212 y136 w58 h23 +0x200, minutes
-    Gui Add, CheckBox, vg_AutoSaveInLoco x20 y168 w237 h23 +Checked%g_AutoSaveInLoco%
-    , Save the file in its current location
-    Gui Add, CheckBox, vg_AutoSaveInBkpDir x20 y199 w237 h23 +Checked%g_AutoSaveInBkpDir%
-    , Save the file in the backup directory
-
-    Gui Add, Text, x12 y238 w183 h23 +0x200, Delete backup copies older than
-    Gui Add, Edit, vg_BackupDays x197 y240 w42 h21 +Number +Right, %g_BackupDays%
-    Gui Add, Text, x245 y238 w45 h23 +0x200, days
-
-    Gui Add, Text, x-1 y275 w526 h48 -Background +Border
-    Gui Add, Button, gBackupDlgOK x341 y287 w84 h24 +Default, &OK
-    Gui Add, Button, gBackupDlgClose x432 y287 w84 h24, &Cancel
-
-    Gui Show, w524 h322, Auto-save and Backup Settings
-Return
-
-BackupDlgEscape:
-BackupDlgClose:
-    Gui BackupDlg: Destroy
-Return
-
-BackupDlgOK:
-    Gui BackupDlg: Submit
-
-    g_BackupDir := RTrim(g_BackupDir, "\")
-
-    If (g_AutoSaveInterval < 1) {
-        g_AutoSaveInterval := 3 ; Default
-    }
-
-    DeleteOldBackups()
-
-    ResetAutoSave()
-Return
-
-ChooseBackupDir:
-    Gui BackupDlg: +OwnDialogs
-    FileSelectFolder SelectedFolder,,, Select Folder
-    If (!ErrorLevel) {
-        GuiControl, BackupDlg:, g_BackupDir, %SelectedFolder%
-    }
-Return
-
-AutoSaveTimer() {
-    Critical
-
-    If (g_AutoSaveInLoco) {
+    SaveAll:
         Loop % Sci.Length() {
-            ; Only for documents with name
-            If (Sci[A_Index].FullName != "" && Sci[A_Index].GetModify()) {
+            If (Sci[A_Index].GetModify()) {
                 Save(A_Index)
             }
         }
+    Return
+
+    SaveCopy:
+        n := TabEx.GetSel()
+        If (Sci[n].FileName != "") {
+            SplitPath % Sci[n].FullName,, Dir, Extension, NameNoExt
+            StartPath := Dir . "\" . NameNoExt . " - Copy." . Extension
+        } Else {
+            StartPath := g_SaveDir
+        }
+
+        Gui Auto: +OwnDialogs
+        FileSelectFile SelectedFile, S16, %StartPath%, Save a Copy, AutoHotkey Scripts (*.ahk)
+        If (ErrorLevel) {
+            Return
+        }
+
+        SplitPath SelectedFile,,, FileExt
+        If (FileExt == "" && Sci[n].GetLexer() == 200 && !FileExist(SelectedFile . ".ahk")) {
+            SelectedFile .= ".ahk"
+        }
+
+        SciText := GetText(n)
+        Encoding := GetSaveEncoding(SelectedFile)
+        WriteFile(SelectedFile, SciText, Encoding)
+
+        AddToRecentFiles(SelectedFile)
+    Return
+
+    CopyLibraries(Dir) {
+        If (g.Anchor) {
+            Source := A_ScriptDir . "\Lib\AutoXYWH.ahk"
+            Destination := Dir . "\AutoXYWH.ahk"
+            FileCopy %Source%, %Destination%
+        }
+
+        If (ToolbarExist()) {
+            Source := A_ScriptDir . "\Lib\Toolbar.ahk"
+            Destination := Dir . "\Toolbar.ahk"
+            If (Dir == A_Temp) {
+                FileGetSize Size, %Dir%\Toolbar.ahk
+                Overwrite := (Size > 40000) ? 1 : 0
+            } Else {
+                Overwrite := 0
+            }
+            FileCopy %Source%, %Destination%, %Overwrite%
+        }
+
+        If (g.ControlColor) {
+            Source := A_ScriptDir . "\Lib\ControlColor.ahk"
+            Destination := Dir . "\ControlColor.ahk"
+            FileCopy %Source%, %Destination%
+        }
     }
 
-    If (g_AutoSaveInBkpDir) {
-        Loop % Sci.Length() {
-            If (Sci[A_Index].FullName != "" && !Sci[A_Index].GetModify()) {
-                Continue ; The file has not been modified
-            }
+    RunScript:
+        RunScript(A_ThisMenuItemPos)
+    Return
 
-            ; Generate backup name for named documents
-            If (Sci[A_Index].FullName != "") {
-                If (!InStr(Sci[A_Index].BackupName, "[")) {
-                    CRC32 := CRC32(Sci[A_Index].FullName)
-                    SplitPath % Sci[A_Index].FullName, Filename,, FileExt
-                    FileExt := "." . FileExt . ".tmp"
-                    Sci[A_Index].BackupName := g_BackupDir . "\" . Filename . " [" . CRC32 . "]" . FileExt
+    RunScript(Mode := 1) {
+        n := TabEx.GetSel()
+        Size := Sci[n].GetLength()
+        If (Size == 0) {
+            Return
+        }
+
+        AhkPath := (GetKeyState("Shift", "P") || Mode == 2) ? g_AhkPath3264 : A_AhkPath
+
+        SciText := GetText(n)
+
+        ; Run Selected Text (Ctrl+F9)
+        If (Mode == 5) {
+            Text := GetSelectedText()
+            If (Text == "") {
+                Text := SciText
+            }
+            ExecScript(Text, g_Parameters, AhkPath)
+            Return
+        }
+
+        ; Alternative run (Alt+F9)
+        If (Mode == 4) {
+            If ((AhkPath := GetAltRun()) == "") {
+                Return
+            }
+        }
+
+        If (Sci[n].Filename != "") {
+            If (Sci[n].GetModify()) {
+                If (!Save(n)) {
+                    Return
                 }
-                ; For unnamed documents
-            } Else If (Sci[A_Index].BackupName == "") {
-                Sci[A_Index].BackupName := GetTempFileName(g_BackupDir, "tmp")
+            }
+            FullPath := Sci[n].FullName
+            SplitPath FullPath,, WorkingDir
+        } Else {
+            ; Unsaved scripts run from the Temp folder
+            FullPath := g_TempFile
+            WorkingDir := A_Temp
+            FileDelete %FullPath%
+            FileAppend %SciText%, %FullPath%, %A_FileEncoding%
+            CopyLibraries(WorkingDir)
+        }
+
+        If (g_CaptureStdErr) {
+            AhkRunGetStdErr(n, AhkPath, FullPath, g_parameters, WorkingDir)
+        } Else {
+            Run % AhkPath . " """ . FullPath . """ " . g_Parameters, %WorkingDir%
+        }
+    }
+
+    RunSelectedText:
+        RunScript(5)
+    Return
+
+    GetAltRun() {
+        If (FileExist(g_AltAhkPath)) {
+            Return g_AltAhkPath
+        } Else {
+            FileSelectFile g_AltAhkPath, 3, %A_AhkPath%, Browse, Executable Files (*.exe)
+            If (ErrorLevel) {
+                Return
+            }
+            Return g_AltAhkPath
+        }
+    }
+
+    ShowParamsDlg:
+        Info := "Parameters are stored in the variables %1%, %2%, and so on.`n"
+            . "They are also stored as an array in the built-in variable A_Args.`n"
+            . "See the online <a href=""https://autohotkey.com/docs/Scripts.htm#cmd"">help topic</a> for details."
+
+        Params := InputBoxEx("Script Parameters", Info, "Command Line Parameters", g_Parameters, "", "", hAutoWnd, 440, "", IconLib, 91)
+
+        If (!ErrorLevel) {
+            g_Parameters := Params
+        }
+    Return
+
+    RunFileDlg() {
+        hModule := DllCall("GetModuleHandle", "Str", "shell32.dll", "Ptr")
+        RunFileDlg := DllCall("GetProcAddress", "Ptr", hModule, "UInt", 61, "Ptr")
+        DllCall(RunFileDlg, "Ptr", hAutoWnd, "Ptr", 0, "Ptr", 0, "Ptr", 0, "Ptr", 0, "UInt", 0)
+    }
+
+    Compile() {
+        SplitPath A_AhkPath,, AhkDir
+        Ahk2ExePath := AhkDir . "\Compiler\Ahk2Exe.exe"
+
+        Run %Ahk2ExePath%,, UseErrorLevel, PID
+        If (ErrorLevel) {
+            ErrorMsgBox(GetErrorMessage(A_LastError), "Auto")
+            Return
+        }
+
+        n := TabEx.GetSel()
+        AhkScript := Sci[n].FullName
+
+        If (AhkScript && !Sci[n].GetModify()) {
+            SplitPath AhkScript,, ScriptDir,, NameNoExt
+
+            SetBatchLines 20ms
+            Sleep 100
+
+            WinWait Ahk2Exe ahk_pid %PID%
+            WinGet hWnd, ID, Ahk2Exe ahk_pid %PID%
+            WinActivate ahk_id %hWnd%
+            WinWaitActive ahk_id %hWnd%
+
+            ControlSetText Edit1, %AhkScript%, ahk_id %hWnd%
+
+            If (!FileExist(ExeFile := ScriptDir . "\" . NameNoExt . ".exe")) {
+                ControlSetText Edit2, %ExeFile%, ahk_id %hWnd%
             }
 
-            SciText := GetText(A_Index)
-            If (SciText != "") {
-                If (BackupDirCreated()) {
-                    BackupName := Sci[A_Index].BackupName
-                    Encoding := (SubStr(BackupName, -7, 4) = ".INI") ? "UTF-16" : A_FileEncoding
-                    FileDelete %BackupName%
-                    FileAppend %SciText%, %BackupName%, %Encoding%
+            SetBatchLines -1
+        }
+    }
+
+    AddMenu(MenuName, MenuItemName := "", Subroutine := "MenuHandler", Icon := "", IconIndex := 0) {
+        Menu, %MenuName%, Add, %MenuItemName%, %Subroutine%
+
+        If (Icon != "") {
+            Menu, %MenuName%, Icon, %MenuItemName%, %Icon%, %IconIndex%
+        }
+    }
+
+    MenuHandler:
+        Gui Auto: +OwnDialogs
+        MsgBox 0x40, AutoGUI, Not implemented yet.
+    Return
+
+    AddToRecentFiles(FileName) {
+        Static RecentFilesMenu := 0, MaxItems := 15
+
+        If (!FileExist(FileName)) {
+            Return
+        }
+
+        ; Determine the handle of the Recent Files menu
+        If !(RecentFilesMenu) {
+            hAutoMenu := GetMenu(hAutoWnd)
+            hFileMenu := GetSubMenu(hAutoMenu, 0)
+            FileMenuCount := GetMenuItemCount(hFileMenu)
+            Loop %FileMenuCount% {
+                If (GetMenuString(hFileMenu, A_Index - 1) = "Recent &Files") {
+                    RecentFilesMenu := GetSubMenu(hFileMenu, A_Index - 1)
+                    Break
                 }
             }
         }
-    }
-}
 
-; Credits to jNizM
-CRC32(String, Encoding = "UTF-8") {
-    Local ChrLength, Length, Data, hMod, CRC32
-    ChrLength := (Encoding = "CP1200" || Encoding = "UTF-16") ? 2 : 1
-    Length := (StrPut(String, Encoding) - 1) * ChrLength
-    VarSetCapacity(Data, Length, 0)
-    StrPut(String, &Data, Floor(Length / ChrLength), Encoding)
-    hMod := DllCall("Kernel32.dll\LoadLibrary", "Str", "Ntdll.dll", "Ptr")
-    CRC32 := DllCall("Ntdll.dll\RtlComputeCrc32", "UInt", 0, "UInt", &Data, "UInt", Length, "UInt")
-    DllCall("Kernel32.dll\FreeLibrary", "Ptr", hMod)
-Return Format("{:08X}", CRC32)
-}
-
-GetTempFileName(Dir, Ext := "tmp") {
-    Local Num, Filename
-    Static Attempts := 0
-
-    Random Num, 1, 2147483647
-
-    Filename := Dir . "\" . Num . "." . Ext
-    If (FileExist(Filename)) {
-        Attempts++
-        If (Attempts > 10) {
-            Attempts := 0
-            Filename := Dir . "\" . A_Now . " " . Num . "." . Ext
-            Return Filename
-        }
-
-        GetTempFileName(Dir, Ext)
-    }
-
-    Attempts := 0
-Return Filename
-}
-
-DeleteOldBackups(Ext := "tmp") {
-    Loop %g_BackupDir%\*.%Ext% {
-        Now := A_Now
-        EnvSub Now, %A_LoopFileTimeModified%, Days
-        If (Now >= g_BackupDays) {
-            FileDelete %A_LoopFileLongPath%
-        }
-    }
-}
-
-BackupDirCreated() {
-    If (!FileExist(g_BackupDir)) {
-        FileCreateDir %g_BackupDir%
-        Return !ErrorLevel
-    }
-Return True
-}
-
-StartAutoSave() {
-    If (g_AutoSaveInLoco || g_AutoSaveInBkpDir) {
-        SetTimer AutoSaveTimer, % g_AutoSaveInterval * 60000
-    }
-}
-
-ResetAutoSave() {
-    Try {
-        SetTimer AutoSaveTimer, Off
-    }
-
-    StartAutoSave()
-}
-
-CustomMessage(wParam, lParam) {
-    n := TabEx.GetSel()
-
-    If (wParam == 1) { ; Integration with Find in Files
-        If (WinExist("ahk_id " . lParam)) {
-            ControlGetText Params,, ahk_id %lParam%
-            Params := StrSplit(Params, "|")
-            If (FileExist(Params[1])) {
-                Open([Params[1]])
-                Sleep -1
-                n := TabEx.GetSel()
-                GoToLineEx(n, Params[2] - 1)
-                WinActivate ahk_id %hAutoWnd%
+        MaxIndex := RecentFiles.Length()
+        Loop %MaxIndex% {
+            ; The drive letter may be uppercase or lowercase
+            If (FileName = RecentFiles[A_Index]) {
+                Try {
+                    Menu AutoRecentMenu, Delete, %FileName%
+                }
+                RecentFiles.RemoveAt(A_Index)
+                Break
             }
         }
+        RecentFiles.Push(FileName)
 
-    } Else If (wParam == 2) { ; Request all open file names
-        Filenames := ""
-        If (Sci[n].FullName != "") {
-            Filenames .= Sci[n].FullName . ";"
+        Menu AutoFileMenu, Enable, Recent &Files
+        Menu AutoRecentMenu, Insert, 1&, %FileName%, OpenRecentFile
+        Try {
+            Menu AutoRecentMenu, Icon, %FileName%, % "HICON:" . GetFileIcon(FileName)
+        }
+        Menu AutoFileMenu, Add, Recent &Files, :AutoRecentMenu
+
+        ItemCount := GetMenuItemCount(RecentFilesMenu)
+        If (ItemCount > MaxItems) {
+            DeleteMenu(RecentFilesMenu, ItemCount - 1)
+            RecentFiles.Remove(1)
+        }
+    }
+
+    OpenRecentFile:
+        Open([A_ThisMenuItem])
+    Return
+
+    LoadRecentFiles() {
+        IniRead Recent, %IniFile%, Recent
+        If (Recent != "ERROR") {
+            Loop Parse, Recent, `n
+            {
+                RecentFile := SubStr(A_LoopField, InStr(A_LoopField, "=") + 1)
+                AddToRecentFiles(RecentFile)
+            }
+        }
+    }
+
+    HelpMenuHandler:
+        If (A_ThisMenuItem == "AutoHotkey &Help File`tF1") {
+            Run %g_HelpFile%
+            Return
         }
 
-        Loop % Sci.Length() {
-            If (A_Index == n) {
-                Continue ; ?
+        Node := g_HelpMenuXMLObj.selectSingleNode("//MenuItem[@name=""" . A_ThisMenuItem . """]")
+        URL := Node.getAttribute("url")
+        If (SubStr(URL, 1, 1) == "/") {
+            Run HH mk:@MSITStore:%g_HelpFile%::%URL%
+        } Else {
+            Try {
+                Run %URL%
+            }
+        }
+    Return
+
+    ShowAbout:
+        Gui About: New, LabelAbout -MinimizeBox OwnerAuto
+        Gui Color, White
+        Gui Add, Picture, x9 y10 w64 h64, %IconLib%
+        Gui Font, s20 W700 Q4 c00ADEF, Verdana
+        Gui Add, Text, x80 y8 w200, Adventure
+        Gui Font
+        Gui Font, s9, Segoe UI
+        Gui Add, Text, x245 y23, v%g_Version%
+        FileGetVersion SciVer, %SciLexer%
+        Gui Add, Text, x81 y41, Scintilla %SciVer%
+        Gui Add, Text, x81 y58 w365 +0x4000, % "AutoHotkey " . A_AhkVersion . " " . (A_IsUnicode ? "Unicode" : "ANSI") . " " . (A_PtrSize == 8 ? "64-bit" : "32-bit")
+        Gui Add, Link, x81 y102 w200 h16, <a href="https://sourceforge.net/projects/autogui/">SourceForge Project Page</a>
+        Gui Add, Link, x81 y124 w200 h16, <a href="https://autohotkey.com/boards/viewforum.php?f=64">AutoGUI in the AHK Forum</a>
+        Gui Add, Link, x81 y146 w200 h16, <a href="Help\Credits.htm">Credits</a>
+        Gui Add, Text, x0 y189 w463 h1 +0x5
+        Gui Add, Text, x0 y190 w463 h48 -Background
+        Gui Add, Link, x16 y206 w87 h16 -Background, <a href="https://autohotkey.com">autohotkey.com</a>
+        Gui Add, Button, gAboutClose x371 y203 w80 h24 Default, OK
+        Gui Show, w463 h239, About
+        ControlFocus Button1, About
+        Gui +LastFound
+        SendMessage 0x80, 0, DllCall("LoadIcon", "Ptr", 0, "Ptr", 32516, "Ptr") ; WM_SETICON, OIC_INFORMATION
+        SetModalWindow(1)
+    Return
+
+    AboutEscape:
+    AboutClose:
+        SetModalWindow(0)
+        Gui About: Destroy
+    Return
+
+    ShowTabContextMenu() {
+        Action := FileExist(Sci[g_TabIndex].FullName) ? "Enable" : "Disable"
+        Menu TabContextMenu, %Action%, Open Folder in Explorer
+        Menu TabContextMenu, %Action%, Copy Path to Clipboard
+        Menu TabContextMenu, %Action%, Open in a New Window
+        Menu TabContextMenu, %Action%, File Properties
+        Menu TabContextMenu, Show
+    }
+
+    OpenFolder() {
+        Filename := Sci[g_TabIndex].FullName
+        If (FileExist(Filename)) {
+            Run *open explorer.exe /select`,"%Filename%"
+        }
+    }
+
+    CopyFilePath:
+        Clipboard := Sci[g_TabIndex].FullName
+    Return
+
+    ShowFileProperties:
+        Run % "Properties " . Sci[g_TabIndex].FullName
+    Return
+
+    ; SetMainWindowTitle
+    SetWindowTitle(Filename := "") {
+        If (FileName != "") {
+            WinSetTitle ahk_id%hAutoWnd%,, % g_AppName . " v" . g_Version . " - " . Filename
+        } Else {
+            WinSetTitle ahk_id%hAutoWnd%,, %g_AppName% v%g_Version%
+        }
+    }
+
+    OnWM_CTLCOLORSTATIC(wParam, lParam) {
+        If (IsResizer(lParam)) {
+            DllCall("SetBkColor", "Ptr", wParam, "UInt", 0)
+            Return g_ResizerBrush
+        }
+    }
+
+    OnWM_SETCURSOR(wParam, lParam, Msg, hWnd) {
+        If (g_Cursors[wParam]) {
+            hCursor := DllCall("LoadCursor", "Ptr", 0, "Ptr", g_Cursors[wParam], "Ptr")
+            DllCall("SetCursor", "Ptr", hCursor)
+            Return True
+        }
+
+        If (g_Cross && hWnd == hChildWnd) {
+            DllCall("SetCursor", "Ptr", hCursorCross)
+            Return True
+        }
+
+        If (!g_Adding) {
+            If (hWnd == hChildWnd && wParam != hChildWnd && GetKeyState("LButton", "P")) {
+                hCursor := DllCall("LoadCursor", "Ptr", 0, "Ptr", 32646, "Ptr") ; IDC_SIZEALL
+                DllCall("SetCursor", "Ptr", hCursor)
+                Return True
+            }
+        }
+    }
+
+    OnWM_LBUTTONUP(wParam, lParam, msg, hWnd) {
+        g_LButtonDown := 0
+        g_Adding := False
+    }
+
+    SetModalWindow(Modal := True) {
+        Global
+        If (Modal) {
+            Gui Auto: +Disabled
+            Gui %Child%: +Disabled
+            Gui Properties: +Disabled
+            OnMessage(0x100, "")
+            OnMessage(0x104, "")
+        } Else {
+            Gui Auto: -Disabled
+            Gui %Child%: -Disabled
+            Gui Properties: -Disabled
+            OnMessage(0x100, "OnWM_KEYDOWN")
+            OnMessage(0x104, "OnWM_SYSKEYDOWN")
+        }
+    }
+
+    SuspendAutoComplete:
+        g_AutoCEnabled := True
+    Return
+
+    SendFile(Filename, hPrevInst) {
+        Loop 10 {
+            If (SendData(Filename, hPrevInst) == True) {
+                Break
+            } Else {
+                Sleep 100
+            }
+        }
+    }
+
+    SendData(ByRef String, ByRef hWnd) {
+        VarSetCapacity(COPYDATASTRUCT, 3 * A_PtrSize, 0)
+        cbSize := (StrLen(String) + 1) * (A_IsUnicode ? 2 : 1)
+        NumPut(cbSize, COPYDATASTRUCT, A_PtrSize)
+        NumPut(&String, COPYDATASTRUCT, 2 * A_PtrSize)
+        SendMessage 0x4A, 0, &COPYDATASTRUCT,, ahk_id %hWnd%
+        Return ErrorLevel
+    }
+
+    OnWM_COPYDATA(wParam, lParam, msg, hWnd) {
+        Data := StrGet(NumGet(lParam + 2 * A_PtrSize)) ; COPYDATASTRUCT lpData
+        Open([Data])
+        Return True
+    }
+
+    ShowImportGUIDialog:
+        Gui ImportGUIDlg: New, LabelImportGUIDlg hWndhImportGUIDlg -MinimizeBox OwnerAuto
+        SetWindowIcon(hImportGUIDlg, IconLib, 40)
+        Gui Color, 0xFAFAFA
+        Gui Font, s12 c0x003399, Segoe UI
+        Gui Add, Text, x12 y12 w409 h21, Select the Import Method
+        Gui Font
+        Gui Font, s9, Segoe UI
+        Gui Add, Text, x12 y39 w498 h23 +0x200
+            , Warning: none of these methods preserve the entire script. Do not overwrite the original file.
+        Gui Add, Radio, vClone x22 y73 w368 h23 Checked, Clone Window
+        Gui Add, Radio, vParse x22 y105 w368 h23, Parse Script (Not Recommended)
+        Gui Add, Text, x-1 y146 w525 h48 Border -Background
+        Gui Add, Button, gImportGUIDlgOK x343 y158 w80 h23 +Default, &OK
+        Gui Add, Button, gImportGUIDlgClose x429 y158 w80 h23, &Cancel
+        Gui Show, w523 h193, Import GUI
+    Return
+
+    ImportGUIDlgEscape:
+    ImportGUIDlgClose:
+        Gui ImportGUIDlg: Cancel
+    Return
+
+    ImportGUIDlgOK:
+        Gui ImportGUIDlg: Submit
+
+        If (Clone) {
+            GoSub ShowCloneDialog
+        } Else {
+            FileSelectFile FileName, 1, %g_OpenDir%, Open, AutoHotkey Scripts (*.ahk)
+            If (!ErrorLevel) {
+                Open([FileName], 1)
+            }
+        }
+    Return
+
+    OnWM_ENTERMENULOOP() {
+        Return 1 ; Prevent repainting problems on XP?
+    }
+
+    OnWM_INITMENU(wParam) {
+        ; OutputDebug % MenuGetName(wParam) ; Always returns "AutoMenuBar"
+        Menu AutoFileMenu, % Sci[TabEx.GetSel()].Filename != "" ? "Enable" : "Disable", Open Included File...
+        LoadSessionMenu()
+    }
+
+    OnWM_ACTIVATEAPP(wParam, lParam, msg, hWnd) {
+        If (wParam) {
+            CheckModified()
+        }
+
+        Return 0
+    }
+
+    RestoreWindow() {
+        WinGet WinState, MinMax, ahk_id %hAutoWnd%
+        If (WinState == -1) { ; Minimized
+            WinRestore ahk_id %hAutoWnd%
+        }
+    }
+
+    CheckModified() {
+        n := TabEx.GetSel()
+
+        If (Sci[n].LastWriteTime == "" || Sci[n].ChangedOutside) {
+            Sci[n].ChangedOutside := False
+            Return 0
+        }
+
+        If (g_CheckTimestamp) {
+            ; Check if the file exists
+            If (Sci[n].FileName != "" && !FileExist(Sci[n].FullName)) {
+                OnMessage(0x1C, "")
+                RestoreWindow()
+                Gui Auto: +OwnDialogs
+                MsgBox 0x40030, AutoGUI, % "File not found: " . Sci[n].FullName
+                Sci[n].LastWriteTime := ""
+                OnMessage(0x1C, "OnWM_ACTIVATEAPP")
+                Return
             }
 
-            If (Sci[A_Index].FullName != "") {
-                Filenames .= Sci[A_Index].FullName . ";"
-            }
-        }
+            Filename := Sci[n].FullName
+            FileGetTime Timestamp, %Filename%
 
-        GuiControl,, %g_hHiddenEdit%, %Filenames%
-        Sleep -1
-        SendMessage 10000, 2, %g_hHiddenEdit%,, ahk_id %lParam%
+            ; Check if the file has been modified outside
+            If (Timestamp != Sci[n].LastWriteTime) {
+                Sci[n].ChangedOutside := True
 
-    } Else If (wParam == 3) { ; Script Directives
-        If (WinExist("ahk_id " . lParam)) {
-            ControlGetText Params,, ahk_id %lParam%
-            Sci[n].InsertText(0, Params, 1)
-            SendMessage 0x10, 0, 0,, % "ahk_id" . GetParent(lParam) ; WM_CLOSE
-        }
-    }
-}
+                OnMessage(0x1C, "")
 
-ScriptDirectives() {
-    Run %A_ScriptDir%\Tools\Directives.ahk /AutoGUI
-}
-
-OnWM_SHOWWINDOW(wParam, lParam, msg, hWnd) {
-    If (hWnd == hChildWnd) {
-        SetStatusBar(g_GuiVis := wParam)
-    }
-}
-
-FormatAhkStdErr(AhkStdErr, ByRef File := "", ByRef Line := 0) {
-    If (RegExMatch(AhkStdErr, "Us)^(.*) \((\d+)\) : ==> (.*)\s*(?:Specifically: (.*))?$", Match)) {
-        Message := "File: """ . (File := Match1) . """."
-        Message .= "`n`nError at line " . (Line := Match2) . "."
-        If (Match4 != "") {
-            Message .= "`n`nSpecifically: " . Match4
-        }
-        Message .= "`n`nError: " . Match3
-        Return Message
-    } Else {
-        Return AhkStdErr
-    }
-}
-
-ToggleCaptureStdErr:
-    g_CaptureStdErr := !g_CaptureStdErr
-    Menu AutoRunMenu, ToggleCheck, Capture Standard &Error
-Return
-
-AhkRunGetStdErr(n, AhkPath, AhkScript, Parameters, WorkingDir, AhkDbgParams := "") {
-    CmdLine := """" . AhkPath . """ /ErrorStdOut " . AhkDbgParams . " """ . AhkScript . """ " . Parameters
-    StdErr := RunGetStdOut(CmdLine, "CP0", WorkingDir, ExitCode)
-    If (ExitCode == 2) {
-        Marked := 0
-        AhkStdErr := FormatAhkStdErr(StdErr, File, Line)
-        If (Line) {
-            If (AhkScript != File && File != g_TempFile) {
-                n := IsFileOpened(File)
-                If (n) {
-                    TabEx.SetSel(n)
-                    Sleep 1
+                RestoreWindow()
+                Gui Auto: +OwnDialogs
+                MsgBox 0x34, AutoGUI, % Sci[n].Filename . " was modified outside.`nShould the file be reloaded?"
+                IfMsgBox Yes, {
+                    CurrentPos := Sci[n].GetCurrentPos()
+                    Open([Filename], 2)
+                    Sci[n].GoToPos(CurrentPos)
                 } Else {
-                    n := Open([File])
+                    Sci[n].ChangedOutside := False
+                    Return 0
+                }
+
+                OnMessage(0x1C, "OnWM_ACTIVATEAPP")
+            }
+        }
+    }
+
+    AutoSizeWindow:
+        Gui %Child%: Margin, 8, 8
+        Gui %Child%: Show, AutoSize
+        GenerateCode()
+    Return
+
+    LoadToolsMenu() {
+        If (FileExist(A_AppData . "\AutoGUI\Tools.ini")) {
+            g_IniTools := A_AppData . "\AutoGUI\Tools.ini"
+        } Else {
+            g_IniTools := A_ScriptDir . "\Tools\Tools.ini"
+
+            If (!FileExist(g_IniTools)) {
+                FileCopy %A_ScriptDir%\Tools\DefaultTools.ini, %A_ScriptDir%\Tools\Tools.ini
+                If (ErrorLevel) {
+                    FileCreateDir %A_AppData%\AutoGUI
+                    FileCopy %A_ScriptDir%\Tools\DefaultTools.ini, %A_AppData%\AutoGUI\Tools.ini
+                    g_IniTools := A_AppData . "\AutoGUI\Tools.ini"
                 }
             }
+        }
 
-            If (n) {
-                --Line
-                GoToLineEx(n, Line)
-                If (g_ShowErrorSign) {
-                    If !(Sci[n].MarkerGet(Line) & (1 << g_MarkerError)) {
-                        Sci[n].MarkerAdd(Line, g_MarkerError)
-                        Marked := 1
+        IniRead IniSections, %g_IniTools%
+
+        Loop Parse, IniSections, `n, `r
+        {
+            IniRead Icon, %g_IniTools%, %A_LoopField%, Icon, %A_Space%
+            IniRead IconIndex, %g_IniTools%, %A_LoopField%, IconIndex, 1
+            Try {
+                AddMenu("AutoToolsMenu", A_LoopField, "RunTool", GetToolIconPath(Icon), IconIndex)
+            }
+        }
+
+        Menu AutoToolsMenu, Add
+        AddMenu("AutoToolsMenu", "Configure Tools...", "ShowToolsDialog", IconLib, 43)
+    }
+
+    RunTool() {
+        IniRead File, %g_IniTools%, %A_ThisMenuItem%, File, %A_Space%
+        If (!FileExist(File)) {
+            If (FileExist(A_ScriptDir . "\Tools\" . File)) {
+                File = %A_ScriptDir%\Tools\%File%
+            }
+        }
+
+        IniRead WorkingDir, %g_IniTools%, %A_ThisMenuItem%, WorkingDir, %A_Space%
+        If (WorkingDir == "") {
+            SplitPath File,, WorkingDir
+        }
+
+        Params := ReadIni(g_IniTools, A_ThisMenuItem, "Params", "")
+        If (Params != "") {
+            n := TabEx.GetSel()
+
+            If (InStr(Params, "{FILENAME}")) {
+                Params := StrReplace(Params, "{FILENAME}", Sci[n].FullName)
+            }
+
+            If (InStr(Params, "{FILEDIR}")) {
+                SplitPath % Sci[n].FullName,, FileDir
+                Params := StrReplace(Params, "{FILEDIR}", FileDir)
+            }
+
+            If (InStr(Params, "{SELECTEDTEXT}")) {
+                Params := StrReplace(Params, "{SELECTEDTEXT}", GetSelectedText())
+            }
+
+            If (InStr(Params, "{AUTOGUIDIR}")) {
+                Params := StrReplace(Params, "{AUTOGUIDIR}", A_ScriptDir)
+            }
+        }
+
+        Try {
+            Run "%File%" %Params%, %WorkingDir%
+        } Catch {
+            ErrorMsgBox("Error executing """ . File . """.", "Auto", g_AppName)
+            GoSub ShowToolsDialog
+        }
+    }
+
+    ShowIncludesDialog:
+        Gui IncludesDlg: New, LabelIncludesDlg hWndhIncludesDlg -MinimizeBox OwnerAuto
+        SetWindowIcon(hIncludesDlg, IconLib, 101)
+        Gui Color, White
+
+        Gui Font, s12 cNavy, Segoe UI
+        Gui Add, Text, x8 y9 w120 h22 +0x200, List of Includes
+        Gui Font
+        Gui Font, s9, Segoe UI
+        Gui Add, Text, x8 y32 w285 h20 +0x200, Select the files to be opened.
+
+        Gui Add, ListView, hWndhLVIncludes x0 y60 w620 h294 +LV0x114004, Filename|Path
+        Gui Add, Text, x0 y355 w620 h48 -Background
+        Gui Add, Button, gOpenIncludes x433 y366 w84 h24 +Default, &Open
+        Gui Add, Button, gIncludesDlgClose x525 y366 w84 h24, &Cancel
+        Gui Font
+        Gui Show, w620 h402, Open Included File
+
+        LV_ModifyCol(1, 174)
+        LV_ModifyCol(2, 425)
+        SetExplorerTheme(hLVIncludes)
+
+        FullName := Sci[TabEx.GetSel()].FullName
+        If (FullName != "") {
+            Try {
+                EnumIncludes(FullName, Func("EnumIncludesCallback"))
+            }
+        }
+    Return
+
+    EnumIncludesCallback(Param) {
+        SplitPath Param, Filename, FilePath
+        LV_Add("", Filename, FilePath)
+        Return True ; must return true to continue enumeration
+    }
+
+    IncludesDlgEscape:
+    IncludesDlgClose:
+        Gui IncludesDlg: Destroy
+    Return
+
+    OpenIncludes() {
+        Files := []
+        Row := 0
+        Loop {
+            Row := LV_GetNext(Row, "Checked")
+            If (!Row) {
+                Break
+            }
+
+            LV_GetText(Filename, Row, 1)
+            LV_GetText(FilePath, Row, 2)
+            Files.Push(FilePath . "\" . Filename)
+        }
+
+        If (Files.Length()) {
+            Open(Files)
+        }
+
+        Gui IncludesDlg: Destroy
+    }
+
+    SetSessionsDir() {
+        If (g_SessionsDir == "ERROR" || !FileExist(g_SessionsDir)) {
+            If (FileExist(A_AppData . "\AutoGUI\Sessions\*.session")) {
+                g_SessionsDir := A_AppData . "\AutoGUI\Sessions"
+            } Else {
+                g_SessionsDir := A_ScriptDir . "\Sessions"
+                FileCreateDir %g_SessionsDir%
+                If (ErrorLevel) { ; No permission to write in the application folder
+                    g_SessionsDir := A_AppData . "\AutoGUI\Sessions"
+                    FileCreateDir %g_SessionsDir%
+                }
+            }
+        }
+    }
+
+    LoadSessionMenu() {
+        hMenu := MenuGetHandle("AutoSessionMenu")
+        If (hMenu) {
+            Loop % GetMenuItemCount(hMenu) {
+                Menu AutoSessionMenu, Delete, 1&
+            }
+        }
+
+        MostRecentFile := ""
+        MostRecentDate := 0
+        ItemCount := 0
+        Loop %g_SessionsDir%\*.session
+        {
+            SplitPath A_LoopFileName,,,, NameNoExt
+
+            If (A_LoopFileTimeModified > MostRecentDate) {
+                MostRecentDate := A_LoopFileTimeModified
+                MostRecentFile := NameNoExt
+            }
+
+            Menu AutoSessionMenu, Add, %NameNoExt%, M_LoadSession
+            ItemCount++
+        }
+
+        If (ItemCount > 1) {
+            Menu AutoSessionMenu, Delete, %MostRecentFile%
+            Menu AutoSessionMenu, Insert, 1&, %MostRecentFile%, M_LoadSession
+        }
+
+        If (ItemCount) {
+            Menu AutoSessionMenu, Default, %MostRecentFile%
+            Menu AutoSessionMenu, Add
+        }
+
+        AddMenu("AutoSessionMenu", "Open Sessions Folder", "OpenSessionsFolder", IconLib, 9)
+        If (!FileExist(g_SessionsDir . "\*.session")) {
+            Menu AutoSessionMenu, Disable, Open Sessions Folder
+        }
+
+        Menu AutoFileMenu, Add, &Load Session, :AutoSessionMenu
+    }
+
+    M_LoadSession() {
+        SessionFile = %g_SessionsDir%\%A_ThisMenuItem%.session
+        LoadSession(SessionFile)
+    }
+
+    LoadSession(SessionFile) {
+        Files := []
+        Active := 1
+        If (FileExist(SessionFile)) {
+            FileRead Session, %SessionFile%
+            Loop Parse, Session, `n, `r
+            {
+                Fields := StrSplit(A_LoopField, "|")
+                If (FileExist(Fields[1])) {
+                    Files.Push(Fields[1])
+                }
+
+                If (Fields[2]) {
+                    Active := A_Index
+                }
+            }
+        }
+
+        If (Files.Length()) {
+            If (Sci[TabEx.GetSel()].GetModify()) {
+                Active += TabEx.GetCount()
+            } Else {
+                Active += TabEx.GetCount() - 1
+            }
+
+            Open(Files)
+            Sleep -1
+            TabEx.SetSel(Active)
+            FileSetTime %A_Now%, %SessionFile%
+        }
+    }
+
+    LoadLastSession() {
+        MostRecentFile := ""
+        MostRecentDate := 0
+        Loop %g_SessionsDir%\*.session
+        {
+            If (A_LoopFileTimeModified > MostRecentDate) {
+                MostRecentDate := A_LoopFileTimeModified
+                MostRecentFile := A_LoopFileLongPath
+            }
+        }
+
+        LoadSession(MostRecentFile)
+    }
+
+    SaveSessionOnExit:
+    SaveSession:
+        n := TabEx.GetSel()
+        Session := ""
+        Loop % Sci.Length() {
+            Active := n == A_Index ? 1 : 0
+            Filename := Sci[A_Index].FullName
+            If (FileExist(Filename)) {
+                Session .= Filename . "|" . Active . CRLF
+            }
+        }
+
+        Session := RTrim(Session, CRLF)
+
+        If (A_ThisLabel == "SaveSession") {
+            Filename := g_SessionsDir . "\Session Name.session"
+            FileSelectFile Filename, S16, %Filename%, Save Session, Session Files (*.session)
+            If (ErrorLevel) {
+                Return
+            }
+
+            SplitPath Filename,,, Ext
+            If (!(Ext = "session") && !FileExist(Filename . ".session")) {
+                Filename .= ".session"
+            }
+        } Else {
+            Filename := g_SessionsDir . "\Session Saved on Exit.session"
+        }
+
+        FileDelete %Filename%
+        FileAppend %Session%, %Filename%
+        If (ErrorLevel) {
+            ErrorMsgBox("Error saving """ . Filename . """.", "Auto", g_AppName)
+        }
+    Return
+
+    OpenSessionsFolder:
+        Run %g_SessionsDir%
+    Return
+
+    OpenNewInstance() {
+        Filename := Sci[g_TabIndex].FullName
+        Run "%A_AhkPath%" "%A_ScriptFullPath%" /new "%Filename%"
+    }
+
+    Sci_GetIdealSize(ByRef X, ByRef Y, ByRef W, ByRef H) {
+        GetClientSize(hAutoWnd, WindowW, WindowH)
+        GuiControlGet, ToolBox, Auto: Pos, %hLVToolbox%
+        GuiControlGet, TabCtl, Auto: Pos, %hTab%
+
+        If (g_TabBarPos == 1) { ; Top
+            Y := TabCtlY + TabCtlH
+            H := WindowH - g_StatusBarH - Y
+        } Else {
+            Y := g_ToolbarH
+            H := WindowH - g_StatusBarH - TabCtlH - Y
+        }
+
+        X := (g_DesignMode) ? ToolBoxW + g_SplitterW : -1
+        W := (g_DesignMode) ? WindowW - ToolBoxW - g_SplitterW : WindowW + 1
+    }
+
+    CreateTabControl:
+        GetClientSize(hAutoWnd, WindowW, WindowH)
+        If (g_DesignMode) {
+            GuiControlGet, ToolBox, Auto: Pos, %hLVToolbox%
+            SplitterW := (g_TabBarStyle == 1 ? g_SplitterW : g_SplitterW - 2)
+            TabX := ToolboxW + SplitterW
+            TabW := WindowW - ToolboxW - SplitterW
+        } Else {
+            TabX := 0
+            TabW := WindowW
+        }
+
+        Style := "+AltSubmit -Wrap -TabStop +0x2008000" . (g_TabBarStyle == 1 ? " +Theme" : " +Buttons")
+
+        If (g_TabBarPos == 1) {
+            Gui Add, Tab2, hWndhTab gTabHandler x%TabX% y%g_ToolbarH% w%TabW% h25 %Style%, Untitled 1
+        } Else {
+            TabY := WindowH - g_StatusBarH - 25
+            Gui Add, Tab2, hWndhTab gTabHandler x%TabX% y%TabY% w%TabW% h25 %Style%, Untitled 1
+        }
+
+        SendMessage 0x1329, 0, 0x00180055,, ahk_id %hTab% ; TCM_SETITEMSIZE (0x18 = 24)
+
+        Ptr := A_PtrSize == 8 ? "Ptr" : ""
+        Global OldTabProc := DllCall("GetWindowLong" . Ptr, "Ptr", hTab, "Int", -4, "Ptr") ; GWL_WNDPROC
+        NewTabProc := RegisterCallback("NewTabProc", "", 4) ;
+        DllCall("SetWindowLong" . Ptr, "Ptr", hTab, "Int", -4, "Ptr", NewTabProc, "Ptr")
+
+        TabEx := New GuiTabEx(hTab)
+        TabExIL := IL_Create(3)
+        IL_Add(TabExIL, IconLib, 3) ; Unsaved file
+        IL_Add(TabExIL, A_AhkPath, 2) ; AHK default icon
+        IL_Add(TabExIL, IconLib, 5) ; GUI icon
+        TabEx.SetImageList(TabExIL)
+        TabEx.SetIcon(1, 1)
+        TabEx.SetPadding(5, 4)
+
+        Gui Tab
+    Return
+
+    ; Adapted from AkelPad
+    NewTabProc(hWnd, msg, wParam, lParam) {
+        Static s_MouseMove := 0
+
+        If (msg == 0x201) { ; WM_LBUTTONDOWN
+            TabIndex := TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16)
+
+            If (TabIndex) {
+                s_MouseMove := 4
+                If (!g_MouseCapture) {
+                    g_MouseCapture := 1
+                    DllCall("SetCapture", "Ptr", hWnd)
+                }
+
+                If (TabIndex != TabEx.GetSel()) {
+                    TabEx.SetSel(TabIndex)
+                }
+            }
+            Return True
+
+        } Else If (msg == 0x200) { ; WM_MOUSEMOVE
+            If (g_MouseCapture) {
+                If (s_MouseMove > 0) {
+                    If (--s_MouseMove == 0) {
+                        DllCall("SetCursor", "Ptr", hCursorDragMove)
+                    }
+                }
+                Return True
+            }
+
+        } Else If (msg == 0x202) { ; WM_LBUTTONUP
+            If (g_MouseCapture) {
+                g_MouseCapture := 0
+                DllCall("ReleaseCapture")
+
+                If (s_MouseMove == 0) {
+                    DropItem := TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16)
+
+                    DragItem := TabEx.GetSel()
+                    If (DropItem && DropItem != DragItem) {
+                        SwapTabs(DragItem, DropItem)
+                    }
+                }
+                Return True
+            }
+
+        } Else If (msg == 0x215) { ; WM_CAPTURECHANGED
+            If (g_MouseCapture) {
+                g_MouseCapture := 0
+                DllCall("ReleaseCapture")
+            }
+
+        } Else If (msg == 0x207) { ; WM_MBUTTONDOWN
+            CloseTab(TabHitTest(hWnd, lParam & 0xFFFF, lParam >> 16))
+            Return True
+        }
+
+        Return DllCall("CallWindowProcA", "Ptr", OldTabProc, "Ptr", hWnd, "UInt", msg, "Ptr", wParam, "Ptr", lParam, "Ptr")
+    }
+
+    ; nTab := TabHitTest(hTab, lParam & 0xFFFF, lParam >> 16)
+    TabHitTest(hWnd, x, y) {
+        VarSetCapacity(TCHITTESTINFO, 16, 0)
+        NumPut(x, TCHITTESTINFO, 0)
+        NumPut(y, TCHITTESTINFO, 4)
+        NumPut(6, HITTESTINFO, 8) ; 6 = TCHT_ONITEM
+        SendMessage 0x130D, 0, &TCHITTESTINFO,, ahk_id %hWnd% ; TCM_HITTEST
+        Return Int(ErrorLevel) + 1
+    }
+
+    ; Drag: source. Drop: destination.
+    SwapTabs(DragItem, DropItem) {
+        If (g_GuiTab) {
+            If (DragItem == g_GuiTab) {
+                g_GuiTab := DropItem
+            } Else If (DragItem < g_GuiTab && DropItem >= g_GuiTab) {
+                g_GuiTab--
+            } Else If (DragItem > g_GuiTab && DropItem <= g_GuiTab) {
+                g_GuiTab++
+            }
+        }
+
+        ObjSci := Sci.RemoveAt(DragItem)
+        Sci.InsertAt(DropItem, ObjSci)
+
+        Loop % Sci.Length() {
+            SetDocumentStatus(A_Index)
+            SetTabIcon(A_Index)
+        }
+
+        TabEx.SetSel(DropItem)
+    }
+
+    SetTabBarPos:
+        If (A_ThisMenuItem == "Top") {
+            TabCtlY := g_ToolbarH
+            g_TabBarPos := 1
+            Menu AutoViewTabBarMenu, Uncheck, Bottom
+        } Else {
+            GetClientSize(hAutoWnd, WindowW, WindowH)
+            TabCtlY := WindowH - g_StatusBarH - 25 ; 25 = TabCtlH
+            g_TabBarPos := 2
+            Menu AutoViewTabBarMenu, Uncheck, Top
+        }
+
+        Control ExStyle, ^0x200,, ahk_id %hMainToolbar% ; Toggle WS_EX_CLIENTEDGE
+        Control ExStyle, ^0x200,, ahk_id %hGUIToolbar%
+        ; 0x37: SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE | SWP_DRAWFRAME
+        SetWindowPos(hMainToolbar, 0, 0, 0, 0, 0, 0x37)
+        SetWindowPos(hGUIToolbar, 0, 0, 0, 0, 0, 0x37)
+
+        GuiControl MoveDraw, %hTab%, y%TabCtlY%
+
+        Sci_GetIdealSize(SciX, SciY, SciW, SciH)
+        Loop % Sci.Length() {
+            SetWindowPos(Sci[A_Index].hWnd, SciX, SciY, 0, 0, 0, 0x15) ; SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE
+        }
+
+        Menu AutoViewTabBarMenu, Check, %A_ThisMenuItem%
+    Return
+
+    SetTabBarStyle:
+        If (A_ThisMenuItem == "Standard") {
+            GuiControl Auto: -Buttons, %hTab%
+            DllCall("UxTheme.dll\SetWindowTheme", "Ptr", hTab, "WStr", "Explorer", "Ptr", 0)
+            g_TabBarStyle := 1
+            Menu AutoViewTabBarMenu, Uncheck, Buttons
+        } Else {
+            DllCall("UxTheme.dll\SetWindowTheme", "Ptr", hTab, "Str", " ", "Str", " ")
+            GuiControl Auto: +Buttons, %hTab%
+            g_TabBarStyle := 2
+            Menu AutoViewTabBarMenu, Uncheck, Standard
+        }
+
+        If (g_DesignMode) {
+            GuiControlGet, TabCtl, Pos, %hTab%
+            TabCtlX := A_ThisMenuItem == "Standard" ? TabCtlX + 2 : TabCtlX - 2
+            GuiControl MoveDraw, %hTab%, x%TabCtlX%
+        }
+
+        Menu AutoViewTabBarMenu, Check, %A_ThisMenuItem%
+    Return
+
+    SetTabIcon(n) {
+        TabEx.SetIcon(n, (n == g_GuiTab) ? 3 : (Sci[n].FileName != "" && SubStr(Sci[n].FileName, -2) = "AHK") ? 2 : 1)
+    }
+
+    ShowBackupDialog:
+        Gui BackupDlg: New, LabelBackupDlg hWndhBackupDlg -MinimizeBox OwnerAuto
+        SetWindowIcon(hBackupDlg, IconLib, 10)
+        Gui Color, White
+        Gui Add, Radio, x0 y0 w0 h0
+
+        Gui Add, Progress, x-1 y0 w526 h49 -Smooth +Background008EBC +Border, 0
+        Gui Font, s12 cWhite, Segoe UI
+        Gui Add, Text, x11 y12 w297 h23 +0x200 +BackgroundTrans, Auto-save and Backup Settings
+        Gui Font
+
+        Gui Font, s9, Segoe UI
+        Gui Add, Text, x12 y57 w69 h23 +0x200, Directory:
+        Gui Add, Edit, vg_BackupDir x84 y58 w347 h21, %g_BackupDir%
+        Gui Add, Button, gChooseBackupDir x436 y56 w80 h23, &Choose...
+
+        Gui Add, CheckBox, vg_BackupOnSave x12 y88 w237 h23 +Checked%g_BackupOnSave%
+            , Backup a copy of the file before saving
+
+        Gui Add, GroupBox, x8 y117 w509 h114, Auto-save
+        Gui Add, Text, x20 y136 w139 h23 +0x200, Save automatically after
+        Gui Add, Edit, vg_AutoSaveInterval x162 y137 w42 h21 +Number +Right, %g_AutoSaveInterval%
+        Gui Add, Text, x212 y136 w58 h23 +0x200, minutes
+        Gui Add, CheckBox, vg_AutoSaveInLoco x20 y168 w237 h23 +Checked%g_AutoSaveInLoco%
+            , Save the file in its current location
+        Gui Add, CheckBox, vg_AutoSaveInBkpDir x20 y199 w237 h23 +Checked%g_AutoSaveInBkpDir%
+            , Save the file in the backup directory
+
+        Gui Add, Text, x12 y238 w183 h23 +0x200, Delete backup copies older than
+        Gui Add, Edit, vg_BackupDays x197 y240 w42 h21 +Number +Right, %g_BackupDays%
+        Gui Add, Text, x245 y238 w45 h23 +0x200, days
+
+        Gui Add, Text, x-1 y275 w526 h48 -Background +Border
+        Gui Add, Button, gBackupDlgOK x341 y287 w84 h24 +Default, &OK
+        Gui Add, Button, gBackupDlgClose x432 y287 w84 h24, &Cancel
+
+        Gui Show, w524 h322, Auto-save and Backup Settings
+    Return
+
+    BackupDlgEscape:
+    BackupDlgClose:
+        Gui BackupDlg: Destroy
+    Return
+
+    BackupDlgOK:
+        Gui BackupDlg: Submit
+
+        g_BackupDir := RTrim(g_BackupDir, "\")
+
+        If (g_AutoSaveInterval < 1) {
+            g_AutoSaveInterval := 3 ; Default
+        }
+
+        DeleteOldBackups()
+
+        ResetAutoSave()
+    Return
+
+    ChooseBackupDir:
+        Gui BackupDlg: +OwnDialogs
+        FileSelectFolder SelectedFolder,,, Select Folder
+        If (!ErrorLevel) {
+            GuiControl, BackupDlg:, g_BackupDir, %SelectedFolder%
+        }
+    Return
+
+    AutoSaveTimer() {
+        Critical
+
+        If (g_AutoSaveInLoco) {
+            Loop % Sci.Length() {
+                ; Only for documents with name
+                If (Sci[A_Index].FullName != "" && Sci[A_Index].GetModify()) {
+                    Save(A_Index)
+                }
+            }
+        }
+
+        If (g_AutoSaveInBkpDir) {
+            Loop % Sci.Length() {
+                If (Sci[A_Index].FullName != "" && !Sci[A_Index].GetModify()) {
+                    Continue ; The file has not been modified
+                }
+
+                ; Generate backup name for named documents
+                If (Sci[A_Index].FullName != "") {
+                    If (!InStr(Sci[A_Index].BackupName, "[")) {
+                        CRC32 := CRC32(Sci[A_Index].FullName)
+                        SplitPath % Sci[A_Index].FullName, Filename,, FileExt
+                        FileExt := "." . FileExt . ".tmp"
+                        Sci[A_Index].BackupName := g_BackupDir . "\" . Filename . " [" . CRC32 . "]" . FileExt
+                    }
+                    ; For unnamed documents
+                } Else If (Sci[A_Index].BackupName == "") {
+                    Sci[A_Index].BackupName := GetTempFileName(g_BackupDir, "tmp")
+                }
+
+                SciText := GetText(A_Index)
+                If (SciText != "") {
+                    If (BackupDirCreated()) {
+                        BackupName := Sci[A_Index].BackupName
+                        Encoding := (SubStr(BackupName, -7, 4) = ".INI") ? "UTF-16" : A_FileEncoding
+                        FileDelete %BackupName%
+                        FileAppend %SciText%, %BackupName%, %Encoding%
                     }
                 }
             }
         }
+    }
 
-        ErrorMsgBox(AhkStdErr, "Auto")
-        If (g_ShowErrorSign == -1 && Marked) {
-            Sci[n].MarkerDelete(Line, g_MarkerError)
+    ; Credits to jNizM
+    CRC32(String, Encoding = "UTF-8") {
+        Local ChrLength, Length, Data, hMod, CRC32
+        ChrLength := (Encoding = "CP1200" || Encoding = "UTF-16") ? 2 : 1
+        Length := (StrPut(String, Encoding) - 1) * ChrLength
+        VarSetCapacity(Data, Length, 0)
+        StrPut(String, &Data, Floor(Length / ChrLength), Encoding)
+        hMod := DllCall("Kernel32.dll\LoadLibrary", "Str", "Ntdll.dll", "Ptr")
+        CRC32 := DllCall("Ntdll.dll\RtlComputeCrc32", "UInt", 0, "UInt", &Data, "UInt", Length, "UInt")
+        DllCall("Kernel32.dll\FreeLibrary", "Ptr", hMod)
+        Return Format("{:08X}", CRC32)
+    }
+
+    GetTempFileName(Dir, Ext := "tmp") {
+        Local Num, Filename
+        Static Attempts := 0
+
+        Random Num, 1, 2147483647
+
+        Filename := Dir . "\" . Num . "." . Ext
+        If (FileExist(Filename)) {
+            Attempts++
+            If (Attempts > 10) {
+                Attempts := 0
+                Filename := Dir . "\" . A_Now . " " . Num . "." . Ext
+                Return Filename
+            }
+
+            GetTempFileName(Dir, Ext)
         }
 
-        ; Debug
-        If (AhkDbgParams) {
-            GoSub DebugError 
+        Attempts := 0
+        Return Filename
+    }
+
+    DeleteOldBackups(Ext := "tmp") {
+        Loop %g_BackupDir%\*.%Ext% {
+            Now := A_Now
+            EnvSub Now, %A_LoopFileTimeModified%, Days
+            If (Now >= g_BackupDays) {
+                FileDelete %A_LoopFileLongPath%
+            }
         }
     }
-}
 
-GetSaveEncoding(Filename) {
-Return (SubStr(Filename, -2) = "INI") ? "UTF-16" : A_FileEncoding
-}
-
-WriteFile(Filename, String, Encoding := "UTF-8") {
-    f := FileOpen(Filename, "w", Encoding)
-    If (!IsObject(f)) {
-        ErrorMsgBox("Error saving """ . Filename . """.`n`n" . GetErrorMessage(A_LastError), "Auto")
-        Return -1
+    BackupDirCreated() {
+        If (!FileExist(g_BackupDir)) {
+            FileCreateDir %g_BackupDir%
+            Return !ErrorLevel
+        }
+        Return True
     }
-    Bytes := f.Write(String)
-    f.Close()
-Return Bytes
-}
 
-#Include %A_ScriptDir%\Lib\CommonDialogs.ahk
-#Include %A_ScriptDir%\Lib\GuiButtonIcon.ahk
-#Include %A_ScriptDir%\Lib\RunGetStdOut.ahk
-#Include %A_ScriptDir%\Lib\ExecScript.ahk
-#Include %A_ScriptDir%\Lib\EnumIncludes.ahk
-#Include %A_ScriptDir%\Lib\DBGp.ahk
-#Include %A_ScriptDir%\Lib\LV_GroupView.ahk
-#Include %A_ScriptDir%\Tools\MagicBox\Functions\InputBoxEx.ahk
-#Include %A_ScriptDir%\Tools\MagicBox\Functions\SoftModalMessageBox.ahk
+    StartAutoSave() {
+        If (g_AutoSaveInLoco || g_AutoSaveInBkpDir) {
+            SetTimer AutoSaveTimer, % g_AutoSaveInterval * 60000
+        }
+    }
 
-#Include %A_ScriptDir%\Include\Editor.ahk
-#Include %A_ScriptDir%\Include\Designer.ahk
-#Include %A_ScriptDir%\Include\Properties.ahk
-#Include %A_ScriptDir%\Include\FontDialog.ahk
-#Include %A_ScriptDir%\Include\MenuEditor.ahk
-#Include %A_ScriptDir%\Include\ToolbarEditor.ahk
-#Include %A_ScriptDir%\Include\CloneWindow.ahk
-#Include %A_ScriptDir%\Include\Settings.ahk
-#Include %A_ScriptDir%\Include\Parser.ahk
-#Include %A_ScriptDir%\Include\ContextHelp.ahk
-#Include %A_ScriptDir%\Include\GenerateCode.ahk
-#Include %A_ScriptDir%\Include\FindReplace.ahk
-#Include %A_ScriptDir%\Include\ToolsDialog.ahk
-#Include %A_ScriptDir%\Include\Debug.ahk
+    ResetAutoSave() {
+        Try {
+            SetTimer AutoSaveTimer, Off
+        }
+
+        StartAutoSave()
+    }
+
+    CustomMessage(wParam, lParam) {
+        n := TabEx.GetSel()
+
+        If (wParam == 1) { ; Integration with Find in Files
+            If (WinExist("ahk_id " . lParam)) {
+                ControlGetText Params,, ahk_id %lParam%
+                Params := StrSplit(Params, "|")
+                If (FileExist(Params[1])) {
+                    Open([Params[1]])
+                    Sleep -1
+                    n := TabEx.GetSel()
+                    GoToLineEx(n, Params[2] - 1)
+                    WinActivate ahk_id %hAutoWnd%
+                }
+            }
+
+        } Else If (wParam == 2) { ; Request all open file names
+            Filenames := ""
+            If (Sci[n].FullName != "") {
+                Filenames .= Sci[n].FullName . ";"
+            }
+
+            Loop % Sci.Length() {
+                If (A_Index == n) {
+                    Continue ; ?
+                }
+
+                If (Sci[A_Index].FullName != "") {
+                    Filenames .= Sci[A_Index].FullName . ";"
+                }
+            }
+
+            GuiControl,, %g_hHiddenEdit%, %Filenames%
+            Sleep -1
+            SendMessage 10000, 2, %g_hHiddenEdit%,, ahk_id %lParam%
+
+        } Else If (wParam == 3) { ; Script Directives
+            If (WinExist("ahk_id " . lParam)) {
+                ControlGetText Params,, ahk_id %lParam%
+                Sci[n].InsertText(0, Params, 1)
+                SendMessage 0x10, 0, 0,, % "ahk_id" . GetParent(lParam) ; WM_CLOSE
+            }
+        }
+    }
+
+    ScriptDirectives() {
+        Run %A_ScriptDir%\Tools\Directives.ahk /AutoGUI
+    }
+
+    OnWM_SHOWWINDOW(wParam, lParam, msg, hWnd) {
+        If (hWnd == hChildWnd) {
+            SetStatusBar(g_GuiVis := wParam)
+        }
+    }
+
+    FormatAhkStdErr(AhkStdErr, ByRef File := "", ByRef Line := 0) {
+        If (RegExMatch(AhkStdErr, "Us)^(.*) \((\d+)\) : ==> (.*)\s*(?:Specifically: (.*))?$", Match)) {
+            Message := "File: """ . (File := Match1) . """."
+            Message .= "`n`nError at line " . (Line := Match2) . "."
+            If (Match4 != "") {
+                Message .= "`n`nSpecifically: " . Match4
+            }
+            Message .= "`n`nError: " . Match3
+            Return Message
+        } Else {
+            Return AhkStdErr
+        }
+    }
+
+    ToggleCaptureStdErr:
+        g_CaptureStdErr := !g_CaptureStdErr
+        Menu AutoRunMenu, ToggleCheck, Capture Standard &Error
+    Return
+
+    AhkRunGetStdErr(n, AhkPath, AhkScript, Parameters, WorkingDir, AhkDbgParams := "") {
+        CmdLine := """" . AhkPath . """ /ErrorStdOut " . AhkDbgParams . " """ . AhkScript . """ " . Parameters
+        StdErr := RunGetStdOut(CmdLine, "CP0", WorkingDir, ExitCode)
+        If (ExitCode == 2) {
+            Marked := 0
+            AhkStdErr := FormatAhkStdErr(StdErr, File, Line)
+            If (Line) {
+                If (AhkScript != File && File != g_TempFile) {
+                    n := IsFileOpened(File)
+                    If (n) {
+                        TabEx.SetSel(n)
+                        Sleep 1
+                    } Else {
+                        n := Open([File])
+                    }
+                }
+
+                If (n) {
+                    --Line
+                    GoToLineEx(n, Line)
+                    If (g_ShowErrorSign) {
+                        If !(Sci[n].MarkerGet(Line) & (1 << g_MarkerError)) {
+                            Sci[n].MarkerAdd(Line, g_MarkerError)
+                            Marked := 1
+                        }
+                    }
+                }
+            }
+
+            ErrorMsgBox(AhkStdErr, "Auto")
+            If (g_ShowErrorSign == -1 && Marked) {
+                Sci[n].MarkerDelete(Line, g_MarkerError)
+            }
+
+            ; Debug
+            If (AhkDbgParams) {
+                GoSub DebugError
+            }
+        }
+    }
+
+    GetSaveEncoding(Filename) {
+        Return (SubStr(Filename, -2) = "INI") ? "UTF-16" : A_FileEncoding
+    }
+
+    WriteFile(Filename, String, Encoding := "UTF-8") {
+        f := FileOpen(Filename, "w", Encoding)
+        If (!IsObject(f)) {
+            ErrorMsgBox("Error saving """ . Filename . """.`n`n" . GetErrorMessage(A_LastError), "Auto")
+            Return -1
+        }
+        Bytes := f.Write(String)
+        f.Close()
+        Return Bytes
+    }
+
+    #Include %A_ScriptDir%\Lib\CommonDialogs.ahk
+    #Include %A_ScriptDir%\Lib\GuiButtonIcon.ahk
+    #Include %A_ScriptDir%\Lib\RunGetStdOut.ahk
+    #Include %A_ScriptDir%\Lib\ExecScript.ahk
+    #Include %A_ScriptDir%\Lib\EnumIncludes.ahk
+    #Include %A_ScriptDir%\Lib\DBGp.ahk
+    #Include %A_ScriptDir%\Lib\LV_GroupView.ahk
+    #Include %A_ScriptDir%\Tools\MagicBox\Functions\InputBoxEx.ahk
+    #Include %A_ScriptDir%\Tools\MagicBox\Functions\SoftModalMessageBox.ahk
+
+    #Include %A_ScriptDir%\Include\Editor.ahk
+    #Include %A_ScriptDir%\Include\Designer.ahk
+    #Include %A_ScriptDir%\Include\Properties.ahk
+    #Include %A_ScriptDir%\Include\FontDialog.ahk
+    #Include %A_ScriptDir%\Include\MenuEditor.ahk
+    #Include %A_ScriptDir%\Include\ToolbarEditor.ahk
+    #Include %A_ScriptDir%\Include\CloneWindow.ahk
+    #Include %A_ScriptDir%\Include\Settings.ahk
+    #Include %A_ScriptDir%\Include\Parser.ahk
+    #Include %A_ScriptDir%\Include\ContextHelp.ahk
+    #Include %A_ScriptDir%\Include\GenerateCode.ahk
+    #Include %A_ScriptDir%\Include\FindReplace.ahk
+    #Include %A_ScriptDir%\Include\ToolsDialog.ahk
+    #Include %A_ScriptDir%\Include\Debug.ahk

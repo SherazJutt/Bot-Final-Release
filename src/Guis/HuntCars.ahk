@@ -6,49 +6,61 @@ Hunt_Cars_Label:
 
     Gui, Destroy
     Gui -MinimizeBox -MaximizeBox ;-DPIScale ;-Caption
-    ; car1
-    Gui, Add, Text, w30 h25 y7, Car 1:
-    Gui, Add, Edit, vcar_1 w25 h20 x40 y3
-    ; car2
-    Gui, Add, Text, w30 h25 x70 y7, Car 2:
-    Gui, Add, Edit, vcar_2 w25 h20 x100 y3
-    ; car3
-    Gui, Add, Text, w30 h25 x10 y33 , Car 3:
-    Gui, Add, Edit, vcar_3 w25 h20 x40 y30
-    ; car4
-    Gui, Add, Text, w30 h25 x70 y33 , Car 4:
-    Gui, Add, Edit, vcar_4 w25 h20 x100 y30
-    ; car5
-    Gui, Add, Text, w30 h25 x10 y63 , Car 5:
-    Gui, Add, Edit, vcar_5 w25 h20 x40 y60
 
-    Gui, Add, Button, gsave_cars Default w55 h20 x70 y61, Save
+    IniRead, maxCars, %SettingsIni%, HUNT, max_cars
 
-    Gui Add, Text, x10 y87 w120 h50, Insert Numbers only to avoide errors
+    Gui, Add, Text, w60 h25 x10 y10, Max Cars:
+    Gui, Add, Edit, vMaxCarsField w25 h20 x65 y7
+    GuiControl, , MaxCarsField, %maxCars%
+    Gui, Add, Button, gsave_maxCars w85 h25 x7 y35, Save Max Cars
+    Gui Add, Text, x0 y70 w100 h2 +0x10
 
-    Gui, Show, w135 h120, Define Cars
-    WinSet, Style, -0x80000, Define Cars
+    LoopIndex := 0
 
-    IniRead, inicar1, %SettingsIni%, HUNT ,car_1
-    IniRead, inicar2, %SettingsIni%, HUNT ,car_2
-    IniRead, inicar3, %SettingsIni%, HUNT ,car_3
-    IniRead, inicar4, %SettingsIni%, HUNT ,car_4
-    IniRead, inicar5, %SettingsIni%, HUNT ,car_5
-    ; setting current ini values to inputs
-    GuiControl, , car_1, %inicar1%
-    GuiControl, , car_2, %inicar2%
-    GuiControl, , car_3, %inicar3%
-    GuiControl, , car_4, %inicar4%
-    GuiControl, , car_5, %inicar5%
+    Loop, %maxCars% {
+        LoopIndex := A_Index
+        ; ; set the skip value by reading from ini file
+        IniRead, car_%A_Index%, %SettingsIni%, HUNT, car_%A_Index%
+
+        y := A_Index == 1 ? 80 : A_Index * 30 + 50
+        y2 := y - 3
+
+        Gui, Add, Text, w60 h25 x10 y%y%, Car %A_Index%:
+        Gui, Add, Edit, vcar_%A_Index% w25 h20 x65 y%y2%
+
+        IniRead, CurrCar, %SettingsIni%, HUNT ,car_%A_Index%, 0
+        ; setting current ini values to inputs
+        GuiControl, , car_%A_Index%, %CurrCar%
+    }
+
+    SaveButton := LoopIndex * 30 + 80
+    Gui, Add, Button, gsave_cars w85 h25 x7 y%SaveButton%, Save
+
+    GuiHeight := LoopIndex * 30 + 112
+
+    Gui, Show, w100 h%GuiHeight%, Hunt Cars
+    WinSet, Style, -0x80000, Hunt Cars
+
 Return
 
+save_maxCars:
+    GuiControlGet, MaxCarsFieldValue, , MaxCarsField
+    ; MsgBox, %MaxCarsFieldValue%
+    If (MaxCarsFieldValue <= 15){
+        IniWrite, %MaxCarsFieldValue%, %SettingsIni%, HUNT, max_cars
+        Gui, Destroy
+        Goto, Hunt_Cars_Label
+        Return
+    }Else{
+        MsgBox, Maximum cars limit is: 15
+    }
+Return
 save_cars:
-    Gui, Submit, NoHide
-    IniWrite, %car_1%, %SettingsIni%, HUNT,car_1
-    IniWrite, %car_2%, %SettingsIni%, HUNT,car_2
-    IniWrite, %car_3%, %SettingsIni%, HUNT,car_3
-    IniWrite, %car_4%, %SettingsIni%, HUNT,car_4
-    IniWrite, %car_5%, %SettingsIni%, HUNT,car_5
+    Loop, %maxCars% {
+        GuiControlGet, CarValue, , car_%A_Index%
+        IniWrite, %CarValue%, %SettingsIni%, HUNT, car_%A_Index%
+    }
+    MsgBox, Changes Saved Succesfully.
     Gui, Destroy
     Goto, main_gui
-Return
+return

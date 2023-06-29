@@ -37,5 +37,6 @@ ToggleCarToSkip:
 
     carState := ClickedCar = "1" ? 0 : 1
     IniWrite, %carState%, %SettingsIni%, CarsSkip, %car%
+    Goto, Skip_MP_Cars_Label
 Return
 

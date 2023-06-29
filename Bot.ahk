@@ -34,7 +34,7 @@ date_check:
     ; Set URL and disable asynchronous requests
     WinHttp.Open("GET", "http://worldtimeapi.org/api/ip", false)
 
-    ; Loop until successful response is received
+    ; Loop until sucessful response is received
     Loop
     {
         ; Display alert message

@@ -42,6 +42,7 @@ ToggleFeatures:
 
     featureState := Clickedfeature = "1" ? 0 : 1
     IniWrite, %featureState%, %SettingsIni%, Main, %feature%
+    Goto, main_gui
 Return
 
 ;  *--------------------------------------------------*

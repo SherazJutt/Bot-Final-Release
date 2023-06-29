@@ -168,7 +168,7 @@ SelectMPCarToPlay(){
                 isMpCarToPlayScreen := True
                 Break
             }Else{
-                Click, 977, 632 Left, 1
+                Click, 967, 632 Left, 1
                 Sleep, 1000
             }
         }

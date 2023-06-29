@@ -1,9 +1,94 @@
+start_game(){
+    ; close a9
+    WinClose , Asphalt 9: Legends
+    Sleep , 1000
+
+    Run, "Asphalt 9" %A_ScriptDir%
+
+    Sleep, 2000
+    ; restore a9 window
+    WinRestore, Asphalt 9: Legends
+
+    ; activate a9 window
+    Sleep , 2000
+    WinActivate , Asphalt 9: Legends
+    Sleep , 1000
+
+    ; resize a9 window to 720p
+    WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
+    Sleep, 1000
+
+    ; restore a9 window
+    WinRestore, Asphalt 9: Legends
+}
+
 PressEscape(count){
     Loop, %count%{
         Sleep, 500
         Send , {Escape}
         Sleep, 500
     }
+}
+
+StuckOnGlLogo() {
+
+    isStuck := true
+
+    Loop, 60 {
+        CoordMode, Pixel, Screen
+        PixelSearch, FoundX, FoundY, 627, 511, 653, 531, 0xCD0041, 0, Fast RGB
+        If (ErrorLevel = 0) {
+            Sleep, 1000
+        } Else {
+            isStuck := False
+            Break
+        }
+    }
+
+    return isStuck
+}
+
+StuckOnLoadingScreen() {
+
+    isStuck := true
+
+    Loop, 5 {
+
+        Text:="|<>*118$18.zzzi0ziATiSRiSNiSNiSTiSTiSTiSTiANi0Nz0tzzzU"
+
+        if (ok:=FindText(X, Y, 167, 56, 191, 77, 0, 0, Text)) {
+            Sleep, 1000
+        } Else {
+            isStuck := False
+            Break
+        }
+    }
+
+    return isStuck
+}
+
+MainMenuLoadedCheck(){
+
+    isLoaded := false
+
+    Loop, 20 {
+        CoordMode , Pixel, Screen
+        PixelSearch, FoundX, FoundY, 10, 61, 35, 87, 0xB00039, 0, Fast RGB
+        If (ErrorLevel = 0)
+        {
+            isLoaded := True
+            Break
+        } Else
+        {
+            PressEscape(1)
+            CheckGame()
+            FullScreenAD()
+            ExitGamePopUp()
+            RewardsNext()
+        }
+        Sleep, 1000
+    }
+    return isLoaded
 }
 
 CheckInternet(){
@@ -149,10 +234,9 @@ XboxAuthentication(){
         PressEscape(1)
         isAuthenticated := False
     }
-
-    Text:="|<>*146$198.Dz0s1kzz1zs70S03Xzy03U03s3zyTzVzwTzUs1kzz3zw70w03Xzy03U03s3zyTzVzyS3ks1kw03kS71s03U7U03U03w0D0S01kSw1ks1ks07UC71k03U7003U07Q070S01kDs1ks1ks070C73k03U7003U07Q070S01k7s1ks1ks070C77U03U7003U07Q070S01k7s1ks1ks070C77003U7003U0CC070S01k7s00s1ks07007C003U7003U0CC070S01k7s00s3kzw7007S003U7003U0CC070Ty1k7s00zzkzy7007S003U7003U0CD070Tz1kDs00zzkzy7007z003U7003U0Q7070Tz1zys00s3kw07007r003U7003U0Q7070S01zws00s1ks07007bU03U7003U0Q7070S01lss1ks1ks070C7Xk03U7003U0zzU70S01kss1ks1ks070C71k03U7003U0zzU70S01kws1ks1ks070C71s03U7003U0zzU70S01kQw1ks1ks07UC70s03U7003U0s3k70S01kSS7ks1kw03ky70Q03U7003U1k1k70S01kCTzUs1kzz3zw70S03U7003ztk1k70TzVkDDz0s1kzz1zs70C03U7003ztk1s70TzVk7U"
-
-    if (ok:=FindText(X, Y, 640-150000, 597-150000, 640+150000, 597+150000, 0, 0, Text)){
+    ; check it later
+    Text:="|<>*147$171.3zy07k0T0zzz07zw0D01y003kTzzszzw0y03s7zzs3zzs1s0TU00S3zzzDzzk7k0T0zzz0zzz0D03s003kTzzvzzy0y03s7zzk7zzw1s0y000S3zzyT07s7k0T0y001y0DUD0Dk003k0DU7k0T0y03s7k00DU0y1s3w000S01w0y03s7k0T0y001w07kD0T0003k0DU7k0T0y03s7k00DU0y1s7k000S01w0y03s7k0T0y001w07kD1y0003k0DU7k0T0y03s7k00DU0y1sDU000S01w0y0007k0T0y001w000D3s0003k0DU7k000y03s7k00DU001sz0000S01w0y0007k0T0y001w000DDk0003k0DU7k000zzzs7zzUDU001tw0000S01w0y0007zzz0zzw1w000Dzk0003k0DU7k000zzzs7zzUDU001zy0000S01w0y0007zzz0zzw1w000Dzs0003k0DU7k000y07s7k00DU001zzU000S01w0y0007k0T0y001w000Dtw0003k0DU7k000y03s7k00DU001y7k000S01w0y03s7k0T0y001w07kDUz0003k0DU7k0T0y03s7k00DU0y1s3s000S01w0y03s7k0T0y001w07kD0DU003k0DU7k0T0y03s7k00DU0y1s1y000S01w0y03s7k0T0y001w07kD07k003k0DU7s0T0y03s7k00DU1y1s0T000S01w0TUDk7k0T0y000z0TUD03s003k0DU3zzy0y03s7zzs7zzw1s0DU00S01w0DzzU7k0T0zzz0Tzz0D01y003k0DU0zzs0y03s7zzs1zzk1s07k00S01w01zw07U0S0Tzz03zs0D00T003k0DU4"
+    if (ok:=FindText(X, Y, 797, 834, 991, 889, 0, 0, Text)){
         PressEscape(1)
         isAuthenticated := False
     }

@@ -72,7 +72,7 @@ date_check:
         msgbox, Warning dont change the system date
         ExitApp
     }Else{
-        ToolTip, ExpirationDate : 15 June 2023 , 640, 0,
+        ToolTip, ExpirationDate : 15 July 2023 , 640, 0,
     }
 
     t1:=A_TickCount, X:=Y:=""
@@ -80,7 +80,7 @@ date_check:
     global SettingsIni := A_ScriptDir "\settings.ini"
 
     global carNames := ["Lancer", "Hellcat", "Peugeotsr1", "Lamborghinicountach25th", "Srt8", "Saleens1", "Ferrarimonzasp1", "Jaguarxesvproject", "Lamborghinimiura", "Bugattieb110", "Porsche911gscoupe", "Nissanr390", "Ferrarienzo", "Lamborghiniessenza", "Porschecarrera", "Vulkan", "Sennagtr", "Zondar", "Centenario", "RaesrTacheon", "Trion", "Naran"]
-    global features := ["PlayHunt", "PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
+    global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
 
     #Include, %A_ScriptDir%\src\Guis\Main.ahk
     #Include, %A_ScriptDir%\src\Guis\HuntCars.ahk
@@ -183,7 +183,19 @@ tickets_check_end_label:
 
 hunt_ended:
 
-; <======================== Hunt ended ==============================>
+    ; <======================== Hunt ended ==============================>
+
+    If (PlayMP1 == 0){
+        MsgBox, 4,Play MP1 is not checked, Do you want to close the game ?
+        IfMsgBox Yes
+        {
+            WinClose , Asphalt 9: Legends
+            ExitApp
+        }Else
+        {
+            ExitApp
+        }
+    }
 
 MP1Start:
     If (!MainMenuLoadedCheck()) {
@@ -777,6 +789,7 @@ LeagueDetectionLabel:
                 }Else{
                     Click, 1188, 649 Left, 1
                     MpSkipCheck()
+
                     ; skip Ads
                     if (PlayMPAds != "Checked"){
                         Goto, watch_AD_end
@@ -1095,17 +1108,19 @@ LeagueDetectionLabel:
                 SoundSet, 0, , mute
             ExitApp
 
-            #Include, %A_ScriptDir%\src\functions\StartGame.ahk
-            #Include, %A_ScriptDir%\src\functions\StuckOnGlLogo.ahk
-            #Include, %A_ScriptDir%\src\functions\StuckOnLoadingScreen.ahk
-            #Include, %A_ScriptDir%\src\functions\MainMenuLoadedCheck.ahk
-            #Include, %A_ScriptDir%\src\functions\Events.ahk
-            #Include, %A_ScriptDir%\src\functions\Hunt.ahk
-            #Include, %A_ScriptDir%\src\functions\PlayRace.ahk
-            #Include, %A_ScriptDir%\src\functions\MP1.ahk
-            #Include, %A_ScriptDir%\src\functions\CarsSkip.ahk
-
+            ; common functions
             #Include, %A_ScriptDir%\src\functions\CommonFunctions.ahk
+
+            ; Events
+            #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
+            #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
+
+            ; MP1
+            #Include, %A_ScriptDir%\src\functions\MP1\CarsSkip.ahk
+            #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk
+
+            ; Play Race
+            #Include, %A_ScriptDir%\src\functions\PlayRace.ahk
 
             #Include, %A_ScriptDir%\src\libs\JSON.ahk
             #Include, %A_ScriptDir%\src\libs\FindText.ahk

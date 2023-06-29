@@ -12,16 +12,18 @@ main_gui:
     Gui Add, CheckBox, gToggleFeatures %PlayHunt% x7 y70 w80 h25 , Play Hunt
     Gui Add, Button, gHunt_Cars_Label x90 y70 w75 h25 , Hunt Cars
 
-    Gui Add, CheckBox, gToggleFeatures %PlayMPAds% x7 y100 w100 h25 , Play MP Ads
-    Gui Add, CheckBox, gToggleFeatures %MuteSystemVolume% x7 y130 w150 h25, Mute System Volume
-    Gui Add, CheckBox, gToggleFeatures %LeagueDetection% x7 y160 w150 h25, League Detection
+    Gui Add, CheckBox, gToggleFeatures %PlayMP1% x7 y100 w80 h25 , Play MP1
 
-    Gui Add, CheckBox, gToggleFeatures %EventPassHolder% x7 y190 w150 h25, Event Pass Holder
-    Gui Add, CheckBox, gToggleFeatures %AutoRefillTickets% x7 y220 w150 h25, Auto Refill Tickets
+    Gui Add, CheckBox, gToggleFeatures %PlayMPAds% x7 y130 w100 h25 , Play MP Ads
+    Gui Add, CheckBox, gToggleFeatures %MuteSystemVolume% x7 y160 w150 h25, Mute System Volume
+    Gui Add, CheckBox, gToggleFeatures %LeagueDetection% x7 y190 w150 h25, League Detection
 
-    Gui Add, Button, gSkip_MP_Cars_Label x7 y250 w100 h25 , Skip MP Cars
+    Gui Add, CheckBox, gToggleFeatures %EventPassHolder% x7 y220 w150 h25, Event Pass Holder
+    Gui Add, CheckBox, gToggleFeatures %AutoRefillTickets% x7 y250 w150 h25, Auto Refill Tickets
 
-    Gui Show, w210 h300, Asphat 9 Autobot
+    Gui Add, Button, gSkip_MP_Cars_Label x7 y280 w100 h25 , Skip MP Cars
+
+    Gui Show, w210 h320, Asphat 9 Autobot
     WinSet, Style, -0x80000, Asphat 9 Autobot
 
 Return

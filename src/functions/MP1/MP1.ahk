@@ -198,13 +198,15 @@ SelectMPCarToPlay(){
 }
 
 MpSkipCheck(){
-    ; Demoted
-    Text:="|<>*154$35.DzUS0wzzUw3lzz1sD7UD3kQD0S7VsS0wD7Uw1sSS1s3kww3k7Vvk7UD3z0D0S7z0S0wDz0w1sTC1s3kyS3k7VsS7UD3kQD0S7UwS0wD0wT7kS0szzUw1szy1s1w"
 
-    if (ok:=FindText(X, Y, 609, 520, 659, 554, 0, 0, Text))
+    ; connection error retry
+    Text:="|<>*127$59.01zzU7z00y00Ts03y00Q00TU03w00M00z003s00EzVw7y7kzkVzVsTwDVzV3z3kzsT3z27y7Vzky7y4DwD3zVwDw8TsS7z3sTsEzkwDy7kzkVz3sTwDVzV3w7kzsT3w200DVzky00A00z3zVw00s07y7z3s03kwDwDy7ky7VwDsTwDVwD3sTkzsT3wC7sTVzky7sQDkz3zVwDsMTkz3y3sTkkzVy00DkzkVz1y00TVzV3z3y01z3z1"
+
+    if (ok:=FindText(X, Y, 724, 201, 812, 244, 0, 0, Text))
     {
-        Send, {Escape}
+        Gosub, script_start
     }
+
     ; club ms claim later
     Text:="|<>*148$74.w00S0zzXzsTyD00DkDzszy7zvk03w3zyDzVzyw00z01k3U0Q3z00Cs0Q0s070Tk07C070C01k7w01nU1k3U0Q1z00Qs0Q0s070Tk0D7070C01k7w03Vk1k3zkQ3z00sQ0Q0zw7zvk0C7U70C01zww070s1k3U0TyD01zy0Q0s073Xk0TzU70C01kww0Dzw1k3U0Q7D03U70Q0s071vk0s1k70C01kCzzC0S1k3zsQ3zzr03UQ0zy70S"
 
@@ -214,9 +216,17 @@ MpSkipCheck(){
     }
 
     ; tier unlocked
-    Text:="|<>*110$82.1w0Q007k1kDk3szy3s00zU7Uz0TrzwDU07y0S3y1zzzky00Ts1sDs7zsDXs01zU7UzUzz0yDU07z0S3y3zw3sy00yw1sDwDzkDXs03nk7Uxlvz00DU0DD0S3r7jw00y00wy1sDSQzk03s07ls7Uxtnz00DU0S7US3njDw00y01sS1sDDszk03s07Vw7UwzXz0QDU0zzkS3lyDw3sy03zz1sD7szkDXs0Dzw7UwT3z0yDU0zzsS3ksDy7sy07k7VsD00zzz3zyS0S7Uw03rzwDzts1wS3k0DDzUzzbU7lsD00y"
+    Text:="|<>*92$81.U00TVzk00zU0Ts001s7w003s00D000D0zU00T000s001s7w003s003000D0zU00T0008001s7w007s001zUTz0zUTzz0zUDw3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w3zzs7y0zUTz0zUTzz0zk7w3zs7w00Ts7y0zUTz0zU01z0zkDw3zs7w00Ds001zUTz0zU01z000Dw3zs7w00Ds003zUTz0zU03z000zw3zs7w3zzs00DzUTz0zUTzz0Q1zw3zs7w3zzs7kDzUTz0zUTzz0y0zw3zs7w3zzs7s7zUTz0zUTzz0z0Tw3zs7w3zzs7s3zUTz0zU00z0zUDw3zs7w003s7w1zUTz0zU00T0zkDw3zs7w003s7y0zUTz0zU00T0zs7w3zs7w007s7z0U"
 
-    if (ok:=FindText(X, Y, 562, 536, 705, 597, 0, 0, Text))
+    if (ok:=FindText(X, Y, 384, 148, 483, 201, 0, 0, Text))
+    {
+        Send, {Escape}
+    }
+
+    ; Demoted
+    Text:="|<>*154$35.DzUS0wzzUw3lzz1sD7UD3kQD0S7VsS0wD7Uw1sSS1s3kww3k7Vvk7UD3z0D0S7z0S0wDz0w1sTC1s3kyS3k7VsS7UD3kQD0S7UwS0wD0wT7kS0szzUw1szy1s1w"
+
+    if (ok:=FindText(X, Y, 609, 520, 659, 554, 0, 0, Text))
     {
         Send, {Escape}
     }
@@ -227,7 +237,7 @@ MpSkipCheck(){
         Send, {Escape}
     }
 
-    ; asphalt 9 loading screen stuck
+    ; asphalt 9 loading screen stuck start
     Loop, 30{
         Text:="|<>*53$36.zzzzzzy00001w00001k00001k00001U7zzzzUDzzzzUDzzzzUDzzzzU7zwvzk0000Dk00007s00003w00003zzzzk3zzzzw1zzzzw1zzzzw1zzzzs3U00003U00007U0000DU0001zzzzzzzU"
         if (ok:=FindText(X, Y, 745, 429, 795, 468, 0, 0, Text)){
@@ -242,6 +252,7 @@ MpSkipCheck(){
     {
         Gosub, script_start
     }
+    ; asphalt 9 loading screen stuck end
 
 }
 

@@ -175,6 +175,7 @@ SelectMPCarToPlay(){
 
         If (isMpCarToPlayScreen){
 
+            ; mp play button to goto car selection screen
             Click, 927, 634 Left, 1
 
             ; car selection screen
@@ -185,22 +186,12 @@ SelectMPCarToPlay(){
                     Sleep, 350
                     Send, {enter}
                 }
-
+                Sleep, 2500
                 Return True
             }
         }Else{
             Gosub, script_start
         }
-    }Else{
-        Gosub, script_start
-    }
-}
-
-StartMPRace(){
-    ; Play Button
-    Text:="|<>*123$71.zz0S003s1s0zzz0w007s1s1vzz1s00Tk3k3r0S3k00zU3kDC0S7U01rU7USQ0wD003j07Vss1sS00DC0D3lk3kw00SS0DD3U7Vs00sw0SS70D3k03ks0RsC0S7U07Vk0zkQ1sD00C3k0z0zzkS00Q7U1y1zz0w01s701s3zw1s03kD03k7003k07zy07UC007U0Tzw0D0Q00D00zzs0S0s00S01s1s0w1k00w03U3k1s3U01zzD03U3k7003zyS07U7UC007zws0D0D0E"
-    if (ok:=FindText(X:="wait", Y:=10, 1058, 624, 1146, 657, 0, 0, Text)){
-        Click, 1183, 634 Left, 1
     }Else{
         Gosub, script_start
     }
@@ -366,22 +357,7 @@ close_AD(){
             Sleep, 250
             isAdClosed := true
         }
-
-        ; syncing to the server start
-        Loop, 30{
-            Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-            if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
-                Sleep, 1000
-            }else{
-                Sleep, 1000
-            }
-        }
-        Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-        if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
-            Gosub, script_start
-        }
-        ; syncing to the server end
-
+        SyncingToTheServer()
         ; token color check to verify home screen to break loop
         Text:="|<>*72$29.zzrzzzy3zzzs3zzz01zzw01zzk00zy000zs0k0z03k0Q07k0E0Tk0E0nU1U37U3067070Tz0S1zy0w3zy1wA0S7sM0QDk000Tk001zU003z0007z000Ty000zw001y"
         if (ok:=FindText(X, Y, 787, 42, 823, 80, 0, 0, Text)){

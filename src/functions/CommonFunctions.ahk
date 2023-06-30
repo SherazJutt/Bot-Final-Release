@@ -52,7 +52,7 @@ StuckOnLoadingScreen() {
 
     isStuck := true
 
-    Loop, 5 {
+    Loop, 60 {
 
         Text:="|<>*118$18.zzzi0ziATiSRiSNiSNiSTiSTiSTiSTiANi0Nz0tzzzU"
 
@@ -85,6 +85,7 @@ MainMenuLoadedCheck(){
             FullScreenAD()
             ExitGamePopUp()
             RewardsNext()
+            LeagueUpDownNext()
         }
         Sleep, 1000
     }
@@ -155,9 +156,9 @@ TdCheck(){
     PixelSearch, FoundX, FoundY, 897, 647, 916, 677, 0xC0F712, 0, Fast RGB
     If (ErrorLevel = 0)
     {
-        Sleep, 500
+        Sleep, 1000
         Click, 858, 657 Left, 1
-        Sleep, 500
+        Sleep, 1000
     }
 }
 
@@ -206,6 +207,21 @@ TokensColorCheckToVerifyHomeScreen(){
     }
 }
 
+SyncingToTheServer(){
+    Loop, 30{
+        Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
+        if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
+            Sleep, 1000
+        }else{
+            Sleep, 1000
+        }
+    }
+    Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
+    if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
+        Gosub, script_start
+    }
+}
+
 ; This shows sometimes After the MP race is completed
 ConnectingToTheServer(){
     isError := True
@@ -240,18 +256,19 @@ XboxAuthentication(){
         PressEscape(1)
         isAuthenticated := False
     }
+
     Sleep, 1000
     Return isAuthenticated
 }
 
-PlayButton(){
-    isPlayButton:= False
-
+ClickOnPlayButton(){
+    ; upgrade text check to confirl car screen
     Text:="|<>*148$145.s1kTz01z07zU0DU1zs0zz0DsQ0sDzs3zs7zw07k1zz0TzUTzC0Q7zy3zy3zz07s0zzkDzkTzr0C3kD1sD1s7U3y0S1w700T1vU71s3Vs3kw1s1r0D0S3U0D0Rk3Uw1kw1sS0w1vU7U71k070Cs1kS0sS0wD0S0xs3k3Us03U7Q0sD0QD0A7UD0QQ1s1kQ01k0C0Q7UC7U03k7UCC0w0sC00w070C3k73k01s3kD7US0Q700TU3U71s3Vs00w1k73kD0C3zs7z1k3Uw3kwTsTzs3Us7U71zw1zws1kTzsSDwDzs3kQ3k3Uzy0DzQ0sDzsD3y7zs1sD1s1kQ000Ti0Q7zk7UD3kw0s7Uw0sC0001z0C3k03k7VsS0TzkS0Q70000zU71s01s3kw7UTzsD0C3U0C0Tk3Uw00w1sS3kDzy7U71k070Ds1kS00S0wD0s7073k7Us03k7y1sD00DUw7US7U3Vs7kQ01s7jzw7U03zy3k73k1szzkDzkTznzw3k00zy1s3lk0wTzk7zsDzkTs1k007w0w0ss0CDzk3zw1zV"
     if (ok:=FindText(X:="wait", Y:=10, 103, 617, 274, 663, 0, 0, Text)){
-        isPlayButton:= True
+        Sleep, 1000
+        Click, 1183, 634 Left, 1
+        Return True
     }
-    Return isPlayButton
 }
 
 ; need to include funtions like if gotany rewards or completed milestone or any other

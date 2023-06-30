@@ -117,16 +117,9 @@ main_menu_loaded_check_start:
 
     Sleep, 3000
 
-    CheckGame()
-    FullScreenAD()
-    ExitGamePopUp()
-    RewardsNext()
-
     If (!SeasonalEvents()) {
         Goto, script_start
     }
-
-    Sleep, 1000
 
     ; <======================== Hunt Start ==============================>
 
@@ -139,6 +132,8 @@ hunt_start:
     If (!EnterEventsTab()) {
         Goto, main_menu_loaded_check_start
     }
+
+    Sleep, 2000
 
     If (!EnterHuntTab()) {
         If (!MainMenuLoadedCheck()) {
@@ -153,22 +148,16 @@ HuntRaceScreen:
         Goto, script_start
     }
 
-    Sleep, 2000
-
     TicketCheck()
 
-tickets_check_end_label:
-
-    Sleep, 1000
     SelectCarToPlayHunt()
 
-    Sleep, 1000
     TdCheck()
-    if(PlayButton()){
-        Click, 1183, 634 Left, 1
-    }Else{
+
+    if(!ClickOnPlayButton()){
         Goto, script_start
     }
+
     Sleep, 8000
 
     If (!PlayHuntRace()){
@@ -205,7 +194,6 @@ MP1Start:
         Goto, script_start
     }
 
-    Sleep, 2000
     ; entering mp
     Loop, 2{
         Click, 686, 644 Left, 1
@@ -220,6 +208,8 @@ MP1Start:
             authIndex ++
             Goto, MP1Start
         }
+    }Else{
+        Sleep, 1000
     }
 
 LeagueDetectionLabel:
@@ -690,10 +680,7 @@ LeagueDetectionLabel:
 
                 Goto, cars_skip_start
             }
-
         i_check_to_play_start:
-
-            Sleep, 1000
 
             SelectMPCarToPlay()
 
@@ -711,7 +698,10 @@ LeagueDetectionLabel:
 
             If (CarsSkip()){
                 Goto, tiers_lock_check_start
+            }Else{
+                Sleep, 2000
             }
+
             If (!OwnsThisCar()){
                 Send, {PgDn}
                 Sleep, 2000
@@ -724,31 +714,13 @@ LeagueDetectionLabel:
             }
 
             TdCheck()
-            StartMPRace()
+            If (!ClickOnPlayButton()){
+                Goto, script_start
+            }
 
             Sleep, 10000
 
-            ; syncing to the server start
-            Loop, 30
-            {
-                Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-                if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text))
-                {
-                    Sleep, 1000
-                }
-                else
-                {
-                    Sleep, 1000
-                    Break
-                }
-            }
-            Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-
-            if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text))
-            {
-                Goto, script_start
-            }
-            ; syncing to the server end
+            SyncingToTheServer()
 
             ; searching for players start
             Loop, 60
@@ -834,7 +806,7 @@ LeagueDetectionLabel:
 
                     watch_AD_start:
 
-                        Sleep, 500
+                        Sleep, 2000
 
                         ; click on ad text
                         Text:="|<>*126$37.0000000DU3zw07k1zz07w0zzk3y0S1s1r0D0S1vU7UD0xs3k7UQQ1s3kCC0w1sD7US0w73kD0S3Us7UD1kQ3k7VsD1s3kzzUw1sTzkS0wTzwD0SD0S7UD7073k7bU3VzzXk1szzlk0QTzk000000U"
@@ -959,29 +931,7 @@ LeagueDetectionLabel:
                                 Click, 1229, 72 Left, 1
                                 Sleep, 250
                             }
-
-                            ; syncing to the server start
-                            Loop, 30
-                            {
-                                Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-                                if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text))
-                                {
-                                    Sleep, 1000
-                                }
-                                else
-                                {
-                                    Sleep, 1000
-                                    Break
-                                }
-                            }
-                            Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"
-
-                            if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text))
-                            {
-                                Goto, script_start
-                            }
-                            ; syncing to the server end
-
+                            SyncingToTheServer()
                             ; ad next
                             Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
 
@@ -1116,8 +1066,9 @@ LeagueDetectionLabel:
             #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
 
             ; MP1
-            #Include, %A_ScriptDir%\src\functions\MP1\CarsSkip.ahk
             #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk
+            #Include, %A_ScriptDir%\src\functions\MP1\CarsSkip.ahk
+            #Include, %A_ScriptDir%\src\functions\MP1\RewardsSkip.ahk
 
             ; Play Race
             #Include, %A_ScriptDir%\src\functions\PlayRace.ahk

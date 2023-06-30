@@ -8,6 +8,7 @@ SeasonalEvents(){
         PixelSearch, FoundX, FoundY, 240, 603, 270, 625, 0xFF0049, 0, Fast RGB
         If (ErrorLevel = 0){
             ; click on seasonal events tabe to active
+            Sleep, 1000
             Click, 349, 637 Left, 1
             Sleep, 1000
         }else{
@@ -58,11 +59,12 @@ EnterEventsTab(){
             Text:="|<>*142$54.DkM0C0ls7TwM0D0ls7MQM0T0lwDsAM0P0lwDsAM0PUlw/s0M0NUlyPs0M0tUlqPs0M0lUlqns0M0kklnns0M1zklnnsAM1zklnXsAM1UsllXQQM1UMlk3TsTvUMlk37kTv0MkU3U"
 
             if (ok:=FindText(X:="wait", Y:=18, 653, 409, 721, 435, 0, 0, Text)){
+                Sleep, 1000
                 Click, 778, 372 Left, 1
                 Sleep, 750
                 Loop, 20{
                     Send, {PgUp}
-                    Sleep, 250
+                    Sleep, 300
                 }
                 Goto, recheck
             }Else{

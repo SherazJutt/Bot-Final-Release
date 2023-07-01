@@ -684,7 +684,7 @@ LeagueDetectionLabel:
 
             SelectMPCarToPlay()
 
-        Is_Car_Screen:
+            ; check upgrade text to verify selected car
             Text:="|<>*148$145.s1kTz01z07zU0DU1zs0zz0DsQ0sDzs3zs7zw07k1zz0TzUTzC0Q7zy3zy3zz07s0zzkDzkTzr0C3kD1sD1s7U3y0S1w700T1vU71s3Vs3kw1s1r0D0S3U0D0Rk3Uw1kw1sS0w1vU7U71k070Cs1kS0sS0wD0S0xs3k3Us03U7Q0sD0QD0A7UD0QQ1s1kQ01k0C0Q7UC7U03k7UCC0w0sC00w070C3k73k01s3kD7US0Q700TU3U71s3Vs00w1k73kD0C3zs7z1k3Uw3kwTsTzs3Us7U71zw1zws1kTzsSDwDzs3kQ3k3Uzy0DzQ0sDzsD3y7zs1sD1s1kQ000Ti0Q7zk7UD3kw0s7Uw0sC0001z0C3k03k7VsS0TzkS0Q70000zU71s01s3kw7UTzsD0C3U0C0Tk3Uw00w1sS3kDzy7U71k070Ds1kS00S0wD0s7073k7Us03k7y1sD00DUw7US7U3Vs7kQ01s7jzw7U03zy3k73k1szzkDzkTznzw3k00zy1s3lk0wTzk7zsDzkTs1k007w0w0ss0CDzk3zw1zV"
             if (!ok:=FindText(X:="wait", Y:=10, 103, 617, 274, 663, 0, 0, Text)){
                 Goto, script_start
@@ -722,319 +722,79 @@ LeagueDetectionLabel:
 
             SyncingToTheServer()
 
-            ; searching for players start
-            Loop, 60
-            {
-                Text:="|<>*118$37.zzzzzzy7tws1z3wyQ0TVyDCD7Uz3b7XmDVnXltbkNlswntAswQswmQSCSSNCD70DC77X03b3XlXlnllsnwtss0tyQyQ0Tzzzzzy"
-
-                if (ok:=FindText(X, Y, 712, 559, 756, 579, 0, 0, Text))
-                {
-                    Sleep, 1000
-                }
-                else
-                {
-                    Break
-                }
-            }
-            Text:="|<>*118$37.zzzzzzy7tws1z3wyQ0TVyDCD7Uz3b7XmDVnXltbkNlswntAswQswmQSCSSNCD70DC77X03b3XlXlnllsnwtss0tyQyQ0Tzzzzzy"
-
-            if (ok:=FindText(X, Y, 712, 559, 756, 579, 0, 0, Text))
-            {
-                Goto, script_start
-            }
-        ; searching for players end
+            SearchingForPlayers()
 
         Space_loop_in_race_start:
+            ; this will complete the race and clicks twice to check the ads screen if available
             If (!PlayMpRace()){
                 Goto, script_start
             }
 
-        rewards_skip_start:
+        watch_AD_start:
+            ; skip Ads
+            if (PlayMPAds != "Checked"){
+                Goto, watch_AD_end
+            }
 
-            Loop, 120{
+            If (watch_AD_if_1st_2nd_OR_3rd()){
+                ; click on (watch ad) button
+                Text:="|<>*125$143.w1s3k3s3zz1zs3U7000y0Dzls3k7UDk7zy7zsD0C001w0TznkDkD0TUDzwTzsS0Q007w0zzrUTUS0zU0w0w3kw0s00Ds1s7b0z0s1r01s1k3Vs1k00Rk3k7j1y1k7i03k3U73k3U01vU7UDS3C7UCQ07U70C7U7003rUD0SwCQD0Qw0D0C0QD0C00770S0xsQsS1ss0S0Q00S0Q00CC0w1tktks3Vk0w0s00w0s00wS1s3nVnVk73k1s1k01zzk01kw3k7bb3XUC3U3k3U03zzU03Us7UDDC7D0w707U7007zz0071kD0SSQCS1kD0D0C00D0C00S3kS0wwsQs3zy0S0Q00S0Q00zzUw1stkNkDzw0w0s1kw0s01zz1s3lr0vUTzs1s1k3Vs1k07zz3k7Xi1r0s1s3k3U73k3U0D0S7UD7w3y1k3k7U70S7U700Q0QD0SDs3w7U3UD0DzwD0C01s0sTzsDU7kD07US0DzkS0Q03k1szzkT0DUQ0D0w0Dz0w0s0701lzy8"
+                if (ok:=FindText(X:="wait", Y:=5, 984, 516, 1141, 553, 0, 0, Text))
+                {
+                    Sleep, 1000
+                    Click, 962, 523 Left, 1
+                    Sleep, 3000
 
-                ; i check to confirm home screen
-                Text:="|<>*144$3.zz0zzzzzzzzU"
-                if (ok:=FindText(X, Y, 1184, 184, 1223, 222, 0, 0, Text)){
-                    Click, 1188, 649 Left, 1
-                    Break
+                    If (Close_AD()){
+                        Sleep, 1000
+                        ; AD Next button
+                        Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
+                        if (ok:=FindText(X:="wait", Y:=10, 1006, 628, 1083, 661, 0, 0, Text)){
+                            Sleep, 1000
+                            Click, 1154, 639 Left, 1
+                            Sleep, 1000
+                            Click, 1242, 409, 0
+                        }Else{
+                            Goto, script_start
+                        }
+                    }Else{
+                        Goto, script_start
+                    }
                 }Else{
-                    Click, 1188, 649 Left, 1
-                    MpSkipCheck()
-
-                    ; skip Ads
-                    if (PlayMPAds != "Checked"){
-                        Goto, watch_AD_end
-                    }
-
-                    ; <========== AD Start ==========>
-
-                    ; watch_AD_if_1st_2nd_OR_3rd
-
-                    ; 1st
-
-                    Text:="|<>*162$38.zzzs00Tzzs003zzw000zzw000Dzw0007zw0001zw0000Tw00007y00001y00000z00000DU00003s00000y00000D000007k00001w00000T000007k03001s03U00y03s00DU3y003s3zU00y1zs00D1zw007tzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Dzzw007zzz001zzzk00Tzzw007zzz001zzzU00zzzs00Dzzy003zzzU00zzzs00Tzzy007zzzU03zzy"
-
-                    if (ok:=FindText(X, Y, 106, 82, 159, 178, 0, 0, Text))
-                    {
-                        Goto, watch_AD_start
-                    }
-                    else
-                    {
-                        ; 2nd
-                        Text:="|<>*163$51.zzzzzzzzzwDz3y00zz0zkDk00zs7y1w003y0zkTU00Tk3y3w003y0TUTUTUDk3w3w7y1y0DUT0zkTU1w7s7y3w0DUz0zUTU0s7sDw3w070z1zUTUUs7kDw7s431y1zUz0kMDkDs7s621y3z0z1k0DkTs7sD01w3z1y1s0TUTsDkD03w3y1y1w0TUzkDkTU3w7y1y3w0T0zkTUTk7s7s3w3y0z000TUTk7s007w7z0z001zUzs7k00zwDzVz00zzzzzzzzzzw"
-
-                        if (ok:=FindText(X, Y, 156, 86, 212, 125, 0, 0, Text))
-                        {
-                            Goto, watch_AD_start
-                        }
-                        else
-                        {
-                            ; 3rd
-                            Text:="|<>*164$50.zzzzzzzzzs07zs03zy00Dy007z001z000zk00Dk00Dw003w003z0y0z0z0TkTkDkTs7s7w3s7y3y1z0y1zUzUTkDUTkDsDw7sDw3y3z1y3z0z0zUT0zkTkDkDkDw7w003w3y1z001z1zUTk00zkTs7s00zs7y3y1kDy1zUzUS3zUTkDsDUTsDw3y3s7y3z0z0y1z0zkTkDkDkDk7w3w3w001z1z0z000zkTk7k00Ts7y1s00Tz3zUz00zzzzzzzzzzs"
-
-                            if (ok:=FindText(X, Y, 158, 90, 214, 124, 0, 0, Text))
-                            {
-                                Goto, watch_AD_start
-                            }
-                            else
-                            {
-                                Goto, watch_AD_end
-                            }
-                        }
-                    }
-
-                    watch_AD_start:
-
-                        Sleep, 2000
-
-                        ; click on ad text
-                        Text:="|<>*126$37.0000000DU3zw07k1zz07w0zzk3y0S1s1r0D0S1vU7UD0xs3k7UQQ1s3kCC0w1sD7US0w73kD0S3Us7UD1kQ3k7VsD1s3kzzUw1sTzkS0wTzwD0SD0S7UD7073k7bU3VzzXk1szzlk0QTzk000000U"
-
-                        if (ok:=FindText(X, Y, 1094, 519, 1139, 548, 0, 0, Text))
-                        {
-                            Sleep, 1000
-                            Click, 962, 523 Left, 1
-                            Sleep, 1000
-                        }
-                        Else
-                        {
-                            Goto, watch_AD_end
-                        }
-
-                    close_AD:
-
-                        Loop, 60
-                        {
-                            Sleep, 1000
-                            CheckGame()
-
-                            Sleep, 250
-                            WinClose, Microsoft Store
-
-                            Sleep, 250
-                            WinClose, Privacy - Vungle - Google Chrome
-
-                            CoordMode, Pixel, Screen
-                            PixelSearch, FoundX, FoundY, 1218, 43, 1261, 54, 0xFFFFFF, 0, Fast RGB
-                            If (ErrorLevel = 0)
-                            {
-                                Sleep, 250
-                                Click, 1228, 73 Left, 1
-                                Sleep, 250
-
-                            }
-                            CoordMode, Pixel, Screen
-                            PixelSearch, FoundX, FoundY, 1203, 40, 1249, 64, 0xE8E8E8, 0, Fast RGB
-                            If (ErrorLevel = 0)
-                            {
-                                Sleep, 250
-                                Click, 1228, 73 Left, 1
-                                Sleep, 250
-                            }
-                            CoordMode, Pixel, Screen
-                            PixelSearch, FoundX, FoundY, 1203, 43, 1257, 58, 0xF5F5F6, 0, Fast RGB
-                            If (ErrorLevel = 0)
-                            {
-                                Sleep, 250
-                                Click, 1228, 73 Left, 1
-                                Sleep, 250
-                            }
-                            ; ad with close text
-                            Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
-                            if (ok:=FindText(X, Y, 1147, 39, 1264, 89, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 1225, 61 Left, 1
-                                Sleep, 5000
-                            }
-                            ; close this ad with green button
-                            Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
-
-                            if (ok:=FindText(X, Y, 682, 433, 746, 474, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 447, 572 Left, 1
-                                Sleep, 250
-                            }
-
-                            ; circle close
-
-                            Text:="|<>*133$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
-
-                            if (ok:=FindText(X, Y, 1208, 51, 1252, 101, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 1228, 71 Left, 1
-                                Sleep, 250
-
-                            }
-
-                            ; march of empires
-
-                            Text:="|<>*161$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk8TzVnzzC"
-
-                            if (ok:=FindText(X, Y, 1213, 58, 1248, 91, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 1229, 72 Left, 1
-                                Sleep, 250
-
-                            }
-
-                            ; resume ad
-                            Text:="|<>*123$77.03z00000000000zzk0000000003zzs000000000Tzzs000000001zzzs000000003z0zk00000000Ds0Tk00000000zU0TU00000001y00zU1zU003w7w00k0Tzs1yTyDs0001zzs3xzyTU0007zzk7zzyz0000DzzkDzzxy0000zUzUTwDzw0001y0z0zkDzs0000Q1y1z0Tzk000003w3w0TzU00000Ds7s0zz00000DzkDk1zy00007zzUTU3zw00M0Tzz0z07zw00y3zty1y0Dzs03y7w3w3w0Tjk07wTU7s7s0zTk0Tkz0DkDk1yTk1zVy0zUTU3wzs7y3y3z0z07szzzs7zzy1y0Dkzzzk7zzw3w0TUTzy07zvw7s0z0Tzs07zbsDk1y07y003w7kTU3y"
-
-                            if (ok:=FindText(X, Y, 478, 266, 592, 326, 0, 0, Text))
-                            {
-                                Sleep, 500
-                                Click, 857, 448 Left, 1
-                                Sleep, 500
-                            }
-                            ; Australian ads system
-
-                            Text:="|<>*101$21.zUDzk0TwDVz7z7lzwQTzlbaD8yHsDszVz7wDszVy3wDmTUwtsbzzATzllzwT7z7wDVzk0TzUDw"
-                            if (ok:=FindText(X, Y, 951, 89, 993, 127, 0, 0, Text)){
-                                Click, 974, 104 Left, 1
-                            }
-                            Text:="|<>*82$60.s1zzzzzznzs1zzzzzznznszzzzzznz7zw70ks3nk7ztn668tn67znvDC9wmD7zrvDC9ym07zrvDC9ym07zrvDC9ym0nwnnDC9wmDlttnDC8tn6w3w7DC83nkzzzzzztzzzzzzzzztzzzzzzzzztzzzU"
-
-                            if (ok:=FindText(X, Y, 501, 98, 581, 122, 0, 0, Text)){
-                                Click, 974, 104 Left, 1
-                            }
-
-                            Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
-
-                            if (ok:=FindText(X, Y, 1206, 60, 1245, 99, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 1229, 72 Left, 1
-                                Sleep, 250
-                            }
-                            SyncingToTheServer()
-                            ; ad next
-                            Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
-
-                            if (ok:=FindText(X, Y, 1006, 628, 1083, 661, 0, 0, Text))
-                            {
-                                Sleep, 250
-                                Click, 1154, 639 Left, 1
-                                Sleep, 250
-                                Break
-                            }
-
-                            ; token color check to verify home screen to break loop
-
-                            Text:="|<>*72$29.zzrzzzy3zzzs3zzz01zzw01zzk00zy000zs0k0z03k0Q07k0E0Tk0E0nU1U37U3067070Tz0S1zy0w3zy1wA0S7sM0QDk000Tk001zU003z0007z000Ty000zw001y"
-
-                            if (ok:=FindText(X, Y, 787, 42, 823, 80, 0, 0, Text))
-                            {
-                                Break
-                            }
-
-                        }
-
-                        ; ad is closed now looking for home screen
-
-                        Loop, 20
-                        {
-                            ; i check to break loop
-                            Text:="|<>*144$3.zz0zzzzzzzzU"
-
-                            if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                            {
-                                Break
-                            }
-                            else
-                            {
-                                Sleep, 500
-                                MouseMove, 1188, 649
-                                Click, 1188, 649 Left, 1
-                                Sleep, 500
-
-                                MpSkipCheck()
-
-                                ; rewards next
-                                Text:="|<>*151$68.w0w7zsw0wzzz0D1zy7UDDzzs3kTzVs7Xzzy0w700D1s1sDkD1k01kw0S3y3kQ00SD07UzUw7003bU1sDwD1k00xs0S3r3kQ007w07Uxsw7zk1y01sDCD1zw0DU0S3nnkTz07s07UwQw7001z01sD7j1k00zk0S3kzkQ00DS07Uw7w7007XU1sD1z1k01sw0S3kDkQ00w707Uw3w700D1s1sD0T1zw7UC0S3k7kTzVs3k7Uw0w7zsw0Q1s6061zwC030A2"
-
-                                if (ok:=FindText(X, Y, 1106, 635, 1187, 666, 0, 0, Text))
-                                {
-                                    Sleep, 250
-                                    MouseMove, 1188, 649
-                                    Click, 1188, 649 Left, 1
-                                    Sleep, 1500
-                                    Goto, i_check_to_play_start
-                                }
-                                else
-                                {
-                                    Sleep, 1000
-                                    MouseMove, 1188, 649
-                                    Click, 1188, 649 Left, 1
-                                    Sleep, 1500
-                                    ; in activity
-                                    Text:="|<>*131$60.3zkT01zVzkVzky00TVzkVzUw00TVzkkzVwDsDVzkkz1wDwDVzkkT3sTwDVzksT3sTwDVzksC7sTwDVzkwC7sTwDVzkw4DsTwDVzky4DsTwDVzky0TsTwDVzkz0TsTwDVzkz0zsTwDVzkzUzsTwDVzkzVzsTwDVzkzVzsTwDVzkzVzsTwDVzkzVzsTwDVzkzVzsTwDVzkzVzwDwDVzUzVzw7kDkT1zVzw00Tk01zVzy00zs03zVzzU1zy0DU"
-
-                                    if (ok:=FindText(X, Y, 189, 231, 271, 283, 0, 0, Text))
-                                    {
-                                        Goto, script_start
-                                    }
-
-                                }
-                                CheckGame()
-                            }
-                        }
-                    watch_AD_end:
-
-                        ; <========== AD End ==========>
-                    }
-                }
-
-                If (!homeCheck()){
                     Goto, script_start
                 }
-
             }
-            Goto, main_menu_loaded_check_start
-            ExitApp
-            ^p:: Pause
-            ^q::
-                SoundSet, 0, , mute
-            ExitApp
 
-            ; common functions
-            #Include, %A_ScriptDir%\src\functions\CommonFunctions.ahk
+        watch_AD_end:
 
-            ; Events
-            #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
-            #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
+            If (!ConfirmIfRaceIsCompleted()){
+                Goto, script_start
+            }
 
-            ; MP1
-            #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk
-            #Include, %A_ScriptDir%\src\functions\MP1\CarsSkip.ahk
-            #Include, %A_ScriptDir%\src\functions\MP1\RewardsSkip.ahk
+        }
 
-            ; Play Race
-            #Include, %A_ScriptDir%\src\functions\PlayRace.ahk
+        Goto, main_menu_loaded_check_start
+        ExitApp
+        ^p:: Pause
+        ^q::
+            SoundSet, 0, , mute
+        ExitApp
 
-            #Include, %A_ScriptDir%\src\libs\JSON.ahk
-            #Include, %A_ScriptDir%\src\libs\FindText.ahk
+        ; common functions
+        #Include, %A_ScriptDir%\src\functions\CommonFunctions.ahk
+
+        ; Events
+        #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
+        #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
+
+        ; MP1
+        #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk
+        #Include, %A_ScriptDir%\src\functions\MP1\CarsSkip.ahk
+        #Include, %A_ScriptDir%\src\functions\MP1\RewardsSkip.ahk
+        #Include, %A_ScriptDir%\src\functions\MP1\Ads.ahk
+
+        ; Play Race
+        #Include, %A_ScriptDir%\src\functions\PlayRace.ahk
+
+        #Include, %A_ScriptDir%\src\libs\JSON.ahk
+        #Include, %A_ScriptDir%\src\libs\FindText.ahk

@@ -34,7 +34,9 @@ PlayMpRace(){
         if (ok:=FindText(X, Y, 1018, 625, 1090, 655, 0, 0, Text)){
             isCompleted := True
             Click, 1176, 645 Left, 1
-            Sleep, 1000
+            Sleep, 2000
+            Click, 1176, 645 Left, 1
+            Sleep, 2000
             Break
         }Else{
             Sleep, 1000

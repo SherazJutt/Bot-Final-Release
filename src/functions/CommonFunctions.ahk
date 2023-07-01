@@ -85,7 +85,7 @@ MainMenuLoadedCheck(){
             FullScreenAD()
             ExitGamePopUp()
             RewardsNext()
-            LeagueUpDownNext()
+            LeagueUpNext()
         }
         Sleep, 1000
     }
@@ -126,17 +126,6 @@ FullScreenAD(){
     if (ok:=FindText(X, Y, 1030, 124, 1073, 172, 0, 0, Text)){
         Click, 1052, 147 Left, 1
         Sleep, 1000
-    }
-}
-
-RewardsNext(){
-
-    Text:="|<>*149$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDz03w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3k70D0S0y3zwD0S0w1s1sDzls0s3k3030zy301U60U"
-
-    if (ok:=FindText(X, Y, 1103, 628, 1190, 672, 0, 0, Text))
-    {
-        Click, 1207, 642 Left, 1
-        Sleep, 3000
     }
 }
 
@@ -213,7 +202,7 @@ SyncingToTheServer(){
         if (ok:=FindText(X, Y, 1221, 604, 1261, 631, 0, 0, Text)){
             Sleep, 1000
         }else{
-            Sleep, 1000
+            Break
         }
     }
     Text:="|<>*127$33.zzzzzwwz7k7bXsw0QwD73XbVssyAw777lbUsszwwX77zbaMszwwl761bb8ssAww77lbbUsyAwy77lbbkswQwz7U3bbsy0zzzzzzU"

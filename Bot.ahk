@@ -753,6 +753,7 @@ LeagueDetectionLabel:
                             Sleep, 1000
                             Click, 1154, 639 Left, 1
                             Sleep, 1000
+                            ; move the mouse little bit up to see the next button
                             Click, 1242, 409, 0
                         }Else{
                             Goto, script_start
@@ -763,6 +764,9 @@ LeagueDetectionLabel:
                 }Else{
                     Goto, script_start
                 }
+            }Else{
+                ; move the mouse little bit up to see the next button like done if ad is closed
+                Click, 1242, 409, 0
             }
 
         watch_AD_end:

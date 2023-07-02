@@ -240,10 +240,6 @@ LeagueDetectionLabel:
 
                     if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
                     {
-                        ;///////
-                    }
-                    else
-                    {
                         Sleep, 500
                         Click, 977, 632 Left, 1
                         Sleep, 1000
@@ -254,19 +250,7 @@ LeagueDetectionLabel:
                 else
                 {
                     Sleep, 1000
-                    IfWinExist, Asphalt 9: Legends
-                    {
-                        WinActivate, Asphalt 9: Legends
-                        WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                        WinRestore, Asphalt 9: Legends
-                    }
-                    else
-                    {
-                        ToolTip, i check to play, 640, 0,
-                        Sleep, 1000
-                        Goto, script_start
-                    }
-
+                    CheckGame()
                 }
 
             i_check_to_play_end00:
@@ -284,18 +268,7 @@ LeagueDetectionLabel:
                     else
                     {
                         Sleep, 100
-                        IfWinExist, Asphalt 9: Legends
-                        {
-                            WinActivate, Asphalt 9: Legends
-                            WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                            WinRestore, Asphalt 9: Legends
-                        }
-                        else
-                        {
-                            ToolTip, car selection screen, 640, 0,
-                            Sleep, 1000
-                            Goto, script_start
-                        }
+                        CheckGame()
                     }
                 }
 
@@ -330,11 +303,7 @@ LeagueDetectionLabel:
                 {
                     Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
 
-                    if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
-                    {
-                    }
-                    else
-                    {
+                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)){
                         Sleep, 500
                         Click, 977, 632 Left, 1
                         Sleep, 1000
@@ -345,19 +314,7 @@ LeagueDetectionLabel:
                 else
                 {
                     Sleep, 1000
-                    IfWinExist, Asphalt 9: Legends
-                    {
-                        WinActivate, Asphalt 9: Legends
-                        WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                        WinRestore, Asphalt 9: Legends
-                    }
-                    else
-                    {
-                        ToolTip, i check to play, 640, 0,
-                        Sleep, 1000
-                        Goto, script_start
-                    }
-
+                    CheckGame()
                 }
 
             i_check_to_play_end0:
@@ -374,19 +331,7 @@ LeagueDetectionLabel:
                     }
                     else
                     {
-                        Sleep, 100
-                        IfWinExist, Asphalt 9: Legends
-                        {
-                            WinActivate, Asphalt 9: Legends
-                            WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                            WinRestore, Asphalt 9: Legends
-                        }
-                        else
-                        {
-                            ToolTip, car selection screen, 640, 0,
-                            Sleep, 1000
-                            Goto, script_start
-                        }
+                        CheckGame()
                     }
                 }
 
@@ -421,11 +366,7 @@ LeagueDetectionLabel:
                 {
                     Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
 
-                    if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
-                    {
-                    }
-                    else
-                    {
+                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 977, 632 Left, 1
                         Sleep, 1000
@@ -435,20 +376,7 @@ LeagueDetectionLabel:
                 }
                 else
                 {
-                    Sleep, 1000
-                    IfWinExist, Asphalt 9: Legends
-                    {
-                        WinActivate, Asphalt 9: Legends
-                        WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                        WinRestore, Asphalt 9: Legends
-                    }
-                    else
-                    {
-                        ToolTip, i check to play, 640, 0,
-                        Sleep, 1000
-                        Goto, script_start
-                    }
-
+                    CheckGame()
                 }
 
             i_check_to_play_end1:
@@ -513,11 +441,7 @@ LeagueDetectionLabel:
                 {
                     Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
 
-                    if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
-                    {
-                    }
-                    else
-                    {
+                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 977, 632 Left, 1
                         Sleep, 1000
@@ -527,20 +451,7 @@ LeagueDetectionLabel:
                 }
                 else
                 {
-                    Sleep, 1000
-                    IfWinExist, Asphalt 9: Legends
-                    {
-                        WinActivate, Asphalt 9: Legends
-                        WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                        WinRestore, Asphalt 9: Legends
-                    }
-                    else
-                    {
-                        ToolTip, i check to play, 640, 0,
-                        Sleep, 1000
-                        Goto, script_start
-                    }
-
+                    CheckGame()
                 }
 
             i_check_to_play_end2:
@@ -557,19 +468,7 @@ LeagueDetectionLabel:
                     }
                     else
                     {
-                        Sleep, 100
-                        IfWinExist, Asphalt 9: Legends
-                        {
-                            WinActivate, Asphalt 9: Legends
-                            WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                            WinRestore, Asphalt 9: Legends
-                        }
-                        else
-                        {
-                            ToolTip, car selection screen, 640, 0,
-                            Sleep, 1000
-                            Goto, script_start
-                        }
+                        CheckGame()
                     }
                 }
 
@@ -605,11 +504,7 @@ LeagueDetectionLabel:
                 {
                     Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
 
-                    if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
-                    {
-                    }
-                    else
-                    {
+                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 977, 632 Left, 1
                         Sleep, 1000
@@ -619,20 +514,7 @@ LeagueDetectionLabel:
                 }
                 else
                 {
-                    Sleep, 1000
-                    IfWinExist, Asphalt 9: Legends
-                    {
-                        WinActivate, Asphalt 9: Legends
-                        WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                        WinRestore, Asphalt 9: Legends
-                    }
-                    else
-                    {
-                        ToolTip, i check to play, 640, 0,
-                        Sleep, 1000
-                        Goto, script_start
-                    }
-
+                    CheckGame()
                 }
 
             i_check_to_play_end3:
@@ -649,19 +531,7 @@ LeagueDetectionLabel:
                     }
                     else
                     {
-                        Sleep, 100
-                        IfWinExist, Asphalt 9: Legends
-                        {
-                            WinActivate, Asphalt 9: Legends
-                            WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                            WinRestore, Asphalt 9: Legends
-                        }
-                        else
-                        {
-                            ToolTip, car selection screen, 640, 0,
-                            Sleep, 1000
-                            Goto, script_start
-                        }
+                        CheckGame()
                     }
                 }
 

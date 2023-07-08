@@ -21,9 +21,13 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 317, 216, 380, 272, 0, 0, Text))
 
         ; apex ap-0
-        Text:="|<>*130$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zs7sDzzzUM7zkS3zsDzUTUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUM7y000DsDzzzUzzzw3kDk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y1w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003w7zy2"
+        ;Text:="|<>*130$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zs7sDzzzUM7zkS3zsDzUTUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUM7y000DsDzzzUzzzw3kDk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y1w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003w7zy2"
 
-        if (ok:=FindText(X, Y, 317, 216, 442, 264, 0, 0, Text))
+        ;if (ok:=FindText(X, Y, 317, 216, 442, 264, 0, 0, Text))
+
+        ; ats corsa rr turbo
+        Text:="|<>*153$101.003zw007z0007Uzz0001zs003w000D1zy0001zk003s000S3zw0001zU007s000w7zs0Ds3z0zk7zs7zsDzk0zw3y3zsDzkDzkTzU1zw7w7zkTzUTzUzz03zsDsDzUTz0zz1zy07zkTkTz0zy1zy3zw0DzUzUzy1zw3zw7zs0Tz1z1zw3zs7zsDzk0zy3y3zs7zkDzkTzU1zw7w7zkDzUTzUzz03zsDsDzUTz0zz1zy07zkTkTz1zy1zy3zw0Dz0zUzw3zw3zw7zs0003z0007zs7zsDzk0007y000TzkDzkTzU000Tw001zzUTzUzz0003zs007zz0zz1zy0007zk00Tzy1zy3zw0DkDzUz0zzw3zw7zs0TkTz1z0zzs7zsDzk0zUTy3y1zzkDzkTzU1zUzw7y1zzUTzUzz03z0zsDw3zz0zz1zy07z1zkTw3zy1zy3zw0Dy1zUzs7zw3zw3zk0Tw3z1zs7zs7zs3zU0zw7y3zkDzkDzs0011zs7w7zkTzUTzk0023zsDsDzUTz0zzk00A7zkDkTzUzy1zzk00sTzkTkzzVzy7zzw0Ds"
+        if (ok:=FindText(X, Y, 479, 222, 593, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

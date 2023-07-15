@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Attach to game - Open A9 first"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(openProcess("Asphalt9_w10_x64_rtl.exe"))
+ 
+ 
+[DISABLE]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"A9 - Change DS stage limits"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">{ Game: Asphalt9_w10_x64_rtl.exe
+  Version: 3.6.3a
+  Date: 2022-08-08
+  Author: pigeon21
+  Group search:
+  4:15000 4:10000 w:128 4:20000 4:10000 w:128 4:23000 4:10000
+
+  This script looks for the pattern of first non tutorial DS6 stage limits,
+  then modifies those limits to be able to play endlessly.
+
+  There are two or more group of results found, only one is valid.
+  Script will edit every of them to be faster, without requiring user interaction.
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+if(getProcessIDFromProcessName(ExeGame) ~= getOpenedProcessID()) then
+  messageDialog(string.format(MsgNoProcess,ExeGame),mtError,mbOK)  -- no process attached
+  return 0
+end
+
+local ms=createMemScan()
+local memFoundList = createFoundList(ms)
+
+ms.FirstScan(soExactValue, vtGrouped, rtRounded, GrpSearchString,"", 0, 0xffffffffffffffff,"", fsmNotAligned,"1", false, false, false, false)
+ms.waitTillDone()
+
+memFoundList.initialize()
+if(memFoundList.Count &lt; 1) then messageDialog(MsgNotFound,mtError,mbOK) return 0 end -- groups not found
+foundCount = memFoundList.Count
+groupAddresses = {}
+for foundCountIndex = 0, (foundCount - 1) do
+    groupAddresses[foundCountIndex] = memFoundList.Address[foundCountIndex]
+end -- foundCountIndex
+
+ms.destroy()
+memFoundList.destroy()
+
+if foundCount == 0 then
+   messageDialog(MsgNoGroupsFound,mtError,mbOK)
+   return 0
+end
+
+for foundCountIndex = 0, (foundCount - 1) do
+   currentTarget = groupAddresses[foundCountIndex]
+   offsetNumber = 0
+
+   -- writing values
+   for DSstageIndex = 0, (NumOfEditableValues - 1) do
+        readValue = readInteger(currentTarget .. "+" .. string.format("%x", offsetNumber))
+        writeInteger((currentTarget .. "+" .. string.format("%x", offsetNumber)),(readValue + SPOffset))
+        offsetNumber = offsetNumber + IntegerSize
+        readValue = readInteger(currentTarget .. "+" .. string.format("%x", offsetNumber))
+        if readValue ~= 0 then
+                writeInteger((currentTarget .. "+" .. string.format("%x", offsetNumber)),(readValue + PinnedOffset))
+        end
+        offsetNumber = offsetNumber + GapSize
+   end -- DSstageIndex
+end -- while edited every group
+
+{$asm}
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+if(getProcessIDFromProcessName(ExeGame) ~= getOpenedProcessID()) then
+  messageDialog(string.format(MsgNoProcess,ExeGame),mtError,mbOK)  -- no process attached
+  return 0
+end
+
+local ms=createMemScan()
+local memFoundList = createFoundList(ms)
+
+ms.FirstScan(soExactValue, vtGrouped, rtRounded, GrpSearchDisableString,"", 0, 0xffffffffffffffff,"", fsmNotAligned,"1", false, false, false, false)
+ms.waitTillDone()
+
+memFoundList.initialize()
+if(memFoundList.Count &lt; 1) then messageDialog(MsgRestoreNotFound,mtError,mbOK) return 0 end -- groups not found
+foundCount = memFoundList.Count
+groupAddresses = {}
+for foundCountIndex = 0, (foundCount - 1) do
+    groupAddresses[foundCountIndex] = memFoundList.Address[foundCountIndex]
+end -- foundCountIndex
+
+ms.destroy()
+memFoundList.destroy()
+
+for foundCountIndex = 0, (foundCount - 1) do
+  currentTarget = groupAddresses[foundCountIndex]
+  offsetNumber = 0
+
+  -- writing values
+  for DSstageIndex = 0, (NumOfEditableValues - 1) do
+      readValue = readInteger(currentTarget .. "+" .. string.format("%x", offsetNumber))
+      writeInteger((currentTarget .. "+" .. string.format("%x", offsetNumber)),(readValue - SPOffset))
+      offsetNumber = offsetNumber + IntegerSize
+      readValue = readInteger(currentTarget .. "+" .. string.format("%x", offsetNumber))
+      if readValue ~= 0 then
+            writeInteger((currentTarget .. "+" .. string.format("%x", offsetNumber)),(readValue - PinnedOffset))
+      end
+      offsetNumber = offsetNumber + GapSize
+  end -- DSstageIndex
+end -- foundCountIndex
+
+messageDialog(MsgDisable,mtInformation,mbOK)
+
+{$asm}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <LuaScript>ExeGame = "Asphalt9_w10_x64_rtl.exe"
+MsgNoProcess = "No \"%s\" process attached!"
+MsgNotFound = "DS6 stage limits not found!"
+MsgRestoreNotFound = "DS6 stage limits to restore not found!"
+MsgNoMoreGroupsLeft = "Every group has been tried and the user said DS limits did not change, contact support!"
+MsgDialogError = "Cannot understand dialog answer, exiting..."
+MsgGuideAfterRun = "Script has edited one group of values.\r\nGo back to main menu and re-enter DS to see if limits changed.\r\nPress OK if limits changed, Retry if limits have not been changed.\r\n \"%s\" groups are remaining."
+MsgDisable = "TEAM PAKISTAN: DSS6 Limits have been returned to their original state"
+GrpSearchString = "4:15000 4:10000 w:128 4:20000 4:10000 w:128 4:23000 4:10000"
+GrpSearchDisableString = "4:20000 4:15000 w:128 4:25000 4:15000 w:128 4:28000 4:15000"
+IntegerSize = 4
+GapSize = 132
+NumOfEditableValues = 39 -- pinned and SP, skipping first chapter and second's first race
+SPOffset = 5000
+PinnedOffset = 5000
+</LuaScript>
+</CheatTable>

@@ -60,7 +60,7 @@ date_check:
     CurrentDate := StrReplace(SubStr(data, Pos, 10),"-", "")
 
     ; Year Month Day
-    ExpirationDate := 2023 07 15
+    ExpirationDate := 2023 07 25
     PurchaseDate := 2023 06 25
 
     if (CurrentDate >= ExpirationDate or !data)
@@ -72,7 +72,7 @@ date_check:
         msgbox, Warning dont change the system date
         ExitApp
     }Else{
-        ToolTip, ExpirationDate : 15 July 2023 , 640, 0,
+        ToolTip, ExpirationDate : 25 July 2023 , 640, 0,
     }
 
     t1:=A_TickCount, X:=Y:=""
@@ -241,7 +241,7 @@ LeagueDetectionLabel:
                     if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
                     {
                         Sleep, 500
-                        Click, 977, 632 Left, 1
+                        Click, 967, 632 Left, 1
                         Sleep, 1000
                         Goto, i_check_to_play_start00
                     }
@@ -272,13 +272,12 @@ LeagueDetectionLabel:
                     }
                 }
 
-                Sleep, 1000
-
+                Sleep, 3000
                 Click, 805, 142 Left, 1
-                Sleep, 1000
+                Sleep, 2000
 
                 Click, 370, 331 Left, 1
-                Sleep, 2000
+                Sleep, 2500
 
                 bronze = ""
                 silver = 0x96B2D4
@@ -305,7 +304,7 @@ LeagueDetectionLabel:
 
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)){
                         Sleep, 500
-                        Click, 977, 632 Left, 1
+                        Click, 967, 632 Left, 1
                         Sleep, 1000
                         Goto, i_check_to_play_start0
                     }
@@ -335,13 +334,12 @@ LeagueDetectionLabel:
                     }
                 }
 
-                Sleep, 1000
-
+                Sleep, 3000
                 Click, 879, 135 Left, 1
-                Sleep, 1000
+                Sleep, 2000
 
                 Click, 370, 331 Left, 1
-                Sleep, 2000
+                Sleep, 2500
 
                 bronze = 0xD88560
                 silver = ""
@@ -368,7 +366,7 @@ LeagueDetectionLabel:
 
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
-                        Click, 977, 632 Left, 1
+                        Click, 967, 632 Left, 1
                         Sleep, 1000
                         Goto, i_check_to_play_start1
                     }
@@ -409,13 +407,12 @@ LeagueDetectionLabel:
                     }
                 }
 
-                Sleep, 1000
-
+                Sleep, 3000
                 Click, 953, 141 Left, 1
-                Sleep, 1000
+                Sleep, 2000
 
                 Click, 370, 331 Left, 1
-                Sleep, 2000
+                Sleep, 2500
 
                 bronze = 0xD88560
                 silver = 0x96B2D4
@@ -443,7 +440,7 @@ LeagueDetectionLabel:
 
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
-                        Click, 977, 632 Left, 1
+                        Click, 967, 632 Left, 1
                         Sleep, 1000
                         Goto, i_check_to_play_start2
                     }
@@ -472,13 +469,12 @@ LeagueDetectionLabel:
                     }
                 }
 
-                Sleep, 1000
-
+                Sleep, 3000
                 Click, 1023, 142 Left, 1
-                Sleep, 1000
+                Sleep, 2000
 
                 Click, 370, 331 Left, 1
-                Sleep, 2000
+                Sleep, 2500
 
                 bronze = 0xD88560
                 silver = 0x96B2D4
@@ -506,7 +502,7 @@ LeagueDetectionLabel:
 
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
-                        Click, 977, 632 Left, 1
+                        Click, 967, 632 Left, 1
                         Sleep, 1000
                         Goto, i_check_to_play_start3
                     }
@@ -535,12 +531,12 @@ LeagueDetectionLabel:
                     }
                 }
 
-                Sleep, 1000
+                Sleep, 3000
                 Click, 1095, 138 Left, 1
-                Sleep, 1000
+                Sleep, 2000
 
                 Click, 370, 331 Left, 1
-                Sleep, 2000
+                Sleep, 2500
 
                 bronze = 0xD88560
                 silver = 0x96B2D4

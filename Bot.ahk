@@ -11,6 +11,8 @@ SetKeyDelay 0
 SetMouseDelay -1
 SetBatchLines -1
 
+; #Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
+
 ; run as admin if not running as admin
 CommandLine := DllCall("GetCommandLine", "Str")
 If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
@@ -392,18 +394,7 @@ LeagueDetectionLabel:
                     else
                     {
                         Sleep, 100
-                        IfWinExist, Asphalt 9: Legends
-                        {
-                            WinActivate, Asphalt 9: Legends
-                            WinMove , Asphalt 9: Legends, , 0, 0, 1280, 720
-                            WinRestore, Asphalt 9: Legends
-                        }
-                        else
-                        {
-                            ToolTip, car selection screen, 640, 0,
-                            Sleep, 1000
-                            Goto, script_start
-                        }
+                        CheckGame()
                     }
                 }
 

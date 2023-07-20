@@ -2,7 +2,7 @@ Gui +hWndhMainWnd -MinimizeBox -MaximizeBox -DPIScale +E0x400 +Owner +0x1
 Gui Font, s12 cBlack
 Gui Add, Edit, hWndhEdtValue vEdtValue x16 y80 w330 h40 +Left +0x1
 Gui Font
-SendMessage 0x1501, 1, "Email",, ahk_id %hEdtValue% 
+SendMessage 0x1501, 1, "Email",, ahk_id %hEdtValue%
 Gui Font, s20 w600 q5, Yu Gothic UI Semibold
 Gui Add, Text, x0 y0 w366 h70 +0x200 +0x1, Login
 Gui Font
@@ -49,7 +49,7 @@ LoginButtonClicked(){
             ; MsgBox, % "Name: " . jsonData["name"]
             username := jsonData["name"]
             useremail := jsonData["email"]
-            MsgBox, % username . "`n" . useremail 
+            MsgBox, % username . "`n" . useremail
             ExitApp
         }else if (jsonData.HasKey("error") && jsonData["error"] = "User not found"){
             MsgBox, % jsonData["error"]

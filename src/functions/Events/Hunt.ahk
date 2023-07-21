@@ -4,35 +4,9 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; hunt card
-        ; monza sp1
-        ; Text:="|<>*155$91.U007zy0zzzzzU0Dk003zy0Dzzzz001s001zz07zzzz000Q000zzU3zzzzU00D000Tzk0zzzzU7s3zzkDzk0TzzzkDy1zzsDzs8DzzzsDzUzzs7zw43zzzs7zkDzs7zy31zzzw3zs7zw7zy3Uzzzy1zy7zw3zz1kDzzz0zzzzw3zzUw7zzzkTzzzy1zzUy3zzzs7zzzy1zzkT1zzzw0zzzy1zzsDUTzzy00zzz0zzw7sDzzzU03zz0zzw7w7zzzs00Tz0zzy3y3zzzy003zUTzz1zUzzzzs00zUTzz0zkTzzzzs0TUTzzUzsDzzzzzk7kDzzkDs3zzzzzw3kDzzs001zzzzzy1kDzzs000zzzkzzUs7zzw000TzzkDzkM7zzy0007zzs7zsA7zzy1zy3zzy3zw43zzz0zz1zzz1zw03zzzUzzUTzzUTw20007kTzsDzzk0010003kDzw7zzw001U001sDzy3zzz000k000w7zz0zzzk01w000y7zzkzzzz03y"
+        Text:="|<>*125$52.Vzz3zU03w7zw7w001kDzkTk0030zz1z00043zw7w000EDzkTkDy00zz1z0zw03zw7w3zs0DzkTkDzU0zz1z0zy03zw7w3zs0DzkTkDzU0zz1z0zy03zw7w3zs0DzUTkDzU0001z0zw00007w3zk0000Tk7w10001z00041zk7w000kDzkTk0070zz1z000w3zw7w3zzkDzkTkDzz0zz1z0zzw3zw7w3zzkDzkTkDzz0zz1z0zzw3zw7w3zzkDzkTkDzz0zz1z0zzw3zw7w3zzkDzkTkDzzVzz1z1zzy"
 
-        ; if (ok:=FindText(X, Y, 579, 218, 684, 269, 0, 0, Text))
-
-        ; nio ep9
-        ; Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
-
-        ; if (ok:=FindText(X, Y, 401, 215, 504, 271, 0, 0, Text))
-
-        ; peugeot sr1
-        ; Text:="|<>*145$47.001zw002000zs000000zk000000zU00EDw1z0zzUzy1y3zz1zw3w7zy3zw7sDzw7zsDkTzsDzkTUzzkTzUz1zzUzz1y3zz1zy3w7zy3zw7sDzw7zkDk00sDzUTU00kDy1z001U003y003000Dw00C000TsDzw003zkTzs01zzUzzkTzzz1zzUzzzy3zz1zzzw7zy3zzzsDzw7zzzkTzsDzzzUzzkTzzz1zzUzzzy0011zzzw0003zzzs0007zzzk00ADzzzk00M"
-
-        ; if (ok:=FindText(X, Y, 317, 216, 380, 272, 0, 0, Text))
-
-        ; apex ap-0
-        ;Text:="|<>*130$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zs7sDzzzUM7zkS3zsDzUTUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUM7y000DsDzzzUzzzw3kDk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y1w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003w7zy2"
-
-        ;if (ok:=FindText(X, Y, 317, 216, 442, 264, 0, 0, Text))
-
-        ; ats corsa rr turbo
-        ; Text:="|<>*153$101.003zw007z0007Uzz0001zs003w000D1zy0001zk003s000S3zw0001zU007s000w7zs0Ds3z0zk7zs7zsDzk0zw3y3zsDzkDzkTzU1zw7w7zkTzUTzUzz03zsDsDzUTz0zz1zy07zkTkTz0zy1zy3zw0DzUzUzy1zw3zw7zs0Tz1z1zw3zs7zsDzk0zy3y3zs7zkDzkTzU1zw7w7zkDzUTzUzz03zsDsDzUTz0zz1zy07zkTkTz1zy1zy3zw0Dz0zUzw3zw3zw7zs0003z0007zs7zsDzk0007y000TzkDzkTzU000Tw001zzUTzUzz0003zs007zz0zz1zy0007zk00Tzy1zy3zw0DkDzUz0zzw3zw7zs0TkTz1z0zzs7zsDzk0zUTy3y1zzkDzkTzU1zUzw7y1zzUTzUzz03z0zsDw3zz0zz1zy07z1zkTw3zy1zy3zw0Dy1zUzs7zw3zw3zk0Tw3z1zs7zs7zs3zU0zw7y3zkDzkDzs0011zs7w7zkTzUTzk0023zsDsDzUTz0zzk00A7zkDkTzUzy1zzk00sTzkTkzzVzy7zzw0Ds"
-        ; if (ok:=FindText(X, Y, 479, 222, 593, 264, 0, 0, Text))
-
-        ; mclaren elva
-        Text:="|<>*137$129.1zzzzUDzw007zs007w7zw0Dzzzs1zzU00Dy000zUzzU1zzzz07zw000zk007w3zw0Dzzzs0zzU003z000zUTzU1zzzy07zw3y0TkDzzw1zw0Dzzzk0TzUzy3y1zzzU7zU1zzzy23zw7zkDkDzzw0zw0DzzzUETzUzy1y1zzzU3zU1zzzw63zw7zkDkDzzw0Tw0DzzzUsDzUzy1y1zzzU1zU1zzzs71zw7zkDkDzzw0Dw0Dzzz1sDzUzy1y1zzzU0zU1zzzsD1zw7zkDkDzzw43w0Dzzz1w7zUzy1y1zzzUkTU1zzzkDUzw7zkDk00Tw61w0Dzzy3w7zUzw3y003zUsDU1zzzkTUTw2E0Tk00Tw70w0Dzzw3y3zU007y003zUw7U1zzzUzkTw000zk00Tw7kQ0Dzzw7y1zU00Tz1zzzUy3U1zzzUzsDw007zsDzzw7sA0Dzzs7y1zUT0zz1zzzUz0U1zzz000Dw7w3zsDzzw7w00Dzzs000zUzUTz1zzzUzU01zzy0007w7y1zsDzzw7y00Dzzk000zUzkDz1zzzUzs01zzy3zw3w7z0zsDzzw7z00DzzkTzUTUzs7z1zzzUzw01zzw3zy3w7zUTsDzzw7zU0003UzzkDUTw3z000zUzy0000Q7zy1w3zkDs007w7zk00030zzsDUzy1z000zUzz0000M7zz1w7zs7s007w7zs4007VzzwDkzzVz001zlzzlU"
-
-        if (ok:=FindText(X, Y, 383, 219, 524, 265, 0, 0, Text))
+        if (ok:=FindText(X, Y, 479, 228, 541, 269, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

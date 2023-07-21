@@ -11,7 +11,7 @@ SetKeyDelay 0
 SetMouseDelay -1
 SetBatchLines -1
 
-; #Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
+#Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
 
 ; run as admin if not running as admin
 CommandLine := DllCall("GetCommandLine", "Str")

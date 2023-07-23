@@ -109,65 +109,28 @@ start:
 
     ; play ad
 
-    Text:="|<>*150$143.s1s3k3s3zz0zk3U7000S07zls7k7UDk7zy7zs70D001y0DzvkDUD0TUDzwTzsC0S003w0TzzUT0S0zU0w0w3kQ0w007s0s3z0z1s1z01s1k3Us1s00Ts1k3y1y3k7i03k3U7Vk3k00tk3U7Q7Q7UCQ07U70D3U7U01nU70CwCMD0Qw0D0C0S70D007b0C0RsQsS1ss0S0Q00C0S00DD0Q0vktks3Vk0w0s00Q0w00QC0s1rXXXk73U1s1k00zzs00sQ1k3b777US7U3k3U01zzk03kw3U7CC7D0w707U7003zzU071s70CQQCS1kC0D0C0070D00C1kC0QwkQs3US0S0Q00C0S00w3UQ0tvUtkDzw0w0s1sQ0w01zzUs1lr1vUTzs1s1k3ks1s03zz1k3Xi1z0zzs3k3U7Vk3k07zy3U77w3y1k3k7U70C3U7U0S0S70CDk7s7U3UD0DVw70D00w0wC1wTUDkC070S0TzsC0S01k0sTzkT0DUQ0D0w0TzUQ0w07U1kzzUy0T0s0S0s0Dw0s1k0D03VzwE"
+    Text:="|<>*148$143.w1s3k3s3zz1zs3U7U00z07zts7k7UDk7zy7zs70D001y0DzvkDUD0TUDzwTzsC0S003w0TzzUTUw0zU0w0w1kQ0w00Ds0s3z0z1s3r01s1k3ks1s00Ts1k3y3i3k7C03k3U7Vk3k00tk3U7Q7Q7UCQ07U70D3U7U01nU70CwCMD0ww0D0C0070D007bUC0RsQsQ1ss0S0Q00C0S00CD0Q0vklks3Vk0w0s00Tzw00QC0s1rXXXk73k1s1k00zzs01sQ1k3b737US3U3k3U01zzk03kw3U7CC7D0w707U7003U7U070s70CSQCS1kD0D0C0070D00C1kC0QxkQs3zy0S0Q0sC0S00zzkQ0svUtkDzw0w0s1sQ0w01zzUs1lr0vUTzs1s1k3ks1s03zz1k3Xi1z0s1s3k3U7Vk3k0D0C3U77s3y3k3k7U7US3U7U0S0S70SDk7s7U3UD0Dzw70D00s0QDzwTUDkC07US0DzkC0S01k0sTzkT0DUQ0D0w0Dz0Q0w07U1szz8"
 
-    if (ok:=FindText(X, Y, 861, 502, 1023, 543, 0, 0, Text))
+    if (ok:=FindText(X, Y, 865, 510, 1020, 542, 0, 0, Text))
     {
         Click, 1034, 515 Left, 1
     }
 
-    ; ; ad with close text
-    ; Text:="|<>*165$58.zzyTzzzzzzs1tzzzzzzz03bzzzzzzlzyTzzzzzzDztzzzzzztzzbzzzzzzjzyTUTkDUQzztsMyAwAnzzb7ttzntDzyQznbyTkzztrzCTtz3zzaTwwzbwDzyNznsy00zztbzDsvztzzbTwztbzbzyQznzaTz7ztvyTyQzS03bVXlXlly0STUTUTkC"
+    ; ad close (X)
 
-    ; if (ok:=FindText(X, Y, 1147, 39, 1264, 89, 0, 0, Text))
-    ; {
-    ;     Sleep, 250
-    ;     Click, 1225, 61 Left, 1
-    ;     Sleep, 250
-    ; }
+    Text:="|<>*125$22.XzzA7zsEDz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzVXzzC"
 
-    ; ; close this ad with green button
-    ; Text:="|<>*137$48.00001s0000001s7s00001sTy00001szy00001ssT00001s0D00001s0D00001s0D3y07ts0DDz0Dxs0SDzUTzs0yA7Uy7s1w03kw3s1s03ls1s3k0zls1s3UDzls1s7UTzls1s7US3ls1s3Uw3ls1s00w3kw3s00w7ky7s3UTzkzzs7kTvkTxs7k7nk7ls3UU"
-
-    ; if (ok:=FindText(X, Y, 682, 433, 746, 474, 0, 0, Text))
-    ; {
-    ;     Sleep, 250
-    ;     Click, 447, 572 Left, 1
-    ;     Sleep, 250
-    ; }
-
-    ; ; circle close
-
-    ; Text:="|<>*133$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
-
-    ; if (ok:=FindText(X, Y, 1208, 51, 1252, 101, 0, 0, Text))
-    ; {
-    ;     Sleep, 250
-    ;     Click, 1228, 71 Left, 1
-    ;     Sleep, 250
-
-    ; }
-
-    ; march of empire
-    Text:="|<>*161$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk8TzVnzzC"
-
-    if (ok:=FindText(X, Y, 1213, 58, 1248, 91, 0, 0, Text))
+    if (ok:=FindText(X, Y, 1217, 65, 1243, 98, 0, 0, Text))
     {
-        Sleep, 250
         Click, 1229, 72 Left, 1
-        Sleep, 250
-
     }
 
-    ; ; close
-    ; Text:="|<>*177$23.XzzW3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs0zzs3zzU3zy03zs03zU83y0s3s3s3UDs20zs03zs0Dzs8zzsk"
+    Text:="|<>*163$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
 
-    ; if (ok:=FindText(X, Y, 1206, 60, 1245, 99, 0, 0, Text))
-    ; {
-    ;     Sleep, 250
-    ;     Click, 1229, 72 Left, 1
-    ;     Sleep, 250
-    ; }
+    if (ok:=FindText(X, Y, 1216, 58, 1246, 90, 0, 0, Text))
+    {
+        Click, 1229, 72 Left, 1
+    }
 
     ; resume ad
     Text:="|<>*124$67.07w000000000Tzk00000000zzw00000000zzz00000000zkTk0000000TU7s0000000TU1y0000000DU0T07y0DVwDk0A0Dzk7nzbs000Dzw3zzvw000Dzz1zzzw0007kTUzkzy0003sDkTUTz0000M3sDk7zU00001w7s3zk00003y3s1zw0000zz1w0zy01U3zzUy0Tz00w3z7kT0DjU0T3w3sDU7rs0TVw1w7k3ty0TUy1y3s1wzkTkTVz1w0yDzzkDzzUy0T3zzk3zzkT0DUTzk1ztwDU7k3z00Dky7k3w"

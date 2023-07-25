@@ -62,8 +62,8 @@ date_check:
     CurrentDate := StrReplace(SubStr(data, Pos, 10),"-", "")
 
     ; Year Month Day
-    ExpirationDate := 2023 07 25
-    PurchaseDate := 2023 06 25
+    ExpirationDate := 2023 08 01
+    PurchaseDate := 2023 07 20
 
     if (CurrentDate >= ExpirationDate or !data)
     {
@@ -74,7 +74,7 @@ date_check:
         msgbox, Warning dont change the system date
         ExitApp
     }Else{
-        ToolTip, ExpirationDate : 25 July 2023 , 640, 0,
+        ToolTip, ExpirationDate : 01 August 2023 , 640, 0,
     }
 
     t1:=A_TickCount, X:=Y:=""

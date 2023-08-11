@@ -14,6 +14,10 @@ Gui Font, s14 Norm q4 cBlack
 Gui Add, Button, x100 y192 w165 h45 gLoginButtonClicked, &Login
 Gui Font
 
+; Set default values for email and password fields
+GuiControl, ,EdtValue , sheraz@gmail.com
+GuiControl, ,PasswordField , 1234
+
 Gui Show, w368 h256, Authentication
 Return
 
@@ -32,7 +36,7 @@ LoginButtonClicked(){
         return
     }else{
         http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-        http.Open("POST", "http://127.0.0.1:8000/api/CheckUser")
+        http.Open("POST", "http://localhost:3000/loginUser")
         http.SetRequestHeader("Content-Type", "application/json")
         data := "{""email"":""" . email . """,""password"":""" . password . """}"
         http.Send(data)
@@ -45,22 +49,31 @@ LoginButtonClicked(){
         responseText := http.ResponseText
         jsonData := JSON.Load(responseText)
 
-        if (!jsonData.HasKey("error")){
-            ; MsgBox, % "Name: " . jsonData["name"]
-            username := jsonData["name"]
-            useremail := jsonData["email"]
-            MsgBox, % username . "`n" . useremail
-            ExitApp
-        }else if (jsonData.HasKey("error") && jsonData["error"] = "User not found"){
-            MsgBox, % jsonData["error"]
-            Return
-        }else if (jsonData.HasKey("error") && jsonData["error"] = "Account already logged in on another device"){
-            MsgBox, % jsonData["error"]
-            Return
-        }Else{
-            MsgBox, Error
-            Return
+        if (jsonData.HasKey("success")) {
+            userinfo := jsonData.success.userinfo
+            userData := jsonData.success.userData
+            email := userinfo["userId"]
+            MsgBox, %email%
+        } else if (jsonData.HasKey("error")) {
+            MsgBox, user not found
         }
+
+        ; if (!jsonData.HasKey("error")){
+        ;     ; MsgBox, % "Name: " . jsonData["name"]
+        ;     username := jsonData["name"]
+        ;     useremail := jsonData["email"]
+        ;     MsgBox, % username . "`n" . useremail
+        ;     ExitApp
+        ; }else if (jsonData.HasKey("error") && jsonData["error"] = "User not found"){
+        ;     MsgBox, % jsonData["error"]
+        ;     Return
+        ; }else if (jsonData.HasKey("error") && jsonData["error"] = "Account already logged in on another device"){
+        ;     MsgBox, % jsonData["error"]
+        ;     Return
+        ; }Else{
+        ;     MsgBox, Error
+        ;     Return
+        ; }
 
         Gui, Destroy
 

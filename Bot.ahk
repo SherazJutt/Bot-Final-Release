@@ -12,7 +12,10 @@ SetMouseDelay -1
 SetBatchLines -1
 
 #Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
+#Include, %A_ScriptDir%\src\Auth\login.ahk
 
+MsgBox, "exiting"
+ExitApp
 ; run as admin if not running as admin
 CommandLine := DllCall("GetCommandLine", "Str")
 If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
@@ -657,5 +660,6 @@ LeagueDetectionLabel:
         ; Play Race
         #Include, %A_ScriptDir%\src\functions\PlayRace.ahk
 
+        ; libs
         #Include, %A_ScriptDir%\src\libs\JSON.ahk
         #Include, %A_ScriptDir%\src\libs\FindText.ahk

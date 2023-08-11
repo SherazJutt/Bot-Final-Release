@@ -16,7 +16,7 @@ if (!jsonData.HasKey("error")){
     ; MsgBox, % "Name: " . jsonData["name"]
     username := jsonData["name"]
     useremail := jsonData["email"]
-    MsgBox, % username . "`n" . useremail 
+    MsgBox, % username . "`n" . useremail
 }else if (jsonData.HasKey("error") && jsonData["error"] = "User not found"){
     MsgBox, % jsonData["error"]
     Return
@@ -24,3 +24,4 @@ if (!jsonData.HasKey("error")){
     MsgBox, % jsonData["error"]
     Return
 }
+

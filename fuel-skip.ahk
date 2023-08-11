@@ -11,6 +11,8 @@ SetKeyDelay 0
 SetMouseDelay -1
 SetBatchLines -1
 
+#Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
+
 date_check:
 
     ; ; Create WinHttpRequest object

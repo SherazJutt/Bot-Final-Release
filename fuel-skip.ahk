@@ -127,11 +127,19 @@ start:
         Click, 1229, 72 Left, 1
     }
 
+    ; old small window close
     Text:="|<>*163$22.Xzz47zs0Dz00Ts20z0Q1s3s30Tk03zU0Tz03zy0Tzs1zz03zs07z00Ds30T0S0s3w10Ts03zk0TzUXzz6"
 
     if (ok:=FindText(X, Y, 1216, 58, 1246, 90, 0, 0, Text))
     {
         Click, 1229, 72 Left, 1
+    }
+
+    ; new small window ad
+    Text:="|<>*102$21.zUDzk0TwDVz7z7lzwQTzlbaD8yHsDszVz7wDszVy3wDmTUwtsbzzATzllzwT7z7wDVzk0TzUDw"
+    
+    if (ok:=FindText(X, Y, 903, 94, 936, 123, 0, 0, Text))    {
+    Click, 921, 106 Left, 1
     }
 
     ; resume ad

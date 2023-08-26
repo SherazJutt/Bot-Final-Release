@@ -10,9 +10,20 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 478, 215, 543, 266, 0, 0, Text))
 
         ; nsx gt3
-        Text:="|<>*135$72.w01zk001zk0Ds00Tk001z007k00Dk001y003U007k001w001U7k7zs3zw1y00zw3zw7zw7z01zw3zw7zs7zU1zy3zw7zsDzU1zy3zw7zsDzU1zy3zw7zsDzU1zy3zw7zzzzU1zzzzw7zzzzU1zzzzw7zzzzU1zzzzw7zzzz01zzzzw7zzzw11zzzzw7zzz031y03zw7zzy071y03zw7zzz031y03zw7zzz011y03zw7zzzz01zw3zw7zzzzU1zy3zw7zzzzU1zy3zw7zzzzU1zy3zw7zwDzU1zy3zw7zsDzU1zy3zw7zsDzU1zw3zw7zsDzU0zw3zw7zw7zU0zs3zw7zw3z0U007zw7zw001U00Dzw7zy001k00Dzw7zz003w00zzw7zzU07z07zzyDzzw0zU"
+        ; Text:="|<>*135$72.w01zk001zk0Ds00Tk001z007k00Dk001y003U007k001w001U7k7zs3zw1y00zw3zw7zw7z01zw3zw7zs7zU1zy3zw7zsDzU1zy3zw7zsDzU1zy3zw7zsDzU1zy3zw7zzzzU1zzzzw7zzzzU1zzzzw7zzzzU1zzzzw7zzzz01zzzzw7zzzw11zzzzw7zzz031y03zw7zzy071y03zw7zzz031y03zw7zzz011y03zw7zzzz01zw3zw7zzzzU1zy3zw7zzzzU1zy3zw7zzzzU1zy3zw7zwDzU1zy3zw7zsDzU1zy3zw7zsDzU1zw3zw7zsDzU0zw3zw7zw7zU0zs3zw7zw3z0U007zw7zw001U00Dzw7zy001k00Dzw7zz003w00zzw7zzU07z07zzyDzzw0zU"
 
-        if (ok:=FindText(X, Y, 419, 217, 509, 266, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 419, 217, 509, 266, 0, 0, Text))
+
+        ; bacalar
+        ; Text:="|<>*139$80.001zzz0Dzzk07k007zzk3zzk00Q000zzw0zzs0030007zy07zw000EDy1zzU1zz0Tk47zkDzs0TzkTz11zw3zw43zw7zk0TzUzz1Uzy1zy07zsDzkMDzUzzU1zy3zw63zsDzs0TzUzy3UTy3zy07zsDzUw7zUzzz1zw3zsD1zsDzzkTy1zw3kDy3zzw000Tz1y3zUzzz000TzkTUzsDzzk007zw7sDy3zzw000zy3y1zUzzz0007zUzkTsDzzkTz0zsDw7y1zzw7zsDw3z0zUTzz1zy3z0zkDsDzzkTzUzk003y3zy47zsDs000zUzzU1zy3y0007s7zs0TzUzU001y1zy07zsDsDzkTUTz01zy3w3zw3w7zk0Tz0z0zz0z0zs4000DkTzsDk0010007s7zy3y000k003y1zzUTk00A001zUzzw7y00DU03zsDzz3zs0Ds"
+
+        ; if (ok:=FindText(X, Y, 317, 217, 419, 271, 0, 0, Text))
+
+        ; trezor
+
+        Text:="|<>*128$135.0007zzzzzzzs001zzzzzzzs000zzzzzzzy000Dzzzzzzz0007zzzzzzzk001zzzzzzzs000zzzzzzzz000DzzzzzzzzUDzzzzzzzzs001zzzzzzzzy3zzzzzzzzzzzkDzzzzzzzzkTzzzzzzzzzzw3zzzzzzzzy3zw70zU0Dzzz0Tz00zy70zkTzUU7s00zzzs7zU01zkE7y3zw00y003zzy1zs007w00zkTzU07U00DzzkDz000zU07y3zw0zw1y1zzw3zk7s3w0zzkTzUTz0zs7zz0zy3zkTUDzy3zw3zs7z0zzs7zkTy3y3zzkTzUzz1zw7zy1zy3zkTkTzy3zw7zsDzUzzUTzkTy3y3zzkTzUzz1zw7zw3zy3zkTkTzy3zw7zsDzUzz0zzkTy3y3zzkTzUzz0zs7zkDzy3zkTUTzy3zw7zs000zy1zzkTy1w3zzkTzUzz0007zUTzy3zkDUTzy3zw7zs000zw7zzkTy1w3zzkTzUzz000Dz0zzy3zkDUTzy3zw7zsDzzzkDzzkTy1w3zzkTzUzz1zzzy1zzy3zkDUTzy3zw7zsDzzzUTzzkTy1w3zzkTzUzz1zzzs7zzy3zkTUTzy3zw7zs7zzz0zzzkTy3w3zzkTzUzzUTzzkDzzy1zUTUTzy3zw7zw001y000Dk003w3zzkTzUzzk007k000z000zUTzy3zw7zy000y0007w00Dw3zzkTzUzzw007k001zk03zkTzz7zy7zzs01y000Dzk3zy7zU"
+
+        if (ok:=FindText(X, Y, 537-150000, 242-150000, 537+150000, 242+150000, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -202,26 +213,26 @@ SelectCarToPlayHunt(){
             }Else{
                 Gosub, script_start
             }
-    }Else{
-        Gosub, script_start
-    }
-}
-
-HuntRewardsSkip(){
-    isSkipped := False
-
-    Loop,30{
-        Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
-        if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
-            Click, 1211, 643 Left, 1
-            isSkipped := True
-            Sleep, 2000
-            Break
         }Else{
-            Click, 1211, 643 Left, 1
-            Sleep, 1000
+            Gosub, script_start
         }
     }
-    Return isSkipped
-}
+
+    HuntRewardsSkip(){
+        isSkipped := False
+
+        Loop,30{
+            Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
+            if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
+                Click, 1211, 643 Left, 1
+                isSkipped := True
+                Sleep, 2000
+                Break
+            }Else{
+                Click, 1211, 643 Left, 1
+                Sleep, 1000
+            }
+        }
+        Return isSkipped
+    }
 

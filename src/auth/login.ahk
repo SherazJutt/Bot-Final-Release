@@ -36,7 +36,8 @@ LoginButtonClicked(){
         return
     }else{
         http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-        http.Open("POST", "http://localhost:3000/loginUser")
+        ; http.Open("POST", "http://localhost:3000/loginUser")
+        http.Open("POST", "https://bot-api-one.vercel.app/loginUser")
         http.SetRequestHeader("Content-Type", "application/json")
 
         ; Construct the JSON data

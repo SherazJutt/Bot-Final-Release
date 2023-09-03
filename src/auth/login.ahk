@@ -16,7 +16,7 @@ Gui Font
 
 ; Set default values for email and password fields
 GuiControl, ,EdtValue , sheraz@gmail.com
-GuiControl, ,PasswordField , 1234
+GuiControl, ,PasswordField , 123
 
 Gui Show, w368 h256, Authentication
 Return
@@ -27,10 +27,10 @@ ExitApp
 
 LoginButtonClicked(){
 
-    GuiControlGet, email, , EdtValue
-    GuiControlGet, password, , PasswordField
+    GuiControlGet, useremail, , EdtValue
+    GuiControlGet, userpassword, , PasswordField
 
-    if (email = "" or password = "")
+    if (useremail = "" or userpassword = "")
     {
         MsgBox, Please enter both email and password.
         return
@@ -38,45 +38,30 @@ LoginButtonClicked(){
         http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
         http.Open("POST", "http://localhost:3000/loginUser")
         http.SetRequestHeader("Content-Type", "application/json")
-        data := "{""email"":""" . email . """,""password"":""" . password . """}"
+
+        ; Construct the JSON data
+        data := "{""email"":""" . useremail . """,""password"":""" . userpassword . """}"
+
         http.Send(data)
 
-        if (http.Status != 200) {
-            MsgBox, % "Error: " . http.Status . " - " . http.StatusText
-            Return
-        }
-
+        ; Parse the JSON response
         responseText := http.ResponseText
         jsonData := JSON.Load(responseText)
 
+        ; Check for the "success" key in the response
         if (jsonData.HasKey("success")) {
             userinfo := jsonData.success.userinfo
-            userData := jsonData.success.userData
-            email := userinfo["userId"]
-            MsgBox, %email%
+            userId := userinfo.userId
+            MsgBox, % "User ID: " . userId
         } else if (jsonData.HasKey("error")) {
-            MsgBox, user not found
+            MsgBox, % "Error: " . jsonData.error
+            Return
+        } else {
+            MsgBox, Unexpected Error Please Send Us Feedback
+            ExitApp
         }
-
-        ; if (!jsonData.HasKey("error")){
-        ;     ; MsgBox, % "Name: " . jsonData["name"]
-        ;     username := jsonData["name"]
-        ;     useremail := jsonData["email"]
-        ;     MsgBox, % username . "`n" . useremail
-        ;     ExitApp
-        ; }else if (jsonData.HasKey("error") && jsonData["error"] = "User not found"){
-        ;     MsgBox, % jsonData["error"]
-        ;     Return
-        ; }else if (jsonData.HasKey("error") && jsonData["error"] = "Account already logged in on another device"){
-        ;     MsgBox, % jsonData["error"]
-        ;     Return
-        ; }Else{
-        ;     MsgBox, Error
-        ;     Return
-        ; }
-
-        Gui, Destroy
-
     }
+    Gui, Destroy
+    Gosub, main_gui
 }
 

@@ -11,11 +11,6 @@ SetKeyDelay 0
 SetMouseDelay -1
 SetBatchLines -1
 
-#Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
-; #Include, %A_ScriptDir%\src\Auth\login.ahk
-
-; MsgBox, "exiting"
-; ExitApp
 ; run as admin if not running as admin
 CommandLine := DllCall("GetCommandLine", "Str")
 If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
@@ -31,65 +26,18 @@ If !(A_IsAdmin || RegExMatch(CommandLine, " /restart(?!\S)")) {
 ; set tooltip coords screen base instead of focused window
 CoordMode, ToolTip, Screen
 
-date_check:
+t1:=A_TickCount, X:=Y:=""
 
-    ; Create WinHttpRequest object
-    WinHttp := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+global SettingsIni := A_ScriptDir "\settings.ini"
 
-    ; Set URL and disable asynchronous requests
-    WinHttp.Open("GET", "http://worldtimeapi.org/api/ip", false)
+global carNames := ["Lancer", "Hellcat", "Peugeotsr1", "Lamborghinicountach25th", "Srt8", "Saleens1", "Ferrarimonzasp1", "Jaguarxesvproject", "Lamborghinimiura", "Bugattieb110", "Porsche911gscoupe", "Nissanr390", "Ferrarienzo", "Lamborghiniessenza", "Porschecarrera", "Vulkan", "Sennagtr", "Zondar", "Centenario", "RaesrTacheon", "Trion", "Naran"]
+global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
 
-    ; Loop until sucessful response is received
-    Loop
-    {
-        ; Display alert message
-        MsgBox, 262144, , Connecting to internet... [ctrl + Q to exit], 1
-
-        ; Send request
-        try
-        {
-            WinHttp.Send()
-            break
-        }
-        catch
-        {
-            ; Wait for 1 second before retrying
-            Sleep, 1000
-        }
-    }
-
-    ; Response received, process data
-    data := WinHttp.ResponseText
-    Pos := InStr(data, "datetime")
-    Pos += 11
-    CurrentDate := StrReplace(SubStr(data, Pos, 10),"-", "")
-
-    ; Year Month Day
-    ExpirationDate := 2023 09 15 
-    PurchaseDate := 2023 07 20
-
-    if (CurrentDate >= ExpirationDate or !data)
-    {
-        msgbox, The subscription period is over.
-        ExitApp
-    }Else if (CurrentDate <= PurchaseDate)
-    {
-        msgbox, Warning dont change the system date
-        ExitApp
-    }Else{
-        ToolTip, ExpirationDate : 15 September 2023 , 640, 0,
-    }
-
-    t1:=A_TickCount, X:=Y:=""
-
-    global SettingsIni := A_ScriptDir "\settings.ini"
-
-    global carNames := ["Lancer", "Hellcat", "Peugeotsr1", "Lamborghinicountach25th", "Srt8", "Saleens1", "Ferrarimonzasp1", "Jaguarxesvproject", "Lamborghinimiura", "Bugattieb110", "Porsche911gscoupe", "Nissanr390", "Ferrarienzo", "Lamborghiniessenza", "Porschecarrera", "Vulkan", "Sennagtr", "Zondar", "Centenario", "RaesrTacheon", "Trion", "Naran"]
-    global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
-
-    #Include, %A_ScriptDir%\src\Guis\Main.ahk
-    #Include, %A_ScriptDir%\src\Guis\HuntCars.ahk
-    #Include, %A_ScriptDir%\src\Guis\CarsSkip.ahk
+#Include, %A_ScriptDir%\src\libs\ScriptGuards.ahk
+#Include, %A_ScriptDir%\src\Auth\login.ahk
+#Include, %A_ScriptDir%\src\Guis\Main.ahk
+#Include, %A_ScriptDir%\src\Guis\HuntCars.ahk
+#Include, %A_ScriptDir%\src\Guis\CarsSkip.ahk
 
 script_start:
 

@@ -191,6 +191,7 @@ SelectMPCarToPlay(){
         }Else{
             Gosub, script_start
         }
+
     }Else{
         Gosub, script_start
     }

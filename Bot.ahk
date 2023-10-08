@@ -174,7 +174,7 @@ LeagueDetectionLabel:
         legend = 0xF5E2A4
     }
 
-    Loop, 25{
+    Loop, 20{
 
         ; ============== Bronze =============
         CoordMode, Pixel, Screen
@@ -607,7 +607,7 @@ LeagueDetectionLabel:
 
         ; Events
         #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
-        #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
+        #Include, %A_ScriptDir%\src\functions\Events\Huntp.ahk
 
         ; MP1
         #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk

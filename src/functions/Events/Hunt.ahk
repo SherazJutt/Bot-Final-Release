@@ -46,14 +46,24 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 322, 219, 415, 265, 0, 0, Text))
 
         ; italdesign zerouno
-        Text:="|<>*163$64.1zy00zy3zy07zU01zs7zs0Tw003zUTzU1zU007y0zy07y0z0Ts3zs0TsDz0zU7zU1z1zy3y0Dy07w7zsDs0zs0TkTzUzU1zU1z1zy3y07y07w7zsDs0Ds0TkTzzzU0zU1z1zzzy31y07w7zzzsA7s0TkTzzzUsDU1z1zzzy3US07w7s0DsD1s0TkTU0zUw3U1z1y03y3sC07w7w0DsDkM0TkTzUzUz1U1z1zy3y3y207w7zsDsDs00TkTzUzUzk01z1zy3y3z007w7zsDsDy00TkTzUzUzs01z0zw3y3zk07y1zkDsDzU0Ts001zUzy01zk007y3zw07z000zsDzk0Tz007zUzzUXzz03zz3zz6"
+        ; Text:="|<>*163$64.1zy00zy3zy07zU01zs7zs0Tw003zUTzU1zU007y0zy07y0z0Ts3zs0TsDz0zU7zU1z1zy3y0Dy07w7zsDs0zs0TkTzUzU1zU1z1zy3y07y07w7zsDs0Ds0TkTzzzU0zU1z1zzzy31y07w7zzzsA7s0TkTzzzUsDU1z1zzzy3US07w7s0DsD1s0TkTU0zUw3U1z1y03y3sC07w7w0DsDkM0TkTzUzUz1U1z1zy3y3y207w7zsDsDs00TkTzUzUzk01z1zy3y3z007w7zsDsDy00TkTzUzUzs01z0zw3y3zk07y1zkDsDzU0Ts001zUzy01zk007y3zw07z000zsDzk0Tz007zUzzUXzz03zz3zz6"
 
-        if (ok:=FindText(X, Y, 496, 220, 571, 268, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 496, 220, 571, 268, 0, 0, Text))
 
         ; roma
         ; Text:="|<>*144$71.000z000TU00y000y000z000Q001w001y000M007s003w000EDzzkDzzs7w0UzzzUzzzkTy11zzz1zzzUzy03zzy3zzz1zw07zzw7zzy3zs0DzzsDzzw7zk0TzzkTzzsDzU0zzzUzzzkTz01zzz1zzzUzy03zzy3zzz1zw03zzw007y3zs000Ds00Dw7zUE00Tk00Ts000U00zU00zk003001z001zU00C003y3zzz000w3zzw7zzy003sDzzsDzzw7s7kTzzkTzzsDs7UzzzUzzzkTkD1zzz1zzzUzkC3zzy3zzz1zUQ7zzw7zzy3zUMDzzsDzzw7z0kTzzkTzzsDz0UzzzU00TkTy11zzz000TUzy03zzy000z1zw07zzw001y3zw4Dzzw007yDzw8"
 
         ; if (ok:=FindText(X, Y, 323, 220, 406, 266, 0, 0, Text))
+
+        ; bentlety gt3
+        ; Text:="|<>*143$81.w00zzk03zs7zsD003zw007z0zz0U00Dz000Ts3zs4000zk003z0Tz00Ts3y1zUDs1zs07zUTUTy1z0Dz01zy3w7zsDs0zs0DzkTUzz1z07z01zy3w7zsDs0Ts0DzkTUzz1z01z11zy3w7zsDs0Ds8DzzzUzz1z1Uz11zzzw7zsDsA7s8DzzzUzz1z1kT11zzzw7zsDsC3s8DzzzUzz1z1sD11zzzw7zsDsD1s8DzzzUzz1z1w711zzzw7zsDsDUs8DzzzUzz1z0y311zzzw7zsDs7s88DzzzUzz1z0z101zy3w7zsDs7w00DzkTUzz1z0zU01zy3w7zsDs7y00DzkTUzz1z0zk01zy3w7zsDs7z00DzUTUTz1z0zs00zs3w1zkDs7zU0000zk001z0zw0U007y000Ts7zk6001zs007z0zy0s00TzU01zsDzsDs0Tzzk1zzVzzVU"
+
+        ; if (ok:=FindText(X, Y, 323, 221, 412, 264, 0, 0, Text))
+
+        ; porsche boxter
+        Text:="|<>*138$106.w01zzs01zwDzsDw003U01zy003zUTzUzU00A003zk007y1zy3y000U007z000Ds7zsDs0000z0Ts3y0TUTzUzUTzkDz0zUTy1y1zy3y1zz1zw3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zzzsDzkTUTzUzUTzkTzzzUzzzy1zy3y1zz0zzzy3zzzs7zsDs7zw0zzzsDzzzUTzUzUTzs07zzUzzzy0003y003U01zy3zzzs000Ds00D001zsDzzzU000zU00z003zUzzzy0003y003zU07y3zzzs000Ds00Dzs0TsDzzzUTzUzUTzzzy0zUzzzy1zy3y1zzzzw3y3zzzs7zsDs7zzzzsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz0zw3y3zs7s7zsDs7zw3zUDs7z0TUTzUzUTzs001zU003y1zy3y000U007z000Ds7zsDs003000zy001zUTzUzU00C007zw00Dy1zy3z000z03zzy07zwDzsTw006"
+
+        if (ok:=FindText(X, Y, 568, 217, 689, 268, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

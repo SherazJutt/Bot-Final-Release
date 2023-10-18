@@ -607,7 +607,7 @@ LeagueDetectionLabel:
 
         ; Events
         #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
-        #Include, %A_ScriptDir%\src\functions\Events\Huntp.ahk
+        #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
 
         ; MP1
         #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk

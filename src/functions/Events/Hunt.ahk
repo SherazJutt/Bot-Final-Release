@@ -61,9 +61,14 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 323, 221, 412, 264, 0, 0, Text))
 
         ; porsche boxter
-        Text:="|<>*138$106.w01zzs01zwDzsDw003U01zy003zUTzUzU00A003zk007y1zy3y000U007z000Ds7zsDs0000z0Ts3y0TUTzUzUTzkDz0zUTy1y1zy3y1zz1zw3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zzzsDzkTUTzUzUTzkTzzzUzzzy1zy3y1zz0zzzy3zzzs7zsDs7zw0zzzsDzzzUTzUzUTzs07zzUzzzy0003y003U01zy3zzzs000Ds00D001zsDzzzU000zU00z003zUzzzy0003y003zU07y3zzzs000Ds00Dzs0TsDzzzUTzUzUTzzzy0zUzzzy1zy3y1zzzzw3y3zzzs7zsDs7zzzzsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz0zw3y3zs7s7zsDs7zw3zUDs7z0TUTzUzUTzs001zU003y1zy3y000U007z000Ds7zsDs003000zy001zUTzUzU00C007zw00Dy1zy3z000z03zzy07zwDzsTw006"
+        ; Text:="|<>*138$106.w01zzs01zwDzsDw003U01zy003zUTzUzU00A003zk007y1zy3y000U007z000Ds7zsDs0000z0Ts3y0TUTzUzUTzkDz0zUTy1y1zy3y1zz1zw3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zzzsDzkTUTzUzUTzkTzzzUzzzy1zy3y1zz0zzzy3zzzs7zsDs7zw0zzzsDzzzUTzUzUTzs07zzUzzzy0003y003U01zy3zzzs000Ds00D001zsDzzzU000zU00z003zUzzzy0003y003zU07y3zzzs000Ds00Dzs0TsDzzzUTzUzUTzzzy0zUzzzy1zy3y1zzzzw3y3zzzs7zsDs7zzzzsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz1zy3y3zw7s7zsDs7zw7zsDsDzkTUTzUzUTzkTzUzUzz1y1zy3y1zz0zw3y3zs7s7zsDs7zw3zUDs7z0TUTzUzUTzs001zU003y1zy3y000U007z000Ds7zsDs003000zy001zUTzUzU00C007zw00Dy1zy3z000z03zzy07zwDzsTw006"
 
-        if (ok:=FindText(X, Y, 568, 217, 689, 268, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 568, 217, 689, 268, 0, 0, Text))
+
+        ; arash af10
+        Text:="|<>*134$83.zw1zzU00zzzUDzzk3zz000Tzy0DzzU3zy000Tzw0Tzz07zw000Tzs0zzw0Dzs7y0zzU1zzs0TzkTz1zz01zzkETzUzy1zy23zz0Uzz1zw3zs47zy31zy3zs7zkM7zw71zw7zkDzUsDzsC3zsDzUTy1kTzUw7zkTz0zw3Uzz1wDzUzy1zsDUzy3sDz1zw3zkT1zs7kTy3zsDz0y3zkTUzw7zUTy3w7zUzUzs000zw7w7z1z1zk003zsDsDw7y3zU00DzUTkTsDw7z000zz1zUTkTw7y003zy3zUz0zkDw7w7zs001y000TsDs7zk001w000TkTsDzU003s000zUzkDz0007U001z1zUTw000D1zy1y3zUTsDzkC3zw3w7z0zkTzkM7zw7sDz0zUzzUkTzsDkTy1y1zz0UzzkDUzy1w7zy11zzkT0zw3sDzy07zzUy3zw3UTzw4DzzVy7zwDVzzs8"
+
+        if (ok:=FindText(X, Y, 485, 223, 572, 260, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -192,6 +197,10 @@ SelectCarToPlayHunt(){
 
     ; click on race button
     Click, 1177, 643 Left, 1
+
+    ; get current value from settings.ini file
+    IniRead, hunt_play_button_click_delay, %SettingsIni%, DELAYS, hunt_play_button_click_delay
+    Sleep, %hunt_play_button_click_delay%
 
     ; checking the cars screen
     Text:="|<>*134$247.w0Tzw7zs07zzzk1zs01yDzy00Tw0Tk00wDz07zXzss03zw1zw00zzzU0Dw00y7zz00Ds03s00S7y00zkzw800zy0zy00DzzU03y00T3zzU07s00w00D3y00DsTy000Dz0Tz003zzk01z00DVzzk03s00C007Vy003w7z07w7z07zVz1zzkTkTVzzkzzsTzw7w7z3zkz3z1y1zU7z3zV3zkzkzzsTwDkzzsTzwDzy7z3zVzsTVzkz0zk3zVzkVzsTsTzwDy7sTzwDzy7zz3zVzkzwDkzsTUDs1zkzsMTwDwDzy7z3wDzy7zz3zzVzkzsTy7sTwDk7w0zsTsQDy7y7zz3zzy7zz3zzVzzkzsTwDz3wDy7s1y0TzzwC7z3z3zzVzzz3zzVzzkzzsTzzy7zVy7z3w0z0Dzzy73zVzVzzkTzzVzzkzzsTzwDzzz3zkz3zVy4DU7zzy3kzkzkzzs0zzkzzsTzwDzy7zzzVzsTVzkz23k3zzz3sTsTkTzy01zs03wDzy00z3zzzkzwDkzsTVVs1zzzVwDw00DzzU0Dw01y7zz00TVzzzsTy7sTwDksQ0zzzkz3y00Dzzw03y00z3zzU0DkzzzwDz3wDy7sQC0TzzkTVz00Dzzzs0z3zzVzzkzzsTzzy7zVy7z3wD30DzzsTkzU0DzzzzkTVzzkzzsTzwDzzz3zkz3zVy7VU7zzw00Tky7zzzzwDkzzsTzwDzy7zzzVzsTVzkz3sE3zVy007sT3zzyTy7sTzwDzy7zz3zVzkzwDkzsTVw01zky003wDkzzy7z3wDzy7zz3zzVzkzsTy7sTwDkz00zsT001y7sTzz3zVy7zz3zzVzzkzsTwDz3wDy7sTU0TwDVzkT3w7zzVzkz3zzVzzkzzsTwDy7zVy7z3wDs07w7UzwDVz3zzkTkTVzzkzzsTzw7w7z3zkz1z1y7y0003kzy7kzUzzw00Dk03s00w00y003zVzsTU00z3z0U03sTz3sTsTzy00Ds01w00S00TU03zkzwDs00zVzkM03wDzkwDw7zzU0Dw00y00D00Ds03zsTy7y00zkzsD07yDzsSDz3zzw0Ty00TU07U07z07zwDz3zk1zszyA"

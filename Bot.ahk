@@ -41,6 +41,10 @@ global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "Leag
 #Include, %A_ScriptDir%\src\Guis\CarsSkip.ahk
 #Include, %A_ScriptDir%\src\Guis\Delays.ahk
 
+GuiClose:
+ExitApp
+return
+
 script_start:
 
     Gui, Destroy
@@ -177,6 +181,9 @@ LeagueDetectionLabel:
 
     Loop, 20{
 
+        ; get current value from settings.ini file
+        IniRead, mp_play_button_click_delay, %SettingsIni%, DELAYS, mp_play_button_click_delay
+
         ; ============== Bronze =============
         CoordMode, Pixel, Screen
         PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %bronze%, 0, Fast RGB
@@ -196,10 +203,11 @@ LeagueDetectionLabel:
                     {
                         Sleep, 500
                         Click, 927, 632 Left, 1
-                        Sleep, 1000
+                        Sleep, %mp_play_button_click_delay%
                         Goto, i_check_to_play_start00
                     }
                     Click, 927, 634 Left, 1
+                    Sleep, %mp_play_button_click_delay%
                 }
                 else
                 {
@@ -260,10 +268,11 @@ LeagueDetectionLabel:
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)){
                         Sleep, 500
                         Click, 927, 632 Left, 1
-                        Sleep, 1000
+                        Sleep, %mp_play_button_click_delay%
                         Goto, i_check_to_play_start0
                     }
                     Click, 927, 634 Left, 1
+                    Sleep, %mp_play_button_click_delay%
                 }
                 else
                 {
@@ -324,10 +333,11 @@ LeagueDetectionLabel:
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 927, 632 Left, 1
-                        Sleep, 1000
+                        Sleep, %mp_play_button_click_delay%
                         Goto, i_check_to_play_start1
                     }
                     Click, 927, 634 Left, 1
+                    Sleep, %mp_play_button_click_delay%
                 }
                 else
                 {
@@ -389,10 +399,11 @@ LeagueDetectionLabel:
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 927, 632 Left, 1
-                        Sleep, 1000
+                        Sleep, %mp_play_button_click_delay%
                         Goto, i_check_to_play_start2
                     }
                     Click, 927, 634 Left, 1
+                    Sleep, %mp_play_button_click_delay%
                 }
                 else
                 {
@@ -453,10 +464,11 @@ LeagueDetectionLabel:
                     if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
                         Sleep, 500
                         Click, 927, 632 Left, 1
-                        Sleep, 1000
+                        Sleep, %mp_play_button_click_delay%
                         Goto, i_check_to_play_start3
                     }
                     Click, 927, 634 Left, 1
+                    Sleep, %mp_play_button_click_delay%
                 }
                 else
                 {

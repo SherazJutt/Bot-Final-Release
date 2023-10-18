@@ -4,6 +4,9 @@ CarsSkip(){
         IniRead, %car%_to, %SettingsIni%, CarsSkip, %car%_to
     }
 
+    ; get current value from settings.ini file
+    IniRead, cars_skip_delay, %SettingsIni%, DELAYS, cars_skip_delay
+
     ; <============ D ============>
 
     ; lancer
@@ -14,7 +17,7 @@ CarsSkip(){
         {
             Loop, %Lancer_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -30,7 +33,7 @@ CarsSkip(){
         {
             Loop, %Hellcat_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -46,7 +49,7 @@ CarsSkip(){
         {
             Loop, %Peugeotsr1_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -62,7 +65,7 @@ CarsSkip(){
         {
             Loop, %Lamborghinicountach25th_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -80,7 +83,7 @@ CarsSkip(){
         {
             Loop, %Srt8_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -96,7 +99,7 @@ CarsSkip(){
         {
             Loop, %Saleens1_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -113,7 +116,7 @@ CarsSkip(){
         {
             Loop, %Ferrarimonzasp1_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -129,7 +132,7 @@ CarsSkip(){
         {
             Loop, %Jaguarxesvproject_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -145,7 +148,7 @@ CarsSkip(){
         {
             Loop, %Lamborghinimiura_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -161,7 +164,7 @@ CarsSkip(){
         {
             Loop, %Bugattieb110_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -195,7 +198,7 @@ CarsSkip(){
         {
             Loop, %Nissanr390_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -211,7 +214,7 @@ CarsSkip(){
         {
             Loop, %Ferrarienzo_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -227,7 +230,7 @@ CarsSkip(){
         {
             Loop, %Lamborghiniessenza_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -243,7 +246,7 @@ CarsSkip(){
         {
             Loop, %Porschecarrera_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -262,7 +265,7 @@ CarsSkip(){
         {
             Loop, %Vulkan_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -279,7 +282,7 @@ CarsSkip(){
         {
             Loop, %Sennagtr_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -296,7 +299,7 @@ CarsSkip(){
         {
             Loop, %Zondar_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -313,7 +316,7 @@ CarsSkip(){
         {
             Loop, %Centenario_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -330,7 +333,7 @@ CarsSkip(){
         {
             Loop, %RaesrTacheon_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -347,7 +350,7 @@ CarsSkip(){
         {
             Loop, %Trion_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True
@@ -365,7 +368,7 @@ CarsSkip(){
             MsgBox, %Naran_to%
             Loop, %Naran_to%
             {
-                Sleep, 300
+                Sleep, %cars_skip_delay%
                 Send, {PgDn}
             }
             Return True

@@ -1,4 +1,6 @@
 main_gui:
+    Gui, Destroy
+
     for index, feature in features {
         IniRead, ini%feature%, %SettingsIni%, Main, %feature%
         %feature% := ini%feature% == 1 ? "Checked" : 0
@@ -40,7 +42,14 @@ main_gui:
     ; row 5
     Gui Add, Text, x0 y265 w210 h25 +0x200 +0x1, Coming Soon
 
-    Gui Show, w210 h300, Asphat 9 Autobot
+    ; row 6
+    Gui Add, CheckBox, x7 y288 w150 h25, Shutdown PC After Hunt
+
+    ; row 7
+    Gui, Add, Text, x7 y318 w150 h25, Goto Hunt After MP Races:
+    Gui, Add, Edit, w32 h20 x166 y315
+
+    Gui Show, w210 h350, Asphat 9 Autobot
     WinSet, Style, Asphat 9 Autobot
 ; -0x80000, to remove close button from ribbon
 

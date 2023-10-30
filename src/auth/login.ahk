@@ -20,10 +20,6 @@ auth_gui:
     Gui Show, w368 h256, Authentication
 Return
 
-GuiEscape:
-GuiClose:
-ExitApp
-
 LoginButtonClicked(){
 
     GuiControlGet, useremail, , EdtValue

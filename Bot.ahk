@@ -35,15 +35,15 @@ global SettingsIni := A_ScriptDir "\settings.ini"
 global carNames := ["Lancer", "Hellcat", "Peugeotsr1", "Lamborghinicountach25th", "Srt8", "Saleens1", "Ferrarimonzasp1", "Jaguarxesvproject", "Lamborghinimiura", "Bugattieb110", "Porsche911gscoupe", "Nissanr390", "Ferrarienzo", "Lamborghiniessenza", "Porschecarrera", "Vulkan", "Sennagtr", "Zondar", "Centenario", "RaesrTacheon", "Trion", "Naran"]
 global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
 
-; #Include, %A_ScriptDir%\src\Auth\login.ahk
+#Include, %A_ScriptDir%\src\Auth\login.ahk
 #Include, %A_ScriptDir%\src\Guis\Main.ahk
 #Include, %A_ScriptDir%\src\Guis\HuntCars.ahk
 #Include, %A_ScriptDir%\src\Guis\CarsSkip.ahk
 #Include, %A_ScriptDir%\src\Guis\Delays.ahk
 
+GuiEscape:
 GuiClose:
 ExitApp
-return
 
 script_start:
 
@@ -171,344 +171,76 @@ MP1Start:
     }
 
 LeagueDetectionLabel:
-    if (LeagueDetection == "Checked"){
-        bronze = 0xD88560
-        silver = 0x96B2D4
-        gold = 0xF1CB30
-        platinum = 0x9365F8
-        legend = 0xF5E2A4
-    }
+    currLeague := ""
 
+    Sleep, 3000
     Loop, 20{
 
-        ; get current value from settings.ini file
-        IniRead, mp_play_button_click_delay, %SettingsIni%, DELAYS, mp_play_button_click_delay
+        ; check if league detection is checked from ui
+        if (LeagueDetection == "Checked"){
+            ; (i) icon to confirm mp screen
+            Text:="|<>*144$3.zz0zzzzzzzzU"
+            if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text)){
+                isMpScreen := False
 
-        ; ============== Bronze =============
-        CoordMode, Pixel, Screen
-        PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %bronze%, 0, Fast RGB
-        If (ErrorLevel = 0)
-        {
-            i_check_to_play_start00:
+                Loop, 30{
+                    ; leaderboard last chracters check to confirm if leaderboard button is available
 
-                Sleep, 1000
+                    Text:="|<>*152$191.s07zs0w0Dz0DzkTw0Ty01y00y0Dz07zVk0Dzk3w0zzUTzVzy0zz0TzU1w0TzUTznU0TzU7s1zzUzz3zy1zz1zz03w0zzUzzr00s00Dk3kD1s07US3US3kD0Ds1sDVs7i01k00zk7UD3k0D0Q70Q70C0Rk3kD3k7w03U01nUD0S7U0S0sC0sC0Q0vk7UC7UDs07003b0S0wD00w1kQ1kQ0s1rUD0QD0Tk0C007C0w1sS01s3Us3Us1k7b0S0sS0zU0Q00SS1s3kw03k71k71k3UCC0w1kw1z00s00sQ3k7Vs07UC3US3U70QS1s3Vs3y01zw1ks7UD3zsD0w7zs70C1sQ3kD3k7w03zs7VsD0S7zkTzkDzkC0Q3Us7zw7UDs07zUD3kS0wDz0zzUQ3kQ0s71kDzkD0Tk0C00Q3Uw1sS01zw0s3ks1kS3kTz0S0zU0Q00zz1s3kw03ks1k7Vk3UzzUwC0w1z00s03zz3k7Vs07Vs3UD3U71zz1sS1s3y01k07zy7UD3k0D1k70S70C3zz3kw3k7w03U0C0QD0S7U0S3kC0wC0QD0S7Uw7UDs0700w0wS0wD00w3UQ1sS1sS0QD1sD0RzyDzls1szzkTzVs7UzzUzzks0sS1sTzvzwTzXU1lzzUzz3k71zz0zz3k1sw3kzzbzszz703Vzw1zy7UD3zs0zw7U1lk3Vzy8"
 
-                Text:="|<>*144$3.zz0zzzzzzzzU"
+                    if (ok:=FindText(X, Y, 359, 620, 566, 656, 0, 0, Text)) {
+                        Sleep, 1000
+                        isMpScreen := True
+                        Break
+                    }Else{
+                        Click, 970, 634 Left, 1
+                        Sleep, 1000
+                    }
+                }
+                If (!isMpScreen){
+                    Gosub, script_start
+                }
+            }
 
-                if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
-                    Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
+            ; league detection main
+            LeagueColors := [{id:1, label: "bronze", color: 0xD88560, clickX: 805, clickY: 142},{id:2, label: "silver", color: 0x96B2D4, clickX: 879, clickY: 135},{id:3, label: "gold", color: 0xF1CB30, clickX: 953, clickY: 141},{id:4, label: "platinum", color: 0x9365F8, clickX: 1023, clickY: 142},{id:5, label: "legend", color: 0xF5E2A4, clickX: 1095, clickY: 138}]
 
-                    if (ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text))
-                    {
+            for index, car in LeagueColors{
+                CoordMode, Pixel, Screen
+                PixelSearch, FoundX, FoundY, 395, 343, 417, 368, car.color, 0, Fast RGB
+                If (ErrorLevel = 0) {
+                    currLabel := car.label
+                    If (currLeague == currLabel){
+                        Break
+                    }Else{
+                        currLeague = car.label
                         Sleep, 500
                         Click, 927, 632 Left, 1
+
+                        ; get current value from settings.ini file
+                        IniRead, mp_play_button_click_delay, %SettingsIni%, DELAYS, mp_play_button_click_delay
                         Sleep, %mp_play_button_click_delay%
-                        Goto, i_check_to_play_start00
-                    }
-                    Click, 927, 634 Left, 1
-                    Sleep, %mp_play_button_click_delay%
-                }
-                else
-                {
-                    Sleep, 1000
-                    CheckGame()
-                }
 
-            i_check_to_play_end00:
+                        ; car selection screen
+                        Text:="|<>*133$247.w0Tzw7zs07zzzk1zs01yDzy00Tw0Tk00wDz07zXzss03zw1zw00zzzU0Dw00y7zz00Ds03s00S7y00zkzw800zy0zy00DzzU03y00T3zzU07s00w00D3y00DsTy000Dz0Tz003zzk01z00DVzzk03s00C007Vy003w7z07w7z07zVz1zzkTkTVzzkzzsTzw7w7z3zkz1z1y1zU7z3zV3zkzkzzsTwDkzzsTzwDzy7z3zVzsTVzkz0zk3zVzkVzsTsTzwDy7sTzwDzy7zz3zVzkzwDkzsTUDs1zkzsMTwDwDzy7z3wDzy7zz3zzVzkzsTy7sTwDk7w0zsTsQDy7y7zz3zzy7zz3zzVzzkzsTwDz3wDy7s1y0TzzwC7z3z3zzVzzz3zzVzzkzzsTzzy7zVy7z3w0z0Dzzy73zVzVzzkTzzVzzkzzsTzwDzzz3zkz3zVy4DU7zzy3kzkzkzzs0zzkzzsTzwDzy7zzzVzsTVzkz23k3zzz3sTsTkTzy01zs03wDzy00z3zzzkzwDkzsTVVs1zzzVwDw00DzzU0Dw01y7zz00TVzzzsTy7sTwDkkQ0zzzkz3y00Dzzw03y00z3zzU0DkzzzwDz3wDy7sQC0TzzkTVz00Dzzzs0z3zzVzzkzzsTzzy7zVy7z3wD30DzzsTkzU0DzzzzkTVzzkzzsTzwDzzz3zkz3zVy7VU7zzw00Tky7zzzzwDkzzsTzwDzy7zzzVzsTVzkz3sE3zVy007sT3zzyTy7sTzwDzy7zz3zVzkzwDkzsTVw01zky003wDkzzy7z3wDzy7zz3zzVzkzsTy7sTwDkz00zsT001y7sTzz3zVy7zz3zzVzzkzsTwDz3wDy7sTU0TwDVzkT3w7zzVzkz3zzVzzkzzsTwDy7zVy7z3wDs07w7UzwDVz3zzkTkTVzzkzzsTzw7w7z3zkz1z1y7y0003kzy7kzUzzw00Dk03s00w00y003zVzsTU00z3z0U03sTz3sTsTzy00Ds01w00S00TU03zkzwDs00zVzkM03wDzkwDw7zzU0Dw00y00D00Ds03zsTy7y00zkzsD07yDzsSDz3zzw0Ty00TU07U07z07zwDz3zk1zszyA"
+                        if (ok:=FindText(X:="wait", Y:=10, 100, 109, 368, 155, 0, 0, Text)){
+                            Sleep, 2000
 
-                Loop, 100
-                {
-                    ; car selection screen
-                    CoordMode, Pixel, Screen
-                    PixelSearch, FoundX, FoundY, 108, 178, 119, 184, 0xFF0054, 0, Fast RGB
-                    If (ErrorLevel = 0)
-                    {
-                        Sleep, 750
-                        Break
-                    }
-                    else
-                    {
-                        Sleep, 100
-                        CheckGame()
+                            PosX:=car.clickX
+                            PosY:=car.clickY
+                            Click, %PosX%, %PosY% Left, 1
+                            Sleep, 2000
+
+                            Click, 370, 331 Left, 1
+                            Sleep, 2500
+
+                            Goto, cars_skip_start
+                        }Else{
+                            Gosub, script_start
+                        }
                     }
                 }
-
-                Sleep, 3000
-                Click, 805, 142 Left, 1
-                Sleep, 2000
-
-                Click, 370, 331 Left, 1
-                Sleep, 2500
-
-                bronze = ""
-                silver = 0x96B2D4
-                gold = 0xF1CB30
-                platinum = 0x9365F8
-                legend = 0xF5E2A4
-
-                Goto, cars_skip_start
-            Return
-        }
-        ; ============== Silver =============
-        CoordMode, Pixel, Screen
-        PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %silver%, 0, Fast RGB
-        If (ErrorLevel = 0)
-        {
-            i_check_to_play_start0:
-
-                Sleep, 1000
-
-                Text:="|<>*144$3.zz0zzzzzzzzU"
-
-                if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
-                    Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
-
-                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)){
-                        Sleep, 500
-                        Click, 927, 632 Left, 1
-                        Sleep, %mp_play_button_click_delay%
-                        Goto, i_check_to_play_start0
-                    }
-                    Click, 927, 634 Left, 1
-                    Sleep, %mp_play_button_click_delay%
-                }
-                else
-                {
-                    Sleep, 1000
-                    CheckGame()
-                }
-
-            i_check_to_play_end0:
-
-                Loop, 100
-                {
-                    ; car selection screen
-                    CoordMode, Pixel, Screen
-                    PixelSearch, FoundX, FoundY, 108, 178, 119, 184, 0xFF0054, 0, Fast RGB
-                    If (ErrorLevel = 0)
-                    {
-                        Sleep, 750
-                        Break
-                    }
-                    else
-                    {
-                        CheckGame()
-                    }
-                }
-
-                Sleep, 3000
-                Click, 879, 135 Left, 1
-                Sleep, 2000
-
-                Click, 370, 331 Left, 1
-                Sleep, 2500
-
-                bronze = 0xD88560
-                silver = ""
-                gold = 0xF1CB30
-                platinum = 0x9365F8
-                legend = 0xF5E2A4
-
-                Goto, cars_skip_start
-            Return
-
-        }
-        ; ============== Gold =============
-        CoordMode, Pixel, Screen
-        PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %gold%, 0, Fast RGB
-        If (ErrorLevel = 0)
-        {
-            i_check_to_play_start1:
-
-                Sleep, 1000
-
-                Text:="|<>*144$3.zz0zzzzzzzzU"
-
-                if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
-                    Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
-
-                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
-                        Sleep, 500
-                        Click, 927, 632 Left, 1
-                        Sleep, %mp_play_button_click_delay%
-                        Goto, i_check_to_play_start1
-                    }
-                    Click, 927, 634 Left, 1
-                    Sleep, %mp_play_button_click_delay%
-                }
-                else
-                {
-                    CheckGame()
-                }
-
-            i_check_to_play_end1:
-
-                Loop, 100
-                {
-                    ; car selection screen
-                    CoordMode, Pixel, Screen
-                    PixelSearch, FoundX, FoundY, 108, 178, 119, 184, 0xFF0054, 0, Fast RGB
-                    If (ErrorLevel = 0)
-                    {
-                        Sleep, 750
-                        Break
-                    }
-                    else
-                    {
-                        Sleep, 100
-                        CheckGame()
-                    }
-                }
-
-                Sleep, 3000
-                Click, 953, 141 Left, 1
-                Sleep, 2000
-
-                Click, 370, 331 Left, 1
-                Sleep, 2500
-
-                bronze = 0xD88560
-                silver = 0x96B2D4
-                gold = ""
-                platinum = 0x9365F8
-                legend = 0xF5E2A4
-
-                Goto, cars_skip_start
-            Return
-
-        }
-
-        ; ============== Platinum =============
-        CoordMode, Pixel, Screen
-        PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %platinum%, 0, Fast RGB
-        If (ErrorLevel = 0)
-        {
-            i_check_to_play_start2:
-
-                Sleep, 1000
-
-                Text:="|<>*144$3.zz0zzzzzzzzU"
-
-                if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
-                    Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
-
-                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
-                        Sleep, 500
-                        Click, 927, 632 Left, 1
-                        Sleep, %mp_play_button_click_delay%
-                        Goto, i_check_to_play_start2
-                    }
-                    Click, 927, 634 Left, 1
-                    Sleep, %mp_play_button_click_delay%
-                }
-                else
-                {
-                    CheckGame()
-                }
-
-            i_check_to_play_end2:
-
-                Loop, 100
-                {
-                    ; car selection screen
-                    CoordMode, Pixel, Screen
-                    PixelSearch, FoundX, FoundY, 108, 178, 119, 184, 0xFF0054, 0, Fast RGB
-                    If (ErrorLevel = 0)
-                    {
-                        Sleep, 750
-                        Break
-                    }
-                    else
-                    {
-                        CheckGame()
-                    }
-                }
-
-                Sleep, 3000
-                Click, 1023, 142 Left, 1
-                Sleep, 2000
-
-                Click, 370, 331 Left, 1
-                Sleep, 2500
-
-                bronze = 0xD88560
-                silver = 0x96B2D4
-                gold = 0xF1CB30
-                platinum = ""
-                legend = 0xF5E2A4
-
-                Goto, cars_skip_start
-            Return
-
-        }
-        ; ============== Legend =============
-
-        CoordMode, Pixel, Screen
-        PixelSearch, FoundX, FoundY, 395, 343, 417, 368, %legend%, 0, Fast RGB
-        If (ErrorLevel = 0)
-        {
-            i_check_to_play_start3:
-
-                Sleep, 1000
-
-                Text:="|<>*144$3.zz0zzzzzzzzU"
-
-                if (ok:=FindText(X , Y, 1184, 184, 1223, 222, 0, 0, Text))
-                {
-                    Text:="|<>*155$33.zw0Ty7zs7zwzzUzzrUy7USw3kw1zUC7UDw1kw1zUC7UDw1kw1zUS7UDw3kw1zzw7UDzz0w1zzk7UDwC0w1zVs7UDwD0w1zUw7UDw7Uw1rUS7zyw3kzzb0C7zsU"
-
-                    if (!ok:=FindText(X , Y, 494, 623, 566, 655, 0, 0, Text)) {
-                        Sleep, 500
-                        Click, 927, 632 Left, 1
-                        Sleep, %mp_play_button_click_delay%
-                        Goto, i_check_to_play_start3
-                    }
-                    Click, 927, 634 Left, 1
-                    Sleep, %mp_play_button_click_delay%
-                }
-                else
-                {
-                    CheckGame()
-                }
-
-            i_check_to_play_end3:
-
-                Loop, 100
-                {
-                    ; car selection screen
-                    CoordMode, Pixel, Screen
-                    PixelSearch, FoundX, FoundY, 108, 178, 119, 184, 0xFF0054, 0, Fast RGB
-                    If (ErrorLevel = 0)
-                    {
-                        Sleep, 750
-                        Break
-                    }
-                    else
-                    {
-                        CheckGame()
-                    }
-                }
-
-                Sleep, 3000
-                Click, 1095, 138 Left, 1
-                Sleep, 2000
-
-                Click, 370, 331 Left, 1
-                Sleep, 2500
-
-                bronze = 0xD88560
-                silver = 0x96B2D4
-                gold = 0xF1CB30
-                platinum = 0x9365F8
-                legend = ""
-
-                Goto, cars_skip_start
-            Return
-
+            }
         }
 
         i_check_to_play_start:

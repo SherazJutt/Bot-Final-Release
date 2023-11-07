@@ -71,9 +71,14 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 320, 222, 413, 261, 0, 0, Text))
 
         ; artega scalo
-        Text:="|<>*144$78.zs1zzU00zk000zs1zzU00Dk000zs1zzU007k000zk0zzU007k000zk0zzUTk3zw3zzk0zzUzw3zw3zzU0TzUzy3zw3zzUkTzUzy3zw3zzUkTzUzy3zw3zzUkTzUzy3zw3zz1sDzUzy3zw3zz1sDzUzy3zw3zz1sDzUzy3zw3zy1s7zUzy3zw3zy3w7zUzy3zw3zy3w7zUzw3zw3zy3w3zU003zw3zw3w3zU007zw3zw7y3zU00Dzw3zw7y3zU00Tzw3zs7y1zU00zzw3zs7y1zUz0zzw3zs001zUzUTzw3zs000zUzUTzw3zk000zUzkTzw3zk000zUzkDzw3zkTzUzUzsDzw3zUTzUTUzs7zw3zUTzkTUzw7zw3zUzzkTUzw3zw3zUzzkDUzy3zw3z0zzkDUzy1zw3z1zzsDUzz1zw3zVzzsTlzzVzy7zU"
-        
-        if (ok:=FindText(X, Y, 322, 222, 407, 261, 0, 0, Text))
+        ; Text:="|<>*144$78.zs1zzU00zk000zs1zzU00Dk000zs1zzU007k000zk0zzU007k000zk0zzUTk3zw3zzk0zzUzw3zw3zzU0TzUzy3zw3zzUkTzUzy3zw3zzUkTzUzy3zw3zzUkTzUzy3zw3zz1sDzUzy3zw3zz1sDzUzy3zw3zz1sDzUzy3zw3zy1s7zUzy3zw3zy3w7zUzy3zw3zy3w7zUzw3zw3zy3w3zU003zw3zw3w3zU007zw3zw7y3zU00Dzw3zw7y3zU00Tzw3zs7y1zU00zzw3zs7y1zUz0zzw3zs001zUzUTzw3zs000zUzUTzw3zk000zUzkTzw3zk000zUzkDzw3zkTzUzUzsDzw3zUTzUTUzs7zw3zUTzkTUzw7zw3zUzzkTUzw3zw3zUzzkDUzy3zw3z0zzkDUzy1zw3z1zzsDUzz1zw3zVzzsTlzzVzy7zU"
+
+        ; if (ok:=FindText(X, Y, 322, 222, 407, 261, 0, 0, Text))
+
+        ; ford mach E-1400
+        Text:="|<>*134$75.000Tzs7zzzs3s003zw0zzzy0D000Ty07zzzk1s003zU0zzzw0D0zzzs07zzz01sDzzz00zzzs8D1zzzsQ7zzy31sDzzz7UzzzkMD1zzzvw7zzw71sDzzzzUzzzUsD1zzzzw7zzsD1sDzzzzUzzz3sD1zzzzw7zzkT1sDzzzzUzzw7sD001zzw7zzUz1s00DzzUzzsDsD001zzw7zz1z1s00DzzUzzkTsD003zzw7zy3z1sDzzzzUzzUzsD1zzzzw7zw7z1sDzzzzUzz1zsD1zzzzw7zs0008DzzzzUzy00001zzzzw7zk0000DzzzzUzy00001zzzzw7zs0000DzzzzUzzzzsD1zzzzw7zzzz1s007zzUzzzzsD000Tzw7zzzz1s003zzUzzzzsD000Tzw7zzzz1zvbzzzlzzzzwzU"
+
+        if (ok:=FindText(X, Y, 450, 269, 532, 308, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

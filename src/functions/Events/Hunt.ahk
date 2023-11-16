@@ -76,9 +76,18 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 322, 222, 407, 261, 0, 0, Text))
 
         ; ford mach E-1400
-        Text:="|<>*134$75.000Tzs7zzzs3s003zw0zzzy0D000Ty07zzzk1s003zU0zzzw0D0zzzs07zzz01sDzzz00zzzs8D1zzzsQ7zzy31sDzzz7UzzzkMD1zzzvw7zzw71sDzzzzUzzzUsD1zzzzw7zzsD1sDzzzzUzzz3sD1zzzzw7zzkT1sDzzzzUzzw7sD001zzw7zzUz1s00DzzUzzsDsD001zzw7zz1z1s00DzzUzzkTsD003zzw7zy3z1sDzzzzUzzUzsD1zzzzw7zw7z1sDzzzzUzz1zsD1zzzzw7zs0008DzzzzUzy00001zzzzw7zk0000DzzzzUzy00001zzzzw7zs0000DzzzzUzzzzsD1zzzzw7zzzz1s007zzUzzzzsD000Tzw7zzzz1s003zzUzzzzsD000Tzw7zzzz1zvbzzzlzzzzwzU"
+        ; Text:="|<>*134$75.000Tzs7zzzs3s003zw0zzzy0D000Ty07zzzk1s003zU0zzzw0D0zzzs07zzz01sDzzz00zzzs8D1zzzsQ7zzy31sDzzz7UzzzkMD1zzzvw7zzw71sDzzzzUzzzUsD1zzzzw7zzsD1sDzzzzUzzz3sD1zzzzw7zzkT1sDzzzzUzzw7sD001zzw7zzUz1s00DzzUzzsDsD001zzw7zz1z1s00DzzUzzkTsD003zzw7zy3z1sDzzzzUzzUzsD1zzzzw7zw7z1sDzzzzUzz1zsD1zzzzw7zs0008DzzzzUzy00001zzzzw7zk0000DzzzzUzy00001zzzzw7zs0000DzzzzUzzzzsD1zzzzw7zzzz1s007zzUzzzzsD000Tzw7zzzz1s003zzUzzzzsD000Tzw7zzzz1zvbzzzlzzzzwzU"
 
-        if (ok:=FindText(X, Y, 450, 269, 532, 308, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 450, 269, 532, 308, 0, 0, Text))
+
+        ;acr
+        ; Text:="|<>*143$80.000zzs01zw003k007zw00Dz000Q000Tw000zk0010007z000Dw000EDy0zUDs1z0zk07zkDs7zUTkTz01zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zw7w7zs0TzUzUzz1z1zy07zsDsDzkTkTzU1zy3y3zs7w7zs0Tz0zUTy1z1zw0000Tw000zk0010007z000Dw000E003zs007z000A001zz003zk007U03zzy07zy00Ds"
+
+        ; if (ok:=FindText(X, Y, 322, 221, 415, 264, 0, 0, Text))
+
+        Text:="|<>*155$47.000TU00y000z000Q001y000M003w000EDzzs7y0UzzzkTz11zzzUzy03zzz1zw07zzy3zs0Dzzw7zk0TzzsDzU0zzzkTz01zzzUzy03zzz1zw0007y3zs000Dw7zUE00Ts000U00zk003003zU00C3zzz000w7zzy003sDzzw7s7kTzzsDs7UzzzkTkD1zzzUzkC3zzz1zUQ7zzy3zUMDzzw7z0kTzzsDz0U00TkTy1000TUzy0000z1zw0001y3zw4007y7zw8"
+
+        if (ok:=FindText(X, Y, 345, 215, 407, 270, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

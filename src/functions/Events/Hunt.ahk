@@ -331,7 +331,7 @@ SelectCarToPlayHunt(){
                                 ; move the mouse little bit up to see the next button
                                 Click, 1242, 409, 0
                             }Else{
-                                Goto, script_start
+                                Gosub, script_start
                             }
                         }Else{
                             Gosub, script_start

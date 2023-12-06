@@ -336,12 +336,10 @@ SelectCarToPlayHunt(){
                         }Else{
                             Gosub, script_start
                         }
-                    }Else{
-                        Gosub, script_start
                     }
                 }
                 Click, 1211, 643 Left, 1
-                Sleep, 1000
+                Sleep, 2500
             }
         }
         Return isSkipped

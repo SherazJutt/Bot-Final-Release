@@ -4,7 +4,7 @@ EnterHuntTab(){
 
     Loop, 30{
 
-         Text:="|<>*144$71.000z000TU00y000y000z000Q001w001y000M007s003w000EDzzkDzzs7w0UzzzUzzzkTy11zzz1zzzUzy03zzy3zzz1zw07zzw7zzy3zs0DzzsDzzw7zk0TzzkTzzsDzU0zzzUzzzkTz01zzz1zzzUzy03zzy3zzz1zw03zzw007y3zs000Ds00Dw7zUE00Tk00Ts000U00zU00zk003001z001zU00C003y3zzz000w3zzw7zzy003sDzzsDzzw7s7kTzzkTzzsDs7UzzzUzzzkTkD1zzz1zzzUzkC3zzy3zzz1zUQ7zzw7zzy3zUMDzzsDzzw7z0kTzzkTzzsDz0UzzzU00TkTy11zzz000TUzy03zzy000z1zw07zzw001y3zw4Dzzw007yDzw8"
+        Text:="|<>*144$71.000z000TU00y000y000z000Q001w001y000M007s003w000EDzzkDzzs7w0UzzzUzzzkTy11zzz1zzzUzy03zzy3zzz1zw07zzw7zzy3zs0DzzsDzzw7zk0TzzkTzzsDzU0zzzUzzzkTz01zzz1zzzUzy03zzy3zzz1zw03zzw007y3zs000Ds00Dw7zUE00Tk00Ts000U00zU00zk003001z001zU00C003y3zzz000w3zzw7zzy003sDzzsDzzw7s7kTzzkTzzsDs7UzzzUzzzkTkD1zzz1zzzUzkC3zzy3zzz1zUQ7zzw7zzy3zUMDzzsDzzw7z0kTzzkTzzsDz0UzzzU00TkTy11zzz000TUzy03zzy000z1zw07zzw001y3zw4Dzzw007yDzw8"
 
         if (ok:=FindText(X, Y, 323, 220, 406, 266, 0, 0, Text))
         {
@@ -276,6 +276,35 @@ SelectCarToPlayHunt(){
                 Sleep, 2000
                 Break
             }Else{
+                If (watch_AD_if_1st_2nd_OR_3rd()){
+                    ; click on (watch ad) button
+                    Text:="|<>*125$143.w1s3k3s3zz1zs3U7000y0Dzls3k7UDk7zy7zsD0C001w0TznkDkD0TUDzwTzsS0Q007w0zzrUTUS0zU0w0w3kw0s00Ds1s7b0z0s1r01s1k3Vs1k00Rk3k7j1y1k7i03k3U73k3U01vU7UDS3C7UCQ07U70C7U7003rUD0SwCQD0Qw0D0C0QD0C00770S0xsQsS1ss0S0Q00S0Q00CC0w1tktks3Vk0w0s00w0s00wS1s3nVnVk73k1s1k01zzk01kw3k7bb3XUC3U3k3U03zzU03Us7UDDC7D0w707U7007zz0071kD0SSQCS1kD0D0C00D0C00S3kS0wwsQs3zy0S0Q00S0Q00zzUw1stkNkDzw0w0s1kw0s01zz1s3lr0vUTzs1s1k3Vs1k07zz3k7Xi1r0s1s3k3U73k3U0D0S7UD7w3y1k3k7U70S7U700Q0QD0SDs3w7U3UD0DzwD0C01s0sTzsDU7kD07US0DzkS0Q03k1szzkT0DUQ0D0w0Dz0w0s0701lzy8"
+                    if (ok:=FindText(X:="wait", Y:=5, 984, 516, 1141, 553, 0, 0, Text))
+                    {
+                        Sleep, 1000
+                        Click, 962, 523 Left, 1
+                        Sleep, 3000
+
+                        If (Close_AD()){
+                            Sleep, 1000
+                            ; AD Next button
+                            Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
+                            if (ok:=FindText(X:="wait", Y:=10, 1006, 628, 1083, 661, 0, 0, Text)){
+                                Sleep, 1000
+                                Click, 1154, 639 Left, 1
+                                Sleep, 1000
+                                ; move the mouse little bit up to see the next button
+                                Click, 1242, 409, 0
+                            }Else{
+                                Goto, script_start
+                            }
+                        }Else{
+                            Goto, script_start
+                        }
+                    }Else{
+                        Goto, script_start
+                    }
+                }
                 Click, 1211, 643 Left, 1
                 Sleep, 1000
             }

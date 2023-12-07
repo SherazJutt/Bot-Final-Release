@@ -176,7 +176,7 @@ LeagueDetectionLabel:
 
     Sleep, 3000
 
-    Loop, 20{
+    Loop, 12{
 
         ; ============== Bronze =============
         CoordMode, Pixel, Screen

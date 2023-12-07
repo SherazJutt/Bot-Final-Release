@@ -1,4 +1,5 @@
 CarsSkip(){
+    Sleep, 2000
     for index, car in carNames {
         IniRead, %car%, %SettingsIni%, CarsSkip, %car%
         IniRead, %car%_to, %SettingsIni%, CarsSkip, %car%_to

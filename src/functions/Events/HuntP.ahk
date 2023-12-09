@@ -237,7 +237,7 @@ SelectCarToPlayHunt(){
                             Sleep, 500
                         }
 
-                        ; check acura 2017 and exit loop
+                        ; check if car is refilled and exit the loop/refuelling
                         Text:="|<>*125$65.zy1s00T0S0Tzy3k01y0w0vzy7U03w0w3r0QD007w1s7C0sS00Cs1sSQ1kw00tk3kss3Vs01nk3nlk73k03XU7b3UC7U0D707S70QD00QC0DwC1sS00sS0DkTzkw01kQ0TUzz1s07Us0S1zs3k0C1s0w3U07U0Tzk1s700D01zzU3kC00S03zz07UQ00w070D0D0s01zyS0C0S1k03zww0Q0w3U07ztk0w1s4"
 
                         if (ok:=FindText(X, Y, 1034, 624, 1106, 655, 0, 0, Text))
@@ -296,17 +296,15 @@ SelectCarToPlayHunt(){
                                 ; move the mouse little bit up to see the next button
                                 Click, 1242, 409, 0
                             }Else{
-                                Goto, script_start
+                                Gosub, script_start
                             }
                         }Else{
-                            Goto, script_start
+                            Gosub, script_start
                         }
-                    }Else{
-                        Goto, script_start
                     }
                 }
                 Click, 1211, 643 Left, 1
-                Sleep, 1000
+                Sleep, 2500
             }
         }
         Return isSkipped

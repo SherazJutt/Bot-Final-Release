@@ -3,10 +3,10 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; bacalar
-        Text:="|<>*139$80.001zzz0Dzzk07k007zzk3zzk00Q000zzw0zzs0030007zy07zw000EDy1zzU1zz0Tk47zkDzs0TzkTz11zw3zw43zw7zk0TzUzz1Uzy1zy07zsDzkMDzUzzU1zy3zw63zsDzs0TzUzy3UTy3zy07zsDzUw7zUzzz1zw3zsD1zsDzzkTy1zw3kDy3zzw000Tz1y3zUzzz000TzkTUzsDzzk007zw7sDy3zzw000zy3y1zUzzz0007zUzkTsDzzkTz0zsDw7y1zzw7zsDw3z0zUTzz1zy3z0zkDsDzzkTzUzk003y3zy47zsDs000zUzzU1zy3y0007s7zs0TzUzU001y1zy07zsDsDzkTUTz01zy3w3zw3w7zk0Tz0z0zz0z0zs4000DkTzsDk0010007s7zy3y000k003y1zzUTk00A001zUzzw7y00DU03zsDzz3zs0Ds"
+        ; nio ep9
+        Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
 
-        if (ok:=FindText(X, Y, 324, 219, 413, 264, 0, 0, Text))
+        if (ok:=FindText(X, Y, 406, 218, 496, 271, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

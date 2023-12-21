@@ -36,20 +36,23 @@ main_gui:
     Gui Add, CheckBox, gToggleFeatures %EventPassHolder% x7 y210 w150 h25, Event Pass Holder
     Gui Add, CheckBox, gToggleFeatures %AutoRefillTickets% x7 y232 w150 h25, Auto Refill Tickets
 
+    Gui Add, CheckBox, gToggleFeatures %PlayAdafterhuntrace% x7 y255 w150 h25, Play Ad after hunt race
+
     ; section sseparator
-    Gui Add, Text, x5 y260 w200 h2 +0x10
+    Gui Add, Text, x5 y285 w200 h2 +0x10
 
     ; row 5
-    Gui Add, Text, x0 y265 w210 h25 +0x200 +0x1, Coming Soon
+    ; Gui Add, Text, x0 y290 w210 h25 +0x200 +0x1, Coming Soon
 
     ; row 6
-    Gui Add, CheckBox, x7 y288 w150 h25, Shutdown PC After Hunt
+    Gui Add, CheckBox, gToggleFeatures %ShutdownPCAfterHunt% x7 y288 w150 h25, Shutdown PC After Hunt
+
 
     ; row 7
-    Gui, Add, Text, x7 y318 w150 h25, Goto Hunt After MP Races:
-    Gui, Add, Edit, w32 h20 x166 y315
+    ; Gui, Add, Text, x7 y318 w150 h25, Goto Hunt After MP Races:
+    ; Gui, Add, Edit, w32 h20 x166 y315
 
-    Gui Show, w210 h350, Asphat 9 Autobot
+    Gui Show, w210 h325, Asphat 9 Autobot
     WinSet, Style, Asphat 9 Autobot
 ; -0x80000, to remove close button from ribbon
 

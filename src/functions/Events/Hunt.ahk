@@ -3,10 +3,16 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; nio ep9
-        Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
 
-        if (ok:=FindText(X, Y, 406, 218, 496, 271, 0, 0, Text))
+        ; taycan
+        ; Text:="|<>*141$92.001zzs03zzzzk07k00Dzs00Dzzzk00Q001zw001zzzs003000Dy000Tzzw000kTw1zUDs3zzz0TU47zUTkDz0zzzkTy11zw7w7zsDzzs7zkETz1z1zy3zzy1zw47zkTkTzUzzzUTz11zw7w7zsDzzs7zkETz1z1zy3zzy1zzw7zkTkTzUzzzUTzz1zw7w7zsDzzw3zzkTy3z1zy3zzz0Dzw000zkTzUzzzk0Dz000Tw7zsDzzy00Dk00Dz1zy3zzzk00w000zkTzUzzzy0030007w7zsDzzzw00kTy1z1zy3zzzzw047zkTkTzUzzzzzw11zw3w7zsDzzzzzk0Tz0z1zy3zzzzzw07zkDkTzUzzzkzzU1zw3w7zsDzzs7zs0Tz0z1zy3zzy1zy07zkDkTzUzzzUTz01zw7w3zsDzzw7zkETy1z0Tw3zzz0zs4000Ts000zzzk001000Dy000Tzzy000k007zk00Dzzzk00Q003zy007zzzy00D007zzw0Dzzzzw0Ts"
+
+        ; if (ok:=FindText(X, Y, 581, 216, 685, 266, 0, 0, Text))
+
+        ; gt1 evolution
+        Text:="|<>*144$65.w01zk001zy1k00zU003zs3000z0007z04000y000Ds007w1zy1zzU00Ty3zy3zz001zw3zw7zy303zs7zsDzwS07zsDzkTzzw0DzkTzUzzzs0TzVzz1zzzk0zzzzy3zzzU1zzzzw7zzz03zzzzsDzzy07zzzzkTzzw0DzzzzUzzzs0TU0zz1zzzk0z01zy3zzzU1y03zw7zzz03w07zsDzzy07zkDzkTzzw0DzkTzUzzzs0TzUzz1zzzk0zz1zy3zzzU1zy3zw7zzz03zw7zsDzzy07zkDzkTzzw0DzUTzUzzzs0Dy1zz1zzzkE003zy3zzzUU00Dzw7zzz1U00TzsDzzy3U03zzkTzzw7s0zzzlzzzwM"
+
+        if (ok:=FindText(X, Y, 626, 216, 710, 271, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -200,22 +206,24 @@ SelectCarToPlayHunt(){
             }Else{
                 Gosub, script_start
             }
-        }Else{
-            Gosub, script_start
-        }
+    }Else{
+        Gosub, script_start
     }
+}
 
-    HuntRewardsSkip(){
-        isSkipped := False
+HuntRewardsSkip(){
+    isSkipped := False
 
-        Loop,30{
-            Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
-            if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
-                Click, 1211, 643 Left, 1
-                isSkipped := True
-                Sleep, 2000
-                Break
-            }Else{
+    Loop,30{
+        Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
+        if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
+            Click, 1211, 643 Left, 1
+            isSkipped := True
+            Sleep, 2000
+            Break
+        }Else{
+            IniRead, PlayAdafterhuntrace, %SettingsIni%, Main, PlayAdafterhuntrace
+            If (PlayAdafterhuntrace == 1){
                 If (watch_AD_if_1st_2nd_OR_3rd()){
                     ; click on (watch ad) button
                     Text:="|<>*125$143.w1s3k3s3zz1zs3U7000y0Dzls3k7UDk7zy7zsD0C001w0TznkDkD0TUDzwTzsS0Q007w0zzrUTUS0zU0w0w3kw0s00Ds1s7b0z0s1r01s1k3Vs1k00Rk3k7j1y1k7i03k3U73k3U01vU7UDS3C7UCQ07U70C7U7003rUD0SwCQD0Qw0D0C0QD0C00770S0xsQsS1ss0S0Q00S0Q00CC0w1tktks3Vk0w0s00w0s00wS1s3nVnVk73k1s1k01zzk01kw3k7bb3XUC3U3k3U03zzU03Us7UDDC7D0w707U7007zz0071kD0SSQCS1kD0D0C00D0C00S3kS0wwsQs3zy0S0Q00S0Q00zzUw1stkNkDzw0w0s1kw0s01zz1s3lr0vUTzs1s1k3Vs1k07zz3k7Xi1r0s1s3k3U73k3U0D0S7UD7w3y1k3k7U70S7U700Q0QD0SDs3w7U3UD0DzwD0C01s0sTzsDU7kD07US0DzkS0Q03k1szzkT0DUQ0D0w0Dz0w0s0701lzy8"
@@ -243,10 +251,11 @@ SelectCarToPlayHunt(){
                         }
                     }
                 }
-                Click, 1211, 643 Left, 1
-                Sleep, 2500
             }
+            Click, 1211, 643 Left, 1
+            Sleep, 2500
         }
-        Return isSkipped
     }
+    Return isSkipped
+}
 

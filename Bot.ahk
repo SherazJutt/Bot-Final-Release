@@ -33,7 +33,7 @@ t1:=A_TickCount, X:=Y:=""
 global SettingsIni := A_ScriptDir "\settings.ini"
 
 global carNames := ["Lancer", "Hellcat", "Peugeotsr1", "Lamborghinicountach25th", "Srt8", "Saleens1", "Ferrarimonzasp1", "Jaguarxesvproject", "Lamborghinimiura", "Bugattieb110", "Porsche911gscoupe", "Nissanr390", "Ferrarienzo", "Lamborghiniessenza", "Porschecarrera", "Vulkan", "Sennagtr", "Zondar", "Centenario", "RaesrTacheon", "Trion", "Naran"]
-global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets"]
+global features := ["PlayHunt", "PlayMP1","PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder","AutoRefillTickets","PlayAdafterhuntrace","ShutdownPCAfterHunt"]
 
 #Include, %A_ScriptDir%\src\Auth\login.ahk
 #Include, %A_ScriptDir%\src\Guis\Main.ahk
@@ -49,8 +49,9 @@ script_start:
 
     Gui, Destroy
 
-    If (MuteSystemVolume == "Checked"){
-        SoundSet,+1,,Mute
+    SoundGet, isMuted, , MUTE
+    if (isMuted = "off" && MuteSystemVolume = "Checked") {
+        SoundSet, +1, , Mute
     }
 
     t1:=A_TickCount, X:=Y:=""
@@ -132,6 +133,11 @@ HuntRaceScreen:
 hunt_ended:
 
     ; <======================== Hunt ended ==============================>
+
+    If (ShutdownPCAfterHunt == "Checked"){
+        Shutdown, 0
+    }
+
     If (PlayMP1 == 0){
         MsgBox, 4,Play MP1 is not checked, Do you want to close the game ?
         IfMsgBox Yes
@@ -601,7 +607,10 @@ LeagueDetectionLabel:
         ExitApp
         ^p:: Pause
         ^q::
-            SoundSet, 0, , mute
+            SoundGet, isMuted, , MUTE
+            if (isMuted = "on") {
+                SoundSet, +1, , Mute
+            }
         ExitApp
 
         ; common functions

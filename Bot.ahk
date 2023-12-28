@@ -135,7 +135,7 @@ hunt_ended:
     ; <======================== Hunt ended ==============================>
 
     If (ShutdownPCAfterHunt == "Checked"){
-        Shutdown, 0
+        Run, shutdown.exe /s /t 0
     }
 
     If (PlayMP1 == 0){

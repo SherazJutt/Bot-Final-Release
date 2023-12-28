@@ -56,9 +56,9 @@ EnterEventsTab(){
             isEventsLoaded := True
         }Else{
             ; captured claim to check if there is event claim screen
-            Text:="|<>*142$54.DkM0C0ls7TwM0D0ls7MQM0T0lwDsAM0P0lwDsAM0PUlw/s0M0NUlyPs0M0tUlqPs0M0lUlqns0M0kklnns0M1zklnnsAM1zklnXsAM1UsllXQQM1UMlk3TsTvUMlk37kTv0MkU3U"
+            Text:="|<>*141$147.zkTsD0zlkQ3zVy01y301kCC1zz3z1s7z630TwTs0zss0S1lsDsMM0D0kMss0Q73U73b03sCD1z3X03w633701UkQ0kQs0P1lsTsQM0NUkMQk0A63U63b07MCBXz3X03A631i01UkQ0k0s0n1lgPsMTkNUkMDU0A63U60706QCBaTz3y6C630w01UkQ0k0s1lVlanzkM0kkkM700A63U6070CACAyTC307y630s01UkQ0k0s1zllXXskM1zskM700A63U63b0DyCAQT730C7630s01UkQ0kQs3UllV3sMM1UMks700A73U77b0Q6CA0T3XzQ37z0s01UTs0Tszv0tlU3kATnU8zU300A1y01y3zM3AA0Q"
 
-            if (ok:=FindText(X:="wait", Y:=18, 653, 409, 721, 435, 0, 0, Text)){
+            if (ok:=FindText(X:="wait", Y:=18, 550, 412, 708, 436, 0, 0, Text)){
                 Sleep, 1000
                 Click, 778, 372 Left, 1
                 Sleep, 750

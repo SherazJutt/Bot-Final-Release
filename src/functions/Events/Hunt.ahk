@@ -4,15 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; taycan
-        ; Text:="|<>*141$92.001zzs03zzzzk07k00Dzs00Dzzzk00Q001zw001zzzs003000Dy000Tzzw000kTw1zUDs3zzz0TU47zUTkDz0zzzkTy11zw7w7zsDzzs7zkETz1z1zy3zzy1zw47zkTkTzUzzzUTz11zw7w7zsDzzs7zkETz1z1zy3zzy1zzw7zkTkTzUzzzUTzz1zw7w7zsDzzw3zzkTy3z1zy3zzz0Dzw000zkTzUzzzk0Dz000Tw7zsDzzy00Dk00Dz1zy3zzzk00w000zkTzUzzzy0030007w7zsDzzzw00kTy1z1zy3zzzzw047zkTkTzUzzzzzw11zw3w7zsDzzzzzk0Tz0z1zy3zzzzzw07zkDkTzUzzzkzzU1zw3w7zsDzzs7zs0Tz0z1zy3zzy1zy07zkDkTzUzzzUTz01zw7w3zsDzzw7zkETy1z0Tw3zzz0zs4000Ts000zzzk001000Dy000Tzzy000k007zk00Dzzzk00Q003zy007zzzy00D007zzw0Dzzzzw0Ts"
+        ;  AM victor
+        Text:="|<>*138$145.1zzUS3zw00zk001zU07zk00TUTzkD0zw007s000zU00zs003kDzsDUTs001w000T000Dw000s7zs7kDw000y000DU007y000C3zw3s7w0z0DzUTzU7k1z0zU70zy3w3y1zs7zkDzkDz0zUTy3UTz1y1z1zy3zs7zsDzkTkDz0sDz0z0zUzz1zw3zw7zsDs7zUQ7zUTUTkTzUzy1zy3zw7w3zkC1zkTkDsDzkTz0zz1zy3y1zs70zsDs7w7zsDzUTzUzz1z0zw3kTs7w3y3zzzzsDzkTzUzUTy1sDw3y1z1zzzzs7zsDzkTkDz0w3y3z0zUzzzzw3zw7zsDs7zUT1z1zUTkTzzzy1zy3zw7w3zkDUz0zkDsDzzzz0zz1zy3y1zkDkTUzs7w7zzzzUTzUzz1z0007s7kTw3y3zzzzkDzkTzUzU007y3sDy1z1zzzzs7zsDzkTk003z1sDz0zUzzzzw3zw7zsDs007zUw7zUTkTzzzz1zy3zw7w007zkC3zkDsDzzzzUzz1zy3y1y3zw71zs7w7zsDzkTzUzz1z0z0zy31zw3y3zw7zsDzkTzUzUTkTz1Uzy1z1zy3zw7zsDzkTkDs7zkkTz0zUzz1zy3zw7zsDs7w3zs8TzUTkTzUzz1zy3zw7w3z0zw0DzkDsDzUTzUzz0zw3y1zUTy07zs7w3zkDzkTzUDy1z0zs7zU3zw3z000DzsDzs000zUTw3zk3zy1zU007zw7zw000zkDz0zs1zz0zs007zy3zz000zs7zUTy0zzUTy007zz1zzk00zw7zs7z0zzsTzs0TzzVzzz03zz3zy6"
 
-        ; if (ok:=FindText(X, Y, 581, 216, 685, 266, 0, 0, Text))
-
-        ; gt1 evolution
-        Text:="|<>*144$65.w01zk001zy1k00zU003zs3000z0007z04000y000Ds007w1zy1zzU00Ty3zy3zz001zw3zw7zy303zs7zsDzwS07zsDzkTzzw0DzkTzUzzzs0TzVzz1zzzk0zzzzy3zzzU1zzzzw7zzz03zzzzsDzzy07zzzzkTzzw0DzzzzUzzzs0TU0zz1zzzk0z01zy3zzzU1y03zw7zzz03w07zsDzzy07zkDzkTzzw0DzkTzUzzzs0TzUzz1zzzk0zz1zy3zzzU1zy3zw7zzz03zw7zsDzzy07zkDzkTzzw0DzUTzUzzzs0Dy1zz1zzzkE003zy3zzzUU00Dzw7zzz1U00TzsDzzy3U03zzkTzzw7s0zzzlzzzwM"
-
-        if (ok:=FindText(X, Y, 626, 216, 710, 271, 0, 0, Text))
+        if (ok:=FindText(X, Y, 323, 219, 477, 265, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -227,7 +222,7 @@ HuntRewardsSkip(){
                 If (watch_AD_if_1st_2nd_OR_3rd()){
                     ; click on (watch ad) button
                     Text:="|<>*125$143.w1s3k3s3zz1zs3U7000y0Dzls3k7UDk7zy7zsD0C001w0TznkDkD0TUDzwTzsS0Q007w0zzrUTUS0zU0w0w3kw0s00Ds1s7b0z0s1r01s1k3Vs1k00Rk3k7j1y1k7i03k3U73k3U01vU7UDS3C7UCQ07U70C7U7003rUD0SwCQD0Qw0D0C0QD0C00770S0xsQsS1ss0S0Q00S0Q00CC0w1tktks3Vk0w0s00w0s00wS1s3nVnVk73k1s1k01zzk01kw3k7bb3XUC3U3k3U03zzU03Us7UDDC7D0w707U7007zz0071kD0SSQCS1kD0D0C00D0C00S3kS0wwsQs3zy0S0Q00S0Q00zzUw1stkNkDzw0w0s1kw0s01zz1s3lr0vUTzs1s1k3Vs1k07zz3k7Xi1r0s1s3k3U73k3U0D0S7UD7w3y1k3k7U70S7U700Q0QD0SDs3w7U3UD0DzwD0C01s0sTzsDU7kD07US0DzkS0Q03k1szzkT0DUQ0D0w0Dz0w0s0701lzy8"
-                    if (ok:=FindText(X:="wait", Y:=5, 984, 516, 1141, 553, 0, 0, Text))
+                    if (ok:=FindText(X, Y, 984, 516, 1141, 553, 0, 0, Text))
                     {
                         Sleep, 1000
                         Click, 962, 523 Left, 1

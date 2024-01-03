@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; nio ep9
-        Text:="|<>*157$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1w3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz000zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
+        ; berlinetta
+        Text:="|<>*144$77.001zy000z001y000zw001y000w000zs003w000s000zk007s000kDw1zUTzzkDs1Uzy1z1zzzUTy11zw3y3zzz0zw23zw7w7zzy1zs47zsDsDzzw3zk8DzkTkTzzs7zUETzUzUzzzkDz0Uzz1z1zzzUTy11zw3y3zzz0zw21zkDw7zzy1zs4000Ts00Dw3zk8003zk00Ts7z0k007zU00zk001U007z001zU0070007y003z000C3zs7w3zzy001w7zsDsDzzw007sDzkTkTzzs7sDkTzUzUzzzkTkDUzz1z1zzzUzkT1zy3y3zzz1zUS3zw7w7zzy3zUw7zsDsDzzw7z0sDzkTkTzzsDy1kTz0zUzzzkTy1U001z000zUzw30007y000z1zw2000Tw001y3zs4001zs003w7zs400Tzs00DwDzsM"
 
-        if (ok:=FindText(X, Y, 406, 218, 496, 271, 0, 0, Text))
+        if (ok:=FindText(X, Y, 322, 220, 411, 266, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -137,6 +137,10 @@ SelectCarToPlayHunt(){
     ; click on race button
     Click, 1177, 643 Left, 1
 
+    ; get current value from settings.ini file
+    IniRead, hunt_play_button_click_delay, %SettingsIni%, DELAYS, hunt_play_button_click_delay
+    Sleep, %hunt_play_button_click_delay%
+
     ; checking the cars screen
     Text:="|<>*134$247.w0Tzw7zs07zzzk1zs01yDzy00Tw0Tk00wDz07zXzss03zw1zw00zzzU0Dw00y7zz00Ds03s00S7y00zkzw800zy0zy00DzzU03y00T3zzU07s00w00D3y00DsTy000Dz0Tz003zzk01z00DVzzk03s00C007Vy003w7z07w7z07zVz1zzkTkTVzzkzzsTzw7w7z3zkz3z1y1zU7z3zV3zkzkzzsTwDkzzsTzwDzy7z3zVzsTVzkz0zk3zVzkVzsTsTzwDy7sTzwDzy7zz3zVzkzwDkzsTUDs1zkzsMTwDwDzy7z3wDzy7zz3zzVzkzsTy7sTwDk7w0zsTsQDy7y7zz3zzy7zz3zzVzzkzsTwDz3wDy7s1y0TzzwC7z3z3zzVzzz3zzVzzkzzsTzzy7zVy7z3w0z0Dzzy73zVzVzzkTzzVzzkzzsTzwDzzz3zkz3zVy4DU7zzy3kzkzkzzs0zzkzzsTzwDzy7zzzVzsTVzkz23k3zzz3sTsTkTzy01zs03wDzy00z3zzzkzwDkzsTVVs1zzzVwDw00DzzU0Dw01y7zz00TVzzzsTy7sTwDksQ0zzzkz3y00Dzzw03y00z3zzU0DkzzzwDz3wDy7sQC0TzzkTVz00Dzzzs0z3zzVzzkzzsTzzy7zVy7z3wD30DzzsTkzU0DzzzzkTVzzkzzsTzwDzzz3zkz3zVy7VU7zzw00Tky7zzzzwDkzzsTzwDzy7zzzVzsTVzkz3sE3zVy007sT3zzyTy7sTzwDzy7zz3zVzkzwDkzsTVw01zky003wDkzzy7z3wDzy7zz3zzVzkzsTy7sTwDkz00zsT001y7sTzz3zVy7zz3zzVzzkzsTwDz3wDy7sTU0TwDVzkT3w7zzVzkz3zzVzzkzzsTwDy7zVy7z3wDs07w7UzwDVz3zzkTkTVzzkzzsTzw7w7z3zkz1z1y7y0003kzy7kzUzzw00Dk03s00w00y003zVzsTU00z3z0U03sTz3sTsTzy00Ds01w00S00TU03zkzwDs00zVzkM03wDzkwDw7zzU0Dw00y00D00Ds03zsTy7y00zkzsD07yDzsSDz3zzw0Ty00TU07U07z07zwDz3zk1zszyA"
     if (ok:=FindText(X:="wait", Y:=10, 102, 114, 367, 153, 0, 0, Text)){
@@ -170,7 +174,7 @@ SelectCarToPlayHunt(){
                 }
 
                 Sleep, 1000
-
+               
                 ; checking if car is refueling
                 If (LockedOrRefueling()){
 
@@ -261,26 +265,28 @@ SelectCarToPlayHunt(){
             }Else{
                 Gosub, script_start
             }
-        }Else{
-            Gosub, script_start
-        }
+    }Else{
+        Gosub, script_start
     }
+}
 
-    HuntRewardsSkip(){
-        isSkipped := False
+HuntRewardsSkip(){
+    isSkipped := False
 
-        Loop,30{
-            Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
-            if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
-                Click, 1211, 643 Left, 1
-                isSkipped := True
-                Sleep, 2000
-                Break
-            }Else{
+    Loop,30{
+        Text:="|<>*153$70.000000000001s1sDzls1tzzbU7Uzz3k7bzyT0S3zwD0wTztw1sC00S3k3k7s7Us00sS0D0TkS3U03ls0w1z1sC007D03k7y7Us00Sw0D0SsS3U00zU0w1vlsDzU3w03k7b7Uzy07k0D0SSS3zs0z00w1stsC003y03k7XrUs00Ts0D0S7y3U01vk0w1sDsC00D703k7UzUs00wS0D0S1y3U07Us0w1s7sC00S3k3k7UDUzy3kD0D0S0y3zwD0S0w1s1sDzls0w3k3030zz701U60000000000002"
+        if (ok:=FindText(X, Y, 1107, 631, 1187, 670, 0, 0, Text)){
+            Click, 1211, 643 Left, 1
+            isSkipped := True
+            Sleep, 2000
+            Break
+        }Else{
+            IniRead, PlayAdafterhuntrace, %SettingsIni%, Main, PlayAdafterhuntrace
+            If (PlayAdafterhuntrace == 1){
                 If (watch_AD_if_1st_2nd_OR_3rd()){
                     ; click on (watch ad) button
                     Text:="|<>*125$143.w1s3k3s3zz1zs3U7000y0Dzls3k7UDk7zy7zsD0C001w0TznkDkD0TUDzwTzsS0Q007w0zzrUTUS0zU0w0w3kw0s00Ds1s7b0z0s1r01s1k3Vs1k00Rk3k7j1y1k7i03k3U73k3U01vU7UDS3C7UCQ07U70C7U7003rUD0SwCQD0Qw0D0C0QD0C00770S0xsQsS1ss0S0Q00S0Q00CC0w1tktks3Vk0w0s00w0s00wS1s3nVnVk73k1s1k01zzk01kw3k7bb3XUC3U3k3U03zzU03Us7UDDC7D0w707U7007zz0071kD0SSQCS1kD0D0C00D0C00S3kS0wwsQs3zy0S0Q00S0Q00zzUw1stkNkDzw0w0s1kw0s01zz1s3lr0vUTzs1s1k3Vs1k07zz3k7Xi1r0s1s3k3U73k3U0D0S7UD7w3y1k3k7U70S7U700Q0QD0SDs3w7U3UD0DzwD0C01s0sTzsDU7kD07US0DzkS0Q03k1szzkT0DUQ0D0w0Dz0w0s0701lzy8"
-                    if (ok:=FindText(X:="wait", Y:=2, 984, 516, 1141, 553, 0, 0, Text))
+                    if (ok:=FindText(X, Y, 984, 516, 1141, 553, 0, 0, Text))
                     {
                         Sleep, 1000
                         Click, 962, 523 Left, 1
@@ -304,10 +310,11 @@ SelectCarToPlayHunt(){
                         }
                     }
                 }
-                Click, 1211, 643 Left, 1
-                Sleep, 2500
             }
+            Click, 1211, 643 Left, 1
+            Sleep, 2500
         }
-        Return isSkipped
     }
+    Return isSkipped
+}
 

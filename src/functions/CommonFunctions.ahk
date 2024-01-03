@@ -260,6 +260,6 @@ ClickOnPlayButton(){
     }
 }
 
-; need to include funtions like if gotany rewards or completed milestone or any other
+; need to include funtions like if got any rewards or completed milestone or any other
 ; add network check
 

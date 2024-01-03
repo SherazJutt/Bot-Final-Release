@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ;  AM victor
-        Text:="|<>*138$145.1zzUS3zw00zk001zU07zk00TUTzkD0zw007s000zU00zs003kDzsDUTs001w000T000Dw000s7zs7kDw000y000DU007y000C3zw3s7w0z0DzUTzU7k1z0zU70zy3w3y1zs7zkDzkDz0zUTy3UTz1y1z1zy3zs7zsDzkTkDz0sDz0z0zUzz1zw3zw7zsDs7zUQ7zUTUTkTzUzy1zy3zw7w3zkC1zkTkDsDzkTz0zz1zy3y1zs70zsDs7w7zsDzUTzUzz1z0zw3kTs7w3y3zzzzsDzkTzUzUTy1sDw3y1z1zzzzs7zsDzkTkDz0w3y3z0zUzzzzw3zw7zsDs7zUT1z1zUTkTzzzy1zy3zw7w3zkDUz0zkDsDzzzz0zz1zy3y1zkDkTUzs7w7zzzzUTzUzz1z0007s7kTw3y3zzzzkDzkTzUzU007y3sDy1z1zzzzs7zsDzkTk003z1sDz0zUzzzzw3zw7zsDs007zUw7zUTkTzzzz1zy3zw7w007zkC3zkDsDzzzzUzz1zy3y1y3zw71zs7w7zsDzkTzUzz1z0z0zy31zw3y3zw7zsDzkTzUzUTkTz1Uzy1z1zy3zw7zsDzkTkDs7zkkTz0zUzz1zy3zw7zsDs7w3zs8TzUTkTzUzz1zy3zw7w3z0zw0DzkDsDzUTzUzz0zw3y1zUTy07zs7w3zkDzkTzUDy1z0zs7zU3zw3z000DzsDzs000zUTw3zk3zy1zU007zw7zw000zkDz0zs1zz0zs007zy3zz000zs7zUTy0zzUTy007zz1zzk00zw7zs7z0zzsTzs0TzzVzzz03zz3zy6"
+        ; berlinetta
+        Text:="|<>*144$77.001zy000z001y000zw001y000w000zs003w000s000zk007s000kDw1zUTzzkDs1Uzy1z1zzzUTy11zw3y3zzz0zw23zw7w7zzy1zs47zsDsDzzw3zk8DzkTkTzzs7zUETzUzUzzzkDz0Uzz1z1zzzUTy11zw3y3zzz0zw21zkDw7zzy1zs4000Ts00Dw3zk8003zk00Ts7z0k007zU00zk001U007z001zU0070007y003z000C3zs7w3zzy001w7zsDsDzzw007sDzkTkTzzs7sDkTzUzUzzzkTkDUzz1z1zzzUzkT1zy3y3zzz1zUS3zw7w7zzy3zUw7zsDsDzzw7z0sDzkTkTzzsDy1kTz0zUzzzkTy1U001z000zUzw30007y000z1zw2000Tw001y3zs4001zs003w7zs400Tzs00DwDzsM"
 
-        if (ok:=FindText(X, Y, 323, 219, 477, 265, 0, 0, Text))
+        if (ok:=FindText(X, Y, 322, 220, 411, 266, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

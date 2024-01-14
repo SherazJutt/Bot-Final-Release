@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; berlinetta
-        Text:="|<>*144$77.001zy000z001y000zw001y000w000zs003w000s000zk007s000kDw1zUTzzkDs1Uzy1z1zzzUTy11zw3y3zzz0zw23zw7w7zzy1zs47zsDsDzzw3zk8DzkTkTzzs7zUETzUzUzzzkDz0Uzz1z1zzzUTy11zw3y3zzz0zw21zkDw7zzy1zs4000Ts00Dw3zk8003zk00Ts7z0k007zU00zk001U007z001zU0070007y003z000C3zs7w3zzy001w7zsDsDzzw007sDzkTkTzzs7sDkTzUzUzzzkTkDUzz1z1zzzUzkT1zy3y3zzz1zUS3zw7w7zzy3zUw7zsDsDzzw7z0sDzkTkTzzsDy1kTz0zUzzzkTy1U001z000zUzw30007y000z1zw2000Tw001y3zs4001zs003w7zs400Tzs00DwDzsM"
+        ; gt speed
+        Text:="|<>*128$81.w00zzk03zwDzsC003zw007z0zz0U00Dz000Ts3zs4000zk003z0Tz00Tk3y0z0Ds1zs07zUTUTy1z0Dz01zy3w7zsDs0zs0DzkTUzz1z03z01zy3w7zsDs0Ts0DzkTUzz1z01z01zy3w7zsDs0Ds0DzzzUzz1z00z01zzzw7zsDs47s0DzzzUzz1z0kT01zzzw7zsDs63s0DzzzUzz1z0sD01zzzw7zsDs71s0DzzzUzz1z0w701zzzw7zsDs7UM0DzzzUzz1z0y301zzzw7zsDs7k80DzzzUzz1z0z101zy3w7zsDs7w00DzkTUzz1z0zU01zy3w7zsDs7y00DzkTUzz1z0zk01zy3w7zsDs7z00DzUTUTz1z0zs00zs3w1zkDs7zU0000zk001z0zw0U007y000Ts7zk6001zs007z0zy0s00TzU01zsDzsDs0TzzU1zzVzzVU"
 
-        if (ok:=FindText(X, Y, 322, 220, 411, 266, 0, 0, Text))
+        if (ok:=FindText(X, Y, 322, 213, 415, 272, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

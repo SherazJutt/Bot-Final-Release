@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; gt speed
-        Text:="|<>*128$81.w00zzk03zwDzsC003zw007z0zz0U00Dz000Ts3zs4000zk003z0Tz00Tk3y0z0Ds1zs07zUTUTy1z0Dz01zy3w7zsDs0zs0DzkTUzz1z03z01zy3w7zsDs0Ts0DzkTUzz1z01z01zy3w7zsDs0Ds0DzzzUzz1z00z01zzzw7zsDs47s0DzzzUzz1z0kT01zzzw7zsDs63s0DzzzUzz1z0sD01zzzw7zsDs71s0DzzzUzz1z0w701zzzw7zsDs7UM0DzzzUzz1z0y301zzzw7zsDs7k80DzzzUzz1z0z101zy3w7zsDs7w00DzkTUzz1z0zU01zy3w7zsDs7y00DzkTUzz1z0zk01zy3w7zsDs7z00DzUTUTz1z0zs00zs3w1zkDs7zU0000zk001z0zw0U007y000Ts7zk6001zs007z0zy0s00TzU01zsDzsDs0TzzU1zzVzzVU"
+        ; GTE
+        Text:="|<>*148$70.w01zk001s003U01z0007U008003w000S000U007k001s0001z0TzUTzUTzkDz1zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zsTzkTzUTzkTzzzz1zy1zz1zzzzw7zs7zw7zzzzkTzUTzkTzzzz1zy0031zzzzw7zs00A7s0DzkTzU00kTU0zz1zy0031y03zw7zs00A7s0DzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw3zUTzkTzUTzs001zz1zy000U00Dzw7zs003000zzkTzU00C00Dzz1zy000z07zzyDzw006"
 
-        if (ok:=FindText(X, Y, 322, 213, 415, 272, 0, 0, Text))
+        if (ok:=FindText(X, Y, 325, 220, 404, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

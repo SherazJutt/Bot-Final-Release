@@ -323,6 +323,7 @@ TicketCheck(){
             }
         }Else{
             PressEscape(1)
+            Gosub, shended
         }
     }
 

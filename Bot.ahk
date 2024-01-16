@@ -114,6 +114,7 @@ checkRaceScreen:
         Goto, script_start
     }
 
+shended:
     ; MsgBox, Completed
     Run, shutdown.exe /s /t 0
 

@@ -45,16 +45,16 @@ script_start:
 
     Sleep, 1000
 
-    start_game()
-    Sleep, 5000
+; start_game()
+; Sleep, 5000
 
-    If (StuckOnGlLogo()) {
-        Goto, script_start
-    }
+; If (StuckOnGlLogo()) {
+;     Goto, script_start
+; }
 
-    If (StuckOnLoadingScreen()) {
-        Goto, script_start
-    }
+; If (StuckOnLoadingScreen()) {
+;     Goto, script_start
+; }
 
 main_menu_loaded_check_start:
 
@@ -81,15 +81,16 @@ main_menu_loaded_check_start:
     }
 
     Sleep, 3000
-    Click, 425, 430 Left, 1
+    Click, 1120, 442 Left, 1
     Sleep, 1000
 
 checkRaceScreen:
 
     Sleep, 2000
 
-    Text:="|<>*135$19.Tzzzzzzzzzzzxs00w00D0000000000000000000000000000000000000A21a3Un1kNUsAkQ6QC7Dzzbzzk0000000000003ny3tzXsztkMQkA6M23A03b01nzzszzs7zk000000000k07s0Tw3zkDzkDkM7UA3w60zz03zk07z00DU000001U00k00M00C007zznzztk00k00M00A00000000003US7wD7yC3Xa3Vn1kNUsAsMCSwD7yD1y78"
-    if (ok:=FindText(X:="wait", Y:=10, 88, 265, 118, 356, 0, 0, Text)){
+    ; check stage text on left card after selecting stage
+    Text:="|<>*130$18.TrwzzyzzzsyDkQ7kQ7s87s0Dy0zy0yS0w000000000000000000000000000000M43MC3MC3MC3MC3QC7TzzTzz0000000000007bwDbyT7zQ67M63M03M03Q07TzyDzy3zs00000000300z07z1zsDykTUkS0kTUkDzk1zs07z00T000000M00M00M00M00TzzTzzQ00M00M00M0000000000kD3yD7yQ77MC7MC3MC3QA7SwDDwS7sQU"
+    if (ok:=FindText(X, Y, 88, 263, 117, 355, 0, 0, Text)){
         TicketCheck()
     }Else{
         Goto, script_start
@@ -101,12 +102,13 @@ checkRaceScreen:
 
     TdCheck()
 
-    Click, 1175, 634 Left, 1
-    Sleep, 5000
+    ; Click, 1175, 634 Left, 1
+    ; Sleep, 5000
 
-    If (!PlayHuntRace()){
-        Goto, script_start
-    }
+    ; If (!PlayHuntRace()){
+    ;     Goto, script_start
+    ; }
+    PlayHuntRace()
 
     If (HuntRewardsSkip()){
         Goto, checkRaceScreen

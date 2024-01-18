@@ -340,30 +340,111 @@ RefillTickets(){
 
 ; play race
 PlayHuntRace(){
-    isCompleted := False
+    Sleep, 2000
+    Click, 1167, 636 Left, Down
+    Sleep, 94
+    Click, 1167, 636 Left, Up
+    Sleep, 21343
+    Send, {Down Down}
+    Sleep, 4063
+    Send, {Down Up}
+    Sleep, 406
+    Send, {Space Down}
+    Sleep, 78
+    Send, {Space Up}
+    Sleep, 110
+    Send, {Space Down}
+    Sleep, 62
+    Send, {Space Up}
+    Sleep, 110
+    Send, {Space Down}
+    Sleep, 78
+    Send, {Space Up}
+    Sleep, 3500
+    Send, {Down Down}
+    Sleep, 3422
+    Send, {Down Up}
+    Sleep, 156
+    Send, {Space Down}
+    Sleep, 62
+    Send, {Space Up}
+    Sleep, 125
+    Send, {Space Down}
+    Sleep, 63
+    Send, {Space Up}
+    Sleep, 78
+    Send, {Space Down}
+    Sleep, 47
+    Send, {Space Up}
+    Sleep, 3312
+    Send, {Space Down}
+    Sleep, 94
+    Send, {Space Up}
+    Sleep, 94
+    Send, {Space Down}
+    Sleep, 78
+    Send, {Space Up}
+    Sleep, 1125
+    Send, {Space Down}
+    Sleep, 62
+    Send, {Space Up}
+    Sleep, 79
+    Send, {Space Down}
+    Sleep, 78
+    Send, {Space Up}
+    Sleep, 31
+    Send, {Right Down}
+    Sleep, 78
+    Send, {Right Up}
+    Sleep, 1156
+    Send, {Space Down}
+    Sleep, 47
+    Send, {Space Up}
+    Sleep, 94
+    Send, {Space Down}
+    Sleep, 62
+    Send, {Space Up}
+    Sleep, 344
+    Send, {Down Down}
+    Sleep, 4828
+    Send, {Down Up}
+    Sleep, 3219
+    Send, {Space Down}
+    Sleep, 63
+    Send, {Space Up}
+    Sleep, 109
+    Send, {Space Down}
+    Sleep, 78
+    Send, {Space Up}
+    Sleep, 109
+    Send, {Space Down}
+    Sleep, 47
+    Send, {Space Up}
 
-    Loop, 200{
-        Text:="|<>*127$64.00000000000k1UTwA0Azz7UC3zsw1nzyS0sDzVkDDztw3Us07Us3k7sC3U0C7UD0TUsC00wQ0w1z3Us01nU3k7wC3U07i0D0SssC00Dk0w1vXUzw0z03k7bC3zk1s0D0SQsDz0Dk0w1svUs00z03k7Xy3U07i0D0S7sC00Qs0w1sTUs03lk3k7Uy3U0C70D0S1sC01sC0w1s7Uzy70w3k7UC3zsw1kD0A0sDzXU70Q000000000008"
-        if (ok:=FindText(X, Y, 1001, 621, 1079, 656, 0, 0, Text)){
-            isCompleted := True
-            Click, 1176, 645 Left, 1
-            Sleep, 1000
-            Break
-        }Else{
-            ; Sleep, 1000
-            RampsNitros()
-            NitroManagemnet()
-            TdCheckInRace()
-            Resume()
-            CheckInternet()
-            ConnectingToTheServer()
-            CheckGame()
-            If (TokensColorCheckToVerifyHomeScreen()){
-                Gosub, script_start
-            }
-        }
-    }
-    Return isCompleted
+    ; isCompleted := False
+
+    ; Loop, 200{
+    ;     Text:="|<>*127$64.00000000000k1UTwA0Azz7UC3zsw1nzyS0sDzVkDDztw3Us07Us3k7sC3U0C7UD0TUsC00wQ0w1z3Us01nU3k7wC3U07i0D0SssC00Dk0w1vXUzw0z03k7bC3zk1s0D0SQsDz0Dk0w1svUs00z03k7Xy3U07i0D0S7sC00Qs0w1sTUs03lk3k7Uy3U0C70D0S1sC01sC0w1s7Uzy70w3k7UC3zsw1kD0A0sDzXU70Q000000000008"
+    ;     if (ok:=FindText(X, Y, 1001, 621, 1079, 656, 0, 0, Text)){
+    ;         isCompleted := True
+    ;         Click, 1176, 645 Left, 1
+    ;         Sleep, 1000
+    ;         Break
+    ;     }Else{
+    ;         ; Sleep, 1000
+    ;         RampsNitros()
+    ;         NitroManagemnet()
+    ;         TdCheckInRace()
+    ;         Resume()
+    ;         CheckInternet()
+    ;         ConnectingToTheServer()
+    ;         CheckGame()
+    ;         If (TokensColorCheckToVerifyHomeScreen()){
+    ;             Gosub, script_start
+    ;         }
+    ;     }
+    ; }
+    ; Return isCompleted
 }
 
 CheckInRaceIssues(){
@@ -397,13 +478,6 @@ CheckInRaceIssues(){
 
 RampsNitros(){
 
-    ; ramp left
-    Text:="|<>*147$26.zzzzzzzbzzzUzzzk7zzk0zzk07zs00zs007s001s006M003b003tk01yS01zbU1ztw1zyT0007s001zzzzs"
-    if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-        Send, {Left 5}
-        Return
-    }
-
     ; nitro blue left
     Text:="|<>*144$20.zzzzzwzzy1zzkTzUDzU7zs1zw0Dz03zU0zs0Dw03z01zU0Ts0Dw03z01zk0Ts0Dy03z01zk0Ts07z03zw0zzkTzz7zzzzs"
     if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
@@ -411,16 +485,16 @@ RampsNitros(){
         Return
     }
 
-    ; barrel left
-    Text:="|<>*142$23.zzzzzzxzzzvzzznzzz7zzyDzzsDzzkTzz0Tzy0zzs0zzU1zy03zs07z00Ds00S002k005k00PU01rU0DjU0zTU7yzU01zzzz"
-    if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-        Send, {Left 5}
-        Return
-    }
+    ; ; barrel left
+    ; Text:="|<>*142$23.zzzzzzxzzzvzzznzzz7zzyDzzsDzzkTzz0Tzy0zzs0zzU1zy03zs07z00Ds00S002k005k00PU01rU0DjU0zTU7yzU01zzzz"
+    ; if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
+    ;     Send, {Left 5}
+    ;     Return
+    ; }
 
-    ; switch to left route
-    Text:="|<>*153$28.y001zs007zU00T00000000000000k000A3zzk0TzzU1s0S07Tzs0RzzU1k0S06zzM0LwCU0kzw2"
-    if (ok:=FindText(X, Y, 582, 147, 623, 172, 0, 0, Text)){
+    ; x2 nitro center
+    Text:="|<>*157$26.zzXzzzkDzzy3zzw1zzw0zzz0DzzU1zzs0Tzw07zz01zzU0QDs0A1w7j0D1+HXUNAss2HyC0lz704TXk27Vs0Yky0FAT04t081zk3U7zzy3zzzwzzy"
+    if (ok:=FindText(X, Y, 584, 143, 620, 177, 0, 0, Text)){
         Send, {Left 5}
         Return
     }

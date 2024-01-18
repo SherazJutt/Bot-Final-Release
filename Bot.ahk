@@ -45,16 +45,16 @@ script_start:
 
     Sleep, 1000
 
-; start_game()
-; Sleep, 5000
+    start_game()
+    Sleep, 5000
 
-; If (StuckOnGlLogo()) {
-;     Goto, script_start
-; }
+    If (StuckOnGlLogo()) {
+        Goto, script_start
+    }
 
-; If (StuckOnLoadingScreen()) {
-;     Goto, script_start
-; }
+    If (StuckOnLoadingScreen()) {
+        Goto, script_start
+    }
 
 main_menu_loaded_check_start:
 

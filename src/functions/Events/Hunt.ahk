@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; gt speed
-        Text:="|<>*128$81.w00zzk03zwDzsC003zw007z0zz0U00Dz000Ts3zs4000zk003z0Tz00Tk3y0z0Ds1zs07zUTUTy1z0Dz01zy3w7zsDs0zs0DzkTUzz1z03z01zy3w7zsDs0Ts0DzkTUzz1z01z01zy3w7zsDs0Ds0DzzzUzz1z00z01zzzw7zsDs47s0DzzzUzz1z0kT01zzzw7zsDs63s0DzzzUzz1z0sD01zzzw7zsDs71s0DzzzUzz1z0w701zzzw7zsDs7UM0DzzzUzz1z0y301zzzw7zsDs7k80DzzzUzz1z0z101zy3w7zsDs7w00DzkTUzz1z0zU01zy3w7zsDs7y00DzkTUzz1z0zk01zy3w7zsDs7z00DzUTUTz1z0zs00zs3w1zkDs7zU0000zk001z0zw0U007y000Ts7zk6001zs007z0zy0s00TzU01zsDzsDs0TzzU1zzVzzVU"
+        ; vantage
+        Text:="|<>*161$77.0007y00Tz1zz0000Ds00Dy1zy0000TU00Dw1zw0000y000Ts3zsDs7zs3z0Tk3zkTsDzkDz0zU7zUzkTzUzz1z07z1zUzz1zy3y0Dy3z1zy3zw7w0Dw7y3zw7zsDs0TsDw7zsDzkTk0TkTsDzkTzUzUUTUzkTzUzz1z1Uz1zUzz1zy3y30y3z1zy3zw7w71w7y3zw7zsDsD1sDw7zsDzkTkS3kTsDzkTzUzUy3UzkTzUzz1z1w71zUzz1zy3y3w63z1zy3zw7w7sA7y3zw7zsDsDs8Dw7zsDzkTkTk0TsDzkTzUzUzk0zkTzUzz1z1zU1zUzz1zy3y3zU3z1zy3zw7w7zU7y3zw7zsDsDz0Dw7zs7zUTkTz0TsDzs000zUzy0zkTzk003z1zy1zUzzk00Dy3zw3z1zzk00zw7zw7y7zzw0DzwDzw8"
 
-        if (ok:=FindText(X, Y, 322, 213, 415, 272, 0, 0, Text))
+        if (ok:=FindText(X, Y, 380, 222, 466, 267, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

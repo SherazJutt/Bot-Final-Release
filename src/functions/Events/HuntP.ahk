@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; GTE
-        Text:="|<>*148$70.w01zk001s003U01z0007U008003w000S000U007k001s0001z0TzUTzUTzkDz1zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zsTzkTzUTzkTzzzz1zy1zz1zzzzw7zs7zw7zzzzkTzUTzkTzzzz1zy0031zzzzw7zs00A7s0DzkTzU00kTU0zz1zy0031y03zw7zs00A7s0DzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw7zkDzkTzUTzkTz0zz1zy1zz1zw3zw7zs7zw3zUTzkTzUTzs001zz1zy000U00Dzw7zs003000zzkTzU00C00Dzz1zy000z07zzyDzw006"
+        ; vantage
+        Text:="|<>*161$77.0007y00Tz1zz0000Ds00Dy1zy0000TU00Dw1zw0000y000Ts3zsDs7zs3z0Tk3zkTsDzkDz0zU7zUzkTzUzz1z07z1zUzz1zy3y0Dy3z1zy3zw7w0Dw7y3zw7zsDs0TsDw7zsDzkTk0TkTsDzkTzUzUUTUzkTzUzz1z1Uz1zUzz1zy3y30y3z1zy3zw7w71w7y3zw7zsDsD1sDw7zsDzkTkS3kTsDzkTzUzUy3UzkTzUzz1z1w71zUzz1zy3y3w63z1zy3zw7w7sA7y3zw7zsDsDs8Dw7zsDzkTkTk0TsDzkTzUzUzk0zkTzUzz1z1zU1zUzz1zy3y3zU3z1zy3zw7w7zU7y3zw7zsDsDz0Dw7zs7zUTkTz0TsDzs000zUzy0zkTzk003z1zy1zUzzk00Dy3zw3z1zzk00zw7zw7y7zzw0DzwDzw8"
 
-        if (ok:=FindText(X, Y, 325, 220, 404, 264, 0, 0, Text))
+        if (ok:=FindText(X, Y, 380, 222, 466, 267, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

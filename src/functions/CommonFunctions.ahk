@@ -341,85 +341,79 @@ RefillTickets(){
 ; play race
 PlayHuntRace(){
     Sleep, 2000
-    Click, 1167, 636 Left, Down
-    Sleep, 94
-    Click, 1167, 636 Left, Up
-    Sleep, 21343
-    Send, {Down Down}
-    Sleep, 4063
-    Send, {Down Up}
-    Sleep, 406
-    Send, {Space Down}
-    Sleep, 78
-    Send, {Space Up}
-    Sleep, 110
-    Send, {Space Down}
-    Sleep, 62
-    Send, {Space Up}
-    Sleep, 110
-    Send, {Space Down}
-    Sleep, 78
-    Send, {Space Up}
-    Sleep, 3500
-    Send, {Down Down}
-    Sleep, 3422
-    Send, {Down Up}
-    Sleep, 156
-    Send, {Space Down}
-    Sleep, 62
-    Send, {Space Up}
-    Sleep, 125
-    Send, {Space Down}
-    Sleep, 63
-    Send, {Space Up}
-    Sleep, 78
-    Send, {Space Down}
-    Sleep, 47
-    Send, {Space Up}
-    Sleep, 3312
-    Send, {Space Down}
-    Sleep, 94
-    Send, {Space Up}
-    Sleep, 94
-    Send, {Space Down}
-    Sleep, 78
-    Send, {Space Up}
-    Sleep, 1125
-    Send, {Space Down}
-    Sleep, 62
-    Send, {Space Up}
-    Sleep, 79
-    Send, {Space Down}
-    Sleep, 78
-    Send, {Space Up}
-    Sleep, 31
-    Send, {Right Down}
-    Sleep, 78
-    Send, {Right Up}
-    Sleep, 1156
-    Send, {Space Down}
-    Sleep, 47
-    Send, {Space Up}
-    Sleep, 94
-    Send, {Space Down}
-    Sleep, 62
-    Send, {Space Up}
-    Sleep, 344
-    Send, {Down Down}
-    Sleep, 4828
-    Send, {Down Up}
-    Sleep, 3219
-    Send, {Space Down}
-    Sleep, 63
-    Send, {Space Up}
-    Sleep, 109
-    Send, {Space Down}
-    Sleep, 78
-    Send, {Space Up}
-    Sleep, 109
-    Send, {Space Down}
-    Sleep, 47
-    Send, {Space Up}
+Click, 1188, 626 Left, Down
+Sleep, 78
+Click, 1188, 626 Left, Up
+Sleep, 27766
+Send, {Left Down}
+Sleep, 62
+Send, {Left Up}
+Sleep, 1610
+Send, {Down Down}
+Sleep, 2594
+Send, {Down Up}
+Sleep, 281
+Send, {Space Down}
+Sleep, 78
+Send, {Space Up}
+Sleep, 109
+Send, {Space Down}
+Sleep, 47
+Send, {Space Up}
+Sleep, 110
+Send, {Space Down}
+Sleep, 46
+Send, {Space Up}
+Sleep, 2235
+Send, {Down Down}
+Sleep, 4625
+Send, {Down Up}
+Sleep, 390
+Send, {Space Down}
+Sleep, 63
+Send, {Space Up}
+Sleep, 125
+Send, {Space Down}
+Sleep, 62
+Send, {Space Up}
+Sleep, 110
+Send, {Space Down}
+Sleep, 62
+Send, {Space Up}
+Sleep, 610
+Send, {Down Down}
+Sleep, 1390
+Send, {Down Up}
+Sleep, 313
+Send, {Space Down}
+Sleep, 62
+Send, {Space Up}
+Sleep, 110
+Send, {Space Down}
+Sleep, 62
+Send, {Space Up}
+Sleep, 94
+Send, {Space Down}
+Sleep, 78
+Send, {Space Up}
+Sleep, 984
+Send, {Down Down}
+Sleep, 9188
+Send, {Down Up}
+Sleep, 375
+Send, {Space Down}
+Sleep, 78
+Send, {Space Up}
+Sleep, 109
+Send, {Space Down}
+Sleep, 63
+Send, {Space Up}
+Sleep, 94
+Send, {Space Down}
+Sleep, 78
+Send, {Space Up}
+Sleep, 1000
+    
 
     ; isCompleted := False
 

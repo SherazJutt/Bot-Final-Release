@@ -43,7 +43,7 @@ script_start:
 
     t1:=A_TickCount, X:=Y:=""
 
-    ; Sleep, 1000
+    Sleep, 1000
 
     start_game()
     Sleep, 5000
@@ -90,7 +90,7 @@ main_menu_loaded_check_start:
     }
 
     Sleep, 1000
-    Click, 330, 444 Left, 1
+    Click, 553, 440 Left, 1
     Sleep, 1000
 
 checkRaceScreen:
@@ -98,8 +98,8 @@ checkRaceScreen:
     Sleep, 2000
 
     ; check stage text on left card after selecting stage
-    Text:="|<>*134$19.07wS7zD7zrXzzlkTss7wQ3yC1zz3zznzztxzww00000000000000000000000000000000k86MC3A71a3Un1kNksQzzyTzz0000000000000DDsDbyDXzb1Vn0kNU8Ak0CQ07DzzXzzUTz000000000300TU1zkDz0zz0z1US0kDkM3zw0Dz00Tw00y0000006003001U00s00TzzDzzb003001U00k0000000000A1sTkwTssCCMC7A71a3UnVUtvkwTsw7sQU"
-    if (ok:=FindText(X, Y, 87, 262, 119, 358, 0, 0, Text)){
+    Text:="|<>*133$19.07wQ7zi7zr3zzVkTksDsQ3yC3zjXzzzxzzwTzw00000000000000000000000000000000k86MC3A71a3Un1kNksQzzyTzz0000000000000DDsDbyDXzb1Vn0kNU8Ak0CQ07DzzXzzUTz000000000300TU1zkDz0zz0z1US0kDkM3zw0Dz00Tw00y0000006003001U00k00TzzDzzb003001U00k0000000000A1sTkwTssCCMC7A71a3UnVUtvkwTsw7sQU"
+    if (ok:=FindText(X, Y, 87, 261, 119, 358, 0, 0, Text)){
         TicketCheck()
     }Else{
         Goto, script_start
@@ -110,6 +110,11 @@ checkRaceScreen:
     Sleep, 2000
 
     TdCheck()
+    if(!ClickOnPlayButton()){
+        Goto, script_start
+    }
+
+    Sleep, 5000
 
     PlayHuntRace()
 

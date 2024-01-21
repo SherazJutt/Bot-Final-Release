@@ -340,105 +340,30 @@ RefillTickets(){
 
 ; play race
 PlayHuntRace(){
-    Sleep, 2000
-Click, 1188, 626 Left, Down
-Sleep, 78
-Click, 1188, 626 Left, Up
-Sleep, 27766
-Send, {Left Down}
-Sleep, 62
-Send, {Left Up}
-Sleep, 1610
-Send, {Down Down}
-Sleep, 2594
-Send, {Down Up}
-Sleep, 281
-Send, {Space Down}
-Sleep, 78
-Send, {Space Up}
-Sleep, 109
-Send, {Space Down}
-Sleep, 47
-Send, {Space Up}
-Sleep, 110
-Send, {Space Down}
-Sleep, 46
-Send, {Space Up}
-Sleep, 2235
-Send, {Down Down}
-Sleep, 4625
-Send, {Down Up}
-Sleep, 390
-Send, {Space Down}
-Sleep, 63
-Send, {Space Up}
-Sleep, 125
-Send, {Space Down}
-Sleep, 62
-Send, {Space Up}
-Sleep, 110
-Send, {Space Down}
-Sleep, 62
-Send, {Space Up}
-Sleep, 610
-Send, {Down Down}
-Sleep, 1390
-Send, {Down Up}
-Sleep, 313
-Send, {Space Down}
-Sleep, 62
-Send, {Space Up}
-Sleep, 110
-Send, {Space Down}
-Sleep, 62
-Send, {Space Up}
-Sleep, 94
-Send, {Space Down}
-Sleep, 78
-Send, {Space Up}
-Sleep, 984
-Send, {Down Down}
-Sleep, 9188
-Send, {Down Up}
-Sleep, 375
-Send, {Space Down}
-Sleep, 78
-Send, {Space Up}
-Sleep, 109
-Send, {Space Down}
-Sleep, 63
-Send, {Space Up}
-Sleep, 94
-Send, {Space Down}
-Sleep, 78
-Send, {Space Up}
-Sleep, 1000
-    
+    isCompleted := False
 
-    ; isCompleted := False
-
-    ; Loop, 200{
-    ;     Text:="|<>*127$64.00000000000k1UTwA0Azz7UC3zsw1nzyS0sDzVkDDztw3Us07Us3k7sC3U0C7UD0TUsC00wQ0w1z3Us01nU3k7wC3U07i0D0SssC00Dk0w1vXUzw0z03k7bC3zk1s0D0SQsDz0Dk0w1svUs00z03k7Xy3U07i0D0S7sC00Qs0w1sTUs03lk3k7Uy3U0C70D0S1sC01sC0w1s7Uzy70w3k7UC3zsw1kD0A0sDzXU70Q000000000008"
-    ;     if (ok:=FindText(X, Y, 1001, 621, 1079, 656, 0, 0, Text)){
-    ;         isCompleted := True
-    ;         Click, 1176, 645 Left, 1
-    ;         Sleep, 1000
-    ;         Break
-    ;     }Else{
-    ;         ; Sleep, 1000
-    ;         RampsNitros()
-    ;         NitroManagemnet()
-    ;         TdCheckInRace()
-    ;         Resume()
-    ;         CheckInternet()
-    ;         ConnectingToTheServer()
-    ;         CheckGame()
-    ;         If (TokensColorCheckToVerifyHomeScreen()){
-    ;             Gosub, script_start
-    ;         }
-    ;     }
-    ; }
-    ; Return isCompleted
+    Loop, 200{
+        Text:="|<>*127$64.00000000000k1UTwA0Azz7UC3zsw1nzyS0sDzVkDDztw3Us07Us3k7sC3U0C7UD0TUsC00wQ0w1z3Us01nU3k7wC3U07i0D0SssC00Dk0w1vXUzw0z03k7bC3zk1s0D0SQsDz0Dk0w1svUs00z03k7Xy3U07i0D0S7sC00Qs0w1sTUs03lk3k7Uy3U0C70D0S1sC01sC0w1s7Uzy70w3k7UC3zsw1kD0A0sDzXU70Q000000000008"
+        if (ok:=FindText(X, Y, 1001, 621, 1079, 656, 0, 0, Text)){
+            isCompleted := True
+            Click, 1176, 645 Left, 1
+            Sleep, 1000
+            Break
+        }Else{
+            ; Sleep, 1000
+            RampsNitros()
+            NitroManagemnet()
+            TdCheckInRace()
+            Resume()
+            CheckInternet()
+            ConnectingToTheServer()
+            CheckGame()
+            If (TokensColorCheckToVerifyHomeScreen()){
+                Gosub, script_start
+            }
+        }
+    }
+    Return isCompleted
 }
 
 CheckInRaceIssues(){
@@ -472,24 +397,12 @@ CheckInRaceIssues(){
 
 RampsNitros(){
 
-    ; nitro blue left
-    Text:="|<>*144$20.zzzzzwzzy1zzkTzUDzU7zs1zw0Dz03zU0zs0Dw03z01zU0Ts0Dw03z01zk0Ts0Dy03z01zk0Ts07z03zw0zzkTzz7zzzzs"
-    if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-        Send, {Left 5}
-        Return
-    }
+    ; x2 nitro center right
 
-    ; ; barrel left
-    ; Text:="|<>*142$23.zzzzzzxzzzvzzznzzz7zzyDzzsDzzkTzz0Tzy0zzs0zzU1zy03zs07z00Ds00S002k005k00PU01rU0DjU0zTU7yzU01zzzz"
-    ; if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-    ;     Send, {Left 5}
-    ;     Return
-    ; }
+    Text:="|<>*162$26.zzbzzzkTzzy7zzw1zzw1zzz0DzzU1zzs0Tzw07zz01zzU0wTs0A1w7D0D1AHXUHAss2HyA0Vz704T3U27Vs0Yky0HAT04l083zk3UDzzy3zzzxzzy"
 
-    ; x2 nitro center
-    Text:="|<>*157$26.zzXzzzkDzzy3zzw1zzw0zzz0DzzU1zzs0Tzw07zz01zzU0QDs0A1w7j0D1+HXUNAss2HyC0lz704TXk27Vs0Yky0FAT04t081zk3U7zzy3zzzwzzy"
-    if (ok:=FindText(X, Y, 584, 143, 620, 177, 0, 0, Text)){
-        Send, {Left 5}
+    if (ok:=FindText(X, Y, 659, 143, 695, 176, 0, 0, Text)){
+        Send, {Right 5}
         Return
     }
 }
@@ -652,5 +565,15 @@ Close_AD(){
         ; Australian ads system end
 
         SyncingToTheServer()
+    }
+}
+
+ClickOnPlayButton(){
+    ; upgrade text check to confirm car screen
+    Text:="|<>*148$145.s1kTz01z07zU0DU1zs0zz0DsQ0sDzs3zs7zw07k1zz0TzUTzC0Q7zy3zy3zz07s0zzkDzkTzr0C3kD1sD1s7U3y0S1w700T1vU71s3Vs3kw1s1r0D0S3U0D0Rk3Uw1kw1sS0w1vU7U71k070Cs1kS0sS0wD0S0xs3k3Us03U7Q0sD0QD0A7UD0QQ1s1kQ01k0C0Q7UC7U03k7UCC0w0sC00w070C3k73k01s3kD7US0Q700TU3U71s3Vs00w1k73kD0C3zs7z1k3Uw3kwTsTzs3Us7U71zw1zws1kTzsSDwDzs3kQ3k3Uzy0DzQ0sDzsD3y7zs1sD1s1kQ000Ti0Q7zk7UD3kw0s7Uw0sC0001z0C3k03k7VsS0TzkS0Q70000zU71s01s3kw7UTzsD0C3U0C0Tk3Uw00w1sS3kDzy7U71k070Ds1kS00S0wD0s7073k7Us03k7y1sD00DUw7US7U3Vs7kQ01s7jzw7U03zy3k73k1szzkDzkTznzw3k00zy1s3lk0wTzk7zsDzkTs1k007w0w0ss0CDzk3zw1zV"
+    if (ok:=FindText(X:="wait", Y:=10, 103, 617, 274, 663, 0, 0, Text)){
+        Sleep, 1000
+        Click, 1183, 634 Left, 1
+        Return True
     }
 }

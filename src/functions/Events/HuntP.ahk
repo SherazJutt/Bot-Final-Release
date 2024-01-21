@@ -156,7 +156,8 @@ SelectCarToPlayHunt(){
                 Click , WheelUp, 1
                 Sleep , 15
             }
-
+            
+            Sleep, 1000
             ; click on first car
             Click, 338, 389 Left, 1
 

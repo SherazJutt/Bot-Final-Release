@@ -45,8 +45,8 @@ script_start:
 
     ; Sleep, 1000
 
-    ; start_game()
-    ; Sleep, 5000
+    start_game()
+    Sleep, 5000
 
     If (StuckOnGlLogo()) {
         Goto, script_start

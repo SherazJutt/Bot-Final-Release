@@ -4,15 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; Kepler
-        ; Text:="|<>*148$71.Vzzz000TU00y1zzy000z000Q3zzw001y000M7zzs003w000EDzzkDzzs7y0UTzzUzzzkTz10zzz1zzzUzy01zzy3zzz1zw03zzw7zzy3zs07zzsDzzw7zk0DzzkTzzsDzU0TzzUzzzkTz00zzz1zzzUzy01zzy3zzz1zw03zzw007y3zs07zzs00Dw7zUEDzzk00Ts000UTzzU00zk0030zzz001zU00C1zzy3zzz000w3zzw7zzy003s7zzsDzzw7w7kDzzkTzzsDs7UTzzUzzzkTsD0zzz1zzzUzkC1zzy3zzz1zUQ3zzw7zzy3zUM7zzsDzzw7z0kDzzkTzzsDz0U00DU00TkTy1000T000TUzy0000y000z1zw2001w001y3zw4003w007y7zw8"
+        ; eb 110
+        Text:="|<>*127$130.000TU00TzzkDzzz1zzy00w001y000zzw0zzzk3zzk00k007s001zzU3zzw0Dzy001000TU003zs0DzzU0zzk0043zzy1zkDz00zzw03zy0T00Tzzs7zUTw03zzk0Dzs7z01zzzUTz1zkMDzz30zzUzy07zzy1zw7z7UzzwQ3zy3zs0Tzzs7zkTxy3zzrkDzsDzU1zzzUTz1zzsDzzz0zzUzy07zzy1zw7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTy1zzsDzzz0zzUzy07zzy1zkDzzUzzzw3zy3zs000Ts000zzy3zzzkDzsDzU001zU007zzsDzzz0zzUzy0007y000zzzUzzzw3zy3zs000Ts001zzy3zzzkDzsDzU001zU003zzsDzzz0zzUzy03zzy1zs7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTz1zzsDzzz0zzUzy07zzy1zw3zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU0zzzUTz1zzsDzzz0zzUzy03zzy1zw7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTz1zzsDzzz0zzUTy03zzy1zs7zzUzzzw3zy1zk0007s000Tzy3zzzkDzw000000TU003zzsDzzz0zzk004001y000TzzUzzzw3zzU00k007s003zzy3zzzkDzz007U00zk01zzzsTzzzVzzzU1y"
 
-        ; if (ok:=FindText(X, Y, 550, 218, 632, 267, 0, 0, Text))
-
-        ; porsche 718
-        Text:="|<>*152$107.001zzk07zs00Dzy00y000zy003zk00Dzk00Q000zs003zU00Dz000M000zU003z000Dy000EDw1z0Tk7y1z0Ds1y0Uzy1y3zsDw7zUTkDz11zw3w7zkDsDzUzUzy03zw7kDzkTkTz1z1zw07zsDUTzUzUzy3y3zs0DzkT0zz1z1zw7w7zsETzUy1zy3y3zsDsDzzUzz1w3zw7w7zkTkTzz1zy3s7zsDsDzUzUTzy3zw7kDzkTkTz1z0Dzw7zkDUTzUzUzy3y00zsDzUT0zz1z1zs7y00DkDy1y1zy3y000Ty007U003w3zw7w000zz003000Ds7zsDs003zzk02000TkDzkTk00Dzzy04003zUTzUzU00zzzzk001zz0zz1z1y1zzzzk0Tzzy1zy3y3y3zzzzk0zzzw3zw7w7w3zkTzU1zzzs7zsDsDw7zUzz03zzzkDzkTkTs7z1zy07zzzkTzUzUzsDy3zw0DzzzUzy1z1zkDw7zk0Tzzz0zs7y3zkTs7z00zzzy000Dw7zUTk0011zzzy000zsDz0zk0023zzzy001zkTz0zk00A7zzzy00DzUzy1zk01wDzzzzU1zzXzy3zw0Ds"
-
-        if (ok:=FindText(X, Y, 321, 221, 442, 263, 0, 0, Text))
+        if (ok:=FindText(X, Y, 321, 216, 468, 271, 0, 0, Text))
 
         {
             Loop, 2{

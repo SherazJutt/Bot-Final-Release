@@ -22,31 +22,11 @@ playAD()
 start:
     If (currCar == 1){
         currCar = 2
-        nexCarLoop(12)
-        Sleep, 1000
-        playAD()
-    }Else If (currCar == 2){
-        currCar = 3
-        nexCarLoop(3)
-        Sleep, 1000
-        playAD()
-    }Else If (currCar == 3){
-        currCar = 4
-        nexCarLoop(1)
-        Sleep, 1000
-        playAD()
-    }Else If (currCar == 4){
-        currCar = 5
-        nexCarLoop(4)
-        Sleep, 1000
-        playAD()
-    }Else If (currCar == 5){
-        currCar = 6
         nexCarLoop(3)
         Sleep, 1000
         playAD()
     }Else{
-        Exit
+        ExitApp
     }
 
     nexCarLoop(count){

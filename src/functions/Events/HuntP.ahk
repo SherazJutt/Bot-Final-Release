@@ -4,9 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; 004c
-        Text:="|<>*130$128.y00zs000zy0Tzs00Dw000C007w000DzU7zy000z0003000z0003zs1zzU007k000U007s000zw0Dzs001w00083w0zz0zzz03zy1z0DzkDy3zkDzkDzzk0zzUzw3zw3z0zy3zw3zzs07zsDzUzz0zkTzUzz0zzy31zy3zsDzkDw7zsDzkDzzUkTzUzy3zw3z1zy3zw3zzsA7zsDzUzz0zkTzzzz0zzw3Uzy3zsDzkDw3zzzzkDzz1sDzUzy3zw3zUzzzzw3zzkS3zsDzUzz0zs3zzzz0zzs7UTy3zsDzkDy01zzzkDzy3w7zUzy3zw3zk01zzw3zzUz1zsDz0zz0zy007zz0zzsDkDy000DzkDzk00zzkDzw3y3zU007zw3zzU07zw3zz1zUzs003zz0zzzk0zz0zzkTsDy001zzkDzzzUDzkDzs7y1zU00zzw3zzzy3zw3zy1zUTsDkDzz0zzzzUzz0zzU007y3y1zzkDy7zsDzkDzs000zUzUTzw3z1zy3zw3zw000DsDw3zz0zkTzUzz0zz0003y3z0zzkDw7zsDzkDzkTzUzUzsDzw3z0zy3zw3zs7zs7sDy1zz0zs7z0zz0zy1zy1y3zkTzkDy000DzkDzUzzkTUzw3zw3zk007zw3zsDzw3sDzUzz0zw003zz0zw3zz0y3zs7zkDzk01zzkDz1zzsDUzz1zw3zzU3zzy7zsTzy3wTzkTzVzs"
-        if (ok:=FindText(X, Y, 310, 220, 448, 264, 0, 0, Text))
+        ; Kepler
+        Text:="|<>*148$71.Vzzz000TU00y1zzy000z000Q3zzw001y000M7zzs003w000EDzzkDzzs7y0UTzzUzzzkTz10zzz1zzzUzy01zzy3zzz1zw03zzw7zzy3zs07zzsDzzw7zk0DzzkTzzsDzU0TzzUzzzkTz00zzz1zzzUzy01zzy3zzz1zw03zzw007y3zs07zzs00Dw7zUEDzzk00Ts000UTzzU00zk0030zzz001zU00C1zzy3zzz000w3zzw7zzy003s7zzsDzzw7w7kDzzkTzzsDs7UTzzUzzzkTsD0zzz1zzzUzkC1zzy3zzz1zUQ3zzw7zzy3zUM7zzsDzzw7z0kDzzkTzzsDz0U00DU00TkTy1000T000TUzy0000y000z1zw2001w001y3zw4003w007y7zw8"
+
+        if (ok:=FindText(X, Y, 550, 218, 632, 267, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

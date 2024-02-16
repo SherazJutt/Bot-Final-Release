@@ -4,10 +4,9 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; eb 110
-        Text:="|<>*127$130.000TU00TzzkDzzz1zzy00w001y000zzw0zzzk3zzk00k007s001zzU3zzw0Dzy001000TU003zs0DzzU0zzk0043zzy1zkDz00zzw03zy0T00Tzzs7zUTw03zzk0Dzs7z01zzzUTz1zkMDzz30zzUzy07zzy1zw7z7UzzwQ3zy3zs0Tzzs7zkTxy3zzrkDzsDzU1zzzUTz1zzsDzzz0zzUzy07zzy1zw7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTy1zzsDzzz0zzUzy07zzy1zkDzzUzzzw3zy3zs000Ts000zzy3zzzkDzsDzU001zU007zzsDzzz0zzUzy0007y000zzzUzzzw3zy3zs000Ts001zzy3zzzkDzsDzU001zU003zzsDzzz0zzUzy03zzy1zs7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTz1zzsDzzz0zzUzy07zzy1zw3zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU0zzzUTz1zzsDzzz0zzUzy03zzy1zw7zzUzzzw3zy3zs0Tzzs7zkTzy3zzzkDzsDzU1zzzUTz1zzsDzzz0zzUTy03zzy1zs7zzUzzzw3zy1zk0007s000Tzy3zzzkDzw000000TU003zzsDzzz0zzk004001y000TzzUzzzw3zzU00k007s003zzy3zzzkDzz007U00zk01zzzsTzzzVzzzU1y"
-
-        if (ok:=FindText(X, Y, 321, 216, 468, 271, 0, 0, Text))
+        ; cx 75
+        Text:="|<>*153$121.y00zzzzkTzkDk007y000w007zzzs7zkDs003z000Q001zzzw3zs7w001zU00A000Tzzz0zs7y000zk0060zUDzzzkTw3z000Ts0031zw7zzzs7w3zzzkDw7zz0zy1zzzy3y3zzzs7y3zzUzz0zzzz0y1zzzw7z1zzkTzUTzzzkT1zzzw3zUzzsDzkDzzzs70zzzy3zkTzw7zw7zzzy3Uzzzy1zsDzy3zzzzzzz0UTzzz0zw7zz1zzzzzzzk0Tzzz0zy203Uzzzzzzzs0DzzzUTz000kTzzzzzzy0DzzzkTzU008Dzzz00zzUDzzzkDzk0007zzzU0Dzk7zzzs7zs7y03zzzk07zk1zzzs7zw7zU1zzzw07zs0zzzw3zzzzk0zzzzzzzs0Dzzy3zzzzs0Tzzzzzzw07zzy1zzzzw0Dzzzzzzw31zzz1zzzzy07zwDzzzw3Uzzz0zzzzz03zw3zzzy1sDzzUTzwDzU1zy1zzzy1w3zzkTzy3zk0zz0zzzz0z1zzkDzz1zs0DzUTzzz0zUTzsDzzUzw07zkTzzzUTkDzw7zzkTy21zkDzzzUTw3zw3zzs7y10007zzzkDy1zy3zzw001k007zzzkDzUTy1zzz000s007zzzs7zkDz1zzzk00z007zzzs7zw3zUzzzw00zs0Dzzzy7zz3zkzzzzU3y"
+        if (ok:=FindText(X, Y, 650, 221, 783, 266, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

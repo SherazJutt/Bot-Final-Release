@@ -1,0 +1,20 @@
+﻿Gui -MinimizeBox -MaximizeBox +AlwaysOnTop
+Gui Add, Button, vBtnPlay gplay x8 y8 w146 h67, &Play
+Gui Add, Button, x504 y344 w80 h23, &OK
+Gui Add, Button, x160 y8 w80 h68, &Exit
+Gui Tab, 1
+Gui Add, Button, x143 y179 w80 h23, &OK
+Gui Add, Button, x98 y170 w80 h23, &OK
+Gui Add, Tab3, x0 y80 w225 h160, MP | Hunt 
+Gui Tab
+
+Gui Show, w247 h420, A9 Autobot
+Return
+
+play(CtrlHwnd, GuiEvent, EventInfo, ErrLevel := "") {
+
+}
+
+GuiEscape:
+GuiClose:
+    ExitApp

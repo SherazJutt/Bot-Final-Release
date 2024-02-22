@@ -26,43 +26,43 @@
 ;*/
 
 if (!A_IsCompiled && A_LineFile=A_ScriptFullPath)
-    FindText().Gui("Show")
+  FindText().Gui("Show")
 
 ;===== Copy The Following Functions To Your Own Code Just once =====
 
 FindText(args*)
 {
-    static obj:=FindTextClass()
-    return !args.Length ? obj : obj.FindText(args*)
+  static obj:=FindTextClass()
+  return !args.Length ? obj : obj.FindText(args*)
 }
 
 Class FindTextClass
 { ;// Class Begin
 
-    Floor(i) => IsNumber(i) ? i+0 : 0
+  Floor(i) => IsNumber(i) ? i+0 : 0
 
-    __New()
-    {
-        this.bits:={ Scan0: 0, hBM: 0, oldzw: 0, oldzh: 0 }
-        this.bind:={ id: 0, mode: 0, oldStyle: 0 }
-        this.Lib:=Map()
-        this.Cursor:=0
-    }
+  __New()
+  {
+    this.bits:={ Scan0: 0, hBM: 0, oldzw: 0, oldzh: 0 }
+    this.bind:={ id: 0, mode: 0, oldStyle: 0 }
+    this.Lib:=Map()
+    this.Cursor:=0
+  }
 
-    __Delete()
-    {
-        if (this.bits.hBM)
-            DllCall("DeleteObject", "Ptr",this.bits.hBM)
-    }
+  __Delete()
+  {
+    if (this.bits.hBM)
+      DllCall("DeleteObject", "Ptr",this.bits.hBM)
+  }
 
-    New()
-    {
-        return FindTextClass()
-    }
+  New()
+  {
+    return FindTextClass()
+  }
 
-    help()
-    {
-        return "
+  help()
+  {
+    return "
         (
         ;--------------------------------
         ;  FindText - Capture screen image into text and then find it
@@ -124,25 +124,25 @@ Class FindTextClass
         ;
         ;--------------------------------
         )"
-    }
+  }
 
-    FindText(OutputX:="", OutputY:=""
+  FindText(OutputX:="", OutputY:=""
     , x1:=0, y1:=0, x2:=0, y2:=0, err1:=0, err0:=0, text:=""
     , ScreenShot:=1, FindAll:=1, JoinText:=0, offsetX:=20, offsetY:=10
     , dir:=1, zoomW:=1, zoomH:=1)
+  {
+    wait:=(OutputX is VarRef) && IsSetRef(OutputX) ? %OutputX% : OutputX
+    if !IsObject(wait) && (wait ~= "i)^\s*wait[10]?\s*$")
     {
-        wait:=(OutputX is VarRef) && IsSetRef(OutputX) ? %OutputX% : OutputX
-        if !IsObject(wait) && (wait ~= "i)^\s*wait[10]?\s*$")
+      time:=(OutputY is VarRef) && IsSetRef(OutputY) ? %OutputY% : OutputY
+      found:=!InStr(wait,"0"), time:=this.Floor(time)
+        , timeout:=A_TickCount+Round(time*1000)
+      Loop
+      {
+        ok:=this.FindText(,, x1, y1, x2, y2, err1, err0, text, ScreenShot
+          , FindAll, JoinText, offsetX, offsetY, dir, zoomW, zoomH)
+        if (found && ok)
         {
-            time:=(OutputY is VarRef) && IsSetRef(OutputY) ? %OutputY% : OutputY
-            found:=!InStr(wait,"0"), time:=this.Floor(time)
-            , timeout:=A_TickCount+Round(time*1000)
-            Loop
-            {
-                ok:=this.FindText(,, x1, y1, x2, y2, err1, err0, text, ScreenShot
-                , FindAll, JoinText, offsetX, offsetY, dir, zoomW, zoomH)
-                if (found && ok)
-                {
                     (OutputX is VarRef) && (%OutputX%:=ok[1].x)
                     , (OutputY is VarRef) && (%OutputY%:=ok[1].y)
                     return ok
@@ -742,33 +742,33 @@ int __attribute__((__stdcall__)) PicFind(
 }
 
 )"
-}
+        }
 
-PicInfo(text)
-{
-  static info:=Map(), bmp:=[]
-  if !InStr(text, "$")
-    return
-  key:=(r:=StrLen(text))<10000 ? text
-    : DllCall("ntdll\RtlComputeCrc32", "uint",0
-    , "Ptr",StrPtr(text), "uint",r*2, "uint")
-  if info.Has(key)
-    return info[key]
-  v:=text, comment:="", seterr:=err1:=err0:=0
-  ; You Can Add Comment Text within The <>
-  if RegExMatch(v, "<([^>\n]*)>", &r)
-    v:=StrReplace(v,r[0]), comment:=Trim(r[1])
-  ; You can Add two fault-tolerant in the [], separated by commas
-  if RegExMatch(v, "\[([^\]\n]*)]", &r)
-  {
-    v:=StrReplace(v,r[0]), r:=StrSplit(r[1] ",", ",")
-    , seterr:=1, err1:=r[1], err0:=r[2]
-  }
-  color:=SubStr(v,1,InStr(v,"$")-1), v:=Trim(SubStr(v,InStr(v,"$")+1))
-  mode:=InStr(color,"##") ? 5
-    : InStr(color,"#") ? 4 : InStr(color,"-") ? 3
-    : InStr(color,"**") ? 2 : InStr(color,"*") ? 1 : 0
-  color:=RegExReplace(color, "[*#\s]")
+        PicInfo(text)
+        {
+          static info:=Map(), bmp:=[]
+          if !InStr(text, "$")
+            return
+          key:=(r:=StrLen(text))<10000 ? text
+            : DllCall("ntdll\RtlComputeCrc32", "uint",0
+            , "Ptr",StrPtr(text), "uint",r*2, "uint")
+          if info.Has(key)
+            return info[key]
+          v:=text, comment:="", seterr:=err1:=err0:=0
+          ; You Can Add Comment Text within The <>
+          if RegExMatch(v, "<([^>\n]*)>", &r)
+            v:=StrReplace(v,r[0]), comment:=Trim(r[1])
+          ; You can Add two fault-tolerant in the [], separated by commas
+          if RegExMatch(v, "\[([^\]\n]*)]", &r)
+          {
+            v:=StrReplace(v,r[0]), r:=StrSplit(r[1] ",", ",")
+              , seterr:=1, err1:=r[1], err0:=r[2]
+          }
+          color:=SubStr(v,1,InStr(v,"$")-1), v:=Trim(SubStr(v,InStr(v,"$")+1))
+          mode:=InStr(color,"##") ? 5
+            : InStr(color,"#") ? 4 : InStr(color,"-") ? 3
+            : InStr(color,"**") ? 2 : InStr(color,"*") ? 1 : 0
+          color:=RegExReplace(color, "[*#\s]")
   (mode=0 || mode=3 || mode=5) && color:=StrReplace(color,"0x")
   if (mode=5)
   {
@@ -3629,19 +3629,19 @@ s14 = Can't be used in ColorPos mode, because it can cause position errors
 s15 = ReTry|ToFile|GetRange|ToClipboard
 s16 = LButton Drag to select range\nDirection keys to fine tune\nRButton or ESC to get range\nDouble-Click copy to Clipboard
     )"
-    Lang1:=Map(), Lang1.Default:="", Lang2:=Map(), Lang2.Default:=""
-    Loop Parse, s, "`n", "`r"
-      if InStr(v:=A_LoopField, "=")
-        r:=StrSplit(StrReplace(v "==","\n","`n"), "=", "`t ")
-        , Lang1[r[1]]:=r[2], Lang2[r[1]]:=r[3]
-  }
-  return getLang=1 ? Lang1 : getLang=2 ? Lang2 : Lang1[text]
-}
+          Lang1:=Map(), Lang1.Default:="", Lang2:=Map(), Lang2.Default:=""
+          Loop Parse, s, "`n", "`r"
+            if InStr(v:=A_LoopField, "=")
+              r:=StrSplit(StrReplace(v "==","\n","`n"), "=", "`t ")
+                , Lang1[r[1]]:=r[2], Lang2[r[1]]:=r[3]
+        }
+        return getLang=1 ? Lang1 : getLang=2 ? Lang2 : Lang1[text]
+      }
 
-}  ;// Class End
+    } ;// Class End
 
-Script_End() {
-}
+    Script_End() {
+    }
 
 ;================= The End =================
 

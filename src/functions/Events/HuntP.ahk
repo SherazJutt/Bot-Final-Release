@@ -4,9 +4,9 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; cx 75
-        Text:="|<>*153$121.y00zzzzkTzkDk007y000w007zzzs7zkDs003z000Q001zzzw3zs7w001zU00A000Tzzz0zs7y000zk0060zUDzzzkTw3z000Ts0031zw7zzzs7w3zzzkDw7zz0zy1zzzy3y3zzzs7y3zzUzz0zzzz0y1zzzw7z1zzkTzUTzzzkT1zzzw3zUzzsDzkDzzzs70zzzy3zkTzw7zw7zzzy3Uzzzy1zsDzy3zzzzzzz0UTzzz0zw7zz1zzzzzzzk0Tzzz0zy203Uzzzzzzzs0DzzzUTz000kTzzzzzzy0DzzzkTzU008Dzzz00zzUDzzzkDzk0007zzzU0Dzk7zzzs7zs7y03zzzk07zk1zzzs7zw7zU1zzzw07zs0zzzw3zzzzk0zzzzzzzs0Dzzy3zzzzs0Tzzzzzzw07zzy1zzzzw0Dzzzzzzw31zzz1zzzzy07zwDzzzw3Uzzz0zzzzz03zw3zzzy1sDzzUTzwDzU1zy1zzzy1w3zzkTzy3zk0zz0zzzz0z1zzkDzz1zs0DzUTzzz0zUTzsDzzUzw07zkTzzzUTkDzw7zzkTy21zkDzzzUTw3zw3zzs7y10007zzzkDy1zy3zzw001k007zzzkDzUTy1zzz000s007zzzs7zkDz1zzzk00z007zzzs7zw3zUzzzw00zs0Dzzzy7zz3zkzzzzU3y"
-        if (ok:=FindText(X, Y, 650, 221, 783, 266, 0, 0, Text))
+        ; tvr
+        Text:="|<>*136$75.00031zzUy003s000M7zw7k00D00030zz0y000s000M7zs7k003zUDz0zz1y1z0Dy1zw7zsDkTy1zkDzUTy1y3zsDy1zw3zkDkTz1zkDzkTy3y3zsDy1zy3zkTkTz1zkDzkDw3y3zsDy1zy1zUTkTz1zkDzsDw7y3zsDy1zz1zUzkTz1zkDzs7s7y3zsDy1zzUz1zkTy1zkDzw7sDy000Ty1zzUz1zk003zkDzw7kDy000zy3zzkS3zk00DzkTzy3kTy003zy3zzkS3zkTUTzkTzz3Uzy3y3zy3zzsA7zkTkDzkTzz1Uzy3z1zy3zzsA7zkTs7zkTzzV1zy3zUzy3zzw0DzkTw3zkTzzU1zy3zkTy3zzw0TzkTy1zkTzzk3zy3zsDy3zzy0TzkTz0zkTzzk3zy3zw7z3zzz0zzszzkU"
+        if (ok:=FindText(X, Y, 319, 222, 409, 265, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}
@@ -151,7 +151,7 @@ SelectCarToPlayHunt(){
             ; move mosue to scroll
             Click , 880, 293, 0
             ; scroll back to select 1st car
-            Loop , 200{
+            Loop , 350{
                 Click , WheelUp, 1
                 Sleep , 15
             }
@@ -313,6 +313,11 @@ HuntRewardsSkip(){
             }
             Click, 1211, 643 Left, 1
             Sleep, 2500
+            Text:="|<>*119$69.zz01y03zk7zzzw0Dk0zz0zzzzk1y0Dzw7zz0S0Ts1k7Us0s1k3z0C0Q7070C0Qs3k3Us0s1k3b0S0Q7070C0ww3k00s0s1k73US007070C0sQ3k00zyw3k73US007zrzw1sS3k00zyzz0C1kS00707zk1kC3k00s0sC0TzsS0Q7071s3zz3k3Us0s70TzsS0Q7070w7U71k3Us0s3Uw0wC0w7070S703VzzUzzs1ks0Q7zs7zz0DD03kTy0zzU"
+            if (ok:=FindText(X, Y, 1046, 638, 1123, 667, 0, 0, Text)) {
+                isSkipped := True
+                break
+            }
         }
     }
     Return isSkipped

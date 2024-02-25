@@ -229,9 +229,15 @@ HuntRewardsSkip(){
 
                         If (Close_AD()){
                             Sleep, 1000
+
+                            Loop, 5{
+                                Click, 1154, 639 Left, 1
+                                Sleep, 1000
+                            }
+
                             ; AD Next button
                             Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
-                            if (ok:=FindText(X:="wait", Y:=10, 1006, 628, 1083, 661, 0, 0, Text)){
+                            if (ok:=FindText(X:="wait", Y:=30, 1006, 628, 1083, 661, 0, 0, Text)){
                                 Sleep, 1000
                                 Click, 1154, 639 Left, 1
                                 Sleep, 1000

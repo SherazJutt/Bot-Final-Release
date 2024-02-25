@@ -9,7 +9,44 @@ SetWinDelay 0
 SetKeyDelay 0
 SetMouseDelay -1
 
+; set coords screen base instead of focused window
+CoordMode "ToolTip", "Screen"
+CoordMode "Mouse", "Screen"
+
+features := ["PlayHunt", "PlayMP1", "PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder", "AutoRefillTickets", "PlayAdafterhuntrace", "ShutdownPCAfterHunt"]
+
+
 script_start:
 
-; Exit the Script
-Esc:: ExitApp
+    start_game()
+
+    Sleep(5000)
+
+    If (StuckOnGlLogo()) {
+        Goto('script_start')
+    }
+
+    If (StuckOnLoadingScreen()) {
+        Goto('script_start')
+    }
+main_menu_loaded_check_start:
+
+    If !MainMenuLoadedCheck() {
+        Goto('script_start')
+    }
+
+    If (!SeasonalEvents()) {
+        Goto('script_start')
+    }
+    MsgBox('loaded')
+    ; exit app
+    ExitApp
+script_end:
+    ^q:: ExitApp
+
+    ; includes
+    #Include %A_ScriptDir%\libs\IMG_tool.ahk
+    #Include %A_ScriptDir%\functions\Global.ahk
+    #Include %A_ScriptDir%\functions\GameFunctions.ahk
+    #Include %A_ScriptDir%\functions\Startup.ahk
+    #Include %A_ScriptDir%\functions\MP.ahk

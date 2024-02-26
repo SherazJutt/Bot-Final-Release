@@ -241,8 +241,8 @@ HuntRewardsSkip(){
                             }
 
                             ; AD Next button
-                            Text:="|<>*128$62.000000000030A3zlk37zls3VzwS1vzyS0sTz3UQTzbkC700wD0Q1w3Vk073U70TUsQ01tk1k7wC700CQ0Q1r3Vk03y070RssTw0TU1k7CC7zU7k0Q1lnVzs1w070QQsQ00TU1k73i700Ds0Q1kzVk03b070Q7sQ01tk1k71y700QC0Q1kDVk0D3k70Q1sTz3UQ1k70S7zls7UQ1k3VzwQ0s7000000000008"
-                            if (ok:=FindText(X:="wait", Y:=10, 1006, 628, 1083, 661, 0, 0, Text)){
+                            Text:="|<>*151$68.w0w7zsw0wzzz0D1zy7UDDzzs3kTzVs7Xzzy0w700D1s1sDkD1k01kw0S3y3kQ00SD07UzUw7003bU1sDwD1k00xs0S3r3kQ007w07Uxsw7zk1y01sDCD1zw0DU0S3nnkTz07s07UwQw7001z01sD7j1k00zk0S3kzkQ00DS07Uw7w7007XU1sD1z1k01sw0S3kDkQ00w707Uw3w700D1s1sD0T1zw7UC0S3k7kTzVs3k7Uw0w7zsw0Q1s6061zwC030A2"
+                            if (ok:=FindText(X:="wait", Y:=16, 1104, 634, 1189, 668, 0, 0, Text)){
                                 Click, 1216, 647 Left, 1
                                 Sleep, 2000
                                 ; move the mouse little bit up to see the next button

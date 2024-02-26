@@ -22,47 +22,12 @@ start_game() {
 
 }
 
-StuckOnGlLogo() {
-
-    isStuck := true
-
-    Loop 60 {
-        if (PixelSearch(&FoundX, &FoundY, 627, 511, 653, 531, 0xCD0041, 0,)) {
-            Sleep(1000)
-        } else {
-            isStuck := False
-            Break
-        }
-    }
-
-    return isStuck
-}
-
-StuckOnLoadingScreen() {
-
-    isStuck := true
-
-    Loop 60 {
-
-        Text := "|<>*118$18.zzzi0ziATiSRiSNiSNiSTiSTiSTiSTiANi0Nz0tzzzU"
-
-        if (ok := FindText(&X, &Y, 167, 56, 191, 77, 0, 0, Text)) {
-            Sleep(1000)
-        } Else {
-            isStuck := False
-            Break
-        }
-    }
-
-    return isStuck
-}
-
 MainMenuLoadedCheck() {
 
-    isLoaded := false
-
     Loop 30 {
-        If (PixelSearch(&FoundX, &FoundY, 10, 61, 35, 87, 0xB00039, 0)) {
+
+        Text := "|<>*146$16.nlnD6NyNbt6TYtyHbsSTVkCD0sy"
+        if (ok := FindText(&X, &Y, 24, 42, 45, 58, 0, 0, Text)) {
             isLoaded := True
             Break
         } Else {
@@ -78,7 +43,6 @@ MainMenuLoadedCheck() {
 
         Sleep(1000)
     }
-
     return isLoaded
 }
 
@@ -110,31 +74,21 @@ ExitGamePopUp() {
 
 SeasonalEvents() {
 
-    isLoaded := False
+    isLoaded := true
 
-    ; seasonal events red
-    Loop 60 {
+    ; seasonal events red/locked
+    Text := "|<>*165$12.w7s3nnnvzvzvU0000U1U0U0U0U0U00U0U"
+    if (ok := FindText(&X, &Y, 244, 601, 264, 629, 0, 0, Text)) {
+        Click("265, 646, Left, 1")
+        Sleep(1000)
 
-        If PixelSearch(&FoundX, &FoundY, 240, 603, 270, 625, 0xFF0049, 0) {
-            ; click on seasonal events tabe to active
-            Sleep(1000)
-            Click("349, 637 Left, 1")
-            Sleep(1000)
-        } else {
-
-            If PixelSearch(&FoundX, &FoundY, 251, 648, 276, 674, 0xFFFFFF, 0) {
-                isLoaded := True
-                Break
-            } else {
-                If MainMenuLoadedCheck() {
-                    Click("349, 637 Left, 1")
-                    Sleep(1500)
-                } Else {
-                    break
-                }
-            }
+        Text := "|<>*166$107.0zzUzzUzVzsTzzwDzy1zy0zy0y1zUzzzkDzw1zw1zw1w3z1zzzUTzs3zk3zs7s7y3zzz0zzs7zU7zkDkDw7zzy1zzkDz07zUTUTsDzzw3zzUTy0Dz0z0zkTzzs7zz0zw0Tw1y1zUzzzkDzy0zkEzs7w3z1zzzUTzy1zUUzkDs7y3zzz0zzw3z11zUTkDw7zzy1zzs7y63z0zUTsDzzw3zzkDsC7y1z0zkTzzs7zzUTkQ7s7y1zUzzzkDzzUzUsDkDw3z1zzzUTzz0z3kTUTs7y3zzz0zzy1y7kz0zkDw7zzy1zzw3sDVy1zUTsDzzw3zzs7kT1w7z0zkTzzs7zzsDUy3sDy1zUzzzkDzzkT3w7UTw3z1zzzUTzzUQ7wD0zs7y3zzz0zzz0sDsC1zkDw7zzy1zzy1kTkQ7zUTsDzzw3zzy3VzUsDz0zkTzzs7zzw73zVkTy1zUzzzkDzzsA7z30zw3z1zzzUTzzkMDy21zs7y3zzz0zzzUETw47zkDw7zzy1zzzUVzs8DzUTsDzzw3zzz03zsETz0zkTzzs7zzy07zk0zy1zUTzzkDzzw0DzU1zw3z000DU007s0zz07zs7y000T000Dk1zz0DzkDw000y000Tk3zy0TzUTs001w000zUDzw1zzVzs003w001"
+        if (ok := FindText(&X := "wait0", &Y := 16, 928, 149, 1049, 201, 0, 0, Text)) {
+            isLoaded := true
         }
+    } else {
+        isLoaded := true
     }
 
-    Return isLoaded
+    return isLoaded
 }

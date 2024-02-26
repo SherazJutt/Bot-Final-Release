@@ -18,27 +18,29 @@ features := ["PlayHunt", "PlayMP1", "PlayMPAds", "MuteSystemVolume", "LeagueDete
 
 script_start:
 
-    start_game()
+    ; start_game()
 
-    Sleep(5000)
+    ; Sleep(5000)
 
-    If (StuckOnGlLogo()) {
-        Goto('script_start')
-    }
-
-    If (StuckOnLoadingScreen()) {
-        Goto('script_start')
-    }
 main_menu_loaded_check_start:
 
     If !MainMenuLoadedCheck() {
         Goto('script_start')
     }
 
-    If (!SeasonalEvents()) {
+    If !SeasonalEvents() {
         Goto('script_start')
     }
-    MsgBox('loaded')
+
+    If (!EnterEventsTab()) {
+        Goto('script_start')
+    }
+
+    If !EnterHuntTab() {
+        Goto('script_start')
+    }
+
+
     ; exit app
     ExitApp
 script_end:
@@ -49,4 +51,5 @@ script_end:
     #Include %A_ScriptDir%\functions\Global.ahk
     #Include %A_ScriptDir%\functions\GameFunctions.ahk
     #Include %A_ScriptDir%\functions\Startup.ahk
+    #Include %A_ScriptDir%\functions\Hunt.ahk
     #Include %A_ScriptDir%\functions\MP.ahk

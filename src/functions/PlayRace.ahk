@@ -100,23 +100,9 @@ CheckInRaceIssues(){
 
 HuntRampsNitros(){
     ; goto left
-    Text:="|<>*157$28.z003zs007z000T00000000000000000003zzk0TzzU1zzy07Tzs0RxrU1rzy07zzM0LwC03zzy2"
-    if (ok:=FindText(X, Y, 582, 147, 621, 170, 0, 0, Text)){
+    Text:="|<>*157$28.y001zs007zU00T04000000000000k000A3zzk0TzzU1s0S07Tzs0RzzU1k0S06zyM0LwCU0kzw2"
+    if (ok:=FindText(X, Y, 583, 147, 620, 172, 0, 0, Text)){
         Send, {Left 5}
-        Return
-    }
-
-    ; nitro x2 bottle left
-    Text:="|<>*155$28.zzzzzzzDzzzsDzzzkzzzs3zzy0zzzs1zzz03zzw0DzzU0zzy03zzk0SDz01UDsCS0TUa9lw2Nb7k4bwS0EzXs0XsT04D3w0GMTk2NXy09W0Q1zs1w1zzzw7zzzyzzzzzzzy"
-    if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-        Send, {Left 5}
-        Return
-    }
-
-    ; nitro x2 bottle right
-    Text:="|<>*155$28.zzzzzzzDzzzsDzzzkzzzs3zzy0zzzs1zzz03zzw0DzzU0zzy03zzk0SDz01UDsCS0TUa9lw2Nb7k4bwS0EzXs0XsT04D3w0GMTk2NXy09W0Q1zs1w1zzzw7zzzyzzzzzzzy"
-    if (ok:=FindText(X, Y, 637, 120, 747, 193, 0, 0, Text)){
-        Send, {Right 5}
         Return
     }
 
@@ -124,13 +110,6 @@ HuntRampsNitros(){
     Text:="|<>*144$20.zzzzzwzzy1zzkTzUDzU7zs1zw0Dz03zU0zs0Dw03z01zU0Ts0Dw03z01zk0Ts0Dy03z01zk0Ts07z03zw0zzkTzz7zzzzs"
     if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
         Send, {Left 5}
-        Return
-    }
-
-    ; nitro blue right
-    Text:="|<>*144$20.zzzzzwzzy1zzkTzUDzU7zs1zw0Dz03zU0zs0Dw03z01zU0Ts0Dw03z01zk0Ts0Dy03z01zk0Ts07z03zw0zzkTzz7zzzzs"
-    if (ok:=FindText(X, Y, 637, 120, 747, 193, 0, 0, Text)){
-        Send, {Right 5}
         Return
     }
 
@@ -148,20 +127,6 @@ HuntRampsNitros(){
         Return
     }
 
-    ; ramp left
-    Text:="|<>*147$26.zzzzzzzbzzzUzzzk7zzk0zzk07zs00zs007s001s006M003b003tk01yS01zbU1ztw1zyT0007s001zzzzs"
-    if (ok:=FindText(X, Y, 532, 122, 634, 192, 0, 0, Text)){
-        Send, {Left 5}
-        Return
-    }
-
-    ; ramp right
-    Text:="|<>*147$26.zzzzzzzbzzzUzzzk7zzk0zzk07zs00zs007s001s006M003b003tk01yS01zbU1ztw1zyT0007s001zzzzs"
-    if (ok:=FindText(X, Y, 637, 120, 747, 193, 0, 0, Text)){
-        Send, {Right 5}
-        Return
-
-    }
 }
 RampsNitros(){
 

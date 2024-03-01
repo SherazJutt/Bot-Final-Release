@@ -4,9 +4,9 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; tvr
-        Text:="|<>*136$75.00031zzUy003s000M7zw7k00D00030zz0y000s000M7zs7k003zUDz0zz1y1z0Dy1zw7zsDkTy1zkDzUTy1y3zsDy1zw3zkDkTz1zkDzkTy3y3zsDy1zy3zkTkTz1zkDzkDw3y3zsDy1zy1zUTkTz1zkDzsDw7y3zsDy1zz1zUzkTz1zkDzs7s7y3zsDy1zzUz1zkTy1zkDzw7sDy000Ty1zzUz1zk003zkDzw7kDy000zy3zzkS3zk00DzkTzy3kTy003zy3zzkS3zkTUTzkTzz3Uzy3y3zy3zzsA7zkTkDzkTzz1Uzy3z1zy3zzsA7zkTs7zkTzzV1zy3zUzy3zzw0DzkTw3zkTzzU1zy3zkTy3zzw0TzkTy1zkTzzk3zy3zsDy3zzy0TzkTz0zkTzzk3zy3zw7z3zzz0zzszzkU"
-        if (ok:=FindText(X, Y, 319, 222, 409, 265, 0, 0, Text))
+        ; jaguar xe sv
+        Text:="|<>*125$60.0007zzz00T0003zzw0070003zzs0030007zzk001zkDzzzk7y1zkTzzzkTz1zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz1zkTzzzkDy1zkTzzzs003zkTzzzw003zkTzzzw007zkTzzzw003zkTzzzs003zkTzzzkDy1zkTzzzkTz1zkTzzzkTz1zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz1zkTzzzkDy1zkTzzzk001zkTzzzs003zkTzzzw007zkTzzzy00Dzszzzzzw3zU"
+        if (ok:=FindText(X, Y, 255, 270, 321, 310, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

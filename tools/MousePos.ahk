@@ -50,5 +50,5 @@ getPos() {
 
     SetTimer () => ToolTip(), -3000
 
-    A_Clipboard := xpos ', ' ypos
+    A_Clipboard := "Click(" xpos " ," ypos " ," "Left, 1)"
 }

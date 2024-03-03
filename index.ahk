@@ -12,6 +12,7 @@ SetMouseDelay -1
 ; set coords screen base instead of focused window
 CoordMode "ToolTip", "Screen"
 CoordMode "Mouse", "Screen"
+CoordMode("Pixel", "Screen")
 
 features := ["PlayHunt", "PlayMP1", "PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder", "AutoRefillTickets", "PlayAdafterhuntrace", "ShutdownPCAfterHunt"]
 
@@ -26,6 +27,7 @@ user := {
 settings := {
     EventPassHolder: true,
     AutoRefillTickets: true,
+    PlayAdafterhuntrace: true,
     hunt: {
         maxcars: 1,
         cars: [21, 15, 27, 28, 29, 31, 33, 48]
@@ -45,6 +47,7 @@ script_start:
     }
 
 main_menu_loaded_check_start:
+
     If !MainMenuLoadedCheck() {
         Goto('script_start')
     }
@@ -65,6 +68,8 @@ hunt_start:
         Goto('script_start')
     }
 
+HuntRaceScreen:
+
     If !isRaceScreen() {
         Goto('script_start')
     }
@@ -77,15 +82,30 @@ hunt_start:
         Goto('hunt_end')
     }
 
-    SelectCarToPlayHunt()
+    Sleep(2000)
 
-    MsgBox("play now")
+    SelectCarToPlayHuntRace()
+    TdCheck()
+
+    if !HuntClickOnPlayButton() {
+        Goto('script_start')
+    }
+
+    Sleep(8000)
+
+    if !PlayHuntRace() {
+        Goto('script_start')
+    }
+
+
+    If (HuntRewardsSkip()) {
+        Goto('HuntRaceScreen')
+    } Else {
+        Goto('script_start')
+    }
 
 hunt_end:
-
-
-    ; exit app
-    ExitApp
+    MsgBox("hunt ended")
 
 script_end:
 
@@ -97,6 +117,7 @@ script_end:
     #Include %A_ScriptDir%\functions\Startup.ahk
     #Include %A_ScriptDir%\functions\Hunt.ahk
     #Include %A_ScriptDir%\functions\MP.ahk
+    #Include %A_ScriptDir%\functions\Ads.ahk
 
     ; libs
     #Include %A_ScriptDir%\libs\IMG_tool.ahk

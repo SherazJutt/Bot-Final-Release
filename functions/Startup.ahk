@@ -35,7 +35,7 @@ MainMenuLoadedCheck() {
         ; check (LV) text to confirm homescreen
         Text := "|<>*146$16.nlnD6NyNbt6TYtyHbsSTVkCD0sy"
         if (ok := FindText(&X, &Y, 24, 42, 45, 58, 0, 0, Text)) {
-            isLoaded := True
+            isLoaded := true
             Break
         } Else {
             if !isGameRunning() {
@@ -46,6 +46,11 @@ MainMenuLoadedCheck() {
             RewardsNext()
             LeagueUpNext()
             PressEscape(1)
+        }
+
+        if !CheckInternet() {
+            isLoaded := false
+            Break
         }
 
         Sleep(1000)

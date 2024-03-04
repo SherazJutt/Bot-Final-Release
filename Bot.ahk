@@ -70,36 +70,26 @@ main_menu_loaded_check_start:
 
     Sleep, 2000
 
-    Text:="|<>*114$77.Dttzk0twTsTkyDnlzU1lsTkzVwTbXz03Xkz1z1szD7ztz7Uy3w3lySDznyD1w7sbXwwTzbwSHkDl77tszzDswXYT6CDnlzyTlta8yAQTbXzwzXnAFwQszD7ztz7a9XtslySDznyDC37XlXwwTzbwSQCD037tszzDswsQS02DnlzyTlttsw04T7XzwzXnzlly80D07tz7bzXXy80y07nyDDz7DwQ7y0TryyTzSTxU"
-    if (ok:=FindText(X, Y, 461, 141, 555, 174, 0, 0, Text)){
-        Click, 238, 416 Left, 1
+    Text:="|<>*136$55.znVlzX1nzztkszlktzy0sQQ0sQD70QCA0SC3XU7660Db1lk3b307nUszVnVy3NkQTktkzVisCDsAkTknw7707MA0Ny3XU3w60AT1lk1y306DUszkT1zX3kQTsD0zlVsCDs3UTkkM64"
+    if (ok:=FindText(X, Y, 551, 220, 615, 245, 0, 0, Text)){
+        Click, 335, 194 Left, 1
     }Else{
-
-        Click, 238, 416 Left, 1
+        Click, 335, 194 Left, 1
         Sleep, 1800
-        Click, 238, 416 Left, 1
+        Click, 335, 194 Left, 1
     }
-
-    Sleep, 2000
-    Click, 836, 444, 0
-    Sleep, 1000
-
-    Loop , 15{
-        Click , WheelDown, 1
-        Sleep , 100
-    }
-
-    Sleep, 1000
-    Click, 553, 440 Left, 1
-    Sleep, 1000
+    Sleep, 3500
+    Click, 410, 402 Left, 1
+    Sleep, 3000
 
 checkRaceScreen:
 
     Sleep, 2000
 
     ; check stage text on left card after selecting stage
-    Text:="|<>*133$19.07wQ7zi7zr3zzVkTksDsQ3yC3zjXzzzxzzwTzw00000000000000000000000000000000k86MC3A71a3Un1kNksQzzyTzz0000000000000DDsDbyDXzb1Vn0kNU8Ak0CQ07DzzXzzUTz000000000300TU1zkDz0zz0z1US0kDkM3zw0Dz00Tw00y0000006003001U00k00TzzDzzb003001U00k0000000000A1sTkwTssCCMC7A71a3UnVUtvkwTsw7sQU"
-    if (ok:=FindText(X, Y, 87, 261, 119, 358, 0, 0, Text)){
+
+    Text:="|<>*136$27.1zzy0Tzzk3zzy0Tzzk1s000D0000w00000000000000000000000000000000000000000000000000000k86063Uk0kQ6063Uk0kQ6073Vk0zzy07zzk0000000000000000000DDs03tzU0zDy071Vk0kA6060Uk0k0C0701k0zzy03zzU07zk0000000000000k001y001zk03zk03zw00zVU07UA00z1U03zw003zk001zk000y000000000060000k00060000s0007zzk0zzy070000k00060000k00000000000000C00S7w03lzU0sCC063Vk0kQ6063Uk0sMC07j3k0Ttw01y70000000000000000000zzzzw"
+    if (ok:=FindText(X, Y, 88, 264, 119, 356, 0, 0, Text)){
         TicketCheck()
     }Else{
         Goto, script_start
@@ -107,7 +97,9 @@ checkRaceScreen:
 
     Sleep, 1000
     Click, 1187, 649 Left, 1
-    Sleep, 2000
+    Sleep, 2500
+    Click, 214, 329 Left, 1
+    Sleep, 2500
 
     TdCheck()
     if(!ClickOnPlayButton()){

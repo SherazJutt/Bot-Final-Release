@@ -340,106 +340,36 @@ RefillTickets(){
 
 ; play race
 PlayHuntRace(){
+    isCompleted := False
+
     Sleep, 2000
     Click, 1201, 632 Left, Down
     Sleep, 94
     Click, 1201, 632 Left, Up
     Sleep, 1000
-    Text:="|<>*168$38.w0Dy07y01z00T00DU07U03s00sDkw7sC3wD1y3Vz3kTVsTkwDsS7sD3y71y3kzVkTUsDkQ7sC3w71y3Uz1kTUsDkQ7sS3w73y7Uz3kzVsDkwDsS7wD1w7Uy3U01s00s00y00SU0Tk0Di0Tz0Du"
 
-    if (ok:=FindText(X:="wait", Y:=40, 1083, 130, 1126, 164, 0, 0, Text)){
-        Sleep, 3000
-        Send, {Right Down}
-        Sleep, 125
-        Send, {Right Up}
-        Sleep, 2844
-        Send, {Space Down}
-        Sleep, 62
-        Send, {Space Up}
-        Sleep, 125
-        Send, {Space Down}
-        Sleep, 47
-        Send, {Space Up}
-        Sleep, 109
-        Send, {Space Down}
-        Sleep, 94
-        Send, {Space Up}
-        Sleep, 5516
-        Send, {Space Down}
-        Sleep, 109
-        Send, {Space Up}
-        Sleep, 125
-        Send, {Space Down}
-        Sleep, 78
-        Send, {Space Up}
-        Sleep, 110
-        Send, {Space Down}
-        Sleep, 78
-        Send, {Space Up}
-        Sleep, 109
-        Send, {Space Down}
-        Sleep, 125
-        Send, {Space Up}
-        Sleep, 2672
-        Send, {Space Down}
-        Sleep, 94
-        Send, {Space Up}
-        Sleep, 172
-        Send, {Space Down}
-        Sleep, 93
-        Send, {Space Up}
-        Sleep, 110
-        Send, {Space Down}
-        Sleep, 93
-        Send, {Space Up}
-        Sleep, 110
-        Send, {Space Down}
-        Sleep, 78
-        Send, {Space Up}
-        Sleep, 94
-        Send, {Space Down}
-        Sleep, 125
-        Send, {Space Up}
-        Sleep, 7187
-        Send, {Down Down}
-        Sleep, 3672
-        Send, {Down Up}
-        Sleep, 438
-        Send, {Right Down}
-        Sleep, 109
-        Send, {Right Up}
-        Sleep, 1641
-        Send, {Space Down}
-        Sleep, 78
-        Send, {Space Up}
-        Sleep, 140
-        Send, {Space Down}
-        Sleep, 94
-        Send, {Space Up}
-        Sleep, 109
-        Send, {Space Down}
-        Sleep, 79
-        Send, {Space Up}
-        Sleep, 2000
-        Send, {Space Down}
-        Sleep, 109
-        Send, {Space Up}
-        Sleep, 94
-        Send, {Space Down}
-        Sleep, 125
-        Send, {Space Up}
-        Sleep, 93
-        Send, {Space Down}
-        Sleep, 141
-        Send, {Space Up}
-        Sleep, 94
-        Send, {Space Down}
-        Sleep, 140
-        Send, {Space Up}
-        Sleep, 2000
-    }Else{
-        Gosub, script_start
+    Loop, 200{
+        Text:="|<>*127$64.00000000000k1UTwA0Azz7UC3zsw1nzyS0sDzVkDDztw3Us07Us3k7sC3U0C7UD0TUsC00wQ0w1z3Us01nU3k7wC3U07i0D0SssC00Dk0w1vXUzw0z03k7bC3zk1s0D0SQsDz0Dk0w1svUs00z03k7Xy3U07i0D0S7sC00Qs0w1sTUs03lk3k7Uy3U0C70D0S1sC01sC0w1s7Uzy70w3k7UC3zsw1kD0A0sDzXU70Q000000000008"
+        if (ok:=FindText(X, Y, 1001, 621, 1079, 656, 0, 0, Text)){
+            isCompleted := True
+            Click, 1176, 645 Left, 1
+            Sleep, 1000
+            Break
+        }Else{
+            Sleep, 1000
+            RampsNitros()
+            NitroManagemnet()
+            TdCheckInRace()
+            Resume()
+            CheckInternet()
+            ConnectingToTheServer()
+            CheckGame()
+            If (TokensColorCheckToVerifyHomeScreen()){
+                Gosub, script_start
+            }
+        }
     }
+    Return isCompleted
 
 }
 
@@ -474,14 +404,19 @@ CheckInRaceIssues(){
 
 RampsNitros(){
 
-    ; x2 nitro center right
-
-    Text:="|<>*162$26.zzbzzzkTzzy7zzw1zzw1zzz0DzzU1zzs0Tzw07zz01zzU0wTs0A1w7D0D1AHXUHAss2HyA0Vz704T3U27Vs0Yky0HAT04l083zk3UDzzy3zzzxzzy"
-
-    if (ok:=FindText(X, Y, 659, 143, 695, 176, 0, 0, Text)){
+    ; ramp right
+    Text:="|<>*147$26.zzzzzzzbzzzUzzzk7zzk0zzk07zs00zs007s001s006M003b003tk01yS01zbU1ztw1zyT0007s001zzzzs"
+    if (ok:=FindText(X, Y, 637, 120, 747, 193, 0, 0, Text)){
         Send, {Right 5}
         Return
     }
+    ; ramp center
+    Text:="|<>*163$24.zzwzzzkTzzUDzy07zs03zk01z000w004k00A000QU01wU03wk0Dwk0zws3zws000w000U"
+    if (ok:=FindText(X, Y, 621, 142, 660, 177, 0, 0, Text)){
+        Send, {Right 2}
+        Return
+    }
+
 }
 
 NitroManagemnet(){

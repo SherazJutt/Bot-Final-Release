@@ -362,7 +362,6 @@ PlayHuntRace(){
             TdCheckInRace()
             Resume()
             CheckInternet()
-            ConnectingToTheServer()
             CheckGame()
             If (TokensColorCheckToVerifyHomeScreen()){
                 Gosub, script_start

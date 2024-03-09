@@ -111,7 +111,6 @@ HuntRaceScreen:
     TicketCheck()
 
     SelectCarToPlayHunt()
-
     TdCheck()
 
     if(!ClickOnPlayButton()){

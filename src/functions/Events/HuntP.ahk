@@ -4,9 +4,9 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; jaguar xe sv
-        Text:="|<>*125$60.0007zzz00T0003zzw0070003zzs0030007zzk001zkDzzzk7y1zkTzzzkTz1zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz1zkTzzzkDy1zkTzzzs003zkTzzzw003zkTzzzw007zkTzzzw003zkTzzzs003zkTzzzkDy1zkTzzzkTz1zkTzzzkTz1zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz0zkTzzzkTz1zkTzzzkDy1zkTzzzk001zkTzzzs003zkTzzzw007zkTzzzy00Dzszzzzzw3zU"
-        if (ok:=FindText(X, Y, 255, 270, 321, 310, 0, 0, Text))
+        ; nio ep 9
+        Text:="|<>*158$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1y3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz001zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
+        if (ok:=FindText(X, Y, 411, 220, 492, 267, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

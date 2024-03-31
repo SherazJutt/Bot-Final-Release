@@ -1,4 +1,4 @@
-PlayHuntRace(){
+PlayRace(){
     isCompleted := False
 
     Loop, 200{
@@ -24,78 +24,6 @@ PlayHuntRace(){
         }
     }
     Return isCompleted
-}
-
-PlayMpRace(){
-    isCompleted := False
-
-    Loop, 200{
-        Text:="|<>*122$61.s1kzz70Szzy0sTzXkCTzzUQD00sD0Q7kC7U0S70C3w73k077U71y3Vs03nU3UvVkw00vU1kRksS00Tk0sCQQDz07k0Q7CC7zk3s0C3Xb3zs1w071lvVs01z03UsRkw00vU1kQDsS00ws0sC3wD00QS0Q70y7U0S70C3UT3k0C3k71k7VzyD0s3Us3kzz70S1kQ0sTzbU70s8"
-        if (ok:=FindText(X, Y, 1018, 625, 1090, 655, 0, 0, Text)){
-            isCompleted := True
-            Click, 1176, 645 Left, 1
-            Sleep, 2000
-            Click, 1176, 645 Left, 1
-            Sleep, 2000
-            Break
-        }Else{
-            Sleep, 1000
-            RampsNitros()
-            NitroManagemnet()
-            TdCheckInRace()
-            Resume()
-            CheckInternet()
-            WhereToGetBpsScreen()
-            ConnectingToTheServer()
-            CheckGame()
-            If (TokensColorCheckToVerifyHomeScreen()){
-                Gosub, script_start
-            }
-            CheckInRaceIssues()
-        }
-    }
-    Return isCompleted
-}
-
-CheckInRaceIssues(){
-    ; application interuppted / no opponent / no connection to the game server start
-    Text:="|<>*159$33.zzzzzzTzzzrlzzzwQ7zzz1UTzzkC1zzw3s7zz0zUTzkDy1zw3zs7z0zzUTkDzy1w3zzs70zzzU0Dzzy03zzzs0zzzzUDzzzw1zzzz07zzzk0Tzzw21zzz0s7zzkDUTzw3y1zz0zs7zkDzUTw3zy1z0zzs7kDzzUQ3zzy1UzzzsCDzzzXzzzzyzzzzzzU"
-
-    if (ok:=FindText(X, Y, 1066, 234, 1108, 279, 0, 0, Text)){
-        Loop, 10{
-            Send, {Escape}
-            Sleep, 1000
-        }
-        Gosub, MP1Start
-    }
-    ; application interuppted / no opponent / no connection to the game server end
-
-    ; you have been disconnected from server start
-    ; still disconnected
-    Text:="|<>*117$71.7z7zUzkzwQ00DwDz0zVzks00TsTw1zXzVk00zkzs3z3z3VzlzVzl7y7wD3zXz3zW7yDsS7z7y7y4DwDkwDyDwDwQTsTXsTwTsTssTky7kzszkzVkzlwDVzk01z3lzXsT00U03yDXz3ly01007wT3y7Xw02DwDky7yC7sTwTsTVyDwQDkzszkz00DsMzVzlzVw00Tklz3zXz3s00zl3y7z7y7lzlzWDwDyDwDXzVz0TsTwTsS7z3z0zk00zkwDz7y1zU01zVszy7w7z00E"
-
-    if (ok:=FindText(X, Y, 331, 103, 410, 128, 0, 0, Text))
-    {
-        Sleep, 2500
-        Gosub, script_start
-    }
-    ; you have been disconnected from server start
-
-    ; searching for players
-    Loop, 60{
-        Text:="|<>*118$37.zzzzzzy7tws1z3wyQ0TVyDCD7Uz3b7XmDVnXltbkNlswntAswQswmQSCSSNCD70DC77X03b3XlXlnllsnwtss0tyQyQ0Tzzzzzy"
-        if (ok:=FindText(X, Y, 712, 559, 756, 579, 0, 0, Text)){
-            Sleep, 1000
-        }Else{
-            Break
-        }
-    }
-
-    Text:="|<>*118$37.zzzzzzy7tws1z3wyQ0TVyDCD7Uz3b7XmDVnXltbkNlswntAswQswmQSCSSNCD70DC77X03b3XlXlnllsnwtss0tyQyQ0Tzzzzzy"
-    if (ok:=FindText(X, Y, 712, 559, 756, 579, 0, 0, Text)){
-        Gosub, script_start
-    }
-
 }
 
 HuntRampsNitros(){

@@ -68,7 +68,6 @@ script_start:
     If (StuckOnLoadingScreen()) {
         Goto, script_start
     }
-
 main_menu_loaded_check_start:
 
     If (!MainMenuLoadedCheck()) {
@@ -101,7 +100,6 @@ hunt_start:
         }
         Goto, hunt_ended
     }
-
 HuntRaceScreen:
 
     If (!isRaceScreen()) {
@@ -618,7 +616,6 @@ LeagueDetectionLabel:
         ; Events
         #Include, %A_ScriptDir%\src\functions\Events\Events.ahk
         #Include, %A_ScriptDir%\src\functions\Events\Hunt.ahk
-        ; #Include, %A_ScriptDir%\src\functions\Events\HuntP.ahk
 
         ; MP1
         #Include, %A_ScriptDir%\src\functions\MP1\MP1.ahk

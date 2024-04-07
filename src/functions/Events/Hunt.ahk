@@ -3,9 +3,9 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; nio ep 9
-        Text:="|<>*158$74.000Tk00Tzs07k007w003zs00Q001z000Tw003000Tk003y000EDzzw7y0TUDk43zzz1zs7s7z00zzzkTz1y3zk0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy03zzz1zw7kDzU0zzzkTz1w3zs0Dzzw7zkT0zy0007z1zw7sDzU001zkTy1y1zs000Tw7z0TU3w0007z000Dw000001zk003z0000Dzzw001zs0003zzz001zzU000zzzk03zzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzs0Dzzw7zzzzzy03zzz1zzzzzzU0zzzkTzzzzzk0Dzzw7zzzzzs0001z1zzzw001000TkTzzz000E007w7zzzk00A001z1zzzw007U00zkzzzzU0Ds"
-        if (ok:=FindText(X, Y, 411, 220, 492, 267, 0, 0, Text))
+        ; AF8 Falcon
+        Text:="|<>*156$49.zs1zzU00Tw0zzk00Dw0Tzs007y07zw003z03zy1zzzU1zz1zzzUUzzUzzzkMDzkTzzsA7zsDzzsC3zw7zzw70zy3zzy3kTz1zzz1sDzUzzz1w7zkTzzUz1zsDzzkTUzw00DkDkTy003sDs7z001w7y3zU00y3z1zk00y3zUzsDzz0zkDw7zzU007y3zzU003z1zzk000zUzzs000TkTzw7zsDsDzw3zw7w7zy3zy1y3zz1zzUz1zz0zzkTUzzUTzs7kTzkTzy3sDzsTzz3wDzy"
+        if (ok:=FindText(X, Y, 623, 219, 681, 266, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

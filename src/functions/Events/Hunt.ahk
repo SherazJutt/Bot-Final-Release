@@ -3,9 +3,9 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; 599 xx evo
-        Text:="|<>*158$91.003zzy0zzs00TzUU00Tzz0Dzw003zk0007zz07zy000zs0001zzU1zz000Dw07y0zzk0zzUzk7y03zkDzk0TzkTy1z01zs7zs8DzsDzUzU0zy3zw43zw7zkTk0Tz1zy31zy3zsDs0DzUzy3Uzz1zw7w07zkTz1kDzUzy3y03zsDzUw7zkTz1z01zw7zky3zsDzUzU0zy3zkT1zw7zkTk0Ty1zsDUTy3zkDs0Dz0zw7sDz1zs7w0000zw7w7zU007y0000Ty3y1zk003z0000Tz1zUzs003zU000zzUzkTw007zk000zzUzsDy007zs0DkDzkDw3z1y1zw07w7zs001zUzUzy03y3zs000zkTkDz01z0zw000TsDw7zU0zkTy0007w7y1zk0Ts7y1zy3y3z0zs0Dy3z0zz1z1zkTw07z0zUzzUTUzs7y03zkTkTzsDkTy3z01zs7kDzw7sDz0zU0zy3sDzy3w7zkTk0Tz0w7zz0y3zs7s8TzkS7zzkz3zy3y6"
-        if (ok:=FindText(X, Y, 401, 221, 507, 265, 0, 0, Text))
+        ; ford gt mk2
+        Text:="|<>*134$47.w01zk001k00zU002000z0004000y00003w1zy1zUTy3zy3z1zw3zw7y3zs7zsDw7zkDzkTsDzUTzUzkTzVzz1zUzzzzy3z1zzzzw7y3zzzzsDw7zzzzkTsDzzzzUzkTU0zz1zUz01zy3z1y03zw7y3w07zsDw7zkDzkTsDzUTzUzkTz0zz1zUzy1zy3z1zw3zw7y3zs7zsDw7zkDzkTsDzUTzUzkDy1zz1zU003zy3zU00Dzw7zU00zzsDzU03zzkTzs0zzzVzs"
+        if (ok:=FindText(X, Y, 322, 215, 379, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

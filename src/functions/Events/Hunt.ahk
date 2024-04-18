@@ -3,9 +3,9 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; ford gt mk2
-        Text:="|<>*134$47.w01zk001k00zU002000z0004000y00003w1zy1zUTy3zy3z1zw3zw7y3zs7zsDw7zkDzkTsDzUTzUzkTzVzz1zUzzzzy3z1zzzzw7y3zzzzsDw7zzzzkTsDzzzzUzkTU0zz1zUz01zy3z1y03zw7y3w07zsDw7zkDzkTsDzUTzUzkTz0zz1zUzy1zy3z1zw3zw7y3zs7zsDw7zkDzkTsDzUTzUzkDy1zz1zU003zy3zU00Dzw7zU00zzsDzU03zzkTzs0zzzVzs"
-        if (ok:=FindText(X, Y, 322, 215, 379, 264, 0, 0, Text))
+        ; aston martin one 77
+        Text:="|<>*148$134.zs1zzy00zs000zk03zsDzsDy0Tzy003y000Ds00Dy1zy3zU7zz000TU003w001zUDzUzk0zzU007s000y000Ts3zsDw0Dzs3y0zz0zz0Dk3y0Ty3z03zy3zkDzsDzkDz0zU7zUzkUTz0zy3zy3zw7zsDs0zsDsA7zkDzUzzUzz1zy3y0Dy3y31zw3zsDzsDzkTzUzU1zUzUkTz0zy3zy3zw7zsDs0TsDkS3zkDzzzzUzz1zy3y03y3w7Uzw3zzzzsDzkTzUzU0TUz1sDzUTzzzy3zw7zsDsA7sDUS1zs3zzzzUzz1zy3y30y3sDkTy01zzzsDzkTzUzUsDUy3w7zk01zzy3zw7zsDsD1sDUz1zy007zzUzz1zy3y3kS3kDsDzk00zzsDzkTzUzUy3Uw7y3zzU07zy3zw7zsDsDUsD1zUzzzk0zzUzz1zy3y3w63UTs7zzzkDzsDzkTzUzUz1Us7y1zzzy3zy3zw7zsDsDs8C000TzzzUTzUzz1zy3y3y03U007y7zw7zsDzkTzUzUzk0k000z0zz1zy3zw7zsDsDw0A000DkDzkTzUzz1zy3y3zU31zy3w3zs7zsDzkTzUzUzw0UTzUTUzy3zy3zw3zsDsDz087zw7s7z0zzUzz0zw3y3zs23zz1y000DzsDzs000zUzy0UzzkTk007zy3zy000TsDzk0Dzw3y003zzUzzk00Dy3zw07zzUzk01zzsDzy007zUzzUVzzsTzU3zzy7zzw0DzwDzw8"
+        if (ok:=FindText(X, Y, 322, 219, 468, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

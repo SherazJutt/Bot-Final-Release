@@ -3,9 +3,11 @@ EnterHuntTab(){
     isFound:= False
 
     Loop, 30{
-        ; aston martin one 77
-        Text:="|<>*148$134.zs1zzy00zs000zk03zsDzsDy0Tzy003y000Ds00Dy1zy3zU7zz000TU003w001zUDzUzk0zzU007s000y000Ts3zsDw0Dzs3y0zz0zz0Dk3y0Ty3z03zy3zkDzsDzkDz0zU7zUzkUTz0zy3zy3zw7zsDs0zsDsA7zkDzUzzUzz1zy3y0Dy3y31zw3zsDzsDzkTzUzU1zUzUkTz0zy3zy3zw7zsDs0TsDkS3zkDzzzzUzz1zy3y03y3w7Uzw3zzzzsDzkTzUzU0TUz1sDzUTzzzy3zw7zsDsA7sDUS1zs3zzzzUzz1zy3y30y3sDkTy01zzzsDzkTzUzUsDUy3w7zk01zzy3zw7zsDsD1sDUz1zy007zzUzz1zy3y3kS3kDsDzk00zzsDzkTzUzUy3Uw7y3zzU07zy3zw7zsDsDUsD1zUzzzk0zzUzz1zy3y3w63UTs7zzzkDzsDzkTzUzUz1Us7y1zzzy3zy3zw7zsDsDs8C000TzzzUTzUzz1zy3y3y03U007y7zw7zsDzkTzUzUzk0k000z0zz1zy3zw7zsDsDw0A000DkDzkTzUzz1zy3y3zU31zy3w3zs7zsDzkTzUzUzw0UTzUTUzy3zy3zw3zsDsDz087zw7s7z0zzUzz0zw3y3zs23zz1y000DzsDzs000zUzy0UzzkTk007zy3zy000TsDzk0Dzw3y003zzUzzk00Dy3zw07zzUzk01zzsDzy007zUzzUVzzsTzU3zzy7zzw0DzwDzw8"
-        if (ok:=FindText(X, Y, 322, 219, 468, 264, 0, 0, Text))
+
+        ; panamera
+        Text:="|<>*150$80.001zzy0zzsDzsE007zz07zy3zw0000zzk1zzUTz00007zw0Tzs7zk0Dw1zz03zy0zw07zkDzU0zzUDz01zw3zs8Dzs1zk0TzUzy21zy0Dw07zsDzUkTzU3z01zy3zkQ7zs0Tk0TzUzw71zy07w07zsDz1sDzU0z01zy3zUy3zs8Dk0TzUzsDUzy31w07zkDy3s7zUkD01zw3zUz1zsC3k0Dy1zkTkTy3UQ0000Tw7w7zUw70000Dz1zUzsDUk0003zUTsDy3sA0003zsDy3zUz100Tzzy1zUzsDkE0TzzzU007y3y007zzzk001zUzU01zzzw000TsDw00Tzzz0003y3z007zzzUTzUzUzs01zzzsDzsDsDz00Tzzy3zy3y3zk07zzzUzzkTUzy01zzzkDzw7sDzU0Tzzw7zz1y3zw07zzz1zzkDUzz0Vzzzkzzy7sTzsM"
+
+        if (ok:=FindText(X, Y, 325, 221, 413, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

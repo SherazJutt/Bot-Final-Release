@@ -4,9 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; AF8 Falcon
-        Text:="|<>*156$49.zs1zzU00Tw0zzk00Dw0Tzs007y07zw003z03zy1zzzU1zz1zzzUUzzUzzzkMDzkTzzsA7zsDzzsC3zw7zzw70zy3zzy3kTz1zzz1sDzUzzz1w7zkTzzUz1zsDzzkTUzw00DkDkTy003sDs7z001w7y3zU00y3z1zk00y3zUzsDzz0zkDw7zzU007y3zzU003z1zzk000zUzzs000TkTzw7zsDsDzw3zw7w7zy3zy1y3zz1zzUz1zz0zzkTUzzUTzs7kTzkTzy3sDzsTzz3wDzy"
-        if (ok:=FindText(X, Y, 623, 219, 681, 266, 0, 0, Text))
+        ; panamera
+        Text:="|<>*150$80.001zzy0zzsDzsE007zz07zy3zw0000zzk1zzUTz00007zw0Tzs7zk0Dw1zz03zy0zw07zkDzU0zzUDz01zw3zs8Dzs1zk0TzUzy21zy0Dw07zsDzUkTzU3z01zy3zkQ7zs0Tk0TzUzw71zy07w07zsDz1sDzU0z01zy3zUy3zs8Dk0TzUzsDUzy31w07zkDy3s7zUkD01zw3zUz1zsC3k0Dy1zkTkTy3UQ0000Tw7w7zUw70000Dz1zUzsDUk0003zUTsDy3sA0003zsDy3zUz100Tzzy1zUzsDkE0TzzzU007y3y007zzzk001zUzU01zzzw000TsDw00Tzzz0003y3z007zzzUTzUzUzs01zzzsDzsDsDz00Tzzy3zy3y3zk07zzzUzzkTUzy01zzzkDzw7sDzU0Tzzw7zz1y3zw07zzz1zzkDUzz0Vzzzkzzy7sTzsM"
+
+        if (ok:=FindText(X, Y, 325, 221, 413, 264, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; panamera
-        Text:="|<>*150$80.001zzy0zzsDzsE007zz07zy3zw0000zzk1zzUTz00007zw0Tzs7zk0Dw1zz03zy0zw07zkDzU0zzUDz01zw3zs8Dzs1zk0TzUzy21zy0Dw07zsDzUkTzU3z01zy3zkQ7zs0Tk0TzUzw71zy07w07zsDz1sDzU0z01zy3zUy3zs8Dk0TzUzsDUzy31w07zkDy3s7zUkD01zw3zUz1zsC3k0Dy1zkTkTy3UQ0000Tw7w7zUw70000Dz1zUzsDUk0003zUTsDy3sA0003zsDy3zUz100Tzzy1zUzsDkE0TzzzU007y3y007zzzk001zUzU01zzzw000TsDw00Tzzz0003y3z007zzzUTzUzUzs01zzzsDzsDsDz00Tzzy3zy3y3zk07zzzUzzkTUzy01zzzkDzw7sDzU0Tzzw7zz1y3zw07zzz1zzkDUzz0Vzzzkzzy7sTzsM"
+        ; nsx gt3
+        Text:="|<>*136$82.1zz1zy00zw7zw03zw7zU01zkDzUEDzkTw003zUzy10Tz1zU007y1zkA0zw7y0z0Tw7z0k3zkTsDz0zkDs707z1z0zy3zUzUQ0Tw7w7zsDy1w3k0zkTkTzUzw7kT03z1z1zy3zkC1w07w7w7zzzzUsDk0TkTkDzzzy1Uz1Uz1z0zzzzw07w63w7y0zzzzs0TkQ7kTs07zzzU3z1sD1zk01zzz0Dw7Uw7zU01zzw0zkT1kTz003zzU3z1w71zzU07zy07w7sA7zzw0Dzk0TkTUkTzzy0zz00z1z11zzzy3zs63w7w07zzzsDzUs7kTs0TsTzUzw3UT1zU1z1zy3zUT0w7z07w7zsDy1w3kTy0TkTzUzkDs71zs1z0zy3z0zUQ7zk7y1zkDs7z0kTz0Ts000zUTw31zy1zk007w3zs47zs7zU00zkDzUETzkTz007y1zz0VzzXzzU3zwDzy2"
 
-        if (ok:=FindText(X, Y, 325, 221, 413, 264, 0, 0, Text))
+        if (ok:=FindText(X, Y, 324, 220, 418, 265, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

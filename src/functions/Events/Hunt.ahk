@@ -328,7 +328,9 @@ HuntRewardsSkip(){
                 }
             }
             Click, 1211, 643 Left, 1
-            Sleep, 2500
+            IniRead, hunt_rewards_skip_delay, %SettingsIni%, DELAYS, hunt_rewards_skip_delay
+
+            Sleep, %hunt_rewards_skip_delay%
             Text:="|<>*119$69.zz01y03zk7zzzw0Dk0zz0zzzzk1y0Dzw7zz0S0Ts1k7Us0s1k3z0C0Q7070C0Qs3k3Us0s1k3b0S0Q7070C0ww3k00s0s1k73US007070C0sQ3k00zyw3k73US007zrzw1sS3k00zyzz0C1kS00707zk1kC3k00s0sC0TzsS0Q7071s3zz3k3Us0s70TzsS0Q7070w7U71k3Us0s3Uw0wC0w7070S703VzzUzzs1ks0Q7zs7zz0DD03kTy0zzU"
             if (ok:=FindText(X, Y, 1046, 638, 1123, 667, 0, 0, Text)) {
                 isSkipped := True

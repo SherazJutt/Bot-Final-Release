@@ -4,15 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; ; donkervoort
-        ; Text:="|<>*123$50.000zzk03k007zs00A000zw0010007y000EDy1zUTs07zkDkDz01zy3w3zs0TzUz0zy07zsDkTzU1zy3w7zs0TzUz1zy07zsDkDzU1zy3y3zs0TzUzUTw07zsDs0011zy3z000kTzUzs00Q7zsDw0031zy3y000ETzUzUzw07zsDsDzU1zy3w3zs0TzUz1zy07zsDkTzU1zy3w7zs0TzUz1zy07zsDkDzU1zw3w3zs0Ty1zUTw0000Ts001000Dz000E003zk00A003zz007U0Dzzz0zs"
+        ; senna gtr
+        Text:="|<>*124$74.w01zk001s00Dw007s000S000y000y0007U007U007k001s000k7w1zy1zy1zUA7zkTzUTzUzy11zw7zs7zsDzUETz0zy1zy3zs47zkDzUTzUzy11zw3zs7zsDzUETzVzy1zy3zs47zzzzUTzUzy11zzzzs7zsDzUETzzzy1zy3zs47zzzzUTzUzy11z0Dzs7zs7z0kTU0zy1zy000A7s0DzUTzU0071y03zs7zs003kTU0zy1zy001w7zkDzUTzUS0z1zw3zs7zs7sDkTz0zy1zy3y1w7zkDzUTzUzkT1zw3zs7zsDw3kTz0zy1zy3z0w7zkTzUTzUzs71zw7zs7zsDy1kDy1zy1zy3zkA000TzUTzUzw3U00Dzs7zsDzUQ007zy1zy3zs7U03zzkTzUzz0zUTzzyTzyTzss"
 
-        ; if (ok:=FindText(X, Y, 88, 265, 152, 317, 0, 0, Text))
-
-        ; de tomaso p900
-        Text:="|<>*124$104.001zzU0Dzy00zzk07k007zU00zy007zs00Q000zk007z000zw0030007w001zU007y000EDw1y0zUDs3y0zUTs47zkTUTw3y3zkDkDz01zw7sDzUz0zy3w3zk0Tz1y3zsDkDzUz1zy07zkDUzy3w3zsDkTzU1zw3sDzUz0zy3w7zs0Tz0y3zsDkDzUz1zy07zkDUzy3w3zsDkTzU1zw3sDzUz0zy3w7zs0Tz1y3zsDkDzUz1zy07zkTUzy3w3zsDkTzU1zw7s7zUz0zy3w7zs0Ty1z000DkDzUz1zy0000Tk003w3zsDkTzU000Dy000z0zy3w7zs0007zk00DkDzUz1zy0003zz003w3zsDkTzU0zzzzzzUz0zy3w7zs0TzzzzzsDkDzUz1zy07zzzzzy3w3zsDkTzU1zzzzzzUz0zy3w7zs0TzzzzzsDkDzUz1zy07zzzzzy3w3zsDkDzU1zzzzzzUzUzw3w3zk0TzzzzzkDs7y0zUTs47zzzs007y000Ts0011zzzw001zk007z000kTzzz000zy003zs00Q7zzzk00Tzk03zz00DXzzzz03zzzsDzzz0zs"
-
-        if (ok:=FindText(X, Y, 87, 264, 207, 316, 0, 0, Text))
+        if (ok:=FindText(X, Y, 244, 267, 333, 312, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

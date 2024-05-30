@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; senna gtr
-        Text:="|<>*124$74.w01zk001s00Dw007s000S000y000y0007U007U007k001s000k7w1zy1zy1zUA7zkTzUTzUzy11zw7zs7zsDzUETz0zy1zy3zs47zkDzUTzUzy11zw3zs7zsDzUETzVzy1zy3zs47zzzzUTzUzy11zzzzs7zsDzUETzzzy1zy3zs47zzzzUTzUzy11z0Dzs7zs7z0kTU0zy1zy000A7s0DzUTzU0071y03zs7zs003kTU0zy1zy001w7zkDzUTzUS0z1zw3zs7zs7sDkTz0zy1zy3y1w7zkDzUTzUzkT1zw3zs7zsDw3kTz0zy1zy3z0w7zkTzUTzUzs71zw7zs7zsDy1kDy1zy1zy3zkA000TzUTzUzw3U00Dzs7zsDzUQ007zy1zy3zs7U03zzkTzUzz0zUTzzyTzyTzss"
+        ; hp barchetta
+        Text:="|<>*130$50.U007zk07s001zk00S000Ts003U007w000M001z0TU7zzUTkTz1zzkDs7zkDzw3y3zw3zy1zUzz0zz0zsDzkDzkDy3zw3zs7zUzz0zw3zsDzkDz0zy3zw3zUTzUzz0zsDzsDzkDw3zy3zw3y1zzUzz0zUTzsDzkDkDzy3zw3s7zzUzz0y1zzsDzkD0zzy3zw3UTzzUzz0s7zzsDzkA3zzy3zw21zzzUzz0UTzzs7zk0Dzzz0zs4000Dk0010003y000k000zU00Q000Dy00D0007zs0Ds"
 
-        if (ok:=FindText(X, Y, 244, 267, 333, 312, 0, 0, Text))
+        if (ok:=FindText(X, Y, 319, 216, 382, 265, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

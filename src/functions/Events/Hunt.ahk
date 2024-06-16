@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; mc12
-        Text:="|<>*123$113.0Dzw0zy00TzzUTzzU0S0Tzs1zk00Dzy0zzw00A0zzU3z000Dzk1zzk0080zz07y000Ty03zzU00E1zy0Ds3z0Tw07zy0z003zs0TkDz0zk0Dzw3zU03zk0zUzz1zUkTzsDz007zU1z1zy3z7UzzkTy04Dy23y3zw7zz1zzUzw08DwA7w7zsDzy3zz1zs0MTsMDsDzkTzw7zy3zk0kTUkTkTzzzzsDzzzzU1Uz3UzUzzzzzkTzzzy03Vy71z1zzzzzUzzzzw071sC3y3zzzzz1zzzzU8C3kw7w7zzzzy3zzzy0kS7VsDsDzzzzw7zzzs3Uw63kTkTzzzzsDzzzUD1wADUzUzzzzzkTzzw0y3sET1z1zzzzzUzzzk3w7k0y3y3zzzzz1zzz0TsDk3w7w7zzzzy3zzw1zkTU7sDsDzkTzw7zzk7zUz0DkTkTzUzzsDzz0Tz1z0zUzUzz1zzkTzw1zy3y1z1z1zy3zzUzzk7zw7zzy3y3zw7zz1zzUTzsDzzw7w3zkDzy3zz0zzkTzzsDs3zUTzw7zy1zzUzzzkTs001zzsDzw0001zzzUzk003zzkTzs0003zzz1zk00DzzUzzk0007zzy3zs00zzz1zzU004TzzyDzz0zzzz7zzU008"
+        ; mercedes-benz clk-gtr
+        Text:="|<>*124$92.w00zy3zzw7zs7zzy003zUzzz0zw1zzz000TsDzzkDz0zzzU007y3zzw3zUTzzs7y0zUzzz0zkDzzw3zkDsDzzkDs7zzz1zy3y3zzw3y1zzzkTzUzUzzz0z0zzzw7zsDsDzzkDUTzzz1zy3y3zzw3s7zzzkTzUzUzzz0w3zzzw7zzzsDzzkC1zzzz1zzzy3zzw3UzzzzkTzzzUzzz0kDzzzw7zzzsDzzk87zzzz1zzzy3zzw21zzU0ETzzzUzzz00Dzs007zzzsDzzk01zy001zzzy3zzw00Tzk0ETzzzUzzz043zzzw7zzzsDzzk3UTzzz1zzzy3zzw1w7zzzkTzUzUzzz0z0zzzw7zsDsDzzkDs7zzz1zy3y3zzw3y1zzzkTzUzUzzz0zkDzzw7zsDsDzzkDy3zzz0zy3y3zzw3zUTzzk7z0zUzzz0zw3zzy000Ds003kDzUzzzU007y000w3zs7zzw003zU00D0zz0zzzk01zs003kTzsDzzzk7zz003z7zzbzzs"
 
-        if (ok:=FindText(X, Y, 88, 262, 222, 315, 0, 0, Text))
+        if (ok:=FindText(X, Y, 214, 267, 313, 309, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

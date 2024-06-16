@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; mercedes-benz clk-gtr
-        Text:="|<>*124$92.w00zy3zzw7zs7zzy003zUzzz0zw1zzz000TsDzzkDz0zzzU007y3zzw3zUTzzs7y0zUzzz0zkDzzw3zkDsDzzkDs7zzz1zy3y3zzw3y1zzzkTzUzUzzz0z0zzzw7zsDsDzzkDUTzzz1zy3y3zzw3s7zzzkTzUzUzzz0w3zzzw7zzzsDzzkC1zzzz1zzzy3zzw3UzzzzkTzzzUzzz0kDzzzw7zzzsDzzk87zzzz1zzzy3zzw21zzU0ETzzzUzzz00Dzs007zzzsDzzk01zy001zzzy3zzw00Tzk0ETzzzUzzz043zzzw7zzzsDzzk3UTzzz1zzzy3zzw1w7zzzkTzUzUzzz0z0zzzw7zsDsDzzkDs7zzz1zy3y3zzw3y1zzzkTzUzUzzz0zkDzzw7zsDsDzzkDy3zzz0zy3y3zzw3zUTzzk7z0zUzzz0zw3zzy000Ds003kDzUzzzU007y000w3zs7zzw003zU00D0zz0zzzk01zs003kTzsDzzzk7zz003z7zzbzzs"
+        ; italdesign davinci
+        Text:="|<>*125$90.000zzz0DzUTzsDU000Tzz0DzkTzkDU000Dzy0DzkTzkDU0007zy07zkDzkTU0zs7zy07zkDzkTU1zw3zy07zsDzUTU1zy3zw47zsDzUzU1zy3zw63zs7zUzU1zy3zw63zw7zUzU1zy3zsC3zw7z0zU1zy3zsC1zw7z1zU1zy3zsD1zw7z1zU1zy3zsD1zy3z1zU1zy3zkT1zy3y1zU1zy3zkTUzy3y3zU1zy3zkTUzy3y3zU1zy3zUzUzz1y3zU1zy3zUzUTz1w3zU1zy3zUzkTz1w7zU1zy3zUzkTz1w7zU1zy3z1zkTzUw7zU1zy3z000DzUsDzU1zy3z000DzUsDzU1zy3y000DzUMDzU1zy3y0007zkMDzU1zy3y0007zkETzU1zy3w3zw7zkETzU1zw3w3zw7zs0TzU1zs7w7zw3zs0TzU0007w7zy3zs0zzU000Ds7zy3zs0zzU000DsDzy3zw0zzU000zsDzz1zw1zzUU0DzwzzzXzz3zzlU"
 
-        if (ok:=FindText(X, Y, 214, 267, 313, 309, 0, 0, Text))
+        if (ok:=FindText(X, Y, 90, 266, 193, 310, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

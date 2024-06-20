@@ -4,10 +4,10 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; italdesign davinci
-        Text:="|<>*125$90.000zzz0DzUTzsDU000Tzz0DzkTzkDU000Dzy0DzkTzkDU0007zy07zkDzkTU0zs7zy07zkDzkTU1zw3zy07zsDzUTU1zy3zw47zsDzUzU1zy3zw63zs7zUzU1zy3zw63zw7zUzU1zy3zsC3zw7z0zU1zy3zsC1zw7z1zU1zy3zsD1zw7z1zU1zy3zsD1zy3z1zU1zy3zkT1zy3y1zU1zy3zkTUzy3y3zU1zy3zkTUzy3y3zU1zy3zUzUzz1y3zU1zy3zUzUTz1w3zU1zy3zUzkTz1w7zU1zy3zUzkTz1w7zU1zy3z1zkTzUw7zU1zy3z000DzUsDzU1zy3z000DzUsDzU1zy3y000DzUMDzU1zy3y0007zkMDzU1zy3y0007zkETzU1zy3w3zw7zkETzU1zw3w3zw7zs0TzU1zs7w7zw3zs0TzU0007w7zy3zs0zzU000Ds7zy3zs0zzU000DsDzy3zw0zzU000zsDzz1zw1zzUU0DzwzzzXzz3zzlU"
+        ; AM victor
+        Text:="|<>*138$64.1zzUS3zw00w3zy1s7zU00kDzsDUTs0010zz0y1zU0063zw3s7w0z087zkTUTkDz0UTz1y1z1zy31zs7s7w7zsA7zUTUTkTzUkDy3y1z1zy30zsDs7w7zsC3z0zUTkTzzsDw3y1z1zzzUTkTs7w7zzz1z1zUTkTzzw7s7y1z1zzzkTUzs7w7zzz0y3zUTkTzzy3sDy1z1zzzsD1zs7w7zzzUw7zUTkTzzy1kTy1z1zzzw71zs7w7zsDkMDzUTkTzUz1Uzy1z1zy3y63zs7w7zsDs8TzUTkTzUzU1zy1z1zw3y07zs7w3zkDw0TzUTs001zk3zy1zU007z0Dzs7z000zy0zzUTy007zs7zz3zz03y"
 
-        if (ok:=FindText(X, Y, 90, 266, 193, 310, 0, 0, Text))
+        if (ok:=FindText(X, Y, 319, 219, 395, 261, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

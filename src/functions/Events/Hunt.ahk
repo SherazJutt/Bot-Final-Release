@@ -10,8 +10,15 @@ EnterHuntTab(){
         ; if (ok:=FindText(X, Y, 509, 217, 576, 266, 0, 0, Text))
 
         ; apex ap-0
-        Text:="|<>*132$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zsDsDzzzUM7zkS3zsDzUzUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUs7y000DsDzzzUzzzw3kTk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y3w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003wDzy2"
-        if (ok:=FindText(X, Y, 322, 220, 436, 263, 0, 0, Text))
+        ; Text:="|<>*132$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zsDsDzzzUM7zkS3zsDzUzUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUs7y000DsDzzzUzzzw3kTk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y3w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003wDzy2"
+        ; if (ok:=FindText(X, Y, 322, 220, 436, 263, 0, 0, Text))
+
+        ; mclaren artura
+
+        Text:="|<>*131$163.zs1zzU00zk001w7zsDs00Dzzk3zzw0zzk00Ds000y3zw7w001zzs1zzw0Tzs003w000T1zy3y000Tzw0Tzy07zw000y000DUzz1z000Dzw0Dzz03zy3zUTzkDzkTzUzUTs3zy07zz01zz1zs7zsDzsDzkTkTy1zz03zzUUzzUzy3zw7zw7zsDsDzUzzUUzzkMDzkTz1zy3zy3zw7w7zkTzUkTzsA7zsDzUzz1zz1zy3y3zsDzkMDzsC3zw7zkTzUzzUzz1z1zw7zsA3zw70zy3zsDzkTzkTzUzUzy3zs71zy3kTz1zw7zsDzsDzkTkTz1zw7Uzy3sDzUzy3zw7zw7zsDsDzUzy3kTz1w7zkTz1zy3zy3zw7w7zkTy1w7zUz1zsDz0zz1zz1zy3y3zsDz1y3zkTUzw7zUTzUzzUzz1z1zs7zUz1zkTkTy000TzkTzkTzUzU003zkTUTsDs7z000DzsDzsDzkTk003zkDsDw7y3zU00Dzw7zw7zsDs003zsDw7w3z1zk00Tzy3zy3zw7w007zw7y3y3zUzs7UTzz1zz1zy3y1s3zw3z0z000Dw7s7zzUzzUzz1z1y1zy000TU007y3y3zzkTzkTzUzUzUTz000DU003z1z0zzsDzsDzkTkTkDzU003k001zUzkTzw7zw7zsDsDw3zU001s000TkTs7zy3zy3zw7w7y1zk000s7zsDsDy3zz1zz1zw3y3zUTsDzkA3zw7w7z1zzUzzUzy3z1zkDs7zs63zy1y3zUTzkTzkDy1zUzw7w3zy31zzUz1zsDzsDzs000zkTy1y3zz10zzkTUzw3zw7zy000zsDzUz1zzU0zzsDkTz1zy3zzU00zw7zkD0zzs0Tzy3sDzUTz1zzs00zy3zw7Uzzw4zzzzzzzyTzlzzzk7zzbzz7szzz6"
+
+        if (ok:=FindText(X, Y, 84, 266, 272, 314, 0, 0, Text))
+
         {
             Loop, 2{
                 Send, {Enter}

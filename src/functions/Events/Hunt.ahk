@@ -4,10 +4,14 @@ EnterHuntTab(){
 
     Loop, 30{
 
-        ; 004c
-        Text:="|<>*124$106.w00zzk07zzz0Dzw00zU01zw007zzw0zz001w003zU00DzzU3zs003U007y000zzy0Dz00061zUTk7w1zzk0zw1zUEDz0z0zw7zy03zkTz00zw3w7zkTzs8Dz1zw03zsDkTz1zz1Uzs7zs0TzUz1zw7zw63zUTzU1zy3w7zkTzUsDy1zy07zsDkTz1zy3Uzs7zs0TzUz1zw7zkS3zUTzz1zy3w7zkTy3sDy1zzw7zsDkTz1zsDUzs7zzkTzUz1zw7z1y3zUTzz1zy3w7zkTw7sDy1zzw7zsDkTz1zUzUzs7zzkTzUz1zw7y3y3zUTzz1zy3w7zkTkTsDy1zzw7zsDkTz1y1zUzs7zzkTzUz1zw7sDy3zUTzz1zy3w7zkT1zsDy1zzw7zsDkTz1w0007s7zs0TzUz1zw7k0007UTzU1zy3w7zkT0000S1zy07zsDkTz1w0001s7zs0DzUz1zw7k0007kTzU0zw3w3zkTzzsDz1zw21zUTk7y1zzzUzw3zUM001zU00Dzzy3zk001k00Dy000zzzsDzU00DU01zw007zzzUzz001z00Dzw00zzzy3zy00DzkDzzz1zzzzyTzzkDy"
+        ; ferrari roma
+        ; Text:="|<>*135$50.001zzk03k00Dzk00Q001zs003000Dy000EDs1z0Tk07zUTkDz01zw7w7zs0Tz1z1zy07zkTkTzU1zw7w7zs0Tz1z1zy07zkTkTzU1zw7w7zs0Tz1z1zy07zkTkTzU1zs7w7zs0003z1zy0000zkTzU000Tw7zs000Dz1zy0007zkTzU1y1zw7zs0TkTz1zy07w3zkTzU1zUzw7zs0Ts7z1zy07z1zkTzU1zkDw7zk0Ty3z0zs07zUTk0011zs7y000ETz1zk00A7zkDy007Xzz3zw0Ds"
 
-        if (ok:=FindText(X, Y, 87, 268, 208, 312, 0, 0, Text))
+        ; if (ok:=FindText(X, Y, 509, 217, 576, 266, 0, 0, Text))
+
+        ; apex ap-0
+        Text:="|<>*132$106.zs1zzU00zy001w3zw3zU7zy000zs007kDzkDy0Tzs001zU00TUTy1zk0zzU007y001y1zsDz03zy1zUDsDzzw3z0zw0DzsDzUzUzzzsDw7zkUTzUzy3y3zzzUTUTy31zy3zsDsDzzz1y3zsA7zsDzUzUzzzw3kDzUkTzUzy3y3zzzsD1zw7Uzy3zsDsDzzzUM7zkS3zsDzUzUzzzz1Uzz1sDzUzy3y3zzzw03zs7UTy3zsDsDzzzs0TzUz1zsDzUzU01zzU1zy3w7zUzy3y007zz0DzsDkTy3zkDs00Tzw0zz0zUzs000zU01zzU3zw7y3zU007y007zy07zkTsDy000zsDzzzk0Ty1zUTs007zUzzzz00zs7y1zU07zy3zzzs63zU007y3zzzsDzzzUs7y000DsDzzzUzzzw3kTk000zUzzzy3zzzkT0z0003y3zzzsDzzy1y3w7zsDsDzzzUzzzsDs7UTzUTUzzzy3zzz0zkC1zz1y3zzzsDzzw7z0sDzw7sDzzzU00TUTy1UzzkDUzzzy001y3zs43zz0y3zzzs007kDzk0Tzy3sDzzzU00T1zz0VzzsTlzzzy003wDzy2"
+        if (ok:=FindText(X, Y, 322, 220, 436, 263, 0, 0, Text))
         {
             Loop, 2{
                 Send, {Enter}

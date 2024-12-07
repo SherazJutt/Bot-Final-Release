@@ -21,13 +21,19 @@ settings := { EventPassHolder: true, AutoRefillTickets: true, PlayAdafterhuntrac
 script_start:
     start_game()
 
+    if (!load_game()) {
+        goto('script_start')
+    }
+
 script_end:
 
     ^q:: ExitApp
 
     ; includes
+    #Include %A_ScriptDir%\libs\IMG_tool.ahk
     #Include %A_ScriptDir%\helpers\global.ahk
     #Include %A_ScriptDir%\helpers\start_game.ahk
+    #Include %A_ScriptDir%\helpers\load_game.ahk
 
     ; libs
     #Include %A_ScriptDir%\libs\IMG_tool.ahk

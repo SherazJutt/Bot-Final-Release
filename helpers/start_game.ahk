@@ -14,13 +14,13 @@ start_game() {
 
     Sleep(3000)
     ; Wait until the game is closed and show a tooltip
-    Tooltip "Waiting for Game to start ", 640, 0
+    show_tooltip("Waiting for Game to start ")
 
     while (!ProcessExist(AppName)) {
         Sleep(500)  ; Check every 500ms if the process is not running
     }
 
-    Tooltip "Game started ", 640, 0
+    show_tooltip("Game started ")
 
     Sleep(3000)
 

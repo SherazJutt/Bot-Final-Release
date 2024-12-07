@@ -15,9 +15,7 @@ CoordMode "Mouse", "Screen"
 CoordMode "Pixel", "Screen"
 
 features := ["PlayHunt", "PlayMP1", "PlayMPAds", "MuteSystemVolume", "LeagueDetection", "EventPassHolder", "AutoRefillTickets", "PlayAdafterhuntrace", "ShutdownPCAfterHunt"]
-
 user := { name: 'sheraz', id: '7185614526153', plan: 'free', isLoggedInOnDevice: false, lastLogin: '02 march 2024' }
-
 settings := { EventPassHolder: true, AutoRefillTickets: true, PlayAdafterhuntrace: true, hunt: { maxcars: 1, cars: [21, 15, 27, 28, 29, 31, 33, 48] } }
 
 script_start:

@@ -14,19 +14,18 @@ start_game() {
 
     Sleep(3000)
     ; Wait until the game is closed and show a tooltip
-    Tooltip "Waiting for Game to start "
+    Tooltip "Waiting for Game to start ", 640, 0
 
     while (!ProcessExist(AppName)) {
         Sleep(500)  ; Check every 500ms if the process is not running
     }
 
-    Tooltip "Game started "
+    Tooltip "Game started ", 640, 0
 
     Sleep(3000)
 
     for window in WinGetList() {
         ; Match window PID with the running process PID
-        ToolTip "Window PID: " . WinGetPID(window) . "`nRunning process PID: " . ProcessExist(AppName)
         if (WinGetPID(window) = ProcessExist(AppName)) {
             ; Get the window title
             gameWindowTitle := WinGetTitle(window)

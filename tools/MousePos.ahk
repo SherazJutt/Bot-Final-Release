@@ -12,8 +12,7 @@ SetMouseDelay -1
 CoordMode "ToolTip", "Screen"
 CoordMode "Mouse", "Screen"
 
-if A_LineFile = A_ScriptFullPath && !A_IsCompiled
-{
+if A_LineFile = A_ScriptFullPath && !A_IsCompiled {
     myGui := Constructor()
     myGui.Show()
 }
@@ -33,13 +32,12 @@ Constructor() {
 
 getPos() {
     myGui.Destroy()
-    ; SetTimer WatchCursor, 100
+    SetTimer WatchCursor, 100
 
-
-    ; WatchCursor() {
-    ;     MouseGetPos &xpos, &ypos
-    ;     ToolTip "Coords x: " xpos " y: " ypos, 0, 0
-    ; }
+    WatchCursor() {
+        MouseGetPos &xpos, &ypos
+        ToolTip "Coords x: " xpos " y: " ypos, 0, 0
+    }
 }
 
 ^RButton:: {
